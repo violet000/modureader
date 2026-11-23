@@ -609,7 +609,7 @@ class Prefs extends ChangeNotifier {
   int get nightStartMinute =>
       (prefs.getInt('nightStartMinute') ?? 1320).clamp(0, 1439);
   int get nightEndMinute =>
-      (prefs.getInt('nightEndMinute') ?? 420).clamp(0, 1439);
+      (prefs.getInt('nightEndMinute') ?? 420).clamp(0, 1440);
   bool get scheduledNight =>
       isScheduledNight(DateTime.now(), nightStartMinute, nightEndMinute);
 
@@ -617,7 +617,7 @@ class Prefs extends ChangeNotifier {
     if (start != null) {
       await prefs.setInt('nightStartMinute', start.clamp(0, 1439));
     }
-    if (end != null) await prefs.setInt('nightEndMinute', end.clamp(0, 1439));
+    if (end != null) await prefs.setInt('nightEndMinute', end.clamp(0, 1440));
     if (enabled != null) await prefs.setBool('scheduledTheme', enabled);
     refreshLinkedReadTheme();
     notifyListeners();

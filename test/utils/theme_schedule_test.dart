@@ -24,6 +24,16 @@ void main() {
     expect(isScheduledNight(DateTime(2026, 11, 1, 18), 480, 1080), false);
     expect(isScheduledNight(DateTime(2026, 11, 1, 9), 480, 480), false);
   });
+  test('all-day interval is night at every minute', () {
+    expect(isAllDayNight(0, 1440), true);
+    expect(isAllDayNight(0, 1439), false);
+    for (final (hour, minute) in [(0, 0), (7, 0), (12, 0), (22, 0), (23, 59)]) {
+      expect(
+          isScheduledNight(DateTime(2026, 11, 1, hour, minute), 0, 1440), true);
+    }
+    expect(isScheduledNight(DateTime(2026, 11, 1, 21, 59), 1320, 1440), false);
+    expect(isScheduledNight(DateTime(2026, 11, 1, 23, 59), 1320, 1440), true);
+  });
   test('schedule persists; manual selection exits; E-Ink ignores schedule',
       () async {
     SharedPreferences.setMockInitialValues({});
@@ -38,6 +48,9 @@ void main() {
     expect(prefs.scheduledTheme, true);
     expect(prefs.nightStartMinute, 0);
     expect(prefs.nightEndMinute, 1439);
+    await prefs.saveThemeSchedule(start: 0, end: 1440);
+    expect(prefs.nightEndMinute, 1440);
+    expect(prefs.scheduledNight, true);
     expect(prefs.themeMode,
         prefs.scheduledNight ? ThemeMode.dark : ThemeMode.light);
     expect(prefs.readingNightMode, prefs.scheduledNight);

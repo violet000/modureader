@@ -1,4 +1,5 @@
 import 'package:modu_reader/utils/app_motion.dart';
+import 'package:modu_reader/utils/theme_schedule.dart';
 import 'package:modu_reader/enums/app_layout_mode.dart';
 import 'package:modu_reader/config/shared_preference_provider.dart';
 import 'package:modu_reader/l10n/generated/L10n.dart';
@@ -54,18 +55,63 @@ class _AppearanceSettingState extends State<AppearanceSetting> {
     return '#$hex';
   }
 
-  TimeOfDay _time(int minute) =>
-      TimeOfDay(hour: minute ~/ 60, minute: minute % 60);
+  TimeOfDay _time(int minute) {
+    final bounded = minute.clamp(0, 1439);
+    return TimeOfDay(hour: bounded ~/ 60, minute: bounded % 60);
+  }
 
   String _nightHours(BuildContext context) {
     final prefs = Prefs();
-    final nextDay = prefs.nightEndMinute < prefs.nightStartMinute
+    if (isAllDayNight(prefs.nightStartMinute, prefs.nightEndMinute)) {
+      return ModuStrings.text(context, '整天', 'All day');
+    }
+    final end = prefs.nightEndMinute;
+    final nextDay = end < prefs.nightStartMinute || end >= 1440
         ? ModuStrings.text(context, '次日 ', 'next day ')
         : '';
-    return '${_time(prefs.nightStartMinute).format(context)} – $nextDay${_time(prefs.nightEndMinute).format(context)}';
+    return '${_time(prefs.nightStartMinute).format(context)} – $nextDay${_time(end).format(context)}';
   }
 
   Future<void> _editNightHours(BuildContext context) async {
+    final choice = await showDialog<String>(
+      animationStyle: AppMotion.style,
+      context: context,
+      builder: (dialogContext) => SimpleDialog(
+        title: Text(ModuStrings.text(context, '夜间时段', 'Night hours')),
+        children: [
+          SimpleDialogOption(
+            key: const ValueKey('scheduled-theme-all-day'),
+            onPressed: () => Navigator.pop(dialogContext, 'all-day'),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(ModuStrings.text(context, '整天', 'All day')),
+                const SizedBox(height: 2),
+                Text(
+                  ModuStrings.text(
+                      context, '全天使用夜间模式', 'Use night mode all day'),
+                  style: Theme.of(dialogContext).textTheme.bodySmall,
+                ),
+              ],
+            ),
+          ),
+          SimpleDialogOption(
+            key: const ValueKey('scheduled-theme-custom-hours'),
+            onPressed: () => Navigator.pop(dialogContext, 'custom'),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6),
+              child: Text(ModuStrings.text(context, '自定义时段', 'Custom hours')),
+            ),
+          ),
+        ],
+      ),
+    );
+    if (!context.mounted || choice == null) return;
+    if (choice == 'all-day') {
+      await Prefs().saveThemeSchedule(start: 0, end: 1440);
+      if (mounted) setState(() {});
+      return;
+    }
     final start = await showTimePicker(
         context: context,
         helpText: ModuStrings.text(context, '夜间开始时间', 'Night starts'),
