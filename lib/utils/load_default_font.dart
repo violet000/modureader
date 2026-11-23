@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:modu_reader/utils/get_path/get_base_path.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 Future<void> loadDefaultFont() async {
+  if (kIsWeb) return;
   final sourceHanSerif =
       await rootBundle.load('assets/fonts/SourceHanSerifSC-Regular.otf');
   final fontDir = getFontDir();

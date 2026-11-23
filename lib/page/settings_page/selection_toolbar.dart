@@ -171,7 +171,10 @@ class _SelectionToolbarSettingsState extends State<SelectionToolbarSettings> {
                       ? 'selection-optional-order'
                       : 'selection-action-order'),
               itemCount: items.length,
-              onReorderItem: (a, b) => _reorder(a, b, annotations, items),
+              onReorder: (from, to) {
+                if (from < to) to -= 1;
+                _reorder(from, to, annotations, items);
+              },
               itemBuilder: (context, index) {
                 final item = items[index];
                 final preset = SelectionToolbarConfig.templateItems

@@ -9,14 +9,15 @@ import 'package:modu_reader/service/knowledge/android_embedding_bridge.dart';
 import 'package:modu_reader/service/knowledge/local_embedding_models.dart';
 import 'package:modu_reader/service/knowledge/ohos_embedding_bridge.dart';
 import 'package:flutter_onnxruntime/flutter_onnxruntime.dart';
-import 'package:hf_tokenizers/hf_tokenizers.dart';
+import 'package:modu_reader/service/knowledge/embedding_tokenizer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:modu_reader/service/knowledge/isolate_worker.dart';
 
 class LocalOnnxEmbeddingProvider extends EmbeddingProvider {
   static bool _ohosAvailable = false;
 
-  static bool get isSupported =>
+  static bool get isSupported => !kIsWeb &&
       supportsPlatform(Platform.operatingSystem, ohosAvailable: _ohosAvailable);
 
   static bool supportsPlatform(String operatingSystem,
@@ -24,9 +25,8 @@ class LocalOnnxEmbeddingProvider extends EmbeddingProvider {
       operatingSystem != 'ohos' || ohosAvailable;
 
   static Future<void> initializeOhos() async {
-    if (Platform.operatingSystem == 'ohos') {
-      _ohosAvailable = await const OhosEmbeddingBridge().isAvailable();
-    }
+    if (kIsWeb || Platform.operatingSystem != 'ohos') return;
+    _ohosAvailable = await const OhosEmbeddingBridge().isAvailable();
   }
 
   static const unsupportedMessage = '鸿蒙本机的向量推理组件不可用。';
@@ -120,7 +120,7 @@ class LocalOnnxEmbeddingEngine {
 
   String? _activeModelId;
   OrtSession? _session;
-  Tokenizer? _tokenizer;
+  EmbeddingTokenizer? _tokenizer;
   IsolateWorker? _windowsWorker;
   final _android = const AndroidEmbeddingBridge();
   final _ohos = const OhosEmbeddingBridge();
@@ -220,7 +220,7 @@ class LocalOnnxEmbeddingEngine {
 
   Future<void> _loadPaths(
       LocalEmbeddingModel model, String onnxPath, String tokenizerPath) async {
-    final loadedTokenizer = Tokenizer.fromFile(tokenizerPath);
+    final loadedTokenizer = EmbeddingTokenizer.fromFile(tokenizerPath);
     try {
       if (_usesNativeBridge) {
         if (_isOhos) {

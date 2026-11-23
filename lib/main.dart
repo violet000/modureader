@@ -72,7 +72,7 @@ Future<void> main(List<String> arguments) async {
   externalBookInbox.add(arguments);
   // Listen before storage prompts/migration. The inbox waits for a usable home
   // navigator, and keeps only the latest request rather than dropping cold links.
-  if (!AnxPlatform.isOhos && !Platform.isLinux) {
+  if (!kIsWeb && !AnxPlatform.isOhos && !Platform.isLinux) {
     AppLinks().stringLinkStream.listen((raw) {
       readingLinkInbox.add(raw);
       // Apple native callbacks stage security-scoped documents; Android/Harmony
@@ -80,7 +80,7 @@ Future<void> main(List<String> arguments) async {
       if (Platform.isWindows) externalBookInbox.add([raw]);
     }, onError: (_) {});
   }
-  if (Platform.isLinux) {
+  if (!kIsWeb && Platform.isLinux) {
     const MethodChannel('gtk/application').setMethodCallHandler((call) async {
       final List<String> paths;
       if (call.method == 'command-line') {
@@ -117,7 +117,7 @@ Future<void> main(List<String> arguments) async {
   };
   LicenseRegistry.addLicense(() async* {
     for (final entry in {
-      'Modu': 'LICENSE',
+      '小陈笔记': 'LICENSE',
       'Anx Reader': 'LICENSES/Anx-Reader-MIT.txt',
       'ReadAny': 'LICENSES/ReadAny-GPL-3.0-or-later.txt',
       'edge-tts (v2 token adaptation)': 'LICENSES/edge-tts-LGPL-3.0.txt',
@@ -132,7 +132,7 @@ Future<void> main(List<String> arguments) async {
     }
   });
   await Prefs().initPrefs();
-  if (AnxPlatform.isWindows) {
+  if (!kIsWeb && AnxPlatform.isWindows) {
     final prefs = Prefs().prefs;
     final target = prefs.getString('pendingStorageMigration');
     if (target != null) {
@@ -154,10 +154,11 @@ Future<void> main(List<String> arguments) async {
       await prefs.setBool('storageMigrationSucceeded', committed);
     }
   }
-  if (Platform.isIOS ||
-      Platform.isAndroid ||
-      Platform.isMacOS ||
-      AnxPlatform.isOhos) {
+  if (!kIsWeb &&
+      (Platform.isIOS ||
+          Platform.isAndroid ||
+          Platform.isMacOS ||
+          AnxPlatform.isOhos)) {
     try {
       await IosLinkedBooks.restore();
     } catch (_) {
@@ -171,10 +172,14 @@ Future<void> main(List<String> arguments) async {
   });
   await AppBrightness.instance.initialize(Prefs().prefs);
   await applyBundledModelDefaults(Prefs().prefs);
-  await LocalOnnxEmbeddingProvider.initializeOhos();
+  if (!kIsWeb) {
+    await LocalOnnxEmbeddingProvider.initializeOhos();
+  }
   Prefs().addListener(applyVectorizationQueueSettings);
   applyVectorizationQueueSettings();
-  HttpOverrides.global = AnxHttpProxyOverrides();
+  if (!kIsWeb) {
+    HttpOverrides.global = AnxHttpProxyOverrides();
+  }
 
   // Initialize desktop window with validated position
   if (AnxPlatform.isDesktop) {
@@ -203,10 +208,17 @@ Future<void> _startConfiguredApp() async {
   // If no migration needed, initialize paths normally
   if (!_needsMigration) {
     await initBasePath();
-    await BookSources.initialize(Directory(documentPath));
-    await AnxLog.init();
+    if (!kIsWeb) {
+      await BookSources.initialize(Directory(documentPath));
+      await AnxLog.init();
+    }
     AnxError.init();
-    await DBHelper().initDB();
+    try {
+      await DBHelper().initDB();
+    } catch (error, stack) {
+      if (!kIsWeb) rethrow;
+      debugPrint('Web database unavailable: $error\n$stack');
+    }
     try {
       await PluginHost.instance.initialize();
     } catch (error) {
@@ -215,20 +227,27 @@ Future<void> _startConfiguredApp() async {
     }
   }
 
-  Server().start();
+  if (!kIsWeb) {
+    Server().start();
+  }
 
-  audioHandler = await AudioService.init(
-    builder: () => TtsHandler(),
-    config: const AudioServiceConfig(
-      androidNotificationChannelId: 'com.modu.reader.tts.channel.audio',
-      androidNotificationChannelName: 'Modu TTS',
-      androidNotificationOngoing: false,
-      androidNotificationIcon: 'drawable/ic_stat_read_aloud',
-      // Keep the media service resumable from the lock screen after a pause.
-      // Explicit stop/end-of-book still changes processingState to idle.
-      androidStopForegroundOnPause: false,
-    ),
-  );
+  try {
+    audioHandler = await AudioService.init(
+      builder: () => TtsHandler(),
+      config: const AudioServiceConfig(
+        androidNotificationChannelId: 'com.modu.reader.tts.channel.audio',
+        androidNotificationChannelName: '小陈笔记 TTS',
+        androidNotificationOngoing: false,
+        androidNotificationIcon: 'drawable/ic_stat_read_aloud',
+        // Keep the media service resumable from the lock screen after a pause.
+        // Explicit stop/end-of-book still changes processingState to idle.
+        androidStopForegroundOnPause: false,
+      ),
+    );
+  } catch (error) {
+    if (!kIsWeb) rethrow;
+    debugPrint('Web audio service unavailable: $error');
+  }
 
   if (MediaDiagnostics.enabled && AnxPlatform.isAndroid) {
     unawaited(MediaDiagnostics.start(audioHandler));

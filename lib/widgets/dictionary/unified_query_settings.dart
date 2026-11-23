@@ -78,7 +78,8 @@ class _UnifiedQuerySettingsState extends State<UnifiedQuerySettings> {
               physics: const NeverScrollableScrollPhysics(),
               buildDefaultDragHandles: false,
               itemCount: prefs.order.length,
-              onReorderItem: (oldIndex, newIndex) {
+              onReorder: (oldIndex, newIndex) {
+                if (oldIndex < newIndex) newIndex -= 1;
                 setState(() {
                   prefs.order.insert(newIndex, prefs.order.removeAt(oldIndex));
                   prefs.smartOrder = false;

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:modu_reader/utils/platform_utils.dart';
 
 import 'package:sqflite/sqflite.dart';
@@ -6,6 +7,9 @@ import 'package:sqflite/sqflite.dart';
 import 'get_base_path.dart';
 
 Future<String> getAnxDataBasesPath() async {
+  if (kIsWeb) {
+    return '${await getAnxDocumentsPath()}/databases';
+  }
   switch (AnxPlatform.type) {
     case AnxPlatformEnum.ohos:
       final path = await getDatabasesPath();

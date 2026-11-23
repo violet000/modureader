@@ -22,12 +22,13 @@ class AnxPlatform {
         _ => throw UnsupportedError('Unsupported platform: $operatingSystem'),
       };
 
-  static bool get isAndroid => type == AnxPlatformEnum.android;
-  static bool get isIOS => type == AnxPlatformEnum.ios;
-  static bool get isMacOS => type == AnxPlatformEnum.macos;
-  static bool get isWindows => type == AnxPlatformEnum.windows;
-  static bool get isOhos => type == AnxPlatformEnum.ohos;
-  static bool get isLinux => type == AnxPlatformEnum.linux;
+  // Web has no dart:io Platform. These stay false so UI checks do not throw.
+  static bool get isAndroid => !kIsWeb && type == AnxPlatformEnum.android;
+  static bool get isIOS => !kIsWeb && type == AnxPlatformEnum.ios;
+  static bool get isMacOS => !kIsWeb && type == AnxPlatformEnum.macos;
+  static bool get isWindows => !kIsWeb && type == AnxPlatformEnum.windows;
+  static bool get isOhos => !kIsWeb && type == AnxPlatformEnum.ohos;
+  static bool get isLinux => !kIsWeb && type == AnxPlatformEnum.linux;
 
   static bool get isMobile => isAndroid || isIOS || isOhos;
 

@@ -151,7 +151,8 @@ class _ReaderTopActionsSettingsState extends State<ReaderTopActionsSettings> {
             physics: const NeverScrollableScrollPhysics(),
             buildDefaultDragHandles: false,
             itemCount: config.order.length,
-            onReorderItem: (oldIndex, newIndex) {
+            onReorder: (oldIndex, newIndex) {
+              if (oldIndex < newIndex) newIndex -= 1;
               config.order.insert(newIndex, config.order.removeAt(oldIndex));
               save();
             },

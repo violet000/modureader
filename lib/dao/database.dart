@@ -11,8 +11,12 @@ import 'package:modu_reader/service/book.dart';
 import 'package:modu_reader/utils/get_path/get_base_path.dart';
 import 'package:modu_reader/utils/get_path/databases_path.dart';
 import 'package:modu_reader/utils/log/common.dart';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+import 'database_factory_web.dart'
+    if (dart.library.io) 'database_factory_io.dart';
 
 // Current app database version
 // v10: 多刷阅读统计（tb_reading_rounds + tb_books.current_round + tb_reading_time.round）
@@ -156,6 +160,23 @@ class DBHelper {
 
   Future<Database> _openDatabase() async {
     int dbVersion = currentDbVersion;
+    if (kIsWeb) {
+      databaseFactory = webDatabaseFactory();
+      return databaseFactory.openDatabase(
+        'app_database.db',
+        options: OpenDatabaseOptions(
+          version: dbVersion,
+          onCreate: (db, version) async {
+            await onUpgradeDatabase(db, 0, version);
+          },
+          onUpgrade: onUpgradeDatabase,
+          onOpen: (db) async {
+            await RowSyncStore.ensureRounds(db);
+            await db.transaction(RowSyncStore.ensureReviews);
+          },
+        ),
+      );
+    }
     switch (AnxPlatform.type) {
       case AnxPlatformEnum.macos:
       case AnxPlatformEnum.android:
@@ -438,6 +459,7 @@ class DBHelper {
         await db
             .execute("UPDATE tb_books SET cover_path = cover_path || '.png'");
 
+        if (!kIsWeb) {
         final basePath = getBasePath('');
         final fileDir = Directory('$basePath/file');
         final coverDir = Directory('$basePath/cover');
@@ -461,6 +483,7 @@ class DBHelper {
             element.rename(newPath);
           }
         });
+        }
         continue case3;
       case3:
       case 3:

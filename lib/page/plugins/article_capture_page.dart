@@ -375,7 +375,7 @@ class _ArticlePreview extends StatelessWidget {
                 mode: LaunchMode.externalApplication));
           }
         },
-        imageBuilder: (context, href) => TextButton.icon(
+        imageBuilder: (context, href, _, __) => TextButton.icon(
             icon: const Icon(Icons.image_outlined),
             label: Text(ModuStrings.text(context, '图片链接', 'Image link')),
             onPressed: _link(href) == null

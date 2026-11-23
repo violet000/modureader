@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:ffi';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
@@ -9,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:modu_reader/utils/app_version.dart';
+import 'package:modu_reader/service/process_abi.dart';
 
 const moduReleasePage = 'https://github.com/sobranie2406/modureader/releases';
 const moduReleaseApi =
@@ -97,7 +97,7 @@ class UpdateRelease {
         json['prerelease'] != false ||
         tag is! String ||
         !RegExp(r'^v\d+\.\d+\.\d+$').hasMatch(tag)) {
-      throw const FormatException('Not a stable Modu release');
+      throw const FormatException('Not a stable 小陈笔记 release');
     }
     final version = tag.substring(1);
     final expected = updateAssetName(version, platform, abi);
@@ -434,8 +434,8 @@ class AppUpdateController extends ChangeNotifier {
       Future<String> Function()? installedVersion,
       Future<Directory> Function()? directory})
       : transport = transport ?? UpdateTransport(),
-        platform = platform ?? Platform.operatingSystem,
-        abi = abi ?? Abi.current().toString(),
+        platform = platform ?? (kIsWeb ? 'web' : Platform.operatingSystem),
+        abi = abi ?? currentProcessAbi(),
         installedVersion = installedVersion ?? getAppVersion,
         directory = directory ??
             (() async => Directory(

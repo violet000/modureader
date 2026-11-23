@@ -5,6 +5,7 @@ import 'package:modu_reader/service/book.dart';
 import 'package:modu_reader/service/receive_file/external_book_inbox.dart';
 import 'package:modu_reader/utils/log/common.dart';
 import 'package:modu_reader/utils/platform_utils.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_handler/share_handler.dart';
@@ -15,7 +16,7 @@ bool _listening = false;
 /// Start before initialization so native file access and cold deliveries survive
 /// storage/migration prompts. Import itself waits for the home navigator.
 void listenForExternalBooks() {
-  if (_listening) return;
+  if (kIsWeb || _listening) return;
   _listening = true;
   if (Platform.isIOS || Platform.isMacOS || AnxPlatform.isOhos) {
     externalFilesChannel.setMethodCallHandler((call) async {

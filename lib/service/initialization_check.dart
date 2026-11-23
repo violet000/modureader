@@ -59,7 +59,7 @@ class InitializationCheck {
       if (context == null || !context.mounted) return;
       final dismissed = showCupertinoSheet<void>(
         context: context,
-        scrollableBuilder: (sheetContext, controller) => ChangelogScreen(
+        builder: (sheetContext) => ChangelogScreen(
           lastVersion: previous,
           currentVersion: current,
           onComplete: () => Navigator.pop(sheetContext),

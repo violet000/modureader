@@ -229,8 +229,8 @@ class _AdvancedSettingState extends State<AdvancedSetting> {
                   context, '自动检查更新', 'Automatically check for updates')),
               description: Text(ModuStrings.text(
                   context,
-                  '关闭后，可在「关于默读」中手动检查更新。',
-                  'When off, check for updates manually from About Modu.')),
+                  '关闭后，可在「关于小陈笔记」中手动检查更新。',
+                  'When off, check for updates manually from About 小陈笔记.')),
               leading: const Icon(Icons.system_update_outlined),
               initialValue: Prefs().autoCheckUpdates,
               onToggle: (value) =>
@@ -572,7 +572,7 @@ Future<void> _showChangelog(BuildContext context) async {
 
   showCupertinoSheet(
     context: navigatorKey.currentContext ?? context,
-    scrollableBuilder: (BuildContext context, ScrollController controller) {
+    builder: (BuildContext context) {
       Widget widgetBuilder(BuildContext sheetContext) => ChangelogScreen(
             lastVersion: lastVersion,
             currentVersion: currentVersion,

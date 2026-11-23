@@ -107,7 +107,8 @@ class _AiReadingSkillsSettingsState
             child: Text(ModuStrings.text(context, '阅读技能', 'Reading skills'))),
       ]),
       itemCount: entries.length,
-      onReorderItem: (oldIndex, newIndex) {
+      onReorder: (oldIndex, newIndex) {
+        if (oldIndex < newIndex) newIndex -= 1;
         final moved = entries.removeAt(oldIndex);
         entries.insert(newIndex, moved);
         setState(() =>

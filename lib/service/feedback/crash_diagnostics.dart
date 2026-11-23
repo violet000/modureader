@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'runtime_diagnostics.dart';
 import 'dart:io';
-import 'dart:ffi';
+import 'dart:typed_data';
 import 'package:modu_reader/service/feedback/crash_journal.dart';
 import 'package:modu_reader/service/feedback/native_stack_diagnostics.dart';
+import 'package:modu_reader/service/process_abi.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 
@@ -68,7 +69,7 @@ class CrashDiagnostics {
               .deviceInfo
               .timeout(const Duration(seconds: 5)))
           .data;
-      return 'Process ABI: ${Abi.current()}\n${formatDesktopEnvironment(Platform.operatingSystem, data)}';
+      return 'Process ABI: ${currentProcessAbi()}\n${formatDesktopEnvironment(Platform.operatingSystem, data)}';
     }
     final data = await channel
         .invokeMapMethod<String, dynamic>('environment')
@@ -131,7 +132,7 @@ class CrashDiagnostics {
     return 'Android: ${value('android')} (API ${_number(data['sdk'])})\n'
         'Device: ${value('manufacturer')} ${value('model')}\n'
         'CPU ABI: $abis\nRAM: ${_number(data['ramMiB'])} MiB\n'
-        'Installed Modu: ${value('version')}+${_number(data['build'])}';
+        'Installed 小陈笔记: ${value('version')}+${_number(data['build'])}';
   }
 
   static String format(Map data) {

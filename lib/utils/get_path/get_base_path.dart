@@ -28,6 +28,9 @@ Future<bool> _isPathAccessible(String path) async {
 }
 
 Future<String> getAnxDocumentsPath() async {
+  if (kIsWeb) {
+    return (await getApplicationDocumentsDirectory()).path;
+  }
   // Windows only: Check for custom storage path first
   if (AnxPlatform.isWindows) {
     final customPath = Prefs().customStoragePath;
@@ -65,6 +68,14 @@ Future<Directory> getAnxDocumentDir() async {
 }
 
 Future<void> initBasePath() async {
+  if (kIsWeb) {
+    try {
+      documentPath = await getAnxDocumentsPath();
+    } catch (error) {
+      debugPrint('documentPath unavailable: $error');
+    }
+    return;
+  }
   Directory appDocDir = await getAnxDocumentDir();
   documentPath = appDocDir.path;
   debugPrint('documentPath: $documentPath');
@@ -90,34 +101,36 @@ Future<void> initBasePath() async {
   }
 }
 
+String get _pathSeparator => kIsWeb ? '/' : Platform.pathSeparator;
+
 String getBasePath(String path) {
   // the path that in database using "/"
-  path.replaceAll("/", Platform.pathSeparator);
-  return '$documentPath${Platform.pathSeparator}$path';
+  if (!kIsWeb) path.replaceAll("/", Platform.pathSeparator);
+  return '$documentPath${_pathSeparator}$path';
 }
 
 Directory getFontDir({String? path}) {
   path ??= documentPath;
-  return Directory('$path${Platform.pathSeparator}font');
+  return Directory('$path${_pathSeparator}font');
 }
 
 Directory getCoverDir({String? path}) {
   path ??= documentPath;
-  return Directory('$path${Platform.pathSeparator}cover');
+  return Directory('$path${_pathSeparator}cover');
 }
 
 Directory getFileDir({String? path}) {
   path ??= documentPath;
-  return Directory('$path${Platform.pathSeparator}file');
+  return Directory('$path${_pathSeparator}file');
 }
 
 Directory getBgimgDir({String? path}) {
   path ??= documentPath;
-  return Directory('$path${Platform.pathSeparator}bgimg');
+  return Directory('$path${_pathSeparator}bgimg');
 }
 
 /// Root directory for installed plugin packages.
 Directory getPluginDir({String? path}) {
   path ??= documentPath;
-  return Directory('$path${Platform.pathSeparator}plugins');
+  return Directory('$path${_pathSeparator}plugins');
 }
