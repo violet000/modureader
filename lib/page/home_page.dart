@@ -11,6 +11,8 @@ import 'package:modu_reader/page/home_page/notes_page.dart';
 import 'package:modu_reader/page/home_page/remote_library_page.dart';
 import 'package:modu_reader/page/home_page/settings_page.dart';
 import 'package:modu_reader/page/home_page/statistics_page.dart';
+import 'package:modu_reader/page/home_page/todo_page.dart';
+import 'package:modu_reader/service/todo/todo_notes.dart';
 import 'package:modu_reader/providers/sync.dart';
 import 'package:modu_reader/service/initialization_check.dart';
 import 'package:modu_reader/service/notes/open_reading_link.dart';
@@ -114,6 +116,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     if (!mounted) return;
 
     receiveExternalBooks(ref);
+    unawaited(TodoNotes.instance.ensureLoaded());
 
     if (DBHelper.updatedDB) {
       _showDbUpdatedDialog();
@@ -134,6 +137,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         StatisticPage(controller: controller),
       HomeNavigationDestination.ai => AiChatStream(),
       HomeNavigationDestination.notes => NotesPage(controller: controller),
+      HomeNavigationDestination.todo => TodoPage(controller: controller),
       HomeNavigationDestination.settings =>
         SettingsPage(controller: controller),
       _ => BookshelfPage(controller: controller),
