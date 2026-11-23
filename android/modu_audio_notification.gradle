@@ -24,7 +24,7 @@ project(':audio_service').afterEvaluate { audioProject ->
         def patchTask = audioProject.tasks.register('prepareModuSilentAudioService', Sync) {
             inputs.property('moduSilentNotificationPolicy', 1)
             inputs.property('moduIqooMediaCompat', iqooTest)
-            inputs.property('moduIqooMediaCompatRevision', 4)
+            inputs.property('moduIqooMediaCompatRevision', 5)
             from(rootProject.file('audio_service/ModuNotificationPlay.java')) {
                 into('com/ryanheise/audioservice')
             }
@@ -77,7 +77,7 @@ project(':audio_service').afterEvaluate { audioProject ->
                             // old foreground card now, not only in onDestroy.
                             return line + '\n        if (moduStopCompatEnabled()) {' +
                                 '\n            notificationCreated = false;' +
-                                '\n            legacyStopForeground(true);' +
+                                '\n            ServiceCompat.stopForeground(this, STOP_FOREGROUND_REMOVE);' +
                                 '\n            getNotificationManager().cancel(NOTIFICATION_ID);' +
                                 '\n            releaseWakeLock();' +
                                 '\n        }'

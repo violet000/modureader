@@ -388,6 +388,8 @@ Future<Uri> _mobileBuild(
   Architecture arch,
 ) async {
   final triple = switch ((os, arch)) {
+    // Rust's 32-bit target name differs from the NDK clang wrapper prefix.
+    (OS.android, Architecture.arm) => 'armv7-linux-androideabi',
     (OS.android, Architecture.arm64) => 'aarch64-linux-android',
     (OS.android, Architecture.x64) => 'x86_64-linux-android',
     (OS.iOS, Architecture.arm64) =>
@@ -397,6 +399,9 @@ Future<Uri> _mobileBuild(
     (OS.iOS, Architecture.x64) => 'x86_64-apple-ios',
     _ => throw UnsupportedError('Unsupported mobile tokenizer: $os $arch'),
   };
+  final clangPrefix = os == OS.android && arch == Architecture.arm
+      ? 'armv7a-linux-androideabi'
+      : triple;
   final env = _envWithCargoBin();
   final targetDir = input.outputDirectory.resolve('cargo/').toFilePath();
   env['CARGO_TARGET_DIR'] = targetDir;
@@ -404,7 +409,7 @@ Future<Uri> _mobileBuild(
     final compiler = input.config.code.cCompiler;
     if (compiler == null) throw StateError('Android NDK compiler missing');
     final api = input.config.code.android.targetNdkApi;
-    final cc = compiler.compiler.resolve('$triple$api-clang').toFilePath();
+    final cc = compiler.compiler.resolve('$clangPrefix$api-clang').toFilePath();
     env['CARGO_TARGET_${triple.toUpperCase().replaceAll('-', '_')}_LINKER'] =
         cc;
     env['CC_${triple.replaceAll('-', '_')}'] = cc;

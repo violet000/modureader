@@ -73,6 +73,10 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Local Gradle caches and vendored plugin build reports
+**/.gradle/
+third_party/**/android/build/
+
 # riverpod generated files
 lib/gen/
 release.sh

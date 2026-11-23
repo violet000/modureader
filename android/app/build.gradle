@@ -27,6 +27,24 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
+def releaseAlias = keystoreProperties['keyAlias'] ?: System.getenv('MODU_ANDROID_KEY_ALIAS')
+def releaseKeyPassword = keystoreProperties['keyPassword'] ?: System.getenv('MODU_ANDROID_KEY_PASSWORD')
+def releaseStorePassword = keystoreProperties['storePassword'] ?: System.getenv('MODU_ANDROID_KEY_PASSWORD')
+def releaseStore = keystoreProperties['storeFile'] ?: System.getenv('MODU_ANDROID_KEYSTORE')
+// Direct `flutter build apk` does not load the wrapper's environment. Use the
+// same ignored local identity as scripts/build_android.mjs when nothing else is set.
+if (!releaseStore) {
+    def secretsKey = rootProject.file('../.release-secrets/modu-release.jks')
+    def secretsFile = rootProject.file('../.release-secrets/android-signing.json')
+    if (secretsKey.exists() && secretsFile.exists()) {
+        def saved = new groovy.json.JsonSlurper().parse(secretsFile)
+        releaseStore = secretsKey.absolutePath
+        releaseAlias = releaseAlias ?: saved.alias
+        releaseKeyPassword = releaseKeyPassword ?: saved.password
+        releaseStorePassword = releaseStorePassword ?: saved.password
+    }
+}
+
 android {
     namespace = "com.modu.reader"
     // compileSdk flutter.compileSdkVersion
@@ -36,8 +54,10 @@ android {
     testBuildType = "release"
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        // flutter_local_notifications schedules with java.time on older Android.
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     sourceSets {
@@ -59,11 +79,10 @@ android {
 
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias'] ?: System.getenv('MODU_ANDROID_KEY_ALIAS')
-            keyPassword keystoreProperties['keyPassword'] ?: System.getenv('MODU_ANDROID_KEY_PASSWORD')
-            def releaseStore = keystoreProperties['storeFile'] ?: System.getenv('MODU_ANDROID_KEYSTORE')
+            keyAlias releaseAlias
+            keyPassword releaseKeyPassword
             storeFile releaseStore ? file(releaseStore) : null
-            storePassword keystoreProperties['storePassword'] ?: System.getenv('MODU_ANDROID_KEY_PASSWORD')
+            storePassword releaseStorePassword
         }
     }
 
@@ -109,7 +128,7 @@ android {
 
 kotlin {
     compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
     }
 }
 
@@ -118,5 +137,6 @@ flutter {
 }
 
 dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
     implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.24.3'
 }

@@ -3,7 +3,9 @@ def migrateKotlin = { String source ->
     def migrated = source.replaceAll(/(?m)^apply plugin: ['"]kotlin-android['"]\s*$/, '')
     migrated = migrated.replaceAll(/(?m)^\s*classpath\s*\(?["']org\.jetbrains\.kotlin:kotlin-gradle-plugin:[^\n]+\n/, '')
     def targets = ["'1.8'": 'JVM_1_8', "'11'": 'JVM_11',
-                   'JavaVersion.VERSION_11': 'JVM_11', '17': 'JVM_17', "'17'": 'JVM_17']
+                   'JavaVersion.VERSION_11': 'JVM_11',
+                   'JavaVersion.VERSION_17.toString()': 'JVM_17',
+                   '17': 'JVM_17', "'17'": 'JVM_17']
     def options = source =~ /kotlinOptions\s*\{\s*jvmTarget\s*=\s*([^\n]+)\s*\}/
     if (options.find()) {
         def target = targets[options.group(1).trim()]
@@ -19,7 +21,8 @@ def migrateKotlin = { String source ->
 }
 
 // Self-check both old target spellings and already-modern compiler options.
-['\'1.8\'': 'JVM_1_8', '17': 'JVM_17', 'JavaVersion.VERSION_11': 'JVM_11'].each { old, target ->
+['\'1.8\'': 'JVM_1_8', '17': 'JVM_17', 'JavaVersion.VERSION_11': 'JVM_11',
+ 'JavaVersion.VERSION_17.toString()': 'JVM_17'].each { old, target ->
     def result = migrateKotlin("apply plugin: 'kotlin-android'\nandroid { kotlinOptions { jvmTarget = ${old}\n} }\n")
     assert result.contains("JvmTarget.${target}") && !result.contains('kotlinOptions')
 }
@@ -40,18 +43,58 @@ assert migrateAssignments("group 'example'\nnamespace = 'kept'\nimplementation '
         "group = 'example'\nnamespace = 'kept'\nimplementation 'dep'\n"
 assert migrateAssignments('    warningsAsErrors true\n') == '    warningsAsErrors = true\n'
 
+// Kotlin DSL plugins already use compilerOptions. Drop only an explicit Kotlin
+// plugin application so AGP's built-in Kotlin can provide it.
+def migrateKotlinKts = { String source ->
+    def migrated = source.replaceAll(
+            /(?m)^[ \t]*classpath\("org\.jetbrains\.kotlin:kotlin-gradle-plugin:[^"\n]*"\)[ \t]*\r?\n/, '')
+    migrated = migrated.replaceAll(/(?m)^[ \t]*id\("kotlin-android"\)[ \t]*\r?\n/, '')
+    def active = migrated.readLines().any { line ->
+        def trimmed = line.trim()
+        !trimmed.startsWith('//') &&
+                (trimmed.contains('kotlin-android') || trimmed.contains('kotlin-gradle-plugin'))
+    }
+    if (active || !migrated.contains('compilerOptions')) {
+        throw new GradleException('Incomplete built-in Kotlin migration; review the plugin overlay.')
+    }
+    return migrated
+}
+assert migrateKotlinKts('''
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.0")
+    id("kotlin-android")
+kotlin { compilerOptions { } }
+''').contains('compilerOptions') && !migrateKotlinKts('''
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.0")
+    id("kotlin-android")
+kotlin { compilerOptions { } }
+''').contains('kotlin-android')
+
 def kotlinPins = new groovy.json.JsonSlurper().parse(file('modu_builtin_kotlin.json'))
 def pins = kotlinPins + new groovy.json.JsonSlurper().parse(file('modu_gradle_syntax.json'))
 pins.each { name, expectedHash ->
-    def plugin = project(":${name}")
-    def upstream = new File(plugin.projectDir, 'build.gradle')
+    def plugin = findProject(":${name}")
+    if (plugin == null) return
+    def groovyFile = new File(plugin.projectDir, 'build.gradle')
+    def ktsFile = new File(plugin.projectDir, 'build.gradle.kts')
+    def upstream = groovyFile.exists() ? groovyFile : ktsFile.exists() ? ktsFile : null
+    if (upstream == null) return
     def source = upstream.getText('UTF-8').replace('\r\n', '\n')
     def hash = java.security.MessageDigest.getInstance('SHA-256').digest(source.getBytes('UTF-8')).encodeHex().toString()
     if (hash != expectedHash) {
-        throw new GradleException("${name}: build.gradle changed; review the built-in Kotlin migration before updating its checksum.")
+        throw new GradleException("${name}: ${upstream.name} changed; review the built-in Kotlin migration before updating its checksum.")
     }
-    def output = file("../build/plugin-gradle/${name}.gradle")
-    def migrated = migrateAssignments(kotlinPins.containsKey(name) ? migrateKotlin(source) : source)
+    def appliesKotlin = source.readLines().any { line ->
+        def trimmed = line.trim()
+        !trimmed.startsWith('//') &&
+                (trimmed.contains('kotlin-android') || trimmed.contains('kotlin-gradle-plugin'))
+    }
+    def needsKotlin = kotlinPins.containsKey(name) || appliesKotlin
+    def migrated = upstream.name.endsWith('.kts')
+            ? (needsKotlin ? migrateKotlinKts(source) : source)
+            : migrateAssignments(needsKotlin ? migrateKotlin(source) : source)
+    if (migrated == source) return
+    def suffix = upstream.name.endsWith('.kts') ? '.gradle.kts' : '.gradle'
+    def output = file("../build/plugin-gradle/${name}${suffix}")
     output.parentFile.mkdirs()
     if (!output.exists() || output.getText('UTF-8') != migrated) output.setText(migrated, 'UTF-8')
     plugin.buildFileName = plugin.projectDir.toPath().relativize(output.toPath()).toString()
