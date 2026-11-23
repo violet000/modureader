@@ -477,7 +477,7 @@ class ArchitectureTest(unittest.TestCase):
             release_package.verify(self.binary, "linux", "x64")
 
     def test_checksums_use_portable_lf_bytes(self):
-        self.binary.write_bytes(b"Modu release artifact")
+        self.binary.write_bytes(b"release artifact")
         release_package.write_checksum(self.binary)
         checksum = self.binary.with_name(self.binary.name + ".sha256").read_bytes()
         digest = hashlib.sha256(self.binary.read_bytes()).hexdigest()

@@ -2,11 +2,11 @@
 
 ## Report and scope
 
-Modu 1.2.2+10087 on iQOO Neo8, OriginOS 6 / Android 16: reading is silent on Wi-Fi, cellular works, and settings preview speaks after a delay. No useful application log was reported. The connected device is an Honor LGE-AN10, not the affected iQOO. The reported Wi-Fi-specific failure has **not** been reproduced on the original device.
+小陈笔记 1.2.2+10087 on iQOO Neo8, OriginOS 6 / Android 16: reading is silent on Wi-Fi, cellular works, and settings preview speaks after a delay. No useful application log was reported. The connected device is an Honor LGE-AN10, not the affected iQOO. The reported Wi-Fi-specific failure has **not** been reproduced on the original device.
 
 ## Verified code defect
 
-The pinned flutter_tts Android implementation (ad4a10bb4977031a1e60fd8027fb62b932d635ce, FlutterTtsPlugin.kt) sends `speak.onError` from both native onError overloads without completing `speakResult`. Modu awaited `speak` with awaitSpeakCompletion enabled and did not install an error handler. A native failure can therefore leave the reader in a playing/waiting state indefinitely without logging the failure. This is a confirmed failure mechanism, not proof of the original network failure's cause.
+The pinned flutter_tts Android implementation (ad4a10bb4977031a1e60fd8027fb62b932d635ce, FlutterTtsPlugin.kt) sends `speak.onError` from both native onError overloads without completing `speakResult`. 小陈笔记 awaited `speak` with awaitSpeakCompletion enabled and did not install an error handler. A native failure can therefore leave the reader in a playing/waiting state indefinitely without logging the failure. This is a confirmed failure mechanism, not proof of the original network failure's cause.
 
 ## Changes
 

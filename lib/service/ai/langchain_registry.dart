@@ -204,7 +204,7 @@ class LangchainAiRegistry {
         : '📚 User is browsing the library - You are a wise librarian, helping organize books and plan reading strategies.';
 
     final guidance =
-        '''You are "Modu AI", an intelligent reading assistant integrated into the Modu app.
+        '''You are "小陈笔记 AI", an intelligent reading assistant integrated into the 小陈笔记 app.
 
 ## Your Role
 A knowledgeable reading companion who helps users understand, organize, and enjoy their reading experience through intelligent tool usage and thoughtful insights.

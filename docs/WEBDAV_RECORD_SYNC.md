@@ -1,8 +1,8 @@
 # WebDAV record-level merge synchronization
 
-## Current: Modu 1.2.0+10082
+## Current: 小陈笔记 1.2.0+10082
 
-This guide describes the stable Modu publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`, using sync-container format/database version 8. Uncommitted application changes are outside this baseline. Versioned milestones and test results below are historical, not new release acceptance; this documentation update ran no application, device or live WebDAV tests.
+This guide describes the stable 小陈笔记 publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`, using sync-container format/database version 8. Uncommitted application changes are outside this baseline. Versioned milestones and test results below are historical, not new release acceptance; this documentation update ran no application, device or live WebDAV tests.
 
 Books, notes, bookmarks, reading positions and reading-time records merge individually. Book metadata and covers sync first; missing book content downloads when opened, so a visible bookshelf entry is not proof of offline availability. Vector-index synchronization and its switch have been removed; local indexing, retrieval and Stop Vectorization remain available. Fonts, local rendering preferences, downloaded model weights and page reflow caches are not transported as record-database contents. OCR model/source choices may travel through global settings backup, without weights.
 

@@ -17,7 +17,7 @@ void main() {
     await tester.pumpWidget(const MaterialApp(
         home: Scaffold(
       body: Center(
-          child: Text('Modu native TTS regression: synthetic chapter titles')),
+          child: Text('小陈笔记 native TTS regression: synthetic chapter titles')),
     )));
     final tts = SystemTts();
     final sentences = ['Chapter one.', 'First paragraph.', 'Chapter two.'];

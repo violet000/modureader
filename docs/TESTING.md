@@ -4,7 +4,7 @@
 
 ## Current testing policy for 1.2.0
 
-Released baseline: Modu **1.2.0+10082**, source revision [77dc238f](https://github.com/sobranie2406/modureader/tree/77dc238fb2ae2ce02455bd80c500ee9fd140f219). Released-version facts in this overview refer to that revision. Use the publishing repository and this source revision to identify the release; an identically named upstream tag is not the same product.
+Released baseline: 小陈笔记 **1.2.0+10082**, source revision [77dc238f](https://github.com/sobranie2406/modureader/tree/77dc238fb2ae2ce02455bd80c500ee9fd140f219). Released-version facts in this overview refer to that revision. Use the publishing repository and this source revision to identify the release; an identically named upstream tag is not the same product.
 
 Record the exact source revision, version/build, platform, architecture, commands, results and skipped tests for each verification run. Historical counts below remain evidence of their original runs and must not be presented as current totals.
 

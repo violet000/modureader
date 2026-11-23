@@ -23,7 +23,7 @@ The reported line is `Prefs.bookCoverWidth`, which previously cast the stored pr
 
 Nine preference cases cover absent, integer, fractional, out-of-range, wrong-type and non-finite values. Together with bookshelf interaction tests: 23 passed. Targeted static analysis passed.
 
-The updated complete Modu HAP has not been built or installed. #67 is not yet confirmed on a fixed HarmonyOS package or the reporter's physical device.
+The updated complete 小陈笔记 HAP has not been built or installed. #67 is not yet confirmed on a fixed HarmonyOS package or the reporter's physical device.
 
 ## Native simulator before/after probe
 
@@ -32,8 +32,8 @@ Built and installed a separate, unsigned diagnostic HAP (`com.modu.diagnostics.f
 - Before (`scrollable: null`, OHOS default): after the upward swipe, cells 5/6 remain at y=2345–2426, only 81 px visible; the list returns to its initial position.
 - Fixed (`scrollable: false`): after the same swipe and settling, cells 5/6 occupy y=1447–2356, their full 909 px height. Reverse swipe restores the first row normally.
 - Earlier probe iterations added an explicit grid controller/physics and thus did not preserve the production gesture behavior; they are not the comparison above.
-- This verifies the layout fix on the real HarmonyOS runtime, but is not a rebuilt full Modu package acceptance test.
+- This verifies the layout fix on the real HarmonyOS runtime, but is not a rebuilt full 小陈笔记 package acceptance test.
 
 Private evidence: `/private/tmp/modu-folder-before.png`, `modu-folder-after.png`, `modu-probe-before-layout.json`, `modu-probe-fixed-settled.json`, `modu-probe-fixed.png`; diagnostic source `/private/tmp/modu-folder-probe/lib/main.dart`.
 
-Cleanup: dissolved the temporary group, removed the two newly imported synthetic books through the app, and uninstalled the independent probe. Existing books and reading progress were retained. The emulator now has published Modu 1.3.5, not the pending fixed package.
+Cleanup: dissolved the temporary group, removed the two newly imported synthetic books through the app, and uninstalled the independent probe. Existing books and reading progress were retained. The emulator now has published 小陈笔记 1.3.5, not the pending fixed package.

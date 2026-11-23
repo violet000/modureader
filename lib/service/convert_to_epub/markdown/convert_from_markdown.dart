@@ -306,7 +306,7 @@ List<int> _encodeEpub(String bookTitle, List<_Chapter> chapters,
         b.element('dc:language', nest: 'und');
         if (umdAuthor != null) {
           b.element('dc:creator', nest: _xmlText(umdAuthor));
-          b.element('dc:source', nest: 'Modu UMD import');
+          b.element('dc:source', nest: '小陈笔记 UMD import');
         }
         b.element('meta',
             attributes: {'property': 'dcterms:modified'},

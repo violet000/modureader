@@ -2,7 +2,7 @@
 
 [English](CONTRIBUTING.md) · 简体中文 · [中文首页](README.md)
 
-核对版本：Modu 1.2.0，日期：2026-10-04。项目来源于 Anx Reader 和 ReadAny，请保留原作者归属。
+核对版本：小陈笔记 1.2.0，日期：2026-10-04。项目来源于 Anx Reader 和 ReadAny，请保留原作者归属。
 
 - 提交 Bug 前检查重复反馈，提供版本、系统、CPU 架构、复现步骤、预期及实际结果；新增功能使用功能建议模板。
 - 不上传 API Key、WebDAV 密码、私人书籍、对话或未脱敏日志。安全漏洞按[安全报告](SECURITY_zh.md)处理，不公开利用细节。

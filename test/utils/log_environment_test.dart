@@ -44,7 +44,7 @@ void main() {
       deviceEnvironment: () => throw StateError('PRIVATE-TOKEN'),
       webViewPackage: () => Completer<WebViewPackageInfo?>().future,
     );
-    expect(result, contains('Modu version: 1.3.3+10158'));
+    expect(result, contains('小陈笔记 version: 1.3.3+10158'));
     expect(result, contains('Device environment: unavailable'));
     expect(result, contains('Android WebView provider: unavailable'));
     expect(result, isNot(contains('PRIVATE')));

@@ -1,8 +1,8 @@
 # Example prompt pack
 
-This is a sample Modu plugin. It contains no executable code: `manifest.json`
+This is a sample 小陈笔记 plugin. It contains no executable code: `manifest.json`
 declares two `aiSkill` contributions, one `selectionAction`, and a small set of
-plugin settings. Modu materialises the prompt templates in the AI prompt picker
+plugin settings. 小陈笔记 materialises the prompt templates in the AI prompt picker
 and the selection action in the selection toolbar.
 
 ## Build and install

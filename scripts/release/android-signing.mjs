@@ -15,7 +15,7 @@ if (process.argv.includes('--generate')) {
   const password = crypto.randomBytes(36).toString('base64url');
   // Retain recovery credentials even if keytool fails; never regenerate silently.
   fs.writeFileSync(credentials, JSON.stringify({ alias: 'modu', password }), { mode: 0o600, flag: 'wx' });
-  execFileSync('keytool', ['-genkeypair', '-v', '-keystore', key, '-storetype', 'JKS', '-alias', 'modu', '-keyalg', 'RSA', '-keysize', '4096', '-validity', '10000', '-dname', 'CN=Modu, OU=Open Source, O=Modu', '-storepass:env', 'MODU_KEY_PASSWORD', '-keypass:env', 'MODU_KEY_PASSWORD'], { env: { ...process.env, MODU_KEY_PASSWORD: password }, stdio: ['ignore', 'ignore', 'pipe'] });
+  execFileSync('keytool', ['-genkeypair', '-v', '-keystore', key, '-storetype', 'JKS', '-alias', 'modu', '-keyalg', 'RSA', '-keysize', '4096', '-validity', '10000', '-dname', 'CN=小陈笔记, OU=Open Source, O=小陈笔记', '-storepass:env', 'MODU_KEY_PASSWORD', '-keypass:env', 'MODU_KEY_PASSWORD'], { env: { ...process.env, MODU_KEY_PASSWORD: password }, stdio: ['ignore', 'ignore', 'pipe'] });
   fs.chmodSync(key, 0o600);
   console.log('Dedicated Android signing identity created in ignored .release-secrets/. Back up this directory securely.');
 } else if (process.argv.includes('--from-env')) {

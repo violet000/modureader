@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="assets/icon/modu-app-icon.png" width="96" alt="Modu app icon">
+  <img src="assets/icon/modu-app-icon.png" width="96" alt="小陈笔记 app icon">
 </p>
-<h1 align="center">默读 · Modu Reader</h1>
+<h1 align="center">小陈笔记</h1>
 <p align="center">
   <a href="README.md">简体中文</a> · <a href="README_EN.md">English</a>
 </p>
@@ -186,9 +186,9 @@
 
 ## 插件开发
 
-插件源码、安装包与上架目录统一维护在 [Modu Plugin](https://github.com/sobranie2406/modu-plugin)。
+插件源码、安装包与上架目录统一维护在 [小陈笔记 Plugin](https://github.com/sobranie2406/modu-plugin)。
 
-- 功能、规则、依赖和配置随插件包独立更新。宿主提供稳定的通用接口，只有新增底层能力时才需要升级默读。
+- 功能、规则、依赖和配置随插件包独立更新。宿主提供稳定的通用接口，只有新增底层能力时才需要升级小陈笔记。
 - 经审核的插件可通过清单声明所需的更广权限和资源额度，按能力与版本检查启用。
 - 入口和设置集中在「插件」及插件详情；书籍、阅读菜单只显示插件声明的动作，停用或卸载时撤下。
 - 正式使用需审核上架并校验签名。本机「开发者调试」默认关闭，可临时调试未审核包，关闭调试或重启后清除。
@@ -197,7 +197,7 @@
 
 ## 参与项目
 
-欢迎提交问题、改进代码或完善文档。如果默读对你有帮助，也欢迎点一个 Star。
+欢迎提交问题、改进代码或完善文档。如果小陈笔记对你有帮助，也欢迎点一个 Star。
 
 [参与贡献](CONTRIBUTING_zh.md) · [构建与打包](docs/RELEASING.md) · [隐私说明](PRIVACY_zh.md) · [安全报告](SECURITY_zh.md)
 
@@ -205,13 +205,13 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=sobranie2406%2Fmodureader&amp;type=date&amp;theme=dark&amp;legend=top-left" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=sobranie2406%2Fmodureader&amp;type=date&amp;legend=top-left" />
-    <img alt="默读 GitHub Star 数量随时间变化的趋势图" src="https://api.star-history.com/chart?repos=sobranie2406%2Fmodureader&amp;type=date&amp;legend=top-left" width="800" />
+    <img alt="小陈笔记 GitHub Star 数量随时间变化的趋势图" src="https://api.star-history.com/chart?repos=sobranie2406%2Fmodureader&amp;type=date&amp;legend=top-left" width="800" />
   </picture>
 </a>
 
 ## 开源许可
 
-默读按 **GPL-3.0-or-later** 发布，基于 Anx Reader，并包含 ReadAny 的相关代码。原项目的版权与许可均予以保留。
+小陈笔记按 **GPL-3.0-or-later** 发布，基于 Anx Reader，并包含 ReadAny 的相关代码。原项目的版权与许可均予以保留。
 
 [项目许可](LICENSE) · [Anx Reader 许可](LICENSES/Anx-Reader-MIT.txt) · [ReadAny 许可](LICENSES/ReadAny-GPL-3.0-or-later.txt) · [上游与修改说明](UPSTREAM.md) · [第三方声明](NOTICE)
 

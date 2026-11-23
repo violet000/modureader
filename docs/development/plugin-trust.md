@@ -3,7 +3,7 @@
 Ordinary plugin installation and execution require the project-reviewed catalog. The official source
 is https://github.com/sobranie2406/modu-plugin. Repository commits are not admission:
 `catalog.source.json` is the readable review record, and `catalog.json` is its
-Ed25519-signed envelope. Modu embeds the verification public key, never the signing
+Ed25519-signed envelope. 小陈笔记 embeds the verification public key, never the signing
 key. Unsigned catalogs, altered payloads and unknown signing keys are rejected.
 
 普通安装只启用官方插件仓库中审核上架的版本。提交源码不等于上架；目录签名和包内每个文件都必须校验通过。
@@ -24,13 +24,13 @@ grant approval or change package hashes.
 
 ## Independent plugin updates
 
-A signed new plugin or version does not require a new Modu build when its host API,
+A signed new plugin or version does not require a new 小陈笔记 build when its host API,
 capabilities and minimum app version are already supported. New native capabilities
 or host APIs still require an app update. The catalog page shows that distinction
 before downloading. Installation remains an explicit preview-and-confirm action;
 refreshing a catalog neither installs nor executes code.
 
-兼容现有接口和权限的插件可独立更新；需要新增宿主能力时才更新默读。插件页自动加载目录，下载安装前显示权限，确认后安装。
+兼容现有接口和权限的插件可独立更新；需要新增宿主能力时才更新小陈笔记。插件页自动加载目录，下载安装前显示权限，确认后安装。
 
 ## Integrity and offline use
 

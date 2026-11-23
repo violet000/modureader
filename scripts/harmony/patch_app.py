@@ -1,7 +1,7 @@
 """Adapt audited newer Flutter APIs in the disposable Flutter OH checkout.
 
 Flutter OH 3.41.9 uses onReorder (destination before source removal), whereas
-Modu's normal Flutter uses onReorderItem (destination after source removal).
+小陈笔记's normal Flutter uses onReorderItem (destination after source removal).
 Do not rename blindly: downward moves need the one-slot adjustment. Remove
 this adapter after an audited Flutter OH upgrade supports onReorderItem.
 

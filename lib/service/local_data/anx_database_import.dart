@@ -122,7 +122,7 @@ class _AnxImportSource {
   String get databasePath => p.join(root, 'databases', 'app_database.db');
 }
 
-/// A read-only snapshot and validated import plan. No Modu data changes until
+/// A read-only snapshot and validated import plan. No 小陈笔记 data changes until
 /// apply(). Original ANX databases are never opened/migrated/written by SQLite.
 class AnxDatabaseImport {
   AnxDatabaseImport._(this.work, this._source, this.id);
@@ -298,7 +298,7 @@ class AnxDatabaseImport {
     }
     for (final row in tables['tb_groups']!) {
       final group = row['id'] as int;
-      if (group == 0) continue; // Keep Modu's own root.
+      if (group == 0) continue; // Keep 小陈笔记's own root.
       final parent = row['parent_id'] as int? ?? 0;
       if (!groups.containsKey(parent)) {
         throw const FormatException('ANX 文件夹关联无效');
@@ -536,7 +536,7 @@ class AnxDatabaseImport {
     try {
       if (p.equals(
           p.normalize(_source.databasePath), p.normalize(target.path))) {
-        throw const FormatException('不能将当前默读数据库作为 ANX 来源');
+        throw const FormatException('不能将当前小陈笔记数据库作为 ANX 来源');
       }
       final store = RowSyncStore(target);
       final before = await store.snapshot();
@@ -571,7 +571,7 @@ class AnxDatabaseImport {
         // Reuse only validated relative paths from the existing library.
         final folder = relative.startsWith('file/') ? 'file' : 'cover';
         if (_relative(relative, folder) != relative) {
-          throw const FormatException('默读资源路径无效');
+          throw const FormatException('小陈笔记资源路径无效');
         }
         final destination = File(p.join(targetRoot.path, relative));
         if (await destination.exists()) {
@@ -582,13 +582,13 @@ class AnxDatabaseImport {
           directory = Directory(p.join(directory.path, segment));
           if (await FileSystemEntity.type(directory.path, followLinks: false) ==
               FileSystemEntityType.link) {
-            throw const FormatException('默读资源目录链接越界');
+            throw const FormatException('小陈笔记资源目录链接越界');
           }
           await directory.create();
         }
         final realParent = await destination.parent.resolveSymbolicLinks();
         if (!p.isWithin(await targetRoot.resolveSymbolicLinks(), realParent)) {
-          throw const FormatException('默读资源目录链接越界');
+          throw const FormatException('小陈笔记资源目录链接越界');
         }
         await destination.create(exclusive: true);
         installed.add(destination);

@@ -1,6 +1,6 @@
 # Online narration failure recovery in 1.0.9
 
-> Historical record. This describes the 1.0.9 investigation and local verification, not a fresh test of Modu 1.2.0+10082. See the [documentation index](README.md) and the [current settings guide](SETTINGS.md). The documentation update did not rerun tests or reproduce the device issue.
+> Historical record. This describes the 1.0.9 investigation and local verification, not a fresh test of 小陈笔记 1.2.0+10082. See the [documentation index](README.md) and the [current settings guide](SETTINGS.md). The documentation update did not rerun tests or reproduce the device issue.
 
 ## What the logs establish
 

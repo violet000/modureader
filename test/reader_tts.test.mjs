@@ -136,8 +136,8 @@ test('all heading levels, TOC backlink headings, and inline local links are read
   assert.deepEqual(all(speech(doc)), ['标题1', '标题2', '标题3', '标题4', '标题5', '标题6', '正文有效文字结束。'])
 })
 test('only explicit note markers, hidden content and ruby annotations are excluded', () => {
-  const doc = documentFor('<h1><a href="#toc">标题</a></h1><p>你好<a epub:type="noteref" href="#n1">[1]</a>世界。</p><p><ruby>默读<rt>mo du</rt></ruby>继续。</p><p hidden>隐藏</p><script>bad()</script>')
-  assert.deepEqual(all(speech(doc)), ['标题', '你好世界。', '默读继续。'])
+  const doc = documentFor('<h1><a href="#toc">标题</a></h1><p>你好<a epub:type="noteref" href="#n1">[1]</a>世界。</p><p><ruby>小陈笔记<rt>mo du</rt></ruby>继续。</p><p hidden>隐藏</p><script>bad()</script>')
+  assert.deepEqual(all(speech(doc)), ['标题', '你好世界。', '小陈笔记继续。'])
 })
 test('starting from a visible range preserves the first heading and does not consume peek', () => {
   const doc = documentFor('<h1>第一章</h1><p>正文一句。</p><p>正文二句。</p>')

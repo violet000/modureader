@@ -48,7 +48,7 @@ Font downloads contact the font service, currently including fonts.anxcye.com. I
 
 Startup and manual checks share a source selector, initially GitHub. When GitHub is temporarily unavailable, a check can fall back to Gitee and change the subsequent download source with it. Check again after manually changing sources. Services receive IP addresses, normal request metadata and a fixed Modu-Updater identifier, not books, notes, account secrets or unique device identifiers. Failed checks do not interrupt reading.
 
-Packages download only after your request. Except for macOS browser downloads, in-app downloads require matching size and SHA-256 checks. Android also checks package name, signature and version and requests system installation confirmation; it does not install silently. Modu cannot confirm completion or verification of a macOS browser download; compare the release checksum yourself.
+Packages download only after your request. Except for macOS browser downloads, in-app downloads require matching size and SHA-256 checks. Android also checks package name, signature and version and requests system installation confirmation; it does not install silently. 小陈笔记 cannot confirm completion or verification of a macOS browser download; compare the release checksum yourself.
 
 ## WebDAV and remote libraries
 
@@ -85,7 +85,7 @@ Bug reports exclude crash diagnostics by default. Opting in allows you to previe
 - **Windows:** one small stack summary for an unhandled native exception, recovered on the next launch; no minidump is generated.
 - **Linux:** only after opt-in, coredumpctl info reads the latest record for this app from the last seven days, with a 256 KiB read cap and five-second timeout. Only signals and stack offsets are extracted. No debugger, core extraction, scanning of other apps, enabling system dumps or administrator request occurs. Raw system output is neither saved nor included in reports.
 
-Native summaries contain numeric error codes, available times/versions and up to 32 frames of public module names, module-relative offsets and binary version identifiers. They exclude device UUIDs, arbitrary function names, exception payload text, registers and memory. Apple reports may arrive late; Linux depends on system configuration, retention and permissions. Force-stops, resource exhaustion or damaged stacks may leave no record. An unconfirmed previous session does not prove a crash; a missing record does not prove the absence of one. Modu does not change operating-system diagnostic retention settings.
+Native summaries contain numeric error codes, available times/versions and up to 32 frames of public module names, module-relative offsets and binary version identifiers. They exclude device UUIDs, arbitrary function names, exception payload text, registers and memory. Apple reports may arrive late; Linux depends on system configuration, retention and permissions. Force-stops, resource exhaustion or damaged stacks may leave no record. An unconfirmed previous session does not prove a crash; a missing record does not prove the absence of one. 小陈笔记 does not change operating-system diagnostic retention settings.
 
 Optional environment details contain available OS version, model, architecture, memory and app version, not device/host names, serial numbers, IMEI, Android ID, hardware UUID or system product ID.
 

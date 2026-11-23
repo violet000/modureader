@@ -24,8 +24,8 @@ void main() {
         home: Builder(builder: (context) {
           deletion = ModuStrings.format(
               context,
-              '仅删除默读中的“{name}”及其查询索引，不删除原始字典文件。',
-              'Remove “{name}” and its lookup index from Modu only. Original source files are not deleted.',
+              '仅删除小陈笔记中的“{name}”及其查询索引，不删除原始字典文件。',
+              'Remove “{name}” and its lookup index from 小陈笔记 only. Original source files are not deleted.',
               values: {'name': 'My 字典 {count}'});
           progress = ModuStrings.format(context, '正在处理字典，已导入 {count} 条…',
               'Processing dictionary: {count} entries…',

@@ -1,7 +1,7 @@
-# Modu 官方 QQ 群助手
+# 小陈笔记 官方 QQ 群助手
 
 复用现有 `modureader-community-bot` Cloudflare Worker、免费 Workers AI 和 D1，保留 Telegram 服务。
-QQ 群：**1009765685**。机器人：**Modu 默读助手**，AppID **1905740672**。
+QQ 群：**1009765685**。机器人：**小陈笔记 小陈笔记助手**，AppID **1905740672**。
 
 ## 运行行为
 
@@ -23,7 +23,7 @@ QQ 群：**1009765685**。机器人：**Modu 默读助手**，AppID **1905740672
 3. 从已验证的 `GROUP_ADD_ROBOT` 回调中取得实际群 OpenID，核对来自目标群后设置 `QQ_GROUP_OPENID`。数字 QQ 群号不能替代 OpenID。
 4. 按群主授权在群内机器人设置中允许全部文字消息和主动发言，再设置 `QQ_SUMMARIES_ENABLED=true`、`QQ_RELEASE_PUSH_ENABLED=true`。
 5. 群主/管理员发送 `/push-test`，以实际无 `msg_id` 的主动发送成功为准，才启用定时与版本推送。`/summary-test` 验证当前阶段摘要；`/permissions` 只读检查官方提供的管理接口。
-6. 运行 `Modu QQ Release` 的手动工作流，选择已有发布标签和 `test_notice=true`。通知标为测试，使用独立的去重记录，不会改变正式通知状态。
+6. 运行 `小陈笔记 QQ Release` 的手动工作流，选择已有发布标签和 `test_notice=true`。通知标为测试，使用独立的去重记录，不会改变正式通知状态。
 
 `GET /qq/status` 仅返回启用状态、时间及数值错误码，不暴露群 OpenID、凭据、成员或聊天文本。
 

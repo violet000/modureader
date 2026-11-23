@@ -165,8 +165,8 @@ class _AboutSettingsState extends State<AboutSettings> {
                         'Open-source projects and credits')),
                     subtitle: Text(ModuStrings.text(
                         context,
-                        '默读基于 Anx Reader 与 ReadAny 开发，\n以 GPL-3.0-or-later 发布，非上游官方发行版。',
-                        'Modu is based on Anx Reader and ReadAny.\nReleased under GPL-3.0-or-later; not an official upstream release.')),
+                        '小陈笔记基于 Anx Reader 与 ReadAny 开发，\n以 GPL-3.0-or-later 发布，非上游官方发行版。',
+                        '小陈笔记 is based on Anx Reader and ReadAny.\nReleased under GPL-3.0-or-later; not an official upstream release.')),
                     isThreeLine: true,
                     onTap: () => launchUrl(
                       Uri.parse('https://github.com/sobranie2406/modureader'),

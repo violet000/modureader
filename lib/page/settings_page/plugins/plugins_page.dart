@@ -383,7 +383,7 @@ class _PluginSettingsState extends State<PluginSettings> {
                           : () => _installFromCatalog(entry),
                       child: Text(entry.requiresAppUpdate(_host.appVersion)
                           ? ModuStrings.text(
-                              context, '更新默读后可用', 'Update Modu to use')
+                              context, '更新小陈笔记后可用', 'Update 小陈笔记 to use')
                           : _host.byId(entry.id)?.version == entry.version &&
                                   _host.byId(entry.id)?.isUsable == true
                               ? ModuStrings.text(context, '已安装', 'Installed')
@@ -665,8 +665,8 @@ String pluginErrorText(BuildContext context, Object error) {
           context, '插件文件校验失败，请重试。', 'Plugin verification failed. Try again.'),
       'size' => ModuStrings.text(
           context, '插件文件超过大小限制。', 'The plugin file is too large.'),
-      'unapproved' => ModuStrings.text(context, '请更新默读后再安装此插件。',
-          'Update Modu before installing this plugin.'),
+      'unapproved' => ModuStrings.text(context, '请更新小陈笔记后再安装此插件。',
+          'Update 小陈笔记 before installing this plugin.'),
       'catalog' => ModuStrings.text(context, '插件目录校验失败，请稍后重试。',
           'The plugin catalog could not be verified. Try again later.'),
       _ => ModuStrings.text(context, '无法连接插件仓库，请重试。',
@@ -677,7 +677,7 @@ String pluginErrorText(BuildContext context, Object error) {
   final zh = Localizations.localeOf(context).languageCode == 'zh';
   final reason = switch (error.code) {
     PluginErrorCode.untrustedPackage =>
-      zh ? '插件不在 Modu 项目审核清单中，或文件已被修改。请使用项目提供的已审核版本，不支持第三方包。' : error.message,
+      zh ? '插件不在 小陈笔记 项目审核清单中，或文件已被修改。请使用项目提供的已审核版本，不支持第三方包。' : error.message,
     PluginErrorCode.invalidPackage => zh ? '文件不是有效的插件包（zip）。' : error.message,
     PluginErrorCode.packageTooLarge => zh ? '插件包超过大小限制。' : error.message,
     PluginErrorCode.tooManyEntries => zh ? '插件包内文件过多。' : error.message,

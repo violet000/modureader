@@ -1,8 +1,8 @@
 # Scanned-document development and release status
 
-## Current: Modu 1.2.0+10082
+## Current: 小陈笔记 1.2.0+10082
 
-This section describes the stable Modu release, using the publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`. Uncommitted application changes are not evidence for this guide. The dated development records below are translated in full, preserving their milestones and test results; no tests were run as part of this documentation update.
+This section describes the stable 小陈笔记 release, using the publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`. Uncommitted application changes are not evidence for this guide. The dated development records below are translated in full, preserving their milestones and test results; no tests were run as part of this documentation update.
 
 The 2026-10-03 cancellation of OCR, reflow and extraction was an earlier scope decision. Later development restored and implemented on-demand local OCR, reader reflow and extraction before the stable release. Earlier statements such as “cancelled”, “pending”, “Preview 3 only” and “not packaged or released” describe their recorded stages, not the current release. Whole-book OCR, page-image export and the proposed comprehensive scanned-document integration project are not implied by that restoration.
 
@@ -48,8 +48,8 @@ The following specification and records are translated in full from the developm
 
 - On 2026-10-03, the user confirmed “development is now allowed”; the baseline was published `android-1.1.12-preview.3` (`e13dd334`). Code/development-document changes were authorized, without packaging, publishing or installation.
 - The reverted selection/page-turn change was not restored. Its separate issue record noted that the old `book.js` bottom-of-page `selectionchange` auto-turn timer did not finish on release/cancel; local Hanvon snapshots also showed selections crossing columns. The two snapshots could not yet establish a complete single event sequence.
-- Reference: UI and read-only interface research on the USB-connected Hanvon N10Pro built-in reader `hanvon.aebr.hvreader` (2026-10-03). Entry points, groups, order and mode interactions informed Modu's own components; no Hanvon APK, proprietary .so or decompiled source was introduced.
-- Responsibilities: this task maintained source, documents and automation; the local task collected logs and performed Hanvon device acceptance. The menu observations below do not establish Modu implementation or acceptance.
+- Reference: UI and read-only interface research on the USB-connected Hanvon N10Pro built-in reader `hanvon.aebr.hvreader` (2026-10-03). Entry points, groups, order and mode interactions informed 小陈笔记's own components; no Hanvon APK, proprietary .so or decompiled source was introduced.
+- Responsibilities: this task maintained source, documents and automation; the local task collected logs and performed Hanvon device acceptance. The menu observations below do not establish 小陈笔记 implementation or acceptance.
 
 ### Scope at the restoration stage: on-demand local OCR and extraction (2026-10-04)
 

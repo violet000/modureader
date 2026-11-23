@@ -70,7 +70,7 @@ body:
           [e.g. Android]
         - OS: | 操作系统：
           [e.g. Android13(MIUI14)]
-        - Modu Version: | 默读版本：
+        - 小陈笔记 Version: | 小陈笔记版本：
           [e.g. 1.2.0+10082]
         - Device: | 设备：
           [e.g. Xiaomi 13]

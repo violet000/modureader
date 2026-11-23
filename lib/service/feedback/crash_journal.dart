@@ -143,7 +143,7 @@ class CrashJournal {
       final version = event['version'];
       if (version is String &&
           RegExp(r'^[a-zA-Z0-9.+-]{1,60}$').hasMatch(version)) {
-        out.writeln('Modu=$version');
+        out.writeln('小陈笔记=$version');
       }
       final type = event['type'];
       if (event['event'] == 'reader_stage' &&

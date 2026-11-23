@@ -4,7 +4,7 @@ import 'package:modu_reader/config/app_identity.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('Android manifest uses Modu platform identity', () {
+  test('Android manifest uses 小陈笔记 platform identity', () {
     final buildGradle = File('android/app/build.gradle').readAsStringSync();
     final activity = File(
       'android/app/src/main/kotlin/com/modu/reader/MainActivity.kt',
@@ -27,7 +27,7 @@ void main() {
     );
   });
 
-  test('macOS config uses Modu platform identity', () {
+  test('macOS config uses 小陈笔记 platform identity', () {
     final appInfo =
         File('macos/Runner/Configs/AppInfo.xcconfig').readAsStringSync();
 
@@ -47,7 +47,7 @@ void main() {
     expect(project, isNot(contains('Anx Reader.app')));
   });
 
-  test('launch icons and user-facing surfaces use Modu branding', () {
+  test('launch icons and user-facing surfaces use 小陈笔记 branding', () {
     final macIcon = File(
       'macos/Runner/Assets.xcassets/AppIcon.appiconset/1024-mac.png',
     );

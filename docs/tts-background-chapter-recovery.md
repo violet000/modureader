@@ -1,6 +1,6 @@
 # Recovery from chapter waits while locked (2026-09-25)
 
-> Historical record. This preserves the September 25 investigation and September 26 follow-up, including the original verification limits. See the [documentation index](README.md) and the [current settings guide](SETTINGS.md) for Modu 1.2.0+10082. This documentation update did not rerun tests, build packages or retest lock-screen playback.
+> Historical record. This preserves the September 25 investigation and September 26 follow-up, including the original verification limits. See the [documentation index](README.md) and the [current settings guide](SETTINGS.md) for 小陈笔记 1.2.0+10082. This documentation update did not rerun tests, build packages or retest lock-screen playback.
 
 ## Report and diagnostic limits
 

@@ -25,7 +25,7 @@ void main() {
         {'experimentalPluginsEnabled': true});
     await Prefs().initPrefs();
     PackageInfo.setMockInitialValues(
-        appName: 'Modu',
+        appName: '小陈笔记',
         packageName: 'com.modu.reader',
         version: '1.3.10',
         buildNumber: '10179',

@@ -88,7 +88,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <!-- Accept local files only. Registering http/https here makes
-                     Modu a candidate browser/download handler. Keep the broad
+                     小陈笔记 a candidate browser/download handler. Keep the broad
                      MIME match for file providers that mislabel ebook types;
                      the importer validates supported file extensions. -->
                 <data android:mimeType="*/*" />

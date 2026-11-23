@@ -2,7 +2,7 @@
 
 [English](SECURITY.md) · 简体中文 · [中文首页](README.md)
 
-核对版本：Modu 1.2.0，日期：2026-10-04。
+核对版本：小陈笔记 1.2.0，日期：2026-10-04。
 
 请使用[最新发布版本](https://github.com/sobranie2406/modureader/releases/latest)并保留本地备份。项目尚未接受独立安全审计；正式版标签不等于安全认证。
 

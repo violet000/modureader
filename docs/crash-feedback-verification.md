@@ -1,6 +1,6 @@
 # Optional crash diagnostics and device environment verification
 
-> Historical record. This preserves the two implementation-verification stages and their original results and limitations, including older feedback labels and Beta3 references. See the [documentation index](README.md) and the [current settings guide](SETTINGS.md) for Modu 1.2.0+10082, and [issue triage](issue-triage.md) for the current feedback entry. This documentation update did not rerun tests, build apps, inspect real crash records or reproduce device crashes.
+> Historical record. This preserves the two implementation-verification stages and their original results and limitations, including older feedback labels and Beta3 references. See the [documentation index](README.md) and the [current settings guide](SETTINGS.md) for 小陈笔记 1.2.0+10082, and [issue triage](issue-triage.md) for the current feedback entry. This documentation update did not rerun tests, build apps, inspect real crash records or reproduce device crashes.
 
 ## Workflow recorded at the time
 
@@ -8,7 +8,7 @@ Settings → Report a bug → describe the problem → optionally select “Incl
 
 Logs were excluded by default. Deselecting removed already-loaded logs. During asynchronous loading, submission/copying of an incomplete report was disabled. Loading failure could be retried, and ordinary feedback remained available. Reports were not uploaded automatically and logs were not placed in the URL.
 
-“Include device and runtime environment” independently controlled platform version, device model, CPU architecture, available memory-capacity information and Modu version/build. Fields varied by platform; missing fields were not guessed. Hostnames, user-assigned device names, accounts, serial numbers, IMEI, Android ID, device UUID, product ID and system build fingerprints were not exported.
+“Include device and runtime environment” independently controlled platform version, device model, CPU architecture, available memory-capacity information and 小陈笔记 version/build. Fields varied by platform; missing fields were not guessed. Hostnames, user-assigned device names, accounts, serial numbers, IMEI, Android ID, device UUID, product ID and system build fingerprints were not exported.
 
 ## Cross-platform and system capability boundaries
 

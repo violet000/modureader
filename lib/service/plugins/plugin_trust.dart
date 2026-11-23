@@ -209,6 +209,6 @@ class PluginTrust {
   static const _untrusted = PluginInstallError(
     PluginErrorCode.untrustedPackage,
     'This plugin is not in the project-reviewed catalog, or its files have changed. '
-    'Install an approved release from the Modu project. Third-party packages cannot be enabled.',
+    'Install an approved release from the 小陈笔记 project. Third-party packages cannot be enabled.',
   );
 }

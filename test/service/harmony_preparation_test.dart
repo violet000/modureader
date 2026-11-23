@@ -81,12 +81,12 @@ void main() {
         'federated-ohos');
   });
 
-  test('Harmony app identity is Modu and contains no inherited cloud client ID',
+  test('Harmony app identity is 小陈笔记 and contains no inherited cloud client ID',
       () {
     final app =
         jsonDecode(File('ohos/AppScope/app.json5').readAsStringSync())['app'];
     expect(app['bundleName'], 'com.modu.reader');
-    expect(app['vendor'], 'Modu');
+    expect(app['vendor'], '小陈笔记');
     expect(app['versionName'], isNot('1.0.0'));
     expect(File('ohos/entry/src/main/module.json5').readAsStringSync(),
         isNot(contains('client_id')));

@@ -33,7 +33,7 @@ void main() {
   test('uses installed test build rather than bundled source version',
       () async {
     PackageInfo.setMockInitialValues(
-        appName: 'Modu',
+        appName: '小陈笔记',
         packageName: 'com.modu.reader',
         version: '1.1.6-test.1',
         buildNumber: '10048',

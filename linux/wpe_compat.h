@@ -5,7 +5,7 @@
 
 // Resolve this optional API at runtime so the same source supports WPE 2.48
 // and newer releases. FALSE is the documented "no meta theme color" outcome;
-// this does not change Modu's own reader colors, layout, or JavaScript bridge.
+// this does not change 小陈笔记's own reader colors, layout, or JavaScript bridge.
 static inline gboolean modu_webkit_web_view_get_theme_color(
     WebKitWebView* view, WebKitColor* color) {
   using GetThemeColor = gboolean (*)(WebKitWebView*, WebKitColor*);

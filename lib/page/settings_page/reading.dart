@@ -59,9 +59,9 @@ class _ReadingSettingsState extends ConsumerState<ReadingSettings> {
                 content: Text(ModuStrings.text(
                     context,
                     Platform.isIOS
-                        ? '在文件中选择书籍，点“共享”或“打开方式”，选择默读。'
-                        : '在系统文件管理器中选择书籍，将打开方式设为默读。外部打开会导入副本；要原位读取，请在默读中点加号选择原文件。',
-                    'Choose Modu from the file manager’s Open with menu. External opening imports a copy; use the add button in Modu to link an original.')),
+                        ? '在文件中选择书籍，点“共享”或“打开方式”，选择小陈笔记。'
+                        : '在系统文件管理器中选择书籍，将打开方式设为小陈笔记。外部打开会导入副本；要原位读取，请在小陈笔记中点加号选择原文件。',
+                    'Choose 小陈笔记 from the file manager’s Open with menu. External opening imports a copy; use the add button in 小陈笔记 to link an original.')),
                 actions: [
                   if (Platform.isAndroid)
                     TextButton(

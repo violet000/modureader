@@ -19,7 +19,7 @@ Version: 1.0.7-preview.1+10019. Based on 1.0.6, this release provided only an An
 - Full Flutter suite: 667 passed, 5 skipped, including system and online TTS chapter-end continuation and pause/resume regressions.
 - Synthetic books in actual Chromium and WebKit browsers: initial chapter 2 was not pulled backward by preceding-chapter preloading; loading did not loop while stationary. After scrolling to chapter 5, TTS still advanced through the chapter 2 title, two body sentences and the chapter 3 title. A distant contents jump retained the original narration document, with no reload on return.
 - Chromium: forward to the book end, backward to the beginning, the 9-chapter window limit, switching between pagination/scrolling and current-document reuse; native scrolling checked with the mouse wheel.
-- Static package validation passed for build number 10019, Modu's original release signature, ARM64-only native libraries, 16 KB page alignment, ONNX JNI entry points, four bundled models and reader-code consistency. Release/project policy tests: 40 passed.
+- Static package validation passed for build number 10019, 小陈笔记's original release signature, ARM64-only native libraries, 16 KB page alignment, ONNX JNI entry points, four bundled models and reader-code consistency. Release/project policy tests: 40 passed.
 
 No Android device was connected in this round. Device-specific frame rates, long-running memory peaks and real voice playback were not accepted. Browser and simulated TTS cursor success did not guarantee flawless operation on every device/voice provider.
 
@@ -27,7 +27,7 @@ Very large chapters, slow image decoding, rapid repeated navigation or first-tim
 
 ## Suggested tests
 
-Back up before upgrading. The package used Modu's original dedicated signature, allowing installation over the existing app while preserving the library and settings. Open a book, set page turning to scrolling, and test:
+Back up before upgrading. The package used 小陈笔记's original dedicated signature, allowing installation over the existing app while preserving the library and settings. Open a book, set page turning to scrolling, and test:
 
 1. Scroll continuously forward/backward in a novel with short chapters; check for repetition, skipped chapters and sudden position changes.
 2. Start narration at a chapter end; check the next chapter's title and first sentence. Scroll manually into a later chapter while playing, then pause/resume.

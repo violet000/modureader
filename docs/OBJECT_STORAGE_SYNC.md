@@ -1,6 +1,6 @@
 # Object storage synchronization
 
-Implementation guide for Modu 1.2.2. Provider presets do not imply live acceptance testing against every provider.
+Implementation guide for 小陈笔记 1.2.2. Provider presets do not imply live acceptance testing against every provider.
 
 ## Existing WebDAV accounts
 
@@ -15,7 +15,7 @@ WebDAV remains the default, including installations with no saved backend choice
 5. Choose **Test connection**. The test lists the configured prefix and creates, downloads, verifies and deletes a uniquely named probe beneath it. It never clears a bucket or tests by overwriting a library database.
 6. Save, then enable cloud sync. Configure other devices with the same bucket and prefix. Keep your original local books until all devices have synchronized successfully.
 
-WebDAV and object-store credentials are saved separately. Explicitly switching back restores the previous WebDAV configuration; switching does not copy data between clouds. Download remote-only books before moving to a different backend, and back up first. Do not point unrelated apps at the same prefix: ReadAny and Readest database formats are not interchangeable with Modu.
+WebDAV and object-store credentials are saved separately. Explicitly switching back restores the previous WebDAV configuration; switching does not copy data between clouds. Download remote-only books before moving to a different backend, and back up first. Do not point unrelated apps at the same prefix: ReadAny and Readest database formats are not interchangeable with 小陈笔记.
 
 ## Provider presets
 
@@ -41,9 +41,9 @@ Automatic sync, Wi-Fi-only and **Sync service settings, API keys and passwords**
 
 ## Permissions and data protection
 
-- Create a private bucket yourself. Modu does not create buckets or change their public-access policy. Give the key bucket-list permission limited to the chosen prefix plus object read, write and delete permission beneath that prefix. Public access is unnecessary.
+- Create a private bucket yourself. 小陈笔记 does not create buckets or change their public-access policy. Give the key bucket-list permission limited to the chosen prefix plus object read, write and delete permission beneath that prefix. Public access is unnecessary.
 - Configuration is stored in local preferences, not an OS keychain. Protect device access. Default settings backups omit credentials; explicitly including them creates recoverable credentials. Object-store keys are not propagated through AI-settings sync.
-- Books and records are not automatically encrypted at rest by Modu. Enable provider-side encryption if needed. The separate encrypted service-settings feature does not encrypt the entire library.
+- Books and records are not automatically encrypted at rest by 小陈笔记. Enable provider-side encryption if needed. The separate encrypted service-settings feature does not encrypt the entire library.
 - S3 synchronization uses content-addressed immutable record batches with read-back verification and the existing merge/conflict rules. It does not plain-PUT a shared `database8.db`. Published batches are compacted through the existing verified-log mechanism.
 - Listing errors, missing continuation tokens and access failures are not treated as an empty cloud library. Failed downloads leave existing local files intact. Signed requests do not follow redirects; fix the endpoint instead of forwarding credentials to a new host.
 - Uploads stream from disk, with payload hashing before transfer. Maximum single file size is 5 GiB; multipart upload/resume is not implemented. HTTP 429/503 triggers in-session cooldown, honoring Retry-After; this is not a persistent cross-device quota.

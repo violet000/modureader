@@ -134,7 +134,7 @@ void main() {
           expect(exported, endsWith(text));
         }
         expect(exported, contains('Current export environment'));
-        expect(exported, contains('Modu version:'));
+        expect(exported, contains('小陈笔记 version:'));
         expect(exported, contains('Device environment:'));
         expect(find.textContaining('保存成功'), findsOneWidget);
       } else if (outcome == 'error') {

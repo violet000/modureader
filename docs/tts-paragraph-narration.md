@@ -1,6 +1,6 @@
 # Online narration in paragraph groups
 
-Current guide for Modu 1.2.0+10082. See the [documentation index](README.md) and [settings guide](SETTINGS.md).
+Current guide for 小陈笔记 1.2.0+10082. See the [documentation index](README.md) and [settings guide](SETTINGS.md).
 
 ## Behavior
 

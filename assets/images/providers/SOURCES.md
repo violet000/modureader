@@ -1,10 +1,10 @@
 # AI service icons
 
-Reviewed for Modu 1.2.0 on 2026-10-04. Asset retrieval dates below remain historical, not a claim of a new download. See [upstream attribution](../../../UPSTREAM.md).
+Reviewed for 小陈笔记 1.2.0 on 2026-10-04. Asset retrieval dates below remain historical, not a claim of a new download. See [upstream attribution](../../../UPSTREAM.md).
 
 Retrieved from official websites on 2026-09-11. These marks identify compatible
-services; Modu is not endorsed by or affiliated with their owners. Trademark and
-artwork rights remain with the respective owners; Modu's source-code license does
+services; 小陈笔记 is not endorsed by or affiliated with their owners. Trademark and
+artwork rights remain with the respective owners; 小陈笔记's source-code license does
 not grant rights to these marks. Icons retain their original colours and shapes.
 
 No favicon aggregation service is used. Images ship with the app; opening model

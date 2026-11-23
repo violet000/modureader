@@ -51,10 +51,10 @@ void main() {
     description: '无法打开\n第二行 + %',
     steps: '1. 导入\n2. 点击',
     expected: '显示内容',
-    environment: 'Modu: 0.1.0-beta.1+6326\nPlatform: macOS',
+    environment: '小陈笔记: 0.1.0-beta.1+6326\nPlatform: macOS',
   );
 
-  test('prefills the Modu YAML form with lossless encoded text', () {
+  test('prefills the 小陈笔记 YAML form with lossless encoded text', () {
     final uri = Uri.parse(report.prefilledUri.toString());
     expect(uri.scheme, 'https');
     expect(uri.host, 'github.com');
@@ -153,8 +153,8 @@ void main() {
         title: 'Idea',
         problem: 'Need',
         solution: 'Change',
-        environment: 'Modu 1.1.9 / macOS');
-    expect(specific.markdown, contains('Modu 1.1.9 / macOS'));
+        environment: '小陈笔记 1.1.9 / macOS');
+    expect(specific.markdown, contains('小陈笔记 1.1.9 / macOS'));
     expect(specific.prefilledUri.queryParameters['body'],
         contains(specific.environment!));
   });
@@ -186,7 +186,7 @@ void main() {
   });
 
   test(
-      'duplicate search retains punctuation and never leaves the Modu repository',
+      'duplicate search retains punctuation and never leaves the 小陈笔记 repository',
       () {
     expect(FeedbackReport.searchUri('  '), BugReport.issuesUri);
     final search =

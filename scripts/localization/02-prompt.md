@@ -1,4 +1,4 @@
-# Modu localization translation instructions
+# 小陈笔记 localization translation instructions
 
 Maintenance baseline: **1.2.0+10082**, reviewed 2026-10-04. Match actual catalog keys and current UI, not historical prompts. User-edited prompts are preserved, and settings backups store overrides rather than redundant built-in defaults.
 
@@ -6,7 +6,7 @@ Translate the `lib/l10n/modu_source.json` application catalog for the assigned l
 
 ## Analysis and shared context
 
-Audience: everyday ebook readers. Style: natural, concise technical UI language. Use a consistent vocabulary for settings, reading, speech synthesis, selection toolbar, highlights, backups, WebDAV synchronization and AI prompts. Preserve Modu, ANX Reader, OpenAI, MiMo, GitHub, Gitee, API, CSS, JSON, Markdown, IPA, URLs, version numbers and technical identifiers. Avoid unnecessary annotations in UI labels.
+Audience: everyday ebook readers. Style: natural, concise technical UI language. Use a consistent vocabulary for settings, reading, speech synthesis, selection toolbar, highlights, backups, WebDAV synchronization and AI prompts. Preserve 小陈笔记, ANX Reader, OpenAI, MiMo, GitHub, Gitee, API, CSS, JSON, Markdown, IPA, URLs, version numbers and technical identifiers. Avoid unnecessary annotations in UI labels.
 
 Each source entry has Chinese `zh` and/or English `en`. Prefer available English for UI terms, using Chinese to disambiguate; preserve all substantive requirements of long prompts. Translate the complete prompt, not just its first sentence. Users can edit prompts, but bundled defaults must display in their chosen language. Do not remove safety, no-spoiler, dictionary scope, citation, evidence or formatting requirements.
 

@@ -173,8 +173,8 @@ class _DictionarySettingsState extends State<DictionarySettings> {
                     ModuStrings.text(context, '删除字典？', 'Delete dictionary?')),
                 content: Text(ModuStrings.format(
                     context,
-                    '仅删除默读中的“{name}”及其查询索引，不删除原始字典文件。',
-                    'Remove “{name}” and its lookup index from Modu only. Original source files are not deleted.',
+                    '仅删除小陈笔记中的“{name}”及其查询索引，不删除原始字典文件。',
+                    'Remove “{name}” and its lookup index from 小陈笔记 only. Original source files are not deleted.',
                     values: {'name': item.name})),
                 actions: [
                   TextButton(

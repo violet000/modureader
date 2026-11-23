@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Please check the [documentation](https://github.com/sobranie2406/modureader/blob/main/docs/README.md) first. Describe your question and include the Modu version/platform if relevant.
+Please check the [documentation](https://github.com/sobranie2406/modureader/blob/main/docs/README.md) first. Describe your question and include the 小陈笔记 version/platform if relevant.
 请先查阅文档，描述问题；与平台相关时注明版本和系统。
 
 Use the Bug report or Feature request template for those categories. Do not share credentials, private books, complete databases or unredacted logs.

@@ -284,7 +284,7 @@ void main() {
     expect((await target.query('tb_books')).length, 1);
   });
 
-  test('target asset directory symlink cannot write outside Modu', () async {
+  test('target asset directory symlink cannot write outside 小陈笔记', () async {
     final outside = await Directory('${temp.path}/outside').create();
     await Link('${targetRoot.path}/file').create(outside.path);
     final plan = await prepare(await backup());

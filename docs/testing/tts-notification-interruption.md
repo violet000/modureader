@@ -15,7 +15,7 @@
 
 `node --test test/android_tts_notification.test.mjs` checked build wiring and the silent policy. After APK generation, the generated Java and actual device notification state still needed inspection; source assertions alone could not establish device success.
 
-Device procedure: start continuous narration separately with system narration and an online engine. Keep the screen on, receive a real SMS, and confirm that the SMS sounds once and narration continues after a brief pause. Pause manually during the SMS interruption and confirm there is no automatic resumption. Then check locked-screen pause/play and cross-segment narration. Inspect only Modu media state and logs, without reading SMS contents or other apps' data.
+Device procedure: start continuous narration separately with system narration and an online engine. Keep the screen on, receive a real SMS, and confirm that the SMS sounds once and narration continues after a brief pause. Pause manually during the SMS interruption and confirm there is no automatic resumption. Then check locked-screen pause/play and cross-segment narration. Inspect only 小陈笔记 media state and logs, without reading SMS contents or other apps' data.
 
 References: [Android audio focus](https://developer.android.com/media/optimize/audio-focus), [NotificationCompat.Builder](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder).
 
@@ -24,7 +24,7 @@ References: [Android audio focus](https://developer.android.com/media/optimize/a
 - Honor LGE-AN10 / Android 15; installed `1.1.6-test.sms+10051` over the existing app with data preserved.
 - Automation: narration tests 133 passed, 1 skipped; Android native policy/wiring tests 5 passed.
 - Compiled audio_service Java bytecode was inspected for `setSilent`, `setOnlyAlertOnce` and channel-silencing settings.
-- During MiMo narration of synthetic text on the real device, a separate test tool requested `GAIN_TRANSIENT_MAY_DUCK` once and released it after 1800 ms. Media-state samples showed PLAYING → PAUSED → PLAYING, with one pause/resume. Focus history showed no repeated focus request by Modu during automatic resumption.
-- Actual Modu notification records: `sound=null`, `vibrate=null`, `defaults=0`, `ONLY_ALERT_ONCE`, `groupKey=silent`, `isNoisy=false`, `mIsInterruptive=false`.
+- During MiMo narration of synthetic text on the real device, a separate test tool requested `GAIN_TRANSIENT_MAY_DUCK` once and released it after 1800 ms. Media-state samples showed PLAYING → PAUSED → PLAYING, with one pause/resume. Focus history showed no repeated focus request by 小陈笔记 during automatic resumption.
+- Actual 小陈笔记 notification records: `sound=null`, `vibrate=null`, `defaults=0`, `ONLY_ALERT_ONCE`, `groupKey=silent`, `isNoisy=false`, `mIsInterruptive=false`.
 - The user requested the end of testing. Manual confirmation of real SMS sound and the same device scenario with the system narration engine were not completed. The original report's repeated sound could not therefore be claimed resolved on the device.
-- Test narration was stopped and the separate test tool uninstalled. The fixed Modu build and test book were retained; existing user content was not deleted.
+- Test narration was stopped and the separate test tool uninstalled. The fixed 小陈笔记 build and test book were retained; existing user content was not deleted.

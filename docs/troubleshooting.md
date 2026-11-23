@@ -1,6 +1,6 @@
-# Modu troubleshooting
+# 小陈笔记 troubleshooting
 
-Current guide for Modu 1.2.0+10082. See the [documentation index](README.md), [settings guide](SETTINGS.md) and [installation guidance](RELEASING.md).
+Current guide for 小陈笔记 1.2.0+10082. See the [documentation index](README.md), [settings guide](SETTINGS.md) and [installation guidance](RELEASING.md).
 
 ## Import or reading problems
 

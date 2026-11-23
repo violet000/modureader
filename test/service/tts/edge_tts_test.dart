@@ -124,7 +124,7 @@ void main() {
       for (final name in ['zh-CN-XiaoxiaoNeural', 'zh-CN-YunxiNeural']) {
         final voice = voices.firstWhere((item) => item.shortName == name);
         final audio = await client.synthesize(
-          '默读 Edge 语音测试。',
+          '小陈笔记 Edge 语音测试。',
           voice: voice.shortName,
         );
         expect(audio.length, greaterThan(1000), reason: name);

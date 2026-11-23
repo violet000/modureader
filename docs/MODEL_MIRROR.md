@@ -1,14 +1,14 @@
 # On-demand model mirrors
 
-## Current: Modu 1.2.0+10082
+## Current: 小陈笔记 1.2.0+10082
 
-This guide follows the Modu publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`. Model weights are optional downloads, not installer assets. The dated checks below are recorded historical results; no new downloads, inference runs or tests were performed for this documentation update.
+This guide follows the 小陈笔记 publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`. Model weights are optional downloads, not installer assets. The dated checks below are recorded historical results; no new downloads, inference runs or tests were performed for this documentation update.
 
 Public repository: [sobranie2406/modu-models](https://gitee.com/sobranie2406/modu-models). Embedding release: [models-v1](https://gitee.com/sobranie2406/modu-models/releases/tag/models-v1).
 
 On 2026-09-16, nine model/tokenizer assets, three licenses, a manifest and checksum file were published. Anonymous downloads of all four embedding models passed the application's size and SHA-256 checks, including E5 shard reassembly. New installations default to Hugging Face; existing source preferences are retained and users can select Gitee.
 
-The mirror contains only the quantized Xenova ONNX models and tokenizers pinned in `assets/models/embeddings/manifest.json`. MiniLM retains Apache-2.0; BGE and E5 retain their MIT licenses, copyrights and provenance rather than becoming GPL-licensed Modu code.
+The mirror contains only the quantized Xenova ONNX models and tokenizers pinned in `assets/models/embeddings/manifest.json`. MiniLM retains Apache-2.0; BGE and E5 retain their MIT licenses, copyrights and provenance rather than becoming GPL-licensed 小陈笔记 code.
 
 ## Preparing embedding assets
 

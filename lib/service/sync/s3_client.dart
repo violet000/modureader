@@ -390,7 +390,7 @@ class S3SyncClient extends SyncClientBase {
     var attempted = false;
     try {
       final original = File('${work.path}/source');
-      final content = 'Modu S3 probe ${const Uuid().v4()}';
+      final content = '小陈笔记 S3 probe ${const Uuid().v4()}';
       await original.writeAsString(content, flush: true);
       attempted = true;
       await uploadFile(original.path, remote);

@@ -98,7 +98,7 @@ class S3Config {
     checkPath(path);
     if (path != 'modu' && !path.startsWith('modu/')) {
       throw const FormatException(
-          'Object path is outside the Modu sync directory');
+          'Object path is outside the 小陈笔记 sync directory');
     }
     return '$root${path.substring(4)}${trailing ? '/' : ''}';
   }

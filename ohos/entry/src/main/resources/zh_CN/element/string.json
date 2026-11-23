@@ -2,15 +2,15 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "默读阅读器"
+      "value": "小陈笔记阅读器"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "使用默读阅读书籍"
+      "value": "使用小陈笔记阅读书籍"
     },
     {
       "name": "EntryAbility_label",
-      "value": "默读"
+      "value": "小陈笔记"
     }
   ]
 }

@@ -1,4 +1,4 @@
-# Modu detailed feature guide (checked against source)
+# 小陈笔记 detailed feature guide (checked against source)
 
 English · [简体中文](FEATURES_zh.md) · [Settings](SETTINGS.md) · [Documentation](README.md)
 
@@ -30,7 +30,7 @@ Text UMD imports preserve chapters, metadata and supported covers, converting to
 
 Use UTF-8 Markdown. The first level-one heading supplies the title; headings form a table of contents. Common formatting, tables, code and static content are supported. Base64 images can be embedded; adjacent image folders are not read automatically and network images are not downloaded. Use EPUB for complete packaged resources. Markdown files are limited to 64 MiB. See [Markdown books](MARKDOWN_BOOKS.md).
 
-System file associations can open supported books in Modu where available. Desktop drops import without repeated confirmation/result dialogs, preserve originals and skip duplicates; individual failures do not abort the remaining files.
+System file associations can open supported books in 小陈笔记 where available. Desktop drops import without repeated confirmation/result dialogs, preserve originals and skip duplicates; individual failures do not abort the remaining files.
 
 Source: [formats](../lib/service/book_formats.dart), [import picker](../lib/widgets/bookshelf/book_import_picker.dart), [bookshelf](../lib/page/home_page/bookshelf_page.dart), [remote library](../lib/service/remote_library/webdav_library.dart), [Markdown converter](../lib/service/convert_to_epub/markdown/convert_from_markdown.dart).
 
@@ -209,7 +209,7 @@ Source: [settings transfer](../lib/service/config_transfer/global_settings_trans
 
 ## 13. Updates, logs and feedback
 
-**Settings → About Modu → App updates** shares a GitHub/Gitee source selector for checking/downloading, defaulting to GitHub. Recheck after switching sources. Finding an update is not installing it. Back up and upgrade in place. Platform signing/install/runtime limits are in [Releasing](RELEASING.md); source support is not device acceptance.
+**Settings → About 小陈笔记 → App updates** shares a GitHub/Gitee source selector for checking/downloading, defaulting to GitHub. Recheck after switching sources. Finding an update is not installing it. Back up and upgrade in place. Platform signing/install/runtime limits are in [Releasing](RELEASING.md); source support is not device acceptance.
 
 Storage settings show usage and clean regenerable temporary data; models, books and completed indexes are not ordinary cache. Advanced settings include TXT chapter rules, file-checksum management, logs, network proxy and JavaScript controls. Enable scripts only for trusted books.
 

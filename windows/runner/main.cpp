@@ -27,7 +27,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
     return std::find(supported.begin(), supported.end(), ext) != supported.end();
   };
   if (std::any_of(command_line_arguments.begin(), command_line_arguments.end(), is_open_request)) {
-    HWND existing = ::FindWindow(L"FLUTTER_RUNNER_WIN32_WINDOW", L"Modu");
+    HWND existing = ::FindWindow(L"FLUTTER_RUNNER_WIN32_WINDOW", L"\u5c0f\u9648\u7b14\u8bb0");
     if (existing != nullptr) {
       for (const auto& value : command_line_arguments) {
         if (!is_open_request(value)) continue;
@@ -62,7 +62,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
   Win32Window::Size size(1280, 720);
-  if (!window.Create(L"Modu", origin, size)) {
+  if (!window.Create(L"\u5c0f\u9648\u7b14\u8bb0", origin, size)) {
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);

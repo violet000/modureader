@@ -157,6 +157,8 @@
 		<string>zh_CN</string>
 		<string>zh_TW</string>
 	</array>
+	<key>CFBundleDisplayName</key>
+	<string>小陈笔记</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>

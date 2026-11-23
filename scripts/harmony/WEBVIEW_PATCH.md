@@ -50,7 +50,7 @@ discard the failed checkout rather than continuing a build or reusing it.
   native proxy methods reject calls before accessing app state or dispatching
   built-in/user callbacks. The console popup fallback is gated too.
 * Page JavaScript remains enabled. Page `evaluateJavascript` and page-world
-  user scripts (including Modu zoom/layout scripts) still execute. Local readers
+  user scripts (including 小陈笔记 zoom/layout scripts) still execute. Local readers
   with the default true retain the existing bridge.
 * With false, callAsyncJavaScript, WebMessage bridge APIs and non-page-world
   evaluation explicitly error; upstream implements these with bridge callbacks.

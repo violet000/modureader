@@ -1,8 +1,8 @@
 # CSS profiles and regex highlight presets
 
-## Current: Modu 1.2.0+10082
+## Current: 小陈笔记 1.2.0+10082
 
-This guide describes the Modu publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`. Open Settings → CSS Settings to edit profiles; the reader selects which profiles apply.
+This guide describes the 小陈笔记 publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`. Open Settings → CSS Settings to edit profiles; the reader selects which profiles apply.
 
 ## Using profiles
 
@@ -17,7 +17,7 @@ These controls style applicable book text and markup. PDF/scanned-page crop and 
 
 ## File exchange
 
-Import plain `.css` or Modu profile `.json` files up to 1 MiB. JSON preserves names, CSS, visual parameters, regex expressions and scope. Export the current profile or all nonempty profiles.
+Import plain `.css` or 小陈笔记 profile `.json` files up to 1 MiB. JSON preserves names, CSS, visual parameters, regex expressions and scope. Export the current profile or all nonempty profiles.
 
 Import fills empty slots only and stops if there are too few; it does not overwrite automatically. Files contain no book IDs, font files or background images. Use trusted CSS: enabled remote-resource URLs can generate network requests.
 

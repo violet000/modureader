@@ -1,6 +1,6 @@
 # Upstream sources
 
-Modu is an independently modified GPL-3.0-or-later derivative application.
+小陈笔记 is an independently modified GPL-3.0-or-later derivative application.
 It derives from **Anx Reader** and **ReadAny (Reader Any)**. Thank you to their authors and contributors.
 It is not affiliated with, endorsed by, or an official release of either upstream.
 
@@ -22,24 +22,24 @@ Ported files retain source attribution and GPL-3.0 compatibility. Upstream updat
 
 ### Object storage synchronization references
 
-- ReadAny reference commit `40d4a8d6131394e139e073d04a72d955611ff065`: `packages/core/src/sync/s3-backend.ts`, `s3-paths.ts` and the Expo `S3Form.tsx` informed transport boundaries and connection fields. Modu implements its own Dart HTTP transport and uses its existing record merge engine rather than adopting ReadAny's cloud database format.
+- ReadAny reference commit `40d4a8d6131394e139e073d04a72d955611ff065`: `packages/core/src/sync/s3-backend.ts`, `s3-paths.ts` and the Expo `S3Form.tsx` informed transport boundaries and connection fields. 小陈笔记 implements its own Dart HTTP transport and uses its existing record merge engine rather than adopting ReadAny's cloud database format.
 - Readest reference commit `4c3ccfe85d4afd81e674b67d6a0627d83ba0744d`: `apps/readest-app/src/components/settings/integrations/S3Form.tsx` informed the settings interaction. Repository: https://github.com/readest/readest. No Readest source code is copied into this implementation.
-- Signature regression values are checked against AWS `@smithy/signature-v4` and the published S3 V2 signing example. No AWS JavaScript SDK is bundled in Modu.
+- Signature regression values are checked against AWS `@smithy/signature-v4` and the published S3 V2 signing example. No AWS JavaScript SDK is bundled in 小陈笔记.
 
 ## Modifications (2026)
 
-Modu branding and application identifiers; AI reading skills and per-model parameters;
+小陈笔记 branding and application identifiers; AI reading skills and per-model parameters;
 hybrid RAG, ONNX models and background indexing queue; translation and TTS services;
 encrypted opt-in credential sync and backups; local-file access restrictions;
 PDF import/navigation fixes; multi-platform release packaging. See git history.
 
 ## On-demand embedding models
 
-Reviewed for Modu 1.2.0 on 2026-10-04. Embedding weights and tokenizer files are
+Reviewed for 小陈笔记 1.2.0 on 2026-10-04. Embedding weights and tokenizer files are
 not bundled in production installers. Pinned upstream revisions, file sizes and
 SHA-256 hashes are recorded in `assets/models/embeddings/manifest.json`.
 Users choose Hugging Face or Gitee and download verified files on demand.
-Prepared models run locally; Modu does not modify their weights. Missing models
+Prepared models run locally; 小陈笔记 does not modify their weights. Missing models
 are not silently downloaded. CI uses `scripts/release/bundle_models.py` for
 isolated inference fixtures, not production asset installation. See
 [model mirrors](docs/MODEL_MIRROR.md) and [Privacy](PRIVACY.md).
@@ -72,11 +72,11 @@ LICENSES/PaddleOCR-Apache-2.0.txt; model provenance is also recorded in NOTICE.
 ## Vendored libraries
 
 - `third_party/flutter_inappwebview_windows`: 0.7.0-beta.3, Apache-2.0,
-  from https://github.com/pichillilorenzo/flutter_inappwebview. Modu fixes native
+  from https://github.com/pichillilorenzo/flutter_inappwebview. 小陈笔记 fixes native
   JavaScript callback null-pointer handling; details in `MODU_PATCH.md` and
   original LICENSE are preserved alongside the source.
 - `third_party/hf_tokenizers`: hf_tokenizers 1.2.1, MIT, Yusuf Ihsan Gorgel.
-  Original Dart API and Rust tokenizers implementation retained; Modu adds explicit
+  Original Dart API and Rust tokenizers implementation retained; 小陈笔记 adds explicit
   mobile/ARM cross-compilation in the build hook. Original license is included.
 - `third_party/icons_plus`: icons_plus 5.0.0, MIT; existing compatibility override.
   Icon brands remain the property of their respective owners.

@@ -91,10 +91,10 @@ class AppUpdateDialog extends StatelessWidget {
   String _instructions(BuildContext c) => switch (controller.platform) {
         'android' => ModuStrings.text(c, "下载后按系统提示安装。",
             "Download, then follow the system installation prompts."),
-        'macos' => ModuStrings.text(c, "下载 DMG 后退出默读，将新应用拖入“应用程序”替换旧版。",
-            "Download the DMG, quit Modu, then drag the new app into Applications to replace it."),
+        'macos' => ModuStrings.text(c, "下载 DMG 后退出小陈笔记，将新应用拖入“应用程序”替换旧版。",
+            "Download the DMG, quit 小陈笔记, then drag the new app into Applications to replace it."),
         'windows' => ModuStrings.text(
-            c, "退出默读后，运行安装程序。", "Quit Modu, then run the installer."),
+            c, "退出小陈笔记后，运行安装程序。", "Quit 小陈笔记, then run the installer."),
         'linux' => ModuStrings.text(c, "打开下载的 DEB 文件，用系统安装器安装。",
             "Open the downloaded DEB with your system installer."),
         'ios' => ModuStrings.text(

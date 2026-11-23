@@ -14,7 +14,7 @@ def create_manifest(release):
     if (not isinstance(tag, str) or not re.fullmatch(r"v\d+\.\d+\.\d+", tag)
             or release.get("draft") is not False
             or release.get("prerelease") is not False):
-        raise ValueError("Expected a stable published Modu release")
+        raise ValueError("Expected a stable published 小陈笔记 release")
     version = tag[1:]
     names = {
         f"Modu-{version}-{platform}-{arch}{suffix}"

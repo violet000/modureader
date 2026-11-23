@@ -1,4 +1,4 @@
-# 默读 · Modu Reader
+# 小陈笔记
 
 中文首页已移至 [README.md](README.md)，现在是 GitHub 仓库的默认首页。
 

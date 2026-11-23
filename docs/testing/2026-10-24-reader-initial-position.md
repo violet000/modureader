@@ -1,6 +1,6 @@
 # Shelf-entry initialization with an invalid saved text position
 
-The supplied Windows 10 / Modu 1.3.2+10157 log reports repeated `IndexSizeError`
+The supplied Windows 10 / 小陈笔记 1.3.2+10157 log reports repeated `IndexSizeError`
 failures in `CFI.toRange → anchor → Paginator.#display → View.init → Reader.open`:
 offset 1099 exceeds a node length of 211, at section index 8. The WebView2
 version is 134.0.3124.72. The source EPUB and saved CFI are not included, so the

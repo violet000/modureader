@@ -1,4 +1,4 @@
-# Modu documentation
+# 小陈笔记 documentation
 
 Current documentation baseline: **stable 1.2.5+10102**, updated for the changed features on 2026-10-10. The detailed feature guides identify their source revision and validation limits.
 

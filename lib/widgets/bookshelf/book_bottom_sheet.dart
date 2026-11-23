@@ -560,7 +560,7 @@ class BookBottomSheet extends ConsumerWidget {
                     enabled: !active),
                 if (book.isLinked && local)
                   entry(BookAction.copyInternal, Icons.copy_outlined,
-                      ModuStrings.text(context, '复制到默读', 'Copy into Modu'),
+                      ModuStrings.text(context, '复制到小陈笔记', 'Copy into 小陈笔记'),
                       enabled: !active),
                 if (!local &&
                     Prefs().webdavStatus &&

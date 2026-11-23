@@ -22,7 +22,7 @@
 - Before fix: keycode 62 did not toggle while touch playback worked. Android reported IME visible with zero height.
 - Test build 10123 installed with `adb install -r`; no uninstall or data clearing. Four bookshelf entries remained after upgrade.
 - In the narration panel, injected space events repeatedly toggled media-session state: PLAYING → PAUSED → PLAYING → PAUSED; screenshot confirmed paused icon and highlight.
-- After unlocking, imported PP-OCRv4 `det.onnx` + `rec.onnx` through Xiaomi's system file picker. Modu displayed “导入并校验完成，可离线使用”; the current OCR selection remained PP-OCRv4.
+- After unlocking, imported PP-OCRv4 `det.onnx` + `rec.onnx` through Xiaomi's system file picker. 小陈笔记 displayed “导入并校验完成，可离线使用”; the current OCR selection remained PP-OCRv4.
 - Imported BGE Small ZH v1.5 `model_quantized.onnx` + `tokenizer.json` through the same picker. Import/validation succeeded without changing the selected model. The subsequent local inference test reported success, **512 dimensions**.
 - These were local-file replacement imports of already-installed catalogue models. Wi-Fi stayed enabled; no airplane-mode or fresh-install acceptance test was performed.
 - **Still pending:** user-operated physical-key verification, book reopen/cold-start highlight restoration, long-passage page-boundary following, and OCR inference after import. The earlier sleep interruption was resolved. On continuation the user explicitly limited acceptance to successful model import/validation, so extended device testing stopped. Do not count pending scenarios as passed.

@@ -1,6 +1,6 @@
-/// Public product identity and upstream attribution for Modu.
+/// Public product identity and upstream attribution for 小陈笔记.
 abstract final class AppIdentity {
-  static const zhDisplayName = '默读';
-  static const globalDisplayName = 'Modu';
+  static const zhDisplayName = '小陈笔记';
+  static const globalDisplayName = '小陈笔记';
   static const bundleId = 'com.modu.reader';
 }

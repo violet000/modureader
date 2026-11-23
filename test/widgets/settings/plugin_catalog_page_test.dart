@@ -202,7 +202,7 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('plugin-catalog-retry')));
     await tester.pumpAndSettle();
     expect(catalog.loads, 2);
-    expect(find.text('Update Modu to use'), findsOneWidget);
+    expect(find.text('Update 小陈笔记 to use'), findsOneWidget);
     expect(
         tester
             .widget<TextButton>(find.byKey(const ValueKey(

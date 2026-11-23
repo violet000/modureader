@@ -39,7 +39,7 @@ void main() {
     return data;
   }
 
-  test('Modu link round-trip preserves providers, voices and playback settings',
+  test('小陈笔记 link round-trip preserves providers, voices and playback settings',
       () async {
     final data = example();
     final token = ConfigTransferCodec.encode(kind: 'tts', data: data);

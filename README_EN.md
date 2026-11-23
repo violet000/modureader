@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="assets/icon/modu-app-icon.png" width="96" alt="Modu app icon">
+  <img src="assets/icon/modu-app-icon.png" width="96" alt="小陈笔记 app icon">
 </p>
-<h1 align="center">Modu Reader</h1>
+<h1 align="center">小陈笔记</h1>
 <p align="center">
   <a href="README.md">简体中文</a> · <a href="README_EN.md">English</a>
 </p>
@@ -164,9 +164,9 @@ Report a bug or suggest a feature: [GitHub Issues](https://github.com/sobranie24
 
 ## Plugin development
 
-Plugin source, packages and the reviewed catalog live in [Modu Plugin](https://github.com/sobranie2406/modu-plugin).
+Plugin source, packages and the reviewed catalog live in [小陈笔记 Plugin](https://github.com/sobranie2406/modu-plugin).
 
-- Features, rules, dependencies and configuration update independently through plugin packages. The host provides stable, general interfaces; only new underlying capabilities require a Modu update.
+- Features, rules, dependencies and configuration update independently through plugin packages. The host provides stable, general interfaces; only new underlying capabilities require a 小陈笔记 update.
 - Reviewed plugins can declare broader permissions and resource budgets in their manifests, subject to capability and version checks.
 - Entries and settings belong on the Plugins page and plugin details. Book and reader menus expose declared actions, which disappear when the plugin is disabled or removed.
 - Normal use requires catalog review and signature verification. Local Developer debugging is off by default and allows temporary testing of unreviewed packages, cleared when debugging is disabled or the app restarts.
@@ -175,7 +175,7 @@ Plugin source, packages and the reviewed catalog live in [Modu Plugin](https://g
 
 ## Contribute
 
-Help improve Modu with bug reports, code or documentation. If you enjoy the app, a Star helps others discover it.
+Help improve 小陈笔记 with bug reports, code or documentation. If you enjoy the app, a Star helps others discover it.
 
 [Contributing](CONTRIBUTING.md) · [Building and packaging](docs/RELEASING.md) · [Privacy](PRIVACY.md) · [Security](SECURITY.md)
 
@@ -183,13 +183,13 @@ Help improve Modu with bug reports, code or documentation. If you enjoy the app,
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=sobranie2406%2Fmodureader&amp;type=date&amp;theme=dark&amp;legend=top-left" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=sobranie2406%2Fmodureader&amp;type=date&amp;legend=top-left" />
-    <img alt="Modu GitHub stars over time" src="https://api.star-history.com/chart?repos=sobranie2406%2Fmodureader&amp;type=date&amp;legend=top-left" width="800" />
+    <img alt="小陈笔记 GitHub stars over time" src="https://api.star-history.com/chart?repos=sobranie2406%2Fmodureader&amp;type=date&amp;legend=top-left" width="800" />
   </picture>
 </a>
 
 ## License
 
-Modu is released under **GPL-3.0-or-later**, based on Anx Reader and incorporating code from ReadAny. Original copyright notices and licenses are retained.
+小陈笔记 is released under **GPL-3.0-or-later**, based on Anx Reader and incorporating code from ReadAny. Original copyright notices and licenses are retained.
 
 [Project license](LICENSE) · [Anx Reader license](LICENSES/Anx-Reader-MIT.txt) · [ReadAny license](LICENSES/ReadAny-GPL-3.0-or-later.txt) · [Upstream and modifications](UPSTREAM.md) · [Third-party notices](NOTICE)
 

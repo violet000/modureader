@@ -98,7 +98,7 @@
     "en": "Write a concise and friendly self-introduction. Use the language code: {{language_locale}}\n        "
   },
   "ai_translate_prompt": {
-    "en": "You are the Modu \"Translation & Reference\" expert. Deliver an authoritative answer in the user's preferred language {{to_locale}}.\n\nInput for this request:\n- Source Text: {{text}}\n- Source Language hint: {{from_locale}}\n- Reader Context (may be empty): {{contextText}}\n\n## Response Structure (CRITICAL)\nYour response MUST follow this two-part structure:\nDON'T output the skeleton or the instructions, only the final answer.\n\n### Part 1: Quick Context-Aware Explanation (ALWAYS FIRST)\nStart with 1-2 concise words that:\n- Directly explain the meaning/translation in the reading context\n- Address any ambiguity resolved by the context\n- Use plain, conversational language\n- Don't quote the source text unless necessary for clarity, and avoid excessive quoting\n\n### Part 2: Detailed Analysis (AFTER the quick explanation)\nProvide comprehensive information using the format below.\n\n## Core Duties\n1. Interpret the text precisely, using Reader Context to resolve pronouns, tone, domain knowledge, or cultural references. If no context is provided, state that you inferred meaning from the snippet alone.\n2. Provide dictionary-level detail (phonetics, part of speech, nuanced senses) AND an encyclopedia-style insight (origin, cultural background, literary reference, or factual hook).\n3. Offer practical guidance so the reader can use or understand the expression naturally.\n\n## Constraints\n- All responses must stay in {{to_locale}}.\n- Be concise but complete; remove any template sections only when genuinely inapplicable and indicate why.\n- Never output markdown lists, numbering symbols, or code fences—just localized headings and text.\n\n## Decision Tree\n- If source language matches {{to_locale}} → act as an advanced monolingual dictionary entry.\n- Otherwise → act as a translator plus tutor.\n\n## Detail (plain text, no bullet symbols, each heading MUST translated into {{to_locale}})\n\nWhen acting as a dictionary (same language):\n- Pronunciation: best-available phonetic transcription or note if unknown.\n- Part of speech: list every relevant part of speech.\n- Meanings: enumerate key senses with concise explanations.\n- Examples: provide two natural example sentences with brief clarifications.\n- Encyclopedia: share one contextual or cultural fact (history, literature, idiom origin, domain usage).\n\nWhen acting as a translator (different languages):\n- Source excerpt: quote or lightly trim the source snippet (note when shortened).\n- Translation: produce a fluent translation honoring tone and register.\n- Translation notes: justify critical word choices, including how context shaped them.\n- Glossary: highlight 2-4 pivotal terms with short meaning notes in {{to_locale}}.\n- Encyclopedia: add one background detail (culture, setting, concept) that aids understanding.\n      "
+    "en": "You are the 小陈笔记 \"Translation & Reference\" expert. Deliver an authoritative answer in the user's preferred language {{to_locale}}.\n\nInput for this request:\n- Source Text: {{text}}\n- Source Language hint: {{from_locale}}\n- Reader Context (may be empty): {{contextText}}\n\n## Response Structure (CRITICAL)\nYour response MUST follow this two-part structure:\nDON'T output the skeleton or the instructions, only the final answer.\n\n### Part 1: Quick Context-Aware Explanation (ALWAYS FIRST)\nStart with 1-2 concise words that:\n- Directly explain the meaning/translation in the reading context\n- Address any ambiguity resolved by the context\n- Use plain, conversational language\n- Don't quote the source text unless necessary for clarity, and avoid excessive quoting\n\n### Part 2: Detailed Analysis (AFTER the quick explanation)\nProvide comprehensive information using the format below.\n\n## Core Duties\n1. Interpret the text precisely, using Reader Context to resolve pronouns, tone, domain knowledge, or cultural references. If no context is provided, state that you inferred meaning from the snippet alone.\n2. Provide dictionary-level detail (phonetics, part of speech, nuanced senses) AND an encyclopedia-style insight (origin, cultural background, literary reference, or factual hook).\n3. Offer practical guidance so the reader can use or understand the expression naturally.\n\n## Constraints\n- All responses must stay in {{to_locale}}.\n- Be concise but complete; remove any template sections only when genuinely inapplicable and indicate why.\n- Never output markdown lists, numbering symbols, or code fences—just localized headings and text.\n\n## Decision Tree\n- If source language matches {{to_locale}} → act as an advanced monolingual dictionary entry.\n- Otherwise → act as a translator plus tutor.\n\n## Detail (plain text, no bullet symbols, each heading MUST translated into {{to_locale}})\n\nWhen acting as a dictionary (same language):\n- Pronunciation: best-available phonetic transcription or note if unknown.\n- Part of speech: list every relevant part of speech.\n- Meanings: enumerate key senses with concise explanations.\n- Examples: provide two natural example sentences with brief clarifications.\n- Encyclopedia: share one contextual or cultural fact (history, literature, idiom origin, domain usage).\n\nWhen acting as a translator (different languages):\n- Source excerpt: quote or lightly trim the source snippet (note when shortened).\n- Translation: produce a fluent translation honoring tone and register.\n- Translation notes: justify critical word choices, including how context shaped them.\n- Glossary: highlight 2-4 pivotal terms with short meaning notes in {{to_locale}}.\n- Encyclopedia: add one background detail (culture, setting, concept) that aids understanding.\n      "
   },
   "selection_custom-preset-dictionary_name": {"zh":"AI 知识","en":"AI Knowledge"},
   "selection_custom-preset-dictionary_prompt": {"zh":"简要介绍 {selection} 的含义、背景和相关知识，用选中文字的语言回答。不提供拼音、音标、翻译或例句；不确定的内容明确说明。","en":"Briefly explain the meaning, background and related knowledge of {selection}, in the selected text's language. No pronunciation, translation or example sentences; clearly flag uncertainty."},
@@ -722,8 +722,8 @@
     "en": "Export"
   },
   "ui_3477ba41": {
-    "zh": "正在备份默读数据库并合并书库，请勿关闭应用…",
-    "en": "Backing up Modu and merging the library. Keep the app open…"
+    "zh": "正在备份小陈笔记数据库并合并书库，请勿关闭应用…",
+    "en": "Backing up 小陈笔记 and merging the library. Keep the app open…"
   },
   "ui_34917dd5": {
     "zh": "填写 1–20 个不重复的六位颜色值，例如 66CCFF。",
@@ -810,8 +810,8 @@
     "en": "Close"
   },
   "ui_39c0bce2": {
-    "zh": "默读提供的可编辑模板；选择后替换下方描述。",
-    "en": "Editable Modu templates. Selecting one replaces the description below."
+    "zh": "小陈笔记提供的可编辑模板；选择后替换下方描述。",
+    "en": "Editable 小陈笔记 templates. Selecting one replaces the description below."
   },
   "ui_3b0f25fa": {
     "zh": "修改时间",
@@ -1061,8 +1061,8 @@
     "en": "Select ANX backup ZIP"
   },
   "ui_4b725988": {
-    "zh": "默读基于 Anx Reader 与 ReadAny 开发，\n以 GPL-3.0-or-later 发布，非上游官方发行版。",
-    "en": "Modu is based on Anx Reader and ReadAny.\nReleased under GPL-3.0-or-later; not an official upstream release."
+    "zh": "小陈笔记基于 Anx Reader 与 ReadAny 开发，\n以 GPL-3.0-or-later 发布，非上游官方发行版。",
+    "en": "小陈笔记 is based on Anx Reader and ReadAny.\nReleased under GPL-3.0-or-later; not an official upstream release."
   },
   "ui_4b75eec5": {
     "zh": "删除供应商？",
@@ -1561,8 +1561,8 @@
     "en": "Folder"
   },
   "ui_6eb9ed9e": {
-    "zh": "退出默读后，运行安装程序。",
-    "en": "Quit Modu, then run the installer."
+    "zh": "退出小陈笔记后，运行安装程序。",
+    "en": "Quit 小陈笔记, then run the installer."
   },
   "ui_6f60f5ad": {
     "zh": "输入关键词搜索本书内容",
@@ -2602,8 +2602,8 @@
     "en": "Files, QR and modu links · Optional credentials"
   },
   "ui_c5774cb9": {
-    "zh": "仅删除默读中的“{name}”及其查询索引，不删除原始字典文件。",
-    "en": "Remove “{name}” and its lookup index from Modu only. Original source files are not deleted."
+    "zh": "仅删除小陈笔记中的“{name}”及其查询索引，不删除原始字典文件。",
+    "en": "Remove “{name}” and its lookup index from 小陈笔记 only. Original source files are not deleted."
   },
   "ui_c5fd3ab7": {
     "zh": "温暖音色"
@@ -2668,8 +2668,8 @@
     "en": "Model parameters"
   },
   "ui_cc6f8540": {
-    "zh": "检查与下载使用同一来源，默认优先 GitHub。检查时连接失败、超时或服务不可用会整体切换为 Gitee；手动切换来源后请重新检查再下载。下载由浏览器完成，默读无法监测其后续进度，也不会显示下载完成或 SHA-256 校验通过。不发送书籍、笔记或账号密钥。",
-    "en": "Checking and downloading use the same source, with GitHub preferred by default. If a check cannot reach GitHub, both switch to Gitee. Check again after changing sources before downloading. Your browser handles the download; Modu cannot monitor its progress or verify the downloaded file. No books, notes or account keys are sent."
+    "zh": "检查与下载使用同一来源，默认优先 GitHub。检查时连接失败、超时或服务不可用会整体切换为 Gitee；手动切换来源后请重新检查再下载。下载由浏览器完成，小陈笔记无法监测其后续进度，也不会显示下载完成或 SHA-256 校验通过。不发送书籍、笔记或账号密钥。",
+    "en": "Checking and downloading use the same source, with GitHub preferred by default. If a check cannot reach GitHub, both switch to Gitee. Check again after changing sources before downloading. Your browser handles the download; 小陈笔记 cannot monitor its progress or verify the downloaded file. No books, notes or account keys are sent."
   },
   "ui_cd93c8b7": {
     "zh": "当前已是最新版本（或高于已发布版本）",
@@ -2837,8 +2837,8 @@
     "en": "Uses server modification time; missing dates sort last."
   },
   "ui_d9e3509d": {
-    "zh": "默读向量模型连接测试",
-    "en": "Modu embedding connection test"
+    "zh": "小陈笔记向量模型连接测试",
+    "en": "小陈笔记 embedding connection test"
   },
   "ui_da2571e": {
     "zh": "温暖柔和"
@@ -3088,8 +3088,8 @@
     "en": "Could not open the default browser. Retry or visit the official release page."
   },
   "ui_f38fcdf3": {
-    "zh": "下载 DMG 后退出默读，将新应用拖入“应用程序”替换旧版。",
-    "en": "Download the DMG, quit Modu, then drag the new app into Applications to replace it."
+    "zh": "下载 DMG 后退出小陈笔记，将新应用拖入“应用程序”替换旧版。",
+    "en": "Download the DMG, quit 小陈笔记, then drag the new app into Applications to replace it."
   },
   "ui_f3e93354": {
     "zh": "全屏查看",
@@ -3151,8 +3151,8 @@
     "en": "Could not open the browser. Please retry."
   },
   "ui_f6e64898": {
-    "zh": "默读本地向量模型测试",
-    "en": "Modu local embedding model test"
+    "zh": "小陈笔记本地向量模型测试",
+    "en": "小陈笔记 local embedding model test"
   },
   "ui_f79b47e3": {
     "zh": "删除字典？",

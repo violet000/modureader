@@ -46,6 +46,6 @@ acceptance or proof that physical devices are completely free of jank.
 - Targeted Dart analysis: no errors; one existing scoped-provider dependency
   warning in `reading_page.dart`, outside the sync changes.
 
-The emulator's existing Modu 1.3.1 installation and books were preserved.
+The emulator's existing 小陈笔记 1.3.1 installation and books were preserved.
 The independent probe app and temporary network forwarding were removed.
 No complete updated HAP, release, or physical-device acceptance was produced.

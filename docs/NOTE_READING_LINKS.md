@@ -1,8 +1,8 @@
 # Return to source text from exported notes
 
-Current guide for Modu 1.2.0+10082. See the [documentation index](README.md) and [settings guide](SETTINGS.md).
+Current guide for 小陈笔记 1.2.0+10082. See the [documentation index](README.md) and [settings guide](SETTINGS.md).
 
-In newly exported Markdown notes, click an excerpt or **Open in Modu** to launch Modu at the corresponding reading position. TXT, copy and CSV exports also include `modu://read` links. Whether they are clickable depends on the viewer's custom-protocol support.
+In newly exported Markdown notes, click an excerpt or **Open in 小陈笔记** to launch 小陈笔记 at the corresponding reading position. TXT, copy and CSV exports also include `modu://read` links. Whether they are clickable depends on the viewer's custom-protocol support.
 
 The existing excerpt format (`Excerpt: 【…】` in English), highlights and created/last-modified timestamps are retained. Older exports must be exported again to receive links.
 
@@ -10,7 +10,7 @@ The existing excerpt format (`Excerpt: 【…】` in English), highlights and cr
 
 - Links match the same book-file version by MD5, not a local database ID, so an identical file can be located across devices.
 - Older records without MD5 require the title, author and creation time to match together.
-- If the file is not downloaded, Modu asks whether to download it. If the book is missing from the bookshelf or its version has been replaced, Modu reports that instead of importing a book automatically or opening another version.
+- If the file is not downloaded, 小陈笔记 asks whether to download it. If the book is missing from the bookshelf or its version has been replaced, 小陈笔记 reports that instead of importing a book automatically or opening another version.
 - If multiple copies of the same file exist, the user chooses one.
 - Links contain no book text, accounts, keys or local file paths, but do contain the title, author and source CFI position.
 

@@ -26,7 +26,7 @@ Future<void> openReadingLink(
         animationStyle: AppMotion.style,
         context: context,
         builder: (dialogContext) => AlertDialog(
-              title: Text(tr('返回原文', 'Open in Modu')),
+              title: Text(tr('返回原文', 'Open in 小陈笔记')),
               content: Text(message),
               actions: [
                 TextButton(

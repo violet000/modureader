@@ -1,4 +1,4 @@
-# Localization maintenance analysis — Modu 1.2.0
+# Localization maintenance analysis — 小陈笔记 1.2.0
 
 Audience: everyday ebook readers. Follow the project's concise technical style.
 Maintain UI translations in the languages listed in the current app catalog,

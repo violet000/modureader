@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send a published Modu release to its Telegram channel using only stdlib."""
+"""Send a published 小陈笔记 release to its Telegram channel using only stdlib."""
 
 import json
 import os

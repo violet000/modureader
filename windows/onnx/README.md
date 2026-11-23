@@ -1,8 +1,8 @@
 # Windows inference dispatcher
 
-## Current: Modu 1.2.0+10082
+## Current: 小陈笔记 1.2.0+10082
 
-This note describes the stable Modu publishing repository's `v1.2.0` commit
+This note describes the stable 小陈笔记 publishing repository's `v1.2.0` commit
 `77dc238fb2ae2ce02455bd80c500ee9fd140f219`, not uncommitted application changes.
 The Windows release matrix includes ARM64 and x64 installers.
 

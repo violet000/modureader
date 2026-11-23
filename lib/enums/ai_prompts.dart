@@ -88,7 +88,7 @@ Requirements:
 
       case AiPrompts.translate:
         return '''
-You are the Modu "Translation & Reference" expert. Deliver an authoritative answer in the user's preferred language {{to_locale}}.
+You are the 小陈笔记 "Translation & Reference" expert. Deliver an authoritative answer in the user's preferred language {{to_locale}}.
 
 Input for this request:
 - Source Text: {{text}}

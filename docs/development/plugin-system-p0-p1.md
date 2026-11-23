@@ -4,7 +4,7 @@
 > by [Plugin trust](plugin-trust.md): default-off experimental opt-in, project-reviewed
 > built-in catalog only, no arbitrary third-party packages or executable plugins.
 
-Status: P1a/P1b/P1c implemented, pending review · 2026-10-24 · baseline `main` @ `0feceeb9` (Modu 1.3.1+10152) · scope of this round: **P1b + P1c**
+Status: P1a/P1b/P1c implemented, pending review · 2026-10-24 · baseline `main` @ `0feceeb9` (小陈笔记 1.3.1+10152) · scope of this round: **P1b + P1c**
 
 This document covers **P0 (design freeze)** and **P1 (declarative plugins)**. P1 is split into P1a (install + AI prompt registration + sample plugin), P1b (selection actions + plugin settings) and P1c (settings export). P2–P5 (registries, declarative network plugins, WebView JS script host, ecosystem hardening) are described in the §0 roadmap and the §14 handover section and are out of scope for this round.
 
@@ -41,7 +41,7 @@ This makes the first PR demonstrable end to end while avoiding the two high-risk
 
 ### 0.2 Current repository state (2026-10-23)
 
-- Baseline: `main` = `origin/main` = `upstream/main` = `0feceeb9` (Modu 1.3.1+10152); the working tree was clean before this round. This round fast-forwarded 19 upstream commits and pushed.
+- Baseline: `main` = `origin/main` = `upstream/main` = `0feceeb9` (小陈笔记 1.3.1+10152); the working tree was clean before this round. This round fast-forwarded 19 upstream commits and pushed.
 - This round: added `docs/development/plugin-system-p0-p1.md` and an index entry in `docs/README.md`.
 - 2026-10-23 follow-up: P1a implemented (see §16.6 v0.3): added `lib/models/plugin_manifest.dart`, `plugin_state.dart`, `lib/service/plugins/`, `lib/page/settings_page/plugins/`, `scripts/dev/pack_plugin.dart`, `docs/examples/plugins/prompt-pack/` and matching tests; changed `main.dart`, `Prefs`, `get_base_path.dart`, the settings entry point and `pubspec.yaml` (explicit `pub_semver`). Did not touch the database, sync, TTS/translation/dictionary, the selection toolbar or settings export.
 - 2026-10-23 P1b/P1c (see §16.6 v0.4): opened `ui:selection-action`; added `SelectionActionContribution` and `SelectionActionContributionHandler` (24 slots, name/icon validation, hash guard, user edits kept as `custom-*`); enabled `pluginConfig_<id>` and the plugin settings form on the details page; wired `pluginState`/`pluginConfig_*` into settings export, import and strict validation; updated the English and Chinese settings documentation. The database remains v11, and `SelectionToolbarConfig.validate()` is unchanged.
@@ -694,7 +694,7 @@ P1 totals about **11–14 person-days** (including integration and rework buffer
 ## 12. Compliance and licence checklist
 
 - [ ] Plugins must declare an SPDX `license`; the install page shows it and refuses installation when missing.
-- [ ] Documentation states: plugins are independent works; Modu is distributed under GPL-3.0-or-later and plugins must be GPL-compatible (more permissive is allowed; proprietary redistribution restrictions are not).
+- [ ] Documentation states: plugins are independent works; 小陈笔记 is distributed under GPL-3.0-or-later and plugins must be GPL-compatible (more permissive is allowed; proprietary redistribution restrictions are not).
 - [ ] Plugin code is not linked into the app binary (P1 is pure data, which satisfies this inherently).
 - [ ] Store compliance: P1 has no executable content; P4 JS is interpreted only by WebKit/WKWebView, matching the iOS 2.5.2 interpreted-code exception; no dex/so/dylib downloads.
 - [ ] The install page shows no unverified "official" badge; the sample plugin states "example, not officially supported".

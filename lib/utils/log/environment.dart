@@ -34,7 +34,7 @@ class LogEnvironment {
 
     final isAndroid = android ?? Platform.isAndroid;
     final fields = await Future.wait([
-      read('Modu version',
+      read('小陈笔记 version',
           () async => field(await (appVersion ?? getAppVersion)())),
       read('Device environment',
           deviceEnvironment ?? CrashDiagnostics.loadEnvironment),

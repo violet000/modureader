@@ -112,8 +112,8 @@ class _AnxBackupImportPageState extends ConsumerState<AnxBackupImportPage> {
     setState(() {
       _busy = true;
       _error = null;
-      _status = ModuStrings.text(context, '正在备份默读数据库并合并书库，请勿关闭应用…',
-          'Backing up Modu and merging the library. Keep the app open…');
+      _status = ModuStrings.text(context, '正在备份小陈笔记数据库并合并书库，请勿关闭应用…',
+          'Backing up 小陈笔记 and merging the library. Keep the app open…');
     });
     try {
       final result = await plan.apply(

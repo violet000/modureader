@@ -54,7 +54,7 @@ Future<void> validateBackupDatabase(Directory source,
   try {
     final version = await db.getVersion();
     if (maxSchemaVersion != null && version > maxSchemaVersion) {
-      throw const FormatException('备份由更新版本的默读创建，请先升级应用');
+      throw const FormatException('备份由更新版本的小陈笔记创建，请先升级应用');
     }
     final check = await db.rawQuery('PRAGMA quick_check');
     if (check.length != 1 || check.single.values.single != 'ok') {
@@ -71,7 +71,7 @@ Future<void> validateBackupDatabase(Directory source,
       'tb_themes',
       'tb_groups'
     })) {
-      throw const FormatException('不是兼容的默读书库数据库');
+      throw const FormatException('不是兼容的小陈笔记书库数据库');
     }
     for (final row in await db
         .rawQuery('SELECT file_path, cover_path, is_deleted FROM tb_books')) {

@@ -1,4 +1,4 @@
-# Modu changelog
+# 小陈笔记 changelog
 
 Latest stable: **1.3.10+10182**. Updated 2026-11-18.
 
@@ -92,7 +92,7 @@ Older sections retain their original version scope; they are not current accepta
 
 - Fix(settings): Use normal input types for WebDAV addresses and usernames.
 
-- Feat(settings): Add an automatic update-check switch in Advanced, enabled by default, and use a standard settings page for About Modu. Show release notes only once per installed version.
+- Feat(settings): Add an automatic update-check switch in Advanced, enabled by default, and use a standard settings page for About 小陈笔记. Show release notes only once per installed version.
 
 ### 简体中文
 
@@ -116,7 +116,7 @@ Older sections retain their original version scope; they are not current accepta
 
 - Fix(settings): WebDAV 地址和用户名改用普通输入类型，避免触发密码键盘。
 
-- Feat(settings): 高级设置新增「自动检查更新」开关，默认开启；「关于默读」改为常规设置页，更新说明每个安装版本只显示一次。
+- Feat(settings): 高级设置新增「自动检查更新」开关，默认开启；「关于小陈笔记」改为常规设置页，更新说明每个安装版本只显示一次。
 
 ## 1.3.8
 
@@ -414,7 +414,7 @@ Older sections retain their original version scope; they are not current accepta
 
 - Feat(translation): Add Baidu Translation API and Microsoft Translator to ordinary language translation, sharing service credentials with Classical Chinese translation. Translate visible paragraphs progressively and support cancellation while keeping each translation mode’s language and appearance preferences independent.
 
-- Feat(translation): Show separate character-use estimates and editable reference-allowance progress for Baidu and Microsoft only. Aggregate updated devices through encrypted settings sync without double-counting repeated syncs; AI and Google usage are excluded. Estimates count successful Modu requests in UTC calendar months and are not official balances; Microsoft Key 1 and Key 2 are counted separately.
+- Feat(translation): Show separate character-use estimates and editable reference-allowance progress for Baidu and Microsoft only. Aggregate updated devices through encrypted settings sync without double-counting repeated syncs; AI and Google usage are excluded. Estimates count successful 小陈笔记 requests in UTC calendar months and are not official balances; Microsoft Key 1 and Key 2 are counted separately.
 
 - Fix(bookshelf): Size folder dialogs around the configured cover width and available screen space, avoiding oversized covers in partially filled rows.
 
@@ -450,7 +450,7 @@ Older sections retain their original version scope; they are not current accepta
 
 - Feat(translation): 语种翻译接入百度翻译 API 和 Microsoft Translator，与文言文翻译共用服务凭据；仅翻译可见段落、逐段呈现并可随时停止，两类翻译的语言和外观设置仍各自独立。
 
-- Feat(translation): 仅为百度和微软分别显示字符用量估算与可调整的参考额度进度，通过加密设置同步汇总已更新设备，重复同步不重复累计，AI 和 Google 不计入。按 UTC 自然月统计 Modu 成功请求，不代表官方剩余额度；微软 Key 1 与 Key 2 分别计数。
+- Feat(translation): 仅为百度和微软分别显示字符用量估算与可调整的参考额度进度，通过加密设置同步汇总已更新设备，重复同步不重复累计，AI 和 Google 不计入。按 UTC 自然月统计 小陈笔记 成功请求，不代表官方剩余额度；微软 Key 1 与 Key 2 分别计数。
 
 - Fix(bookshelf): 文件夹弹窗根据封面宽度设置和屏幕空间确定布局，避免未填满一行时封面被过度放大。
 
@@ -470,7 +470,7 @@ Older sections retain their original version scope; they are not current accepta
 
 - Feat(translation): Add Baidu Translation API and Microsoft Translator to ordinary language translation, sharing service credentials with Classical Chinese translation. Translate visible paragraphs progressively and support cancellation while keeping each translation mode’s language and appearance preferences independent.
 
-- Feat(translation): Show separate character-use estimates and editable reference-allowance progress for Baidu and Microsoft only. Aggregate updated devices through encrypted settings sync without double-counting repeated syncs; AI and Google usage are excluded. Estimates count successful Modu requests in UTC calendar months and are not official balances; Microsoft Key 1 and Key 2 are counted separately.
+- Feat(translation): Show separate character-use estimates and editable reference-allowance progress for Baidu and Microsoft only. Aggregate updated devices through encrypted settings sync without double-counting repeated syncs; AI and Google usage are excluded. Estimates count successful 小陈笔记 requests in UTC calendar months and are not official balances; Microsoft Key 1 and Key 2 are counted separately.
 
 - Fix(bookshelf): Size folder dialogs around the configured cover width and available screen space, avoiding oversized covers in partially filled rows.
 
@@ -488,7 +488,7 @@ Older sections retain their original version scope; they are not current accepta
 
 - Feat(translation): 语种翻译接入百度翻译 API 和 Microsoft Translator，与文言文翻译共用服务凭据；仅翻译可见段落、逐段呈现并可随时停止，两类翻译的语言和外观设置仍各自独立。
 
-- Feat(translation): 仅为百度和微软分别显示字符用量估算与可调整的参考额度进度，通过加密设置同步汇总已更新设备，重复同步不重复累计，AI 和 Google 不计入。按 UTC 自然月统计 Modu 成功请求，不代表官方剩余额度；微软 Key 1 与 Key 2 分别计数。
+- Feat(translation): 仅为百度和微软分别显示字符用量估算与可调整的参考额度进度，通过加密设置同步汇总已更新设备，重复同步不重复累计，AI 和 Google 不计入。按 UTC 自然月统计 小陈笔记 成功请求，不代表官方剩余额度；微软 Key 1 与 Key 2 分别计数。
 
 - Fix(bookshelf): 文件夹弹窗根据封面宽度设置和屏幕空间确定布局，避免未填满一行时封面被过度放大。
 
@@ -506,7 +506,7 @@ Older sections retain their original version scope; they are not current accepta
 
 - Feat(plugins): Add reviewed prompt packs and selection actions under Experimental features. Plugins are off by default, require confirmation on each device, and accept only integrity-checked packages from the project catalog. Thanks [@RuizeSun](https://github.com/RuizeSun) for [#62](https://github.com/sobranie2406/modureader/pull/62).
 
-- Feat(logs): Include device model, OS, installed Modu version/build and Android WebView provider/version in startup and exported logs, without device identifiers.
+- Feat(logs): Include device model, OS, installed 小陈笔记 version/build and Android WebView provider/version in startup and exported logs, without device identifiers.
 
 - Feat(fonts): Add Manage installed fonts below Download fonts in Reading settings. Remove downloaded/imported app copies after confirmation and reset only affected font selections; preserve system fonts, bundled fonts and original import files.
 
@@ -534,7 +534,7 @@ Older sections retain their original version scope; they are not current accepta
 
 - Feat(plugins): 实验性功能新增提示词包与划词动作插件，默认关闭，警示并确认后仅在本设备开启；仅接受项目审核清单内且通过完整性校验的插件。感谢 [@RuizeSun](https://github.com/RuizeSun) 贡献 [#62](https://github.com/sobranie2406/modureader/pull/62)。
 
-- Feat(logs): 启动及导出日志增加设备型号、系统版本、Modu 版本与构建号、Android WebView 提供程序和版本，不采集设备唯一标识。
+- Feat(logs): 启动及导出日志增加设备型号、系统版本、小陈笔记 版本与构建号、Android WebView 提供程序和版本，不采集设备唯一标识。
 
 - Feat(fonts): 在“设置 → 阅读 → 下载字体”下方新增“管理已安装字体”，确认后可移除下载或导入的应用内字体，仅回退相关字体选择，保留系统字体、内置字体及原始导入文件。
 
@@ -738,7 +738,7 @@ Older sections retain their original version scope; they are not current accepta
 
 ### 简体中文
 
-- Feat(settings): 选词搜索、自定义字典并入划词工具栏，AI 阅读技能并入 AI 设置，向量／OCR 合并到模型设置，全局设置备份并入同步与备份，存储并入高级，反馈并入关于默读。
+- Feat(settings): 选词搜索、自定义字典并入划词工具栏，AI 阅读技能并入 AI 设置，向量／OCR 合并到模型设置，全局设置备份并入同步与备份，存储并入高级，反馈并入关于小陈笔记。
 
 - Feat(translation): 文字／OCR 重排仅翻译当前原书页，优先使用已校对文字，其次使用识别结果；支持仅译文与原译对照，复用划词工具栏的查询、复制、AI 及本页选词朗读。
 

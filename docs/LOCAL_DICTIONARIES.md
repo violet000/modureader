@@ -1,12 +1,12 @@
 # Dictionaries: local and optional online lookup
 
-Source-reviewed for Modu 1.2.5+10102 on 2026-10-10 ([v1.2.5](https://github.com/sobranie2406/modureader/tree/v1.2.5)). Detailed workflows and current boundaries: [English](FEATURES.md) · [简体中文](FEATURES_zh.md). See the [documentation index](README.md) and [settings guide](SETTINGS.md).
+Source-reviewed for 小陈笔记 1.2.5+10102 on 2026-10-10 ([v1.2.5](https://github.com/sobranie2406/modureader/tree/v1.2.5)). Detailed workflows and current boundaries: [English](FEATURES.md) · [简体中文](FEATURES_zh.md). See the [documentation index](README.md) and [settings guide](SETTINGS.md).
 
 Includes the inline original dictionary and optional online lookup changes.
 
 ## Usage
 
-1. Open **Settings → Custom dictionaries → Import dictionary**. Modu bundles no dictionary data; import files you are entitled to use.
+1. Open **Settings → Custom dictionaries → Import dictionary**. 小陈笔记 bundles no dictionary data; import files you are entitled to use.
 2. Import one dictionary at a time and give it a custom name. Keep multiple dictionaries and rename, enable/disable or remove them in settings.
 3. Select text while reading and choose **Dictionary**. By default, the dialog queries all enabled local dictionaries, ignoring leading/trailing spaces and letter case. **Query dictionaries (one or more)** lets you select one or several dictionaries and remembers your choice by dictionary ID, even when names match. You can edit the query. A missing match does not automatically trigger online translation.
 4. Lookup keeps your reading position; closing the dialog restores reader focus.
@@ -70,7 +70,7 @@ The MDX parser dependency does not currently validate internal checksums. A succ
 - Dictionary parsing, decompression and SQLite indexing run in a separate Dart isolate, not the Flutter UI thread.
 - Entries, normalized lookup keys, text/MDX HTML and companion resources are stored in separate local SQLite files. Queries do not reload the original dictionary or depend on its original path.
 - Imported data lives in `dictionaries/` under app storage. It is excluded from the book database, settings backups and WebDAV sync.
-- Dictionary names are database fields, not file paths. Removing a dictionary deletes only Modu's imported copy, not the original file.
+- Dictionary names are database fields, not file paths. Removing a dictionary deletes only 小陈笔记's imported copy, not the original file.
 - Import builds in a temporary `.import-*` directory and publishes atomically after validation. Errors roll back and clean the temporary directory while preserving existing dictionaries. Forced process termination can leave a temporary directory but cannot publish an incomplete dictionary as usable.
 - StarDict validates companion files, entry counts, index length, record offsets, synonym targets and field boundaries.
 - Limits: 2 MiB per definition; 64 MiB for the StarDict index; 2 GiB for imported text/HTML/resources combined; two million entries; 256 MiB per MDX; 2 GiB per MDD; 32 MiB per resource; 100,000 retained resources; 512 MiB for a ZIP; 2 GiB of extracted dictionary files. Extra temporary disk space is required.
@@ -96,4 +96,4 @@ physical-device verification and packaging remain pending.
 - MDX: [dict_reader](https://github.com/mumu-lhl/dict_reader), pinned to 1.6.1 (MIT). Transitive cryptographic utilities only decode the format; they do not provide a blockchain/network service. Flutter includes dependency licenses in its license registry.
 - StarDict: implemented against the [official file-format specification](https://github.com/huzheng001/stardict-3/blob/master/dict/doc/StarDictFileFormat).
 - Archives use the existing `archive` dependency; local databases use the existing native SQLite runtime.
-- Modu's [local dictionary service](../lib/service/dictionary/local_dictionary.dart).
+- 小陈笔记's [local dictionary service](../lib/service/dictionary/local_dictionary.dart).

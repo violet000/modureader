@@ -1,8 +1,8 @@
 # Original demonstration books
 
-## Current: Modu 1.2.0+10082
+## Current: 小陈笔记 1.2.0+10082
 
-These two books were written for Modu's public documentation. They are not private library content or actual model-generated answers. The text and EPUBs are distributed with the project under GPL-3.0-or-later; their complete original text is retained in the generator scripts for reproducible public distribution.
+These two books were written for 小陈笔记's public documentation. They are not private library content or actual model-generated answers. The text and EPUBs are distributed with the project under GPL-3.0-or-later; their complete original text is retained in the generator scripts for reproducible public distribution.
 
 | Language | Book | Content |
 | --- | --- | --- |
@@ -26,4 +26,4 @@ The scripts generate EPUBs beside their sources. Both include an EPUB 3 manifest
 
 Screenshot versions, device roles and provenance are described in [display assets](../images/README.md): preserve the actual Mac interface layout, show phone configuration in the foreground and the Mac result behind it, and keep EN/ZH artwork separate. Demonstration answers, statistics and excerpts are illustrative, not recognition or performance benchmarks.
 
-This document is aligned to the stable Modu publishing repository's `v1.2.0` baseline (`77dc238fb2ae2ce02455bd80c500ee9fd140f219`). No example books were regenerated and no application tests were run for this documentation update.
+This document is aligned to the stable 小陈笔记 publishing repository's `v1.2.0` baseline (`77dc238fb2ae2ce02455bd80c500ee9fd140f219`). No example books were regenerated and no application tests were run for this documentation update.

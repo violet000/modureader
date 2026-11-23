@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('ConfigTransferCodec', () {
-    test('round-trips compressed UTF-8 Modu configuration', () {
+    test('round-trips compressed UTF-8 小陈笔记 configuration', () {
       final token = ConfigTransferCodec.encode(
         kind: 'webdav',
         data: {
@@ -73,7 +73,7 @@ void main() {
   });
 
   group('AiConfigTransfer', () {
-    test('preserves Modu multi-key providers', () {
+    test('preserves 小陈笔记 multi-key providers', () {
       final provider = AiProvider(
         id: 'provider-1',
         title: '测试服务',
@@ -145,7 +145,7 @@ void main() {
       expect(result.selectedProviderId, 'claude-endpoint');
     });
 
-    test('falls back to ReadAny endpoints when Modu providers are empty', () {
+    test('falls back to ReadAny endpoints when 小陈笔记 providers are empty', () {
       final result = AiConfigTransfer.parse({
         'moduProviders': <dynamic>[],
         'endpoints': [

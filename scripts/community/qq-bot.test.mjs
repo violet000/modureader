@@ -69,7 +69,7 @@ function fixture() {
     if (String(url).includes('/.well-known/jwks')) return Response.json({keys:[releaseJwk]});
     if (String(url).includes('getAppAccessToken')) return Response.json({access_token: 'test-access', expires_in: 3600});
     if (String(url).includes('/messages')) {sent.push(JSON.parse(options.body)); return Response.json({id:'reply-'+sent.length});}
-    if (String(url).includes('raw.githubusercontent.com')) return new Response('Public Modu Reader documentation.');
+    if (String(url).includes('raw.githubusercontent.com')) return new Response('Public 小陈笔记 documentation.');
     if (String(url).includes('/commits/')) return f.commitResponse || Response.json({sha:'a'.repeat(40)});
     if (String(url).includes('api.github.com')) return Response.json(f.release);
     throw new Error('Unexpected test network request');
@@ -134,7 +134,7 @@ test('full mode archives only the bound group and leaves ordinary conversation u
 
 test('an explicit question is answered once even when QQ redelivers it', async () => {
   await withFixture(async f => {
-    const payload = event('5', '/ask What formats does Modu support?');
+    const payload = event('5', '/ask What formats does 小陈笔记 support?');
     const response = await qqRoutes(await signed(payload), f.env);
     assert.deepEqual(await response.json(), {op:12});
     await qqRoutes(await signed(payload), f.env);

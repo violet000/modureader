@@ -129,8 +129,8 @@ Future<bool> confirmAndDeleteBooksFromBookshelf(
               list.any((book) => book.isLinked)
                   ? ModuStrings.text(
                       dialogContext,
-                      '确定删除所选书籍吗？将删除书架记录、封面、本地索引及默读内的副本。原位添加的外部原书会保留。',
-                      'Delete the selected books, covers, local indexes and copies stored in Modu? External originals added in place are kept.')
+                      '确定删除所选书籍吗？将删除书架记录、封面、本地索引及小陈笔记内的副本。原位添加的外部原书会保留。',
+                      'Delete the selected books, covers, local indexes and copies stored in 小陈笔记? External originals added in place are kept.')
                   : (list.length == 1
                       ? ModuStrings.format(
                           dialogContext,

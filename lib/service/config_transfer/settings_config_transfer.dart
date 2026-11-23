@@ -45,7 +45,7 @@ class WebdavConfigTransfer {
     };
   }
 
-  /// Accepts both Modu's payload and the object produced by ReadAny's sync
+  /// Accepts both 小陈笔记's payload and the object produced by ReadAny's sync
   /// ConfigTransfer component.
   static WebdavTransferResult parse(Map<String, dynamic> data) {
     final backendType = data['backendType'];
@@ -155,7 +155,7 @@ class AiConfigTransfer {
     };
   }
 
-  /// Accepts native Modu data or ReadAny's AIConfig object.
+  /// Accepts native 小陈笔记 data or ReadAny's AIConfig object.
   static AiTransferResult parse(Map<String, dynamic> data) {
     final temperature =
         _readDouble(data['temperature'], 0.7).clamp(0.0, 1.0).toDouble();
@@ -221,7 +221,7 @@ class AiConfigTransfer {
         );
       }).toList();
     } catch (_) {
-      throw const FormatException('默读 AI 服务商配置无效');
+      throw const FormatException('小陈笔记 AI 服务商配置无效');
     }
   }
 

@@ -146,7 +146,7 @@ HomeAiRequest buildHomeAiRequest({
   final policy = homeAiPromptPolicyFor(promptId);
   final scopeInstruction = StringBuffer()
     ..writeln(
-        'You are operating in Modu\'s home/library AI, not in the reader.')
+        'You are operating in 小陈笔记\'s home/library AI, not in the reader.')
     ..writeln(
       'Never treat the last opened book, chapter, selection, or reading position as implicit context.',
     )

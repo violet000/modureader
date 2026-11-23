@@ -234,8 +234,8 @@ class _GlobalSettingsPageState extends ConsumerState<GlobalSettingsPage> {
                       context, '恢复多项设置？', 'Restore multiple settings?')),
               content: SingleChildScrollView(
                 child: Text(t(
-                      '导入范围：$scopeLabel。\n\n仅覆盖内容中的 ${values.length - 1} 项设置（包括明确记录的默认值），未包含的设置保持不变。书籍、笔记、进度、存储路径和本机字体/背景文件不受影响。\n\n$credentialNotice\n\n导入后请重启默读。',
-                      'Import scope: $scopeLabel.\n\nReplace only the ${values.length - 1} included settings (including recorded defaults); settings not included stay unchanged. Books, notes, progress, storage paths and local font/background files are unaffected.\n\n$credentialNotice\n\nRestart Modu afterwards.',
+                      '导入范围：$scopeLabel。\n\n仅覆盖内容中的 ${values.length - 1} 项设置（包括明确记录的默认值），未包含的设置保持不变。书籍、笔记、进度、存储路径和本机字体/背景文件不受影响。\n\n$credentialNotice\n\n导入后请重启小陈笔记。',
+                      'Import scope: $scopeLabel.\n\nReplace only the ${values.length - 1} included settings (including recorded defaults); settings not included stay unchanged. Books, notes, progress, storage paths and local font/background files are unaffected.\n\n$credentialNotice\n\nRestart 小陈笔记 afterwards.',
                     ) +
                     (disablesSync
                         ? ModuStrings.text(context, '\n\n云端同步及自动同步需手动重新开启。',
@@ -265,8 +265,8 @@ class _GlobalSettingsPageState extends ConsumerState<GlobalSettingsPage> {
     if (scopes.contains('webdav')) SyncClientFactory.resetCurrentClient();
     if (!mounted) return;
     if (scopes.contains('ai')) ref.read(aiProvidersProvider.notifier).refresh();
-    setState(() => _status = t('$scopeLabel已恢复。请完全关闭后重新打开默读。',
-            '$scopeLabel restored. Close and reopen Modu.') +
+    setState(() => _status = t('$scopeLabel已恢复。请完全关闭后重新打开小陈笔记。',
+            '$scopeLabel restored. Close and reopen 小陈笔记.') +
         (disablesSync
             ? ModuStrings.text(
                 context, '同步需手动重新开启。', ' Re-enable sync manually.')

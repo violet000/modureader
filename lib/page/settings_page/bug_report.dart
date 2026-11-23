@@ -157,7 +157,7 @@ class _BugReportSettingsState extends State<BugReportSettings> {
   }
 
   String get _environment =>
-      'Modu: $_version\nPlatform: ${kIsWeb ? 'web' : defaultTargetPlatform.name}'
+      '小陈笔记: $_version\nPlatform: ${kIsWeb ? 'web' : defaultTargetPlatform.name}'
       '\nLocale: ${Localizations.localeOf(context).toLanguageTag()}'
       '${_deviceEnvironment.isEmpty ? '' : '\n$_deviceEnvironment'}';
 

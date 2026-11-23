@@ -1,4 +1,4 @@
-"""Build an original English-language book for public Modu screenshots."""
+"""Build an original English-language book for public 小陈笔记 screenshots."""
 from make_screenshot_book import build
 
 CHAPTERS = [
@@ -58,11 +58,11 @@ CHAPTERS = [
         'Some books invite a complete return. Once the ending is familiar, we can notice how it is prepared: the order of information, the early hint, the change in rhythm. The destination is no longer the only reason to read. The way a book moves becomes part of its meaning and part of its pleasure.',
         'Write a brief record of the return. Why did you reopen the book? Which detail changed your understanding? What came from the text, and what came from your life outside it? The note does not need to prove that you have improved. It needs only to give an honest account of a change.',
         'The table by the window was the same table, but the book was no longer only the book Mira had first opened there. She closed it with one question still unresolved and decided to keep that question for another visit. Familiarity had not ended her curiosity. It had given curiosity a more definite direction.',
-        'The Quiet Reader is an original six-chapter English book written for the Modu documentation. It contains no private material and does not reproduce an AI response from the application. Its text and EPUB are distributed with the project under GPL-3.0-or-later, for public reading demonstrations and exploration of the application.',
+        'The Quiet Reader is an original six-chapter English book written for the 小陈笔记 documentation. It contains no private material and does not reproduce an AI response from the application. Its text and EPUB are distributed with the project under GPL-3.0-or-later, for public reading demonstrations and exploration of the application.',
     ]),
 ]
 
 if __name__ == '__main__':
     build(chapters=CHAPTERS, filename='modu-reading-demo-en.epub',
-          title='The Quiet Reader', creator='Modu Documentation', language='en',
+          title='The Quiet Reader', creator='小陈笔记 Documentation', language='en',
           identifier='urn:modu:documentation:reading-demo:en:1')

@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(NOT OHOS_ARCH STREQUAL "arm64-v8a")
-  message(FATAL_ERROR "Modu local embedding requires the audited OHOS arm64 runtime")
+  message(FATAL_ERROR "小陈笔记 local embedding requires the audited OHOS arm64 runtime")
 endif()
 get_filename_component(MODU_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../.." ABSOLUTE)
 set(MODU_ORT "${MODU_ROOT}/build/ohos-embedding/onnxruntime")

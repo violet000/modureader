@@ -13,7 +13,7 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     await Prefs().initPrefs();
     PackageInfo.setMockInitialValues(
-        appName: 'Modu',
+        appName: '小陈笔记',
         packageName: 'com.modu.reader',
         version: '1.2.12',
         buildNumber: '10150',
@@ -94,7 +94,7 @@ void main() {
     navigatorKey.currentState!.pop();
     await tester.pump(const Duration(milliseconds: 600));
     PackageInfo.setMockInitialValues(
-        appName: 'Modu',
+        appName: '小陈笔记',
         packageName: 'com.modu.reader',
         version: '1.3.8',
         buildNumber: '10175',

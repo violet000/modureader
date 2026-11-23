@@ -1,8 +1,8 @@
 # Anx Reader upstream history (archived)
 
-This is inherited Anx Reader history, preserved for provenance. It is not Modu version history, current feature documentation, download guidance or signing advice. Upstream issue numbers and contributor handles refer to https://github.com/anxcye/anx-reader. Modu changes and installation guidance belong to https://github.com/sobranie2406/modureader/releases.
+This is inherited Anx Reader history, preserved for provenance. It is not 小陈笔记 version history, current feature documentation, download guidance or signing advice. Upstream issue numbers and contributor handles refer to https://github.com/anxcye/anx-reader. 小陈笔记 changes and installation guidance belong to https://github.com/sobranie2406/modureader/releases.
 
-以下保留原始上游更新记录，不表示默读发布过这些版本；请勿据此卸载默读、切换签名或判断默读功能。
+以下保留原始上游更新记录，不表示小陈笔记发布过这些版本；请勿据此卸载小陈笔记、切换签名或判断小陈笔记功能。
 
 ## 1.15.0
 - Feat(network): Add global HTTP proxy support in advanced settings (#838) Thanks @dddXzz

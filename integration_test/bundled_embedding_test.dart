@@ -64,7 +64,7 @@ void main() {
         final vectors =
             await LocalOnnxEmbeddingProvider(model: model, store: store)
                 .embedBatch(
-                    ['默读让阅读更专注。', 'Reading helps us understand the world.']);
+                    ['小陈笔记让阅读更专注。', 'Reading helps us understand the world.']);
         expect(vectors.length, 2);
         for (final vector in vectors) {
           expect(vector.length, model.dimensions);
@@ -82,7 +82,7 @@ void main() {
           for (var run = 0; run < 80; run++) {
             final repeats = [1, 8, 32, 128, 256, 16, 96, 4][run % 8];
             final text = List.filled(repeats,
-                    '默读测试：阅读帮助我们理解世界。 Reading expands our understanding. ')
+                    '小陈笔记测试：阅读帮助我们理解世界。 Reading expands our understanding. ')
                 .join();
             final result = await provider.embedBatch([text]);
             expect(result.single.length, model.dimensions);

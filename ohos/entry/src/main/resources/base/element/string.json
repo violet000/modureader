@@ -2,15 +2,15 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "Modu reader"
+      "value": "小陈笔记 reader"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "Read books with Modu"
+      "value": "Read books with 小陈笔记"
     },
     {
       "name": "EntryAbility_label",
-      "value": "Modu"
+      "value": "小陈笔记"
     }
   ]
 }

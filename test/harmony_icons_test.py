@@ -1,4 +1,4 @@
-"""Verify packaged Harmony entry points use the existing Modu artwork."""
+"""Verify packaged Harmony entry points use the existing 小陈笔记 artwork."""
 import json
 from pathlib import Path
 import re

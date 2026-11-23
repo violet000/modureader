@@ -16,7 +16,7 @@ void main() {
             'operation=SELECT, automatic=true; '
             'SELECT * FROM privateBook WHERE title="私密书名"; '
             'args=[PRIVATE_BODY] password=SECRET https://user:pass@private.host/book',
-        'Modu',
+        '小陈笔记',
         null,
         StackTrace.fromString(
             '#0 RowSyncArchive.read (package:modu_reader/service/sync/row_sync_engine.dart:90:10)\n'
@@ -36,7 +36,7 @@ void main() {
     final data = jsonDecode(DetailedRuntimeLog.format(LogRecord(
         Level.SEVERE,
         'Sync incomplete: DioException, HTTP 403',
-        'Modu',
+        '小陈笔记',
         StackTrace.fromString(
             '#0 request (package:dio/src/dio_mixin.dart:10:2)')))) as Map;
     expect(data['httpStatus'], 403);
@@ -63,7 +63,7 @@ void main() {
 
   test('import failures retain known cause without echoing book names', () {
     final entry = DetailedRuntimeLog.format(LogRecord(Level.INFO,
-        'importData: error: FormatException: 备份缺少书籍文件 我的书', 'Modu'));
+        'importData: error: FormatException: 备份缺少书籍文件 我的书', '小陈笔记'));
     expect(entry, contains('import_data'));
     expect(entry, contains('backup_missing_books'));
     expect(entry, isNot(contains('我的书')));
@@ -72,7 +72,7 @@ void main() {
   test('bounded session buffer declares omissions and resets on app start', () {
     for (var i = 0; i < DetailedRuntimeLog.maxEntries + 5; i++) {
       DetailedRuntimeLog.record(LogRecord(
-          Level.WARNING, 'Sync incomplete: DioException, HTTP 429', 'Modu'));
+          Level.WARNING, 'Sync incomplete: DioException, HTTP 429', '小陈笔记'));
     }
     expect('"level"'.allMatches(DetailedRuntimeLog.preview()).length, 1000);
     expect(DetailedRuntimeLog.preview(), contains('已省略较早记录: 5'));
@@ -88,7 +88,7 @@ void main() {
         .join('\n');
     for (var i = 0; i < 300; i++) {
       DetailedRuntimeLog.record(LogRecord(Level.SEVERE, 'FormatException',
-          'Modu', null, StackTrace.fromString(frames)));
+          '小陈笔记', null, StackTrace.fromString(frames)));
     }
     expect(DetailedRuntimeLog.preview().length,
         lessThan(DetailedRuntimeLog.maxCharacters + 2000));

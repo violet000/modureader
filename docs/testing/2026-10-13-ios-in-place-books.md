@@ -10,7 +10,7 @@ Request: https://github.com/sobranie2406/modureader/issues/35, suggestion by @wa
 - Native security-scoped bookmarks remain device-local. The database stores an opaque `file/ios-linked-…` identity, not a provider path or bookmark. Folder access scopes are shared across linked books.
 - Startup restores access, tolerates unavailable providers, and renews stale bookmarks. Missing files require reselection; matching MD5 preserves the existing book identity and reading position.
 - Read paths resolve the original; deletion/replacement/sync/backup continue to use owned app-storage paths. Removing a linked book forgets authorization rather than deleting the original. Covers and configured knowledge indexes still consume storage.
-- The original is not automatically uploaded or included in Modu backup ZIPs. Synced metadata or restored backups on another device need original-file selection/import again. Explicit user-requested sharing is still available.
+- The original is not automatically uploaded or included in 小陈笔记 backup ZIPs. Synced metadata or restored backups on another device need original-file selection/import again. Explicit user-requested sharing is still available.
 - Existing copied books are not automatically migrated or deleted.
 
 ## Automated checks
@@ -28,4 +28,4 @@ Request: https://github.com/sobranie2406/modureader/issues/35, suggestion by @wa
 4. Rename/move/delete a source or revoke provider access. Confirm clear failure, then reselect the same bytes and verify saved reading position.
 5. Remove a linked shelf item, replace another with a normal import, and confirm external originals are untouched.
 6. Export a backup and sync to another device: no original book bytes or security-scoped bookmarks should be included. Reauthorize/import originals on the destination.
-7. Test downloaded iCloud/third-party provider files separately. Provider availability and iOS storage caching are outside Modu's control.
+7. Test downloaded iCloud/third-party provider files separately. Provider availability and iOS storage caching are outside 小陈笔记's control.

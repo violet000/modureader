@@ -111,7 +111,7 @@ def build_dmg(bundle, arch, version, output, work):
     stage = work / 'image'
     prepare_macos_image(bundle, stage)
     result = output / f'Modu-{version}-macos-{arch}.dmg'
-    command('hdiutil', 'create', '-volname', f'Modu {version} {arch}', '-srcfolder', stage,
+    command('hdiutil', 'create', '-volname', f'小陈笔记 {version} {arch}', '-srcfolder', stage,
             '-format', 'UDZO', '-fs', 'HFS+', result)
     command('hdiutil', 'verify', result)
     mount = work / 'mounted'
@@ -141,13 +141,13 @@ def windows_script(bundle, arch, version, output):
     # The OS restriction prevents installing x64 app files on an ARM64 system.
     return f'''[Setup]
 AppId=ModuReader
-AppName=Modu Reader
+AppName=小陈笔记
 AppVersion={version}
 AppPublisher=Modu contributors
 AppPublisherURL=https://github.com/sobranie2406/modureader
 AppSupportURL=https://github.com/sobranie2406/modureader/issues
-DefaultDirName={{localappdata}}\\Programs\\Modu
-DefaultGroupName=Modu
+DefaultDirName={{localappdata}}\\Programs\\小陈笔记
+DefaultGroupName=小陈笔记
 PrivilegesRequired=lowest
 ArchitecturesAllowed={arch_rule}
 ArchitecturesInstallIn64BitMode={arch_rule}
@@ -168,17 +168,17 @@ Name: "desktopicon"; Description: "Create a desktop shortcut"; Flags: unchecked
 [Files]
 Source: "{bundle}\\*"; DestDir: "{{app}}"; Flags: ignoreversion recursesubdirs createallsubdirs
 [Icons]
-Name: "{{group}}\\Modu"; Filename: "{{app}}\\modu.exe"; WorkingDir: "{{app}}"
-Name: "{{userdesktop}}\\Modu"; Filename: "{{app}}\\modu.exe"; WorkingDir: "{{app}}"; Tasks: desktopicon
+Name: "{{group}}\\小陈笔记"; Filename: "{{app}}\\modu.exe"; WorkingDir: "{{app}}"
+Name: "{{userdesktop}}\\小陈笔记"; Filename: "{{app}}\\modu.exe"; WorkingDir: "{{app}}"; Tasks: desktopicon
 [Registry]
 {book_associations}
-Root: HKCU; Subkey: "Software\\Classes\\Modu.Book"; ValueType: string; ValueData: "Modu Book"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\\Classes\\Modu.Book"; ValueType: string; ValueData: "小陈笔记 Book"; Flags: uninsdeletekey
 Root: HKCU; Subkey: "Software\\Classes\\Modu.Book\\shell\\open\\command"; ValueType: string; ValueData: """{{app}}\\modu.exe"" ""%1"""
-Root: HKCU; Subkey: "Software\\Classes\\modu"; ValueType: string; ValueData: "URL:Modu Reading Link"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\\Classes\\modu"; ValueType: string; ValueData: "URL:小陈笔记 Reading Link"; Flags: uninsdeletekey
 Root: HKCU; Subkey: "Software\\Classes\\modu"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""
 Root: HKCU; Subkey: "Software\\Classes\\modu\\shell\\open\\command"; ValueType: string; ValueData: """{{app}}\\modu.exe"" ""%1"""
 [Run]
-Filename: "{{app}}\\modu.exe"; Description: "Launch Modu (requires Microsoft WebView2 Runtime)"; Flags: nowait postinstall skipifsilent
+Filename: "{{app}}\\modu.exe"; Description: "Launch 小陈笔记 (requires Microsoft WebView2 Runtime)"; Flags: nowait postinstall skipifsilent
 [Code]
 function InitializeSetup(): Boolean;
 var
@@ -330,13 +330,13 @@ def build_deb(bundle, arch, version, output, work, build_number=None):
         'Section: text\nPriority: optional\n'
         f'Installed-Size: {size}\nDepends: {DEB_DEPENDS}\n'
         'Homepage: https://github.com/sobranie2406/modureader\n'
-        'Description: Modu AI ebook reader\n'
+        'Description: 小陈笔记 AI ebook reader\n'
         ' Independent GPL-3.0-or-later derivative of Anx Reader and ReadAny.\n'
         ' Reader, notes, AI tools, vector search, translation and WebDAV sync.\n', encoding='utf-8')
     desktop = root / 'usr/share/applications'
     desktop.mkdir(parents=True)
     (desktop / 'modureader.desktop').write_text(
-        '[Desktop Entry]\nType=Application\nName=Modu Reader\nName[zh_CN]=默读\n'
+        '[Desktop Entry]\nType=Application\nName=小陈笔记\nName[zh_CN]=小陈笔记\n'
         'Comment=Read ebooks with AI tools\nExec=modureader %U\nIcon=modureader\n'
         'MimeType=x-scheme-handler/modu;application/pdf;application/epub+zip;'
         'application/x-mobipocket-ebook;application/vnd.amazon.ebook;'

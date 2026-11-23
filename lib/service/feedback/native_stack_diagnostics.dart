@@ -7,7 +7,7 @@ import 'dart:typed_data';
 /// Raw system reports, symbols, addresses and user-controlled paths stay out.
 class NativeStackDiagnostics {
   static const modules = {
-    'Modu',
+    '小陈笔记',
     'Runner',
     'App',
     'Flutter',

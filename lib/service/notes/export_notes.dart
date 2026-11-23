@@ -176,7 +176,7 @@ String _formatPlainGroup(_ChapterGroup group,
     }
     final link = book == null ? null : ReadingLink.forBook(book, note.cfi);
     if (link != null) {
-      buffer.writeln('${chinese ? '返回原文' : 'Open in Modu'}: $link');
+      buffer.writeln('${chinese ? '返回原文' : 'Open in 小陈笔记'}: $link');
     }
     if (note.readerNote?.trim().isNotEmpty ?? false) {
       buffer.writeln();
@@ -214,7 +214,7 @@ String formatNotesCsv(List<BookNote> notes,
         'Create Time',
         'Update Time',
         'Note Time',
-        if (book != null) 'Open in Modu',
+        if (book != null) 'Open in 小陈笔记',
       ],
       for (final note in notes)
         [
@@ -270,7 +270,7 @@ String formatNotesMarkdown(List<BookNote> notes,
         buffer.writeln('${_labelledExcerpt(excerpt, chinese)}\n');
       }
       if (link != null) {
-        buffer.writeln('[${chinese ? '返回默读原文' : 'Open in Modu'}](<$link>)\n');
+        buffer.writeln('[${chinese ? '返回小陈笔记原文' : 'Open in 小陈笔记'}](<$link>)\n');
       }
       final comment = note.readerNote;
       if (comment != null && comment.trim().isNotEmpty) {

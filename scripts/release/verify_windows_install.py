@@ -108,7 +108,7 @@ def smoke(installer, arch):
     with tempfile.TemporaryDirectory(prefix='modu-install-check-') as tmp:
         root = Path(tmp)
         verify_unsupported_switch(installer, root)
-        install = root / 'Modu'
+        install = root / '小陈笔记'
         subprocess.run([str(installer.resolve()), '/VERYSILENT', '/SUPPRESSMSGBOXES',
                         '/NORESTART', '/SP-', f'/DIR={install}', f'/LOG={root / "install.log"}'],
                        check=True, timeout=180)

@@ -25,7 +25,7 @@ class DecodedConfigTransfer {
 /// Encodes configuration as a short, copyable token inspired by ReadAny's
 /// `readany:<base64-json>` transfer code.
 ///
-/// Modu uses gzip before Base64 to reduce configuration link size. Full backups
+/// 小陈笔记 uses gzip before Base64 to reduce configuration link size. Full backups
 /// can still exceed QR capacity; use files or links instead. Base64 is transport
 /// encoding, not encryption; callers must present a secret-data warning.
 class ConfigTransferCodec {
@@ -59,7 +59,7 @@ class ConfigTransferCodec {
       final kind = decoded['kind'];
       final data = decoded['data'];
       if (version is! int || version != 1 || kind is! String || data is! Map) {
-        throw const FormatException('默读配置代码格式无效');
+        throw const FormatException('小陈笔记配置代码格式无效');
       }
       return DecodedConfigTransfer(
         source: ConfigTransferSource.modu,

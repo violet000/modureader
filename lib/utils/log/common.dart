@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
 class AnxLog {
-  static final log = Logger('Modu');
+  static final log = Logger('小陈笔记');
   static late File? logFile;
 
   Level level;

@@ -1,8 +1,8 @@
-# Building, releasing and installing Modu
+# Building, releasing and installing 小陈笔记
 
 Single-edition guide in English. Prepared for stable **1.3.10+10182**, 2026-11-18.
 
-Modu is an independently modified derivative of Anx Reader (MIT) and ReadAny (GPL-3.0-or-later). Packages retain licenses; each release links its corresponding source, NOTICE and attribution. No separate notices ZIP is distributed.
+小陈笔记 is an independently modified derivative of Anx Reader (MIT) and ReadAny (GPL-3.0-or-later). Packages retain licenses; each release links its corresponding source, NOTICE and attribution. No separate notices ZIP is distributed.
 
 ## Build toolchain
 
@@ -57,19 +57,19 @@ Mac disk images expose **only Modu.app and the Applications shortcut**. Attribut
 
 Check and download share one update-source selector, initially GitHub. A check falling back to Gitee switches the whole workflow. Check again after manual changes; do not switch sources during downloading. macOS downloads go to the default browser, not the app's sandbox cache; the app cannot report browser completion or hash verification. Other platforms retain in-app downloads and verification.
 
-If an older in-app macOS update reports that Modu cannot open and system logs indicate creation without user consent, download the official DMG again through a browser and replace the app. Do not reuse the old in-app cache, clear the library, disable system protection or strip quarantine in update code. This workaround is not Developer ID signing or notarization.
+If an older in-app macOS update reports that 小陈笔记 cannot open and system logs indicate creation without user consent, download the official DMG again through a browser and replace the app. Do not reuse the old in-app cache, clear the library, disable system protection or strip quarantine in update code. This workaround is not Developer ID signing or notarization.
 
 ## Package layout and signatures
 
 ### Windows unattended installation and capture troubleshooting
 
-Modu release installers use Inno Setup, not NSIS. Use `/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-`, not `/S`. The current release generator rejects the exact `/S` or `/s` option during initialization (exit code 1) and writes the correct command to the setup log. This change does not apply retroactively to downloaded older installers or installers from the retired standalone packaging path. Older installers can fall back to a wizard and wait for input. Unknown options other than `/S` retain Inno Setup's behavior.
+小陈笔记 release installers use Inno Setup, not NSIS. Use `/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-`, not `/S`. The current release generator rejects the exact `/S` or `/s` option during initialization (exit code 1) and writes the correct command to the setup log. This change does not apply retroactively to downloaded older installers or installers from the retired standalone packaging path. Older installers can fall back to a wizard and wait for input. Unknown options other than `/S` retain Inno Setup's behavior.
 
 In PowerShell, replace `VERSION` and choose the correct architecture, then wait for the installer and check both its exit status and output:
 
 ```powershell
 $installer = (Resolve-Path '.\Modu-VERSION-windows-x64-setup.exe').Path
-$installDir = Join-Path $env:LOCALAPPDATA 'Programs\Modu'
+$installDir = Join-Path $env:LOCALAPPDATA 'Programs\小陈笔记'
 $setupLog = Join-Path $env:TEMP 'modu-install.log'
 $arguments = @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-',
     ('/DIR="{0}"' -f $installDir), ('/LOG="{0}"' -f $setupLog))
@@ -80,7 +80,7 @@ if (!(Test-Path (Join-Path $installDir 'modu.exe'))) { throw "Missing installed 
 
 Inspect the installed application's version as well when updating an existing installation; an old executable's presence alone does not prove an update succeeded. Setup logs are also enabled by default under `%TEMP%` with a `Setup Log ...` filename. For Git Bash, prefix the command with `MSYSNOPATHCONV=1` so MSYS does not rewrite the slash-prefixed options. See the official [command-line options](https://jrsoftware.org/ishelp/topic_setupcmdline.htm) and [exit codes](https://jrsoftware.org/ishelp/topic_setupexitcodes.htm).
 
-A white/black image returned by `PrintWindow` or `BitBlt` is not sufficient evidence that the visible app failed to render. First inspect the on-screen window; try Windows Snipping Tool (`Win+Shift+S`) or a capture tool using Windows.Graphics.Capture. If the visible Modu window itself is blank, record the Modu, Windows and WebView2 versions and export logs for investigation. Do not disable system protection or change rendering backends solely to accommodate a capture API. The existing Windows CI launch/close check verifies that a window becomes visible; it does not validate its pixels or reading behavior.
+A white/black image returned by `PrintWindow` or `BitBlt` is not sufficient evidence that the visible app failed to render. First inspect the on-screen window; try Windows Snipping Tool (`Win+Shift+S`) or a capture tool using Windows.Graphics.Capture. If the visible 小陈笔记 window itself is blank, record the 小陈笔记, Windows and WebView2 versions and export logs for investigation. Do not disable system protection or change rendering backends solely to accommodate a capture API. The existing Windows CI launch/close check verifies that a window becomes visible; it does not validate its pixels or reading behavior.
 
 ### Packaging details
 
@@ -105,7 +105,7 @@ Linux builds use ONNX Runtime 1.22.0 from Microsoft's official NuGet package, wi
 - Public release notes do not list pending physical-device validation. Keep detailed test coverage in dated testing reports, and retain known compatibility limits and installation requirements without claiming unverified fixes.
 - Starting with **1.2.0**, stable and preview notes use **English first, 简体中文 second**, in separate sections on both GitHub and Gitee. Do not reorder older versions or remove installation warnings, checksums or source links.
 - For newly written release notes and changelog entries, use one concise change per Markdown bullet in the form `- Type(scope): Description`, following the supplied ANX-style example. Use `Feat` for features, `Fix` for fixes, `Perf` for performance, `Ci` for build/release automation, `Docs` for documentation and `Chore` for maintenance. Omit `(scope)` only for genuinely project-wide changes. Use stable module names such as `reader`, `tts`, `sync`, `bookshelf`, `ai`, `appearance`, `android` and `l10n`.
-- Keep the same item order, type and scope in the English and Chinese sections. Describe actual Modu changes in the release's source range; do not copy another project's feature claims, issue numbers or credits. Add linked Issue/PR references and contributor thanks only when verified and relevant. Keep limitations and validation status accurate; installation/signing warnings, checksums and source links remain separate from the change bullets. Do not rewrite published historical releases merely to apply this style.
+- Keep the same item order, type and scope in the English and Chinese sections. Describe actual 小陈笔记 changes in the release's source range; do not copy another project's feature claims, issue numbers or credits. Add linked Issue/PR references and contributor thanks only when verified and relevant. Keep limitations and validation status accurate; installation/signing warnings, checksums and source links remain separate from the change bullets. Do not rewrite published historical releases merely to apply this style.
 
 Example of the change-list format (not a published release):
 
@@ -132,10 +132,10 @@ Internal Dart package renames are maintenance details and must not appear in pub
 A stable-release request includes **GitHub and Gitee publication by default**. Gitee is not an optional follow-up and must not be silently skipped. If access, permissions, capacity or verification prevent completion, report the remaining mirror work explicitly; GitHub publication alone is not full release completion.
 
 1. Update pubspec.yaml and release notes; run relevant security checks and regression tests. Distinguish builds, automated checks and device validation.
-2. Run Modu Packages with selected targets and the intended release tag, or push an authorized version tag. CI builds platform assets in parallel; create the source tag/release only after verification. Never retarget an existing tag to different source.
+2. Run 小陈笔记 Packages with selected targets and the intended release tag, or push an authorized version tag. CI builds platform assets in parallel; create the source tag/release only after verification. Never retarget an existing tag to different source.
 3. Failed targets must not produce apparently successful assets. Fix and rebuild them; a release asset proves production, not full device acceptance.
 4. Retain LICENSE/NOTICE inside packages and SOURCE.txt inside desktop installations. Publish hashes and the exact tagged source. Prerelease tags create prereleases. A full stable release must verify all nine packages; scoped previews publish only the requested targets. The Harmony reusable workflow builds the same commit, verifies native assets and version/build identity, and never receives signing keys. Its failure blocks publication.
-5. Do not run upstream store publishing or signing-service workflows. Modu uses its own Telegram release notifier described below.
+5. Do not run upstream store publishing or signing-service workflows. 小陈笔记 uses its own Telegram release notifier described below.
 6. Mirror the identical original packages following [UPDATE_MIRROR.md](UPDATE_MIRROR.md). On Gitee, confirm deletion authority and that GitHub retains the old release, then delete only the old app release/assets before uploading the new release. Verify every hash before updating the manifest. Retain local packages for retries; do not publish an unverified manifest. Do not delete model mirrors, source, tags or branches. GitHub retains release history from 1.1.0 onward.
 
 ### Completion checklist
@@ -152,9 +152,9 @@ The dedicated ModuReader bot posts to channel `-1004343451406`. Give it only the
 
 `.github/workflows/telegram-release.yml` announces published stable and prerelease versions. It preserves the complete bilingual release body in its published order (English first, 简体中文 second), and includes the exact Release/download link. Long notes are split into numbered messages without dropping content. Drafts are rejected. The workflow has read-only repository permissions and uses only Python's standard library plus the official Telegram Bot API.
 
-`Modu Packages` calls this reusable workflow after the release job succeeds: releases created by `GITHUB_TOKEN` do not trigger another `release` workflow. Releases published manually trigger it through `release: published`. Failed builds, ordinary commits and unpublished drafts send nothing. The notification is a separate job; it cannot prevent an already published release from existing.
+`小陈笔记 Packages` calls this reusable workflow after the release job succeeds: releases created by `GITHUB_TOKEN` do not trigger another `release` workflow. Releases published manually trigger it through `release: published`. Failed builds, ordinary commits and unpublished drafts send nothing. The notification is a separate job; it cannot prevent an already published release from existing.
 
-For the initial announcement or recovery, run **Modu Telegram Release** with a published `release_tag` (or `latest` for the latest stable version). Manual runs and reruns send a new announcement, so check the channel before retrying a timeout or rerunning an already successful job. Automatic retries occur only after an explicit Telegram rate-limit rejection. Editing release notes alone does not send a second post.
+For the initial announcement or recovery, run **小陈笔记 Telegram Release** with a published `release_tag` (or `latest` for the latest stable version). Manual runs and reruns send a new announcement, so check the channel before retrying a timeout or rerunning an already successful job. Automatic retries occur only after an explicit Telegram rate-limit rejection. Editing release notes alone does not send a second post.
 
 Current automation is .github/workflows/build.yaml, pr-check.yml and scripts/release/. Retired Fastlane/store templates and standalone packaging scripts were removed from the active tree on 2026-10-28; Git history retains them.
 

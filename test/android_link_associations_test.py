@@ -1,4 +1,4 @@
-"""Local book import must not register Modu as a web browser/downloader."""
+"""Local book import must not register 小陈笔记 as a web browser/downloader."""
 from pathlib import Path
 import unittest
 import xml.etree.ElementTree as ET

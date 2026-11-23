@@ -160,7 +160,7 @@ class _VectorModelSettingsState extends State<VectorModelSettings> {
     try {
       final vector = await provider.embed(
         ModuStrings.text(
-            context, '默读本地向量模型测试', 'Modu local embedding model test'),
+            context, '小陈笔记本地向量模型测试', '小陈笔记 local embedding model test'),
       );
       if (mounted) {
         AnxToast.show(_label(

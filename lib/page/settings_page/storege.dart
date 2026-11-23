@@ -130,8 +130,8 @@ class _StorageSettingsState extends ConsumerState<StorageSettings>
       }
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(ModuStrings.text(context, "请退出并重新打开默读，完成迁移。",
-              "Quit and reopen Modu to finish moving your data."))));
+          content: Text(ModuStrings.text(context, "请退出并重新打开小陈笔记，完成迁移。",
+              "Quit and reopen 小陈笔记 to finish moving your data."))));
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -349,8 +349,8 @@ class _StorageSettingsState extends ConsumerState<StorageSettings>
                   // Current storage path
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(ModuStrings.text(context, "选择空文件夹，重启默读后开始迁移。",
-                        "Choose an empty folder, then restart Modu to move your data.")),
+                    child: Text(ModuStrings.text(context, "选择空文件夹，重启小陈笔记后开始迁移。",
+                        "Choose an empty folder, then restart 小陈笔记 to move your data.")),
                   ),
                   ListTile(
                     title: Text(L10n.of(context).storageCurrentPath),

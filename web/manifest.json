@@ -1,11 +1,11 @@
 {
-    "name": "Modu",
-    "short_name": "Modu",
+    "name": "小陈笔记",
+    "short_name": "小陈笔记",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#FBFBF3",
     "theme_color": "#FBFBF3",
-    "description": "Modu — a quiet, AI-assisted ebook reader.",
+    "description": "小陈笔记 — a quiet, AI-assisted ebook reader.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

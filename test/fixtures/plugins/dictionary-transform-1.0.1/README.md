@@ -10,4 +10,4 @@
 
 `pattern` 是匹配表达式，`replacement` 是替换文字（可用 `$1` 捕获组），`flags` 可选 `g`、`i`、`m`、`s`、`u`。自定义候选排在内置候选前。插件只处理查询词，不读取书籍或联网。
 
-词形和候选生成规则在插件包内执行，词典查询由默读完成。规则可随插件独立更新，开发方式见[插件开发规范](https://github.com/sobranie2406/modu-plugin/blob/main/DEVELOPMENT.md)。
+词形和候选生成规则在插件包内执行，词典查询由小陈笔记完成。规则可随插件独立更新，开发方式见[插件开发规范](https://github.com/sobranie2406/modu-plugin/blob/main/DEVELOPMENT.md)。

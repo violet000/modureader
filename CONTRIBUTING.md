@@ -2,7 +2,7 @@
 
 English · [简体中文](CONTRIBUTING_zh.md) · [Home](README_EN.md)
 
-Reviewed for Modu 1.2.0 on 2026-10-04. Modu derives from Anx Reader and ReadAny; preserve upstream attribution.
+Reviewed for 小陈笔记 1.2.0 on 2026-10-04. 小陈笔记 derives from Anx Reader and ReadAny; preserve upstream attribution.
 
 - Search existing issues before reporting a bug. Include version, OS, CPU architecture, reproduction steps, expected and actual behavior. Use the feature-request template for new capabilities.
 - Do not upload API keys, WebDAV passwords, private books, chat history or unsanitized logs. Security vulnerabilities follow [Security](SECURITY.md), not public bug reports.

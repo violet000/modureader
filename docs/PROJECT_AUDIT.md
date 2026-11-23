@@ -6,9 +6,9 @@ Removed 39 unused files (876,030 bytes) from the tracked tree: retired Fastlane/
 
 Moved the manual ARB normalizer to `scripts/localization/normalize_arb_files.dart`. Updated documentation and kept Windows file-association assertions against the active installer generator. Current platform sources, CI, regression fixtures, reader bundles, homepage images, licenses and attribution remain. Git history retains removed files; existing release tags and packages are unchanged. This maintenance follows the 1.3.4 build source and does not alter its installer payloads. All 213 Python checks passed (16 skipped), including homepage links, release-note conventions, installer packaging and file associations.
 
-## Historical baseline: Modu 1.2.0+10082
+## Historical baseline: 小陈笔记 1.2.0+10082
 
-The current product baseline is the stable Modu publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`. Current guides must describe that release rather than uncommitted application changes. As of 2026-10-10, the default homepage is Chinese `README.md`, the complete English edition is `README_EN.md`, and `README_zh.md` links to the default homepage. Single-version guides use English, while dated historical records retain their evidence and version boundaries.
+The current product baseline is the stable 小陈笔记 publishing repository's `v1.2.0` commit `77dc238fb2ae2ce02455bd80c500ee9fd140f219`. Current guides must describe that release rather than uncommitted application changes. As of 2026-10-10, the default homepage is Chinese `README.md`, the complete English edition is `README_EN.md`, and `README_zh.md` links to the default homepage. Single-version guides use English, while dated historical records retain their evidence and version boundaries.
 
 Current document reading includes PDF and classified image books, optional local OCR, current-page/cropped-whole-page reader reflow and Extract's region editor/editable AI input. The earlier OCR cancellation was superseded by later implementation. Ordinary text books retain their normal reader. Vector indexes stay local; Stop Vectorization remains available. Release guidance uses eight installers, excluding Android x64, GitHub-first checking and the same resolved download source, with browser DMG downloads on macOS rather than an in-app file-hash claim. See the [scanned-document status](SCANNED_DOCUMENT_DEVELOPMENT.md), [indexing guide](INDEX_SYNC_AND_READING_CONTROLS.md) and [update mirror](UPDATE_MIRROR.md).
 
@@ -24,8 +24,8 @@ The original audit covered tracked files on the GitHub main branch from `8021c97
 
 - Maintained only Chinese `README.md` and English `README_EN.md` at the root. Removed Russian/Turkish homepages containing upstream branding/download/feedback/sponsorship links and inconsistent license wording, plus a duplicate Chinese redirect. This historical language arrangement was superseded by the 2026-10-03 change below.
 - Corrected troubleshooting setting paths and log submission: no requirement to remove filename spaces or publish unchecked complete logs. Added separate remote-library guidance.
-- Rewrote Chinese/English store-copy drafts, removed unsupported promotional claims and unmaintained Russian drafts, and clarified that drafts do not indicate store publication. Fastlane references and historical images were not current Modu promotional assets.
-- Archived upstream version history in `docs/upstream/anx-reader-changelog.md`; app-facing `assets/CHANGELOG.md` contains the current Modu summary, with detailed history in individual releases.
+- Rewrote Chinese/English store-copy drafts, removed unsupported promotional claims and unmaintained Russian drafts, and clarified that drafts do not indicate store publication. Fastlane references and historical images were not current 小陈笔记 promotional assets.
+- Archived upstream version history in `docs/upstream/anx-reader-changelog.md`; app-facing `assets/CHANGELOG.md` contains the current 小陈笔记 summary, with detailed history in individual releases.
 - Pointed issue-handling examples to this repository and documented the actual automation scope without enabling additional upstream policies.
 - Removed nine unused upstream packaging/store-release workflows, retaining the current complete build, quality checks and historical native repackaging workflow.
 - Removed disabled in-app-purchase pages/state/services, product IDs, upstream privacy/terms links, the plugin and corresponding Apple native-lockfile dependencies. Reading no longer passes through purchase checks.
@@ -36,9 +36,9 @@ The original audit covered tracked files on the GitHub main branch from `8021c97
 - `LICENSE`, `NOTICE`, `LICENSES/`, `UPSTREAM.md` and dependencies' own READMEs, copyright and provenance.
 - Internal Dart package name `modu_reader`, old-data migration paths and sanitized stack rules; string matches alone do not justify global replacement.
 - The user-requested `fonts.anxcye.com` font service.
-- Real repositories for pinned third-party dependencies, which are not Modu download/feedback destinations.
+- Real repositories for pinned third-party dependencies, which are not 小陈笔记 download/feedback destinations.
 - Upstream-scoped maintenance-task protections, without changing existing issue policy.
-- Original screenshot/historical-asset provenance in `docs/images/README.md` and the historical `fastlane/metadata/README.md` (removed in the 2026-10-28 cleanup above). Upstream screenshots were not republished as current Modu UI.
+- Original screenshot/historical-asset provenance in `docs/images/README.md` and the historical `fastlane/metadata/README.md` (removed in the 2026-10-28 cleanup above). Upstream screenshots were not republished as current 小陈笔记 UI.
 
 ### Recorded verification and version boundary
 

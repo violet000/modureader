@@ -86,7 +86,7 @@ class RuntimeDiagnostics {
   }
 
   static String preview() =>
-      'Modu: $_version\nPlatform: ${Platform.operatingSystem}\n'
+      '小陈笔记: $_version\nPlatform: ${Platform.operatingSystem}\n'
       'Current session only; last 300 events. Cleared on every app restart.\n'
       'Elapsed time, operation states, duration and sampled RSS; no content, paths, URLs or credentials.\n'
       '${_events.map(jsonEncode).join('\n')}\n${DetailedRuntimeLog.preview()}';

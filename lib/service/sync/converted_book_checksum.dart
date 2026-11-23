@@ -118,7 +118,7 @@ class ConvertedBookChecksum {
   }
 }
 
-// Conservative recognizer for the exact historical Modu TXT/Markdown writers.
+// Conservative recognizer for the exact historical 小陈笔记 TXT/Markdown writers.
 // Reject unrecognized layouts and broken ZIP members. This is trusted LOCAL
 // migration evidence, not remote authenticity proof or a checksum bypass.
 // No extraction, network or changes to the book bytes.
@@ -208,7 +208,7 @@ Future<String?> convertedBookSourceFormat(String path) async {
         metadata.childElements.map((e) => e.name.qualified).join(',') ==
             'dc:identifier,dc:title,dc:language,dc:creator,dc:source,meta' &&
         metadata.findElements('dc:source').single.innerText ==
-            'Modu UMD import';
+            '小陈笔记 UMD import';
     if (!txt && !markdown && !umd) return null;
     final items =
         package.findElements('manifest').single.findElements('item').toList();

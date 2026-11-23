@@ -4,7 +4,7 @@
 
 The device is attached to the user's other computer, not this Mac. The remote
 test conversation supplied anonymized summaries; raw device logs were not copied.
-Android 14, WebView 116.0.5845.195, Modu 1.2.10 (10129).
+Android 14, WebView 116.0.5845.195, 小陈笔记 1.2.10 (10129).
 
 - At 20:16 and again 20:22, Chromium reported renderer exit code 11 followed by
   `Render process crash wasn't handled by all associated webviews`, then the
@@ -142,7 +142,7 @@ identify layout as the dominant phase but do not establish a paired speedup.
 At 21:17:31–33, renderer 16553 again faulted at libwebviewchromium.so pc 03471c7a,
 BuildId 959aa04f84c59f6ebc9659bfd6ce28592db609b5. The main process survived and
 manual reload restored text. Later renderer exits around explicit reader disposal
-and a UIAutomator FATAL are not counted as new natural Modu crashes. The sampled
+and a UIAutomator FATAL are not counted as new natural 小陈笔记 crashes. The sampled
 main-process RSS peak (676 MiB) is not evidence of OOM or a leak. At 21:32, the
 remote test confirmed that test3 still showed thick green native handles and the
 floating gray magnifier. The private screenshot was retained remotely, not copied

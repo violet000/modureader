@@ -1,6 +1,6 @@
 # Narration missing headings / skipping chapters (2026-09-06)
 
-> Historical record. This preserves the investigation, local test results and later Beta3 inclusion recorded at the time; it is not a new test of Modu 1.2.0+10082. See the [documentation index](README.md) and the [current settings guide](SETTINGS.md). No tests, builds or device checks were repeated for this documentation update.
+> Historical record. This preserves the investigation, local test results and later Beta3 inclusion recorded at the time; it is not a new test of 小陈笔记 1.2.0+10082. See the [documentation index](README.md) and the [current settings guide](SETTINGS.md). No tests, builds or device checks were repeated for this documentation update.
 
 ## Comparison source
 
@@ -10,7 +10,7 @@ The user's “Reader Annie” reference was interpreted as ReadAny. Its official
 - [Foliate narration extraction](https://github.com/codedogQBY/ReadAny/blob/021137eb3dbb398096193ee7b6819e665a281d32/packages/foliate-js/tts.js): headings are text blocks; ordinary link text should not all be treated as annotations to skip.
 - [Playback cursor](https://github.com/codedogQBY/ReadAny/blob/021137eb3dbb398096193ee7b6819e665a281d32/packages/core/src/tts/playback-cursor.ts): the cursor follows actual playback position rather than synthesis-request progress.
 
-The fixes targeted Modu's Flutter/WebView call chain; they did not directly replace it with ReadAny's player.
+The fixes targeted 小陈笔记's Flutter/WebView call chain; they did not directly replace it with ReadAny's player.
 
 ## Identified problems
 

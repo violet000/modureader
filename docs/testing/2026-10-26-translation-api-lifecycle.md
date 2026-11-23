@@ -30,7 +30,7 @@ The translator retained paragraph nodes from previously loaded chapter documents
 
 ## Translation usage
 
-- Baidu and Microsoft settings show a reference allowance and progress bar, with editable allowance and official console links. These are explicitly Modu estimates, using UTC calendar months, not official remaining balances or billing cutoffs.
+- Baidu and Microsoft settings show a reference allowance and progress bar, with editable allowance and official console links. These are explicitly 小陈笔记 estimates, using UTC calendar months, not official remaining balances or billing cutoffs.
 - Count Unicode code points for each successful remote chunk; cached text and rejected requests do not add usage. Requests billed remotely after cancellation/timeout can be missing. AI token usage is not mixed into character allowances.
 - Aggregate identical configurations across updated devices through the existing encrypted settings-sync switch. Baidu uses APP ID identity; Microsoft uses a key fingerprint (Key 1 and Key 2 are distinct because the translation API does not expose their common resource identity).
 - Each installation publishes its own encrypted counter record. Merge each writer's monotonically increasing counters using maximum, never adding the same snapshot twice. Device identity/counters cannot be cloned through preference backup import.

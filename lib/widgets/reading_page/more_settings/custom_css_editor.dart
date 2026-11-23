@@ -177,7 +177,7 @@ class _CustomCSSEditorState extends State<CustomCSSEditor> {
               'CSS file too large' ||
               'CSS file too large (1 MiB maximum)' =>
                 '文件过大，请选择不超过 1 MiB 的文件。',
-              _ => '导入导出失败：请检查文件格式，支持 CSS 文件和默读方案 JSON。',
+              _ => '导入导出失败：请检查文件格式，支持 CSS 文件和小陈笔记方案 JSON。',
             },
             e.message));
       }

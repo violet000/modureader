@@ -29,5 +29,5 @@ Optional: current workarounds, screenshots or shareable examples.
 
 ## Environment / 运行环境
 
-Optional: Modu version, platform and OS if the idea is platform-specific.
-可选：若建议只针对某个平台，请说明默读版本、平台与操作系统。
+Optional: 小陈笔记 version, platform and OS if the idea is platform-specific.
+可选：若建议只针对某个平台，请说明小陈笔记版本、平台与操作系统。

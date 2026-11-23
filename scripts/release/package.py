@@ -58,7 +58,7 @@ def notices(folder, platform):
     shutil.copy2(ROOT / "docs/RELEASING.md", folder / "INSTALL.md")
     sha = run("git", "rev-parse", "HEAD")
     (folder / "SOURCE.txt").write_text(
-        f"Modu / 默读 — derived from Anx Reader and ReadAny\n"
+        f"小陈笔记 — derived from Anx Reader and ReadAny\n"
         f"GPL-3.0-or-later. Corresponding source revision: {sha}\n"
         f"https://github.com/sobranie2406/modureader/tree/{sha}\n"
         f"https://github.com/sobranie2406/modureader/archive/{sha}.tar.gz\n"
@@ -107,7 +107,7 @@ def package(platform, arch, version):
         expected = (ROOT / "docs/android-signing-certificate.sha256").read_text().strip()
         fingerprints = [line.rsplit(":", 1)[1].strip().lower() for line in result.splitlines()
                         if "certificate SHA-256 digest:" in line]
-        assert fingerprints == [expected], "APK is not signed by the Modu release identity"
+        assert fingerprints == [expected], "APK is not signed by the 小陈笔记 release identity"
         shutil.copy2(apk, OUT / f"{name}.apk")
         # Licenses are bundled as Flutter assets; source/attribution links are
         # published in the release notes, not as separate installer-like ZIPs.

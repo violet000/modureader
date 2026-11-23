@@ -1,4 +1,4 @@
-name: Modu Packages
+name: 小陈笔记 Packages
 
 on:
   workflow_dispatch:
@@ -439,10 +439,10 @@ jobs:
             fi
             gh api --method PATCH "repos/$GITHUB_REPOSITORY/git/refs/tags/$RELEASE_TAG" -f "sha=$RELEASE_COMMIT" -F force=true
             if [[ "$release_exists" == "false" ]]; then
-              gh release create "$RELEASE_TAG" --verify-tag --draft --title "默读 $RELEASE_TAG · 正式版" --notes-file docs/RELEASE_NOTES.md
+              gh release create "$RELEASE_TAG" --verify-tag --draft --title "小陈笔记 $RELEASE_TAG · 正式版" --notes-file docs/RELEASE_NOTES.md
             fi
             gh release upload "$RELEASE_TAG" dist-release/* --clobber
-            gh release edit "$RELEASE_TAG" --draft=false --prerelease=false --latest --target "$RELEASE_COMMIT" --title "默读 $RELEASE_TAG · 正式版" --notes-file docs/RELEASE_NOTES.md
+            gh release edit "$RELEASE_TAG" --draft=false --prerelease=false --latest --target "$RELEASE_COMMIT" --title "小陈笔记 $RELEASE_TAG · 正式版" --notes-file docs/RELEASE_NOTES.md
             exit 0
           fi
           if [[ "$CREATE_RELEASE_TAG" == "true" ]]; then
@@ -455,9 +455,9 @@ jobs:
             fi
           fi
           if [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            gh release create "$RELEASE_TAG" dist-release/* --verify-tag --latest --title "默读 $RELEASE_TAG · 正式版" --notes-file docs/RELEASE_NOTES.md
+            gh release create "$RELEASE_TAG" dist-release/* --verify-tag --latest --title "小陈笔记 $RELEASE_TAG · 正式版" --notes-file docs/RELEASE_NOTES.md
           else
-            gh release create "$RELEASE_TAG" dist-release/* --verify-tag --prerelease --latest=false --title "默读 $RELEASE_TAG · Beta" --notes-file docs/RELEASE_NOTES.md
+            gh release create "$RELEASE_TAG" dist-release/* --verify-tag --prerelease --latest=false --title "小陈笔记 $RELEASE_TAG · Beta" --notes-file docs/RELEASE_NOTES.md
           fi
 
 

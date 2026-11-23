@@ -2,9 +2,9 @@
 
 English · [简体中文](SECURITY_zh.md) · [Home](README_EN.md)
 
-Reviewed for Modu 1.2.0 on 2026-10-04.
+Reviewed for 小陈笔记 1.2.0 on 2026-10-04.
 
-Use the [latest release](https://github.com/sobranie2406/modureader/releases/latest) and keep local backups. Modu has not undergone an independent security audit; a stable release is not a security certification.
+Use the [latest release](https://github.com/sobranie2406/modureader/releases/latest) and keep local backups. 小陈笔记 has not undergone an independent security audit; a stable release is not a security certification.
 
 Report vulnerabilities privately through the repository's **Security → Report a vulnerability** entry. If unavailable, open an issue without exploit details or sensitive data to request a private contact route.
 

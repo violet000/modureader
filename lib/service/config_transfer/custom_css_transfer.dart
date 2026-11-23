@@ -44,7 +44,7 @@ class CustomCssTransfer {
         data['kind'] != kind ||
         data['version'] != 1 ||
         data['profiles'] is! List) {
-      throw const FormatException('Not a Modu CSS bundle');
+      throw const FormatException('Not a 小陈笔记 CSS bundle');
     }
     final entries = data['profiles'] as List;
     if (entries.isEmpty || entries.length > customCssProfileCount) {

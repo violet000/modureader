@@ -64,12 +64,12 @@ CHAPTERS = [
         '也有适合完整重读的书。随着全貌变得熟悉，我们能够更早看见伏笔、更清楚地理解顺序。故事的终点不再是唯一目标，沿途怎样铺陈、如何转折，也成为阅读的乐趣。',
         '留下一个简短的阅读记录：这次重读的原因是什么？新的理解来自文本的哪些细节，又来自生活中的哪些变化？记录不需要证明自己进步了，只需要为变化留下一份诚实的说明。',
         '窗边的桌子还是那张桌子，书却不再只是第一次打开时的书。林舟合上它，决定把一个尚未解决的问题留到下次。熟悉并没有消除好奇，反而让好奇拥有了更具体的方向。',
-        '本书是默读项目原创的六章示例内容，供公开文档和界面展示使用，不包含私人资料，也不代表应用中的真实 AI 回答。中英文示例分别创作，可随项目以 GPL-3.0-or-later 许可分发，用于体验阅读、目录、笔记与相关设置。',
+        '本书是小陈笔记项目原创的六章示例内容，供公开文档和界面展示使用，不包含私人资料，也不代表应用中的真实 AI 回答。中英文示例分别创作，可随项目以 GPL-3.0-or-later 许可分发，用于体验阅读、目录、笔记与相关设置。',
     ]),
 ]
 
 def build(*, chapters=CHAPTERS, filename='modu-reading-demo.epub',
-          title='阅读，让思考慢下来', creator='默读功能演示', language='zh-CN',
+          title='阅读，让思考慢下来', creator='小陈笔记功能演示', language='zh-CN',
           identifier='urn:modu:documentation:reading-demo:1'):
     path = Path(__file__).with_name(filename)
     style = 'body{line-height:1.9}h1{font-size:1.55em;margin:1.8em 0 1.2em}p{margin:0 0 1em}p.lead{font-weight:bold}'
@@ -88,7 +88,7 @@ def build(*, chapters=CHAPTERS, filename='modu-reading-demo.epub',
             toc.append(f'<li><a href="{filename}">{escape(heading)}</a></li>')
         nav_title = 'Contents' if language == 'en' else '目录'
         z.writestr('OEBPS/nav.xhtml', '<?xml version="1.0" encoding="utf-8"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>' + nav_title + '</title></head><body><nav epub:type="toc"><ol>' + ''.join(toc) + '</ol></nav></body></html>')
-        z.writestr('OEBPS/book.opf', f'<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">{escape(identifier)}</dc:identifier><dc:title>{escape(title)}</dc:title><dc:creator>{escape(creator)}</dc:creator><dc:language>{language}</dc:language><dc:rights>Original Modu documentation sample; GPL-3.0-or-later.</dc:rights><meta property="dcterms:modified">2026-10-01T00:00:00Z</meta></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>' + ''.join(manifest) + '</manifest><spine>' + ''.join(spine) + '</spine></package>')
+        z.writestr('OEBPS/book.opf', f'<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">{escape(identifier)}</dc:identifier><dc:title>{escape(title)}</dc:title><dc:creator>{escape(creator)}</dc:creator><dc:language>{language}</dc:language><dc:rights>Original 小陈笔记 documentation sample; GPL-3.0-or-later.</dc:rights><meta property="dcterms:modified">2026-10-01T00:00:00Z</meta></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>' + ''.join(manifest) + '</manifest><spine>' + ''.join(spine) + '</spine></package>')
     print(path)
 
 if __name__ == '__main__':

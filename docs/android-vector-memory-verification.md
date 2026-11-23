@@ -53,7 +53,7 @@ This mode runs 80 short/long Chinese and English texts per model, validates outp
 
 ## Installation and retesting
 
-The version was `0.1.0-beta.3+6330`; the original Beta3 build was 6329. It used the original dedicated Modu signing key and unchanged application ID. Install over the existing app; do not uninstall the old version. Choose the ARM64 APK for iQOO Neo8.
+The version was `0.1.0-beta.3+6330`; the original Beta3 build was 6329. It used the original dedicated 小陈笔记 signing key and unchanged application ID. Install over the existing app; do not uninstall the old version. Choose the ARM64 APK for iQOO Neo8.
 
 After installation, re-vectorize the original EPUB from the book menu, testing Chinese BGE first and then the other three models. Observe completion, cancellation/queueing and reading behavior. If the app still exits, the crash time and system logs are needed to identify the cause; not every exit should continue to be attributed to memory.
 

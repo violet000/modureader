@@ -103,8 +103,8 @@ String syncFailureMessage(Object error, {required bool chinese}) {
           'Wi-Fi-only sync is enabled. Connect to Wi-Fi and retry.'),
       SyncFailureCode.encryptionFailed => text('服务配置加密失败，请检查加密设置。',
           'Could not encrypt service settings. Check encryption settings.'),
-      SyncFailureCode.newerDatabase => text('云端数据库版本较新，请升级本设备的默读。',
-          'The remote database is newer. Update Modu on this device.'),
+      SyncFailureCode.newerDatabase => text('云端数据库版本较新，请升级本设备的小陈笔记。',
+          'The remote database is newer. Update 小陈笔记 on this device.'),
     };
   } else if (error is AiSyncPasswordMissingException) {
     reason = text('未设置同步加密密码，请在同步设置中补充。',

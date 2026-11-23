@@ -30,7 +30,7 @@ class QqCommunity extends StatelessWidget {
   Widget build(BuildContext context) {
     return SettingsSection.content(
       title: Text(ModuStrings.text(
-          context, 'Modu 默读交流反馈 · QQ 群', 'Modu community & feedback · QQ')),
+          context, '小陈笔记 小陈笔记交流反馈 · QQ 群', '小陈笔记 community & feedback · QQ')),
       padding: EdgeInsets.zero,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),

@@ -1,8 +1,8 @@
 # Application update mirror
 
-## Release procedure: Modu 1.3.6+10168
+## Release procedure: 小陈笔记 1.3.6+10168
 
-This guide describes the Modu publishing repository's `v1.3.6` release procedure and client behavior. A mirror is current only after all nine packages and their checksums have been verified and its manifest updated.
+This guide describes the 小陈笔记 publishing repository's `v1.3.6` release procedure and client behavior. A mirror is current only after all nine packages and their checksums have been verified and its manifest updated.
 
 A single Update Source option controls both checking and downloading. Each fresh app launch starts with GitHub preferred. A GitHub check that fails because of connection, timeout, TLS/certificate or HTTP request errors falls back to the fixed HTTPS Gitee manifest and switches the source for the whole workflow:
 
@@ -27,13 +27,13 @@ There are nine packages in total. Android x64 is excluded from the release matri
 
 ### macOS browser downloads
 
-On macOS, the app opens the checked source's DMG download link in the default browser. It does not download the DMG in-app, monitor browser completion, verify the browser-downloaded file's SHA-256 or confirm installation. A successful browser handoff means only that the link opened. Do not reuse an old in-app DMG cache. Open the downloaded DMG, quit Modu and replace the app in Applications; the library is preserved. These packages are not Apple-notarized.
+On macOS, the app opens the checked source's DMG download link in the default browser. It does not download the DMG in-app, monitor browser completion, verify the browser-downloaded file's SHA-256 or confirm installation. A successful browser handoff means only that the link opened. Do not reuse an old in-app DMG cache. Open the downloaded DMG, quit 小陈笔记 and replace the app in Applications; the library is preserved. These packages are not Apple-notarized.
 
 If a GitHub browser download fails, select Gitee, check again and download from that source. The app does not switch the browser download automatically. Manual checksum verification can use the release's checksum file; this is separate from the in-app integrity checks on platforms that download internally.
 
 ## Publishing order
 
-Gitee synchronization is a required part of every requested stable Modu release, together with GitHub publication. Do not ask whether to include it each time or silently defer it. Completion requires verified public mirror assets and the updated public manifest, not merely a successful GitHub workflow. If credentials, permissions or service limits block this process, preserve verified originals, report the blocker and remaining work, and do not claim the full release is complete.
+Gitee synchronization is a required part of every requested stable 小陈笔记 release, together with GitHub publication. Do not ask whether to include it each time or silently defer it. Completion requires verified public mirror assets and the updated public manifest, not merely a successful GitHub workflow. If credentials, permissions or service limits block this process, preserve verified originals, report the blocker and remaining work, and do not claim the full release is complete.
 
 The mirror repository contains explanations, update manifests and release assets, not imported application source. The existing release policy allows cleanup of old Gitee application releases within the previously agreed scope; it still requires target checks, backups and integrity verification. Any tool-enforced approval or expansion of scope is handled separately. This guide does not itself perform those actions.
 

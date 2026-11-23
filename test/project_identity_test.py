@@ -17,7 +17,7 @@ class ProjectIdentityTest(unittest.TestCase):
             self.assertIn("sobranie2406/modureader/releases", text)
             self.assertIn("Anx Reader", text)  # attribution is not stale branding
             self.assertIn("ReadAny", text)
-        self.assertIn("默读 · Modu Reader", (ROOT / "README.md").read_text())
+        self.assertIn("小陈笔记", (ROOT / "README.md").read_text())
         self.assertIn("## Features", (ROOT / "README_EN.md").read_text())
         # The old Chinese URL remains a small compatibility link, not a third
         # independent homepage that can drift out of date.
@@ -99,10 +99,12 @@ class ProjectIdentityTest(unittest.TestCase):
                 self.assertGreater(len(bullets), 0)
                 self.assertEqual(len(bullets) % 2, 0)
                 half = len(bullets) // 2
-                self.assertTrue(all(not re.search(r"[\u4e00-\u9fff]", b) for b in bullets[:half]))
+                self.assertTrue(all(
+                    not re.search(r"[\u4e00-\u9fff]", b.replace("小陈笔记", ""))
+                    for b in bullets[:half]))
                 self.assertTrue(all(re.search(r"[\u4e00-\u9fff]", b) for b in bullets[half:]))
         archive = (ROOT / "docs/upstream/anx-reader-changelog.md").read_text()
-        self.assertIn("not Modu version history", archive)
+        self.assertIn("not 小陈笔记 version history", archive)
         self.assertIn("## 1.15.0", archive)
 
     def test_unused_purchase_path_and_plugins_are_removed(self):

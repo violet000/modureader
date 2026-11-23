@@ -1,6 +1,6 @@
 import 'package:modu_reader/service/tts/mimo_voice_presets.dart';
 
-/// Editable Modu instructions, not provider voice IDs or voice-cloning presets.
+/// Editable 小陈笔记 instructions, not provider voice IDs or voice-cloning presets.
 class OpenAiVoicePresets {
   static bool isLegacyModel(String model) =>
       const {'tts-1', 'tts-1-hd'}.contains(model.trim());

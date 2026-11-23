@@ -658,7 +658,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('issue browsing points only to Modu and handles launcher errors',
+  testWidgets('issue browsing points only to 小陈笔记 and handles launcher errors',
       (tester) async {
     final opened = <Uri>[];
     await mount(tester, open: (uri) async {
@@ -684,7 +684,7 @@ void main() {
 
   testWidgets('version loading failure still allows reporting', (tester) async {
     await mount(tester, version: () async => throw StateError('asset missing'));
-    expect(find.textContaining('Modu: unknown'), findsOneWidget);
+    expect(find.textContaining('小陈笔记: unknown'), findsOneWidget);
     await fill(tester);
     await click(tester, 'Preview and submit');
     expect(find.byType(AlertDialog), findsOneWidget);

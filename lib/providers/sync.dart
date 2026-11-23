@@ -1012,7 +1012,7 @@ class Sync extends _$Sync {
     if (book.isLinked) {
       AnxToast.show(ModuStrings.text(
           navigatorKey.currentContext!,
-          '原位书籍未复制到默读，无需释放原书空间。',
+          '原位书籍未复制到小陈笔记，无需释放原书空间。',
           'This book is read in place; no copied book storage to release.'));
       return;
     }

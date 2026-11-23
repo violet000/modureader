@@ -83,7 +83,7 @@ class SaveImg {
         img,
         fileName: '$name.$extension',
         skipIfExists: false,
-        androidRelativePath: "Pictures/Modu",
+        androidRelativePath: "Pictures/小陈笔记",
       );
 
       SmartDialog.dismiss();

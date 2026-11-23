@@ -1,6 +1,6 @@
 # Prism.js Code Syntax Highlighting
 
-This directory contains the Prism.js library used for code syntax highlighting in Modu.
+This directory contains the Prism.js library used for code syntax highlighting in 小陈笔记.
 
 ## Directory Structure
 

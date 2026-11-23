@@ -1,6 +1,6 @@
 # Mobile quick marking: merge consecutive highlights
 
-Current guide for Modu 1.2.0+10082. See the [documentation index](README.md) and [settings guide](SETTINGS.md).
+Current guide for 小陈笔记 1.2.0+10082. See the [documentation index](README.md) and [settings guide](SETTINGS.md).
 
 Enable quick marking and select through the end of the body text on one page. Turn the page and continue selecting from the start of the next page's body text. Adjacent highlights with the same color and no annotations merge into one. Reverse continuation, overlapping selections and filling the text between two highlights are also supported. You do not need to drag one finger across both pages; this feature does not turn pages automatically.
 

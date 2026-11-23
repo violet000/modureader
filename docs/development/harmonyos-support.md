@@ -15,7 +15,7 @@ not an Android compatibility layer. Inclusion in a stable release does not imply
   This is **not** a public document export implementation.
 - Updated the inherited Harmony application identity/version metadata for the
   current source snapshot and localized template descriptions. Removed an
-  inherited cloud `client_id` that is not referenced by Modu code. Version
+  inherited cloud `client_id` that is not referenced by 小陈笔记 code. Version
   metadata must be synchronized with `pubspec.yaml` at each future build.
 - Added a read-only dependency/toolchain audit and regression tests. It scans
   resolved runtime manifests instead of treating a plugin's Android support
@@ -116,7 +116,7 @@ including their federated implementations. A declaration is not runtime proof:
 | System speech | The existing build explicitly excludes OHOS system TTS; add and test a native adapter before enabling it |
 | OCR and local embeddings | Validate `flutter_onnxruntime`, ONNX binaries and the Rust `hf_tokenizers` native build hook against the OHOS ABI; Android `.so` libraries are not proof of compatibility |
 | Device integrations | Review battery, keep-awake, connectivity, sharing, permissions, links and save-to-gallery adapters |
-| Custom platform channels | Review brightness, selection expansion, folder import and other Modu channels individually; do not silently substitute no-op handlers |
+| Custom platform channels | Review brightness, selection expansion, folder import and other 小陈笔记 channels individually; do not silently substitute no-op handlers |
 
 The `hf_tokenizers` source currently requires Dart >=3.10. Selecting an old
 Flutter OH SDK solely because it can generate `ohos/` will not satisfy all
@@ -129,7 +129,7 @@ force an OHOS solve.
 1. Provision Flutter OH and Huawei command-line tools on an isolated CI runner,
    not the user's Mac; inspect exact released versions and licenses. Generate a disposable template with that
    toolchain and reconcile the missing profiles with `ohos/`, without
-   overwriting Modu identity/resources. Keep signing material local.
+   overwriting 小陈笔记 identity/resources. Keep signing material local.
 2. Resolve pinned OHOS forks in an **isolated build workspace**, including
    federated platform packages and native dependencies. Keep normal builds on
    their current package graph. Record upstream revisions and licenses before
@@ -172,7 +172,7 @@ Windows implementation missing from its upstream manifest to that disposable
 root pubspec, since an override alone does not add a package to the graph.
 The canonical project pubspec is not rewritten. Adapter revisions are full Git
 commits in two JSON manifests, not moving branch names. The overlay preserves
-Modu's local icon/tokenizer packages and AI forks, replacing the entire WebView
+小陈笔记's local icon/tokenizer packages and AI forks, replacing the entire WebView
 package family (including Windows) to avoid mixing incompatible interfaces.
 The package source changes do not enter other clients' dependency resolution.
 
@@ -190,7 +190,7 @@ already succeeded. Both HOS_SDK_HOME and DEVECO_SDK_HOME select the SDK parent;
 OHOS_SDK_HOME selects its default/openharmony native-tool subtree. Node is
 explicitly selected from the same official bundle.
 
-The pinned WebView 6.1.5 adapter lacks two APIs used by Modu. A fail-closed,
+The pinned WebView 6.1.5 adapter lacks two APIs used by 小陈笔记. A fail-closed,
 cloud-only patch copies three verified packages before adding native ArkWeb
 focus and a creation-time JavaScript bridge policy. Untrusted web results keep
 their bridge disabled; reader callbacks remain available. See
@@ -204,7 +204,7 @@ behavior to cover Flutter OH's additional TargetPlatform enum value. Package
 archive identities, edited-file hashes, paths and versions are checked before
 patching. No native API is replaced with a no-op and no cache source is edited.
 
-The pinned Flutter OH lacks the newer onReorderItem callback used by three Modu
+The pinned Flutter OH lacks the newer onReorderItem callback used by three 小陈笔记
 settings lists. `patch_app.py` adapts those three exact sites only in the runner
 checkout, using onReorder and normalizing downward destination indices. The
 normal clients retain their existing callback API and drag behavior.
@@ -310,6 +310,6 @@ and [pipeline setup](https://developer.huawei.com/consumer/en/doc/harmonyos-guid
 - [Maintainer plugin catalog and migration notice](https://github.com/OpenHarmony-TPC/flutter_packages)
 - [Huawei development-assistant configuration](https://developer.huawei.com/consumer/cn/doc/start/hosdevassistant-config-0000002588511280)
 
-Catalog support is upstream evidence, not acceptance testing of Modu's specific
+Catalog support is upstream evidence, not acceptance testing of 小陈笔记's specific
 versions. Native compilation has been attempted in CI, but a complete HAP and
 real-device verification are still outstanding.

@@ -1,6 +1,6 @@
 # Local indexing and reading controls
 
-## Current: Modu 1.2.3+10090
+## Current: 小陈笔记 1.2.3+10090
 
 Current behavior was reviewed against main commit [`b6bf820a`](https://github.com/sobranie2406/modureader/tree/b6bf820a4a3fd5ee1f657c80c061f64349a1aedb) on 2026-10-08. See the detailed feature guide ([English](FEATURES.md) · [简体中文](FEATURES_zh.md)) for current reading, speech and sync settings. Dated results below retain their historical scope; this documentation review did not rerun application or device tests.
 

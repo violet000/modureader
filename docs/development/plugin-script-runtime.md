@@ -12,7 +12,7 @@ Packages remain schema 1 / host API 1. `scriptAction` declares `id`, localized
 (`selection` or `context`). It requires `script:run`; selection actions also
 require `ui:selection-action`. Existing prompt and AI toolbar formats are unchanged.
 The dictionary surface additionally requires `dictionary:transform` and uses
-`scope: "selection"`. Dictionary transforms and article capture require Modu
+`scope: "selection"`. Dictionary transforms and article capture require 小陈笔记
 1.3.10 or later; packages declare that minimum and their capabilities in both
 the manifest and signed review record. Host API remains 1.
 

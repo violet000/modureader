@@ -19,7 +19,7 @@ const root = process.env.FLUTTER_ROOT;
 if (!root || !process.env.CI) throw Error('Missing CI Flutter SDK');
 const source = path.join(root, 'packages/flutter_tools/lib/src/base/os.dart');
 const before = fs.readFileSync(source, 'utf8');
-const marker = '// Modu: detect the native ARM64 Windows host under x64 Dart emulation.';
+const marker = '// 小陈笔记: detect the native ARM64 Windows host under x64 Dart emulation.';
 if (!before.includes(marker)) {
   // There is also a macOS override. Match only the shared ABI-based getter.
   const anchor = /HostPlatform get hostPlatform \{(?=\r?\n\s+return switch \(_currentAbi\))/g;

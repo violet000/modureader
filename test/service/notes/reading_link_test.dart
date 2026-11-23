@@ -122,7 +122,7 @@ void main() {
     final html = markdown.markdownToHtml(exported);
     expect('<a href='.allMatches(html).length, 3);
     expect(html, contains('href="$raw"'));
-    expect(html, contains('返回默读原文</a>'));
+    expect(html, contains('返回小陈笔记原文</a>'));
   });
 
   test('Literal excerpt cannot inject new Markdown links or scripts', () {
@@ -137,7 +137,7 @@ void main() {
 
   test('Note-only entries still have a return link', () {
     final exported = formatNotesMarkdown([note()..content = ''], book: book());
-    expect(exported, contains('[返回默读原文](<modu://read?'));
+    expect(exported, contains('[返回小陈笔记原文](<modu://read?'));
     expect(exported, isNot(contains('原文：')));
   });
 
@@ -158,7 +158,7 @@ void main() {
   test('CSV stores full link in a separate column with exact round-trip', () {
     final rows = const CsvToListConverter()
         .convert(formatNotesCsv([note()], book: book()));
-    expect(rows.first.last, 'Open in Modu');
+    expect(rows.first.last, 'Open in 小陈笔记');
     expect(rows[1].last, ReadingLink.forBook(book(), cfi));
     expect(ReadingLink.parse(rows[1].last as String).cfi, cfi);
   });

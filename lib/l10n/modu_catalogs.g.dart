@@ -39,7 +39,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "التصدير: اختر تضمين إعدادات الخدمات وبيانات الدخول المشفرة أو استبعادها ← أنشئ Modu-Backup-*.zip ← احفظ. تشمل الملفات المحلية فقط؛ نزّل الكتب المراد نقلها أولًا.",
     "ui_database_backup_import_step":
-        "الاستيراد: اختر ZIP مُصدّرًا هنا (دون فك الضغط) ← أكد الاستبدال والتحقق ← أدخل كلمة مرور التصدير إذا كانت الإعدادات مشفرة ← أعد تشغيل Modu. تُستبدل المكتبة والملاحظات والإعدادات المحفوظة ولا تُدمج. صدّر بياناتك الحالية أولًا.",
+        "الاستيراد: اختر ZIP مُصدّرًا هنا (دون فك الضغط) ← أكد الاستبدال والتحقق ← أدخل كلمة مرور التصدير إذا كانت الإعدادات مشفرة ← أعد تشغيل 小陈笔记. تُستبدل المكتبة والملاحظات والإعدادات المحفوظة ولا تُدمج. صدّر بياناتك الحالية أولًا.",
     "ui_database_backup_save_windows":
         "الموقع الافتراضي: مجلد Downloads لمستخدم Windows الحالي، عادةً C:\\Users\\<المستخدم>\\Downloads. يُعرض المسار الكامل الفعلي بعد التصدير مع خيار النسخ.",
     "ui_database_backup_save_desktop":
@@ -113,7 +113,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "اكتب تعريفًا موجزًا وودودًا عن نفسك. استخدم رمز اللغة: {{language_locale}}\n        ",
     "ai_translate_prompt":
-        "أنت خبير Modu في «الترجمة والمراجع». قدم إجابة موثوقة بلغة المستخدم المفضلة {{to_locale}}.\n\nمدخلات هذا الطلب:\n- النص الأصلي: {{text}}\n- تلميح لغة المصدر: {{from_locale}}\n- سياق القارئ (قد يكون فارغًا): {{contextText}}\n\n## بنية الإجابة (ضرورية)\nيجب أن تتبع إجابتك البنية التالية المكوّنة من جزأين:\nلا تخرج الهيكل أو التعليمات، بل الإجابة النهائية فقط.\n\n### الجزء 1: شرح سريع يراعي السياق (أولًا دائمًا)\nابدأ بكلمة أو كلمتين موجزتين:\n- تشرحان المعنى/الترجمة مباشرة في سياق القراءة\n- تعالجان أي التباس يحسمه السياق\n- تستخدمان لغة بسيطة وطبيعية\n- لا تقتبس النص الأصلي إلا عند الضرورة للتوضيح، وتجنب الإفراط في الاقتباس\n\n### الجزء 2: تحليل مفصل (بعد الشرح السريع)\nقدم معلومات شاملة بالتنسيق الآتي.\n\n## المهام الأساسية\n1. فسّر النص بدقة، مستخدمًا سياق القارئ لتوضيح الضمائر والنبرة والمعرفة المتخصصة والإشارات الثقافية. إذا لم يُقدّم سياق، فاذكر أنك استنتجت المعنى من المقتطف وحده.\n2. قدم تفاصيل بمستوى المعجم (النطق، النوع النحوي، فروق المعاني) ومعرفة موسوعية (الأصل أو الخلفية الثقافية أو مرجع أدبي أو معلومة واقعية ذات صلة).\n3. قدم إرشادات عملية تساعد القارئ على استخدام التعبير أو فهمه بصورة طبيعية.\n\n## القيود\n- يجب أن تكون جميع الإجابات بلغة {{to_locale}}.\n- كن موجزًا وكاملًا؛ احذف أقسام القالب فقط عندما لا تنطبق فعلًا، وبيّن السبب.\n- لا تخرج قوائم Markdown أو رموز ترقيم القوائم أو كتل شيفرة؛ استخدم عناوين مترجمة ونصًا فقط.\n\n## شجرة القرار\n- إذا كانت لغة المصدر هي {{to_locale}} → تعامل مع النص بوصفه مدخلًا معجميًا متقدمًا أحادي اللغة.\n- وإلا → تعامل معه بوصفك مترجمًا ومعلمًا.\n\n## التفاصيل (نص عادي بلا رموز تعداد، ويجب ترجمة كل عنوان إلى {{to_locale}})\n\nعند العمل كمعجم (اللغة نفسها):\n- النطق: أفضل كتابة صوتية متاحة، أو ملاحظة إذا كان غير معروف.\n- النوع النحوي: اذكر جميع الأنواع النحوية ذات الصلة.\n- المعاني: وضّح المعاني الأساسية مع شروح موجزة.\n- الأمثلة: قدم جملتين طبيعيتين مع توضيحات قصيرة.\n- المعرفة الموسوعية: شارك حقيقة سياقية أو ثقافية واحدة (تاريخ، أدب، أصل تعبير اصطلاحي، استخدام متخصص).\n\nعند العمل كمترجم (لغتان مختلفتان):\n- المقتطف الأصلي: اقتبس المقتطف أو اختصره قليلًا (مع الإشارة إلى الاختصار).\n- الترجمة: قدم ترجمة سلسة تحافظ على النبرة ومستوى الرسمية.\n- ملاحظات الترجمة: علّل اختيار الكلمات المهمة، بما في ذلك أثر السياق عليها.\n- المصطلحات: أبرز 2–4 مصطلحات محورية مع شروح قصيرة لمعانيها بلغة {{to_locale}}.\n- المعرفة الموسوعية: أضف تفصيلًا خلفيًا واحدًا (ثقافة، بيئة، مفهوم) يساعد على الفهم.\n      ",
+        "أنت خبير 小陈笔记 في «الترجمة والمراجع». قدم إجابة موثوقة بلغة المستخدم المفضلة {{to_locale}}.\n\nمدخلات هذا الطلب:\n- النص الأصلي: {{text}}\n- تلميح لغة المصدر: {{from_locale}}\n- سياق القارئ (قد يكون فارغًا): {{contextText}}\n\n## بنية الإجابة (ضرورية)\nيجب أن تتبع إجابتك البنية التالية المكوّنة من جزأين:\nلا تخرج الهيكل أو التعليمات، بل الإجابة النهائية فقط.\n\n### الجزء 1: شرح سريع يراعي السياق (أولًا دائمًا)\nابدأ بكلمة أو كلمتين موجزتين:\n- تشرحان المعنى/الترجمة مباشرة في سياق القراءة\n- تعالجان أي التباس يحسمه السياق\n- تستخدمان لغة بسيطة وطبيعية\n- لا تقتبس النص الأصلي إلا عند الضرورة للتوضيح، وتجنب الإفراط في الاقتباس\n\n### الجزء 2: تحليل مفصل (بعد الشرح السريع)\nقدم معلومات شاملة بالتنسيق الآتي.\n\n## المهام الأساسية\n1. فسّر النص بدقة، مستخدمًا سياق القارئ لتوضيح الضمائر والنبرة والمعرفة المتخصصة والإشارات الثقافية. إذا لم يُقدّم سياق، فاذكر أنك استنتجت المعنى من المقتطف وحده.\n2. قدم تفاصيل بمستوى المعجم (النطق، النوع النحوي، فروق المعاني) ومعرفة موسوعية (الأصل أو الخلفية الثقافية أو مرجع أدبي أو معلومة واقعية ذات صلة).\n3. قدم إرشادات عملية تساعد القارئ على استخدام التعبير أو فهمه بصورة طبيعية.\n\n## القيود\n- يجب أن تكون جميع الإجابات بلغة {{to_locale}}.\n- كن موجزًا وكاملًا؛ احذف أقسام القالب فقط عندما لا تنطبق فعلًا، وبيّن السبب.\n- لا تخرج قوائم Markdown أو رموز ترقيم القوائم أو كتل شيفرة؛ استخدم عناوين مترجمة ونصًا فقط.\n\n## شجرة القرار\n- إذا كانت لغة المصدر هي {{to_locale}} → تعامل مع النص بوصفه مدخلًا معجميًا متقدمًا أحادي اللغة.\n- وإلا → تعامل معه بوصفك مترجمًا ومعلمًا.\n\n## التفاصيل (نص عادي بلا رموز تعداد، ويجب ترجمة كل عنوان إلى {{to_locale}})\n\nعند العمل كمعجم (اللغة نفسها):\n- النطق: أفضل كتابة صوتية متاحة، أو ملاحظة إذا كان غير معروف.\n- النوع النحوي: اذكر جميع الأنواع النحوية ذات الصلة.\n- المعاني: وضّح المعاني الأساسية مع شروح موجزة.\n- الأمثلة: قدم جملتين طبيعيتين مع توضيحات قصيرة.\n- المعرفة الموسوعية: شارك حقيقة سياقية أو ثقافية واحدة (تاريخ، أدب، أصل تعبير اصطلاحي، استخدام متخصص).\n\nعند العمل كمترجم (لغتان مختلفتان):\n- المقتطف الأصلي: اقتبس المقتطف أو اختصره قليلًا (مع الإشارة إلى الاختصار).\n- الترجمة: قدم ترجمة سلسة تحافظ على النبرة ومستوى الرسمية.\n- ملاحظات الترجمة: علّل اختيار الكلمات المهمة، بما في ذلك أثر السياق عليها.\n- المصطلحات: أبرز 2–4 مصطلحات محورية مع شروح قصيرة لمعانيها بلغة {{to_locale}}.\n- المعرفة الموسوعية: أضف تفصيلًا خلفيًا واحدًا (ثقافة، بيئة، مفهوم) يساعد على الفهم.\n      ",
     "selection_custom-preset-dictionary_name": "معرفة الذكاء الاصطناعي",
     "selection_custom-preset-dictionary_prompt":
         "اشرح بإيجاز معنى {selection} وخلفيته والمعرفة ذات الصلة بلغة النص المحدد. دون نطق أو ترجمة أو جمل أمثلة؛ وضّح ما هو غير مؤكد.",
@@ -334,13 +334,13 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "استعادة الإعدادات الافتراضية؟",
     "ui_34321453": "تصدير",
     "ui_3477ba41":
-        "جارٍ نسخ Modu احتياطيًا ودمج المكتبة. أبقِ التطبيق مفتوحًا…",
+        "جارٍ نسخ 小陈笔记 احتياطيًا ودمج المكتبة. أبقِ التطبيق مفتوحًا…",
     "ui_34917dd5": "أدخل 1–20 لون RGB فريدًا من ست خانات، مثل 66CCFF.",
     "ui_34d27af7": "نموذج التضمين لهذا الكتاب",
     "ui_356a249e": "فشل طلب التحديث. تحقق من اتصالك أو الوكيل وحاول مجددًا.",
     "ui_356e54ac": "يتقدم التسطير باستخدام SVG على صورة الخلفية.",
     "ui_35954522":
-        "اكتب تقريرك وعاينه، ثم أكّد إرساله في مستودع Modu على GitHub (يتطلب حساب GitHub). أرفق لقطات الشاشة على GitHub.",
+        "اكتب تقريرك وعاينه، ثم أكّد إرساله في مستودع 小陈笔记 على GitHub (يتطلب حساب GitHub). أرفق لقطات الشاشة على GitHub.",
     "ui_361a9bd6": "مُسحت إعدادات القراءة الصوتية",
     "ui_3633fd81":
         "تُشفّر الإعدادات باستخدام AES-256-GCM؛ ولا تُشفّر الكتب أو الملاحظات أو سجل دردشات الذكاء الاصطناعي. استخدم كلمة مرور قوية وفريدة. لا يمكن استعادة المفاتيح عند فقدان كلمة المرور. لا تُحفظ كلمة المرور في النسخة الاحتياطية.",
@@ -359,7 +359,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_39a3aa11":
         "فشل التحقق من الإصدار أو المثبت. مُنع التثبيت؛ تحقق وأعد التنزيل.",
     "ui_39b523bd": "إغلاق",
-    "ui_39c0bce2": "قوالب Modu قابلة للتعديل. اختيار أحدها يستبدل الوصف أدناه.",
+    "ui_39c0bce2": "قوالب 小陈笔记 قابلة للتعديل. اختيار أحدها يستبدل الوصف أدناه.",
     "ui_3b0f25fa": "تاريخ التعديل",
     "ui_3beb904c": "المسافة بين الفقرات",
     "ui_3c1568a4": "تحقق من طول كلمة المرور وتطابق الإدخالين",
@@ -436,7 +436,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "المظهر ورف الكتب",
     "ui_4b6927a5": "اختيار ملف ZIP لنسخة ANX الاحتياطية",
     "ui_4b725988":
-        "يستند Modu إلى Anx Reader وReadAny.\nيُصدر بموجب GPL-3.0-or-later؛ وليس إصدارًا رسميًا من المشروعين الأصليين.",
+        "يستند 小陈笔记 إلى Anx Reader وReadAny.\nيُصدر بموجب GPL-3.0-or-later؛ وليس إصدارًا رسميًا من المشروعين الأصليين.",
     "ui_4b75eec5": "حذف المزود؟",
     "ui_4cdf1a58": "حذف المزود",
     "ui_4ce17940": "CSS للتخطيط",
@@ -546,7 +546,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_64edaba1": "نُسخ التقرير. حافظ على خصوصية الحافظة.",
     "ui_651f352d": "وكيل الشبكة",
     "ui_65479baf": "ترجمة Google (مجانية)",
-    "ui_6556c39e": "تستبدل قوالب Modu القابلة للتعديل الوصف دون تغيير الصوت.",
+    "ui_6556c39e": "تستبدل قوالب 小陈笔记 القابلة للتعديل الوصف دون تغيير الصوت.",
     "ui_656aeae7": "مدخلات",
     "ui_65b7d137":
         "معطّل افتراضيًا: تُستبعد إعدادات API/الخادم التي تحتوي على بيانات دخول عند التصدير، وتُتجاوز عند الاستيراد، مع الحفاظ على الحسابات والمفاتيح المحلية. عند التفعيل، تتضمن عمليات النقل بيانات دخول بنص واضح. احتفظ بها سرية. لا يتغير تشفير المزامنة، ولا تُصدّر كلمة مروره مطلقًا. لا تضع بيانات دخول خاصة في CSS أو مطالبات أو عناوين URL مخصصة.",
@@ -585,14 +585,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "يشمل الخطوط الفاصلة بين أعمدة النص. الفصل على اليمين؛ والصفحات المتبقية وموضع الكتاب على اليسار.",
     "ui_6e138ea9":
-        "يفتح البحث عن النص المحدد داخل Modu. اختر محركًا افتراضيًا أو غيّره في نافذة البحث. يتلقى الموقع المختار استعلامك؛ ويعتمد توفره على شبكتك.",
+        "يفتح البحث عن النص المحدد داخل 小陈笔记. اختر محركًا افتراضيًا أو غيّره في نافذة البحث. يتلقى الموقع المختار استعلامك؛ ويعتمد توفره على شبكتك.",
     "ui_6e199c95": "المشاريع مفتوحة المصدر والمساهمون",
     "ui_6e60f8d4": "اسحب لإعادة الترتيب",
     "ui_6e730618":
         "تحتفظ جميع المنصات بسجل محلي محدود للأخطاء ونقاط تقدم التنفيذ بعد إزالة البيانات الحساسة، ولا يُرفق أو يُرفع افتراضيًا. عند الموافقة، تُرفق بيانات تشخيص الأعطال المتاحة، دون قراءة السجلات العادية أو إعدادات الذكاء الاصطناعي أو المفاتيح أو نصوص الكتب. راجع التقرير قبل مشاركته؛ إذ يصبح علنيًا بعد الإرسال. تُنسخ التقارير المرفقة بالسجلات لتلصقها أنت في GitHub.",
     "ui_6e733d2b": "مجلد",
     "ui_6eb9ed9e":
-        "اتبع تعليمات المثبت للتحديث. إذا طُلب منك، فأكمل المزامنة وأغلق Modu أولًا.",
+        "اتبع تعليمات المثبت للتحديث. إذا طُلب منك، فأكمل المزامنة وأغلق 小陈笔记 أولًا.",
     "ui_6f60f5ad": "البحث عن نص داخل هذا الكتاب",
     "ui_6f86db5d": "انتهت مهلة مطابقة التظليل. بسّط التعبير النمطي.",
     "ui_6fdab95e":
@@ -920,7 +920,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c515ff97": "الماندرين القياسية",
     "ui_c52f1929": "ملفات وQR وروابط modu · بيانات دخول اختيارية",
     "ui_c5774cb9":
-        "يُحذف «{name}» وفهرس البحث الخاص به من Modu فقط. لا تُحذف الملفات الأصلية.",
+        "يُحذف «{name}» وفهرس البحث الخاص به من 小陈笔记 فقط. لا تُحذف الملفات الأصلية.",
     "ui_c5fd3ab7": "خامة صوت دافئة",
     "ui_c664b25a":
         "إيقاف القراءة الصوتية، وحذف جميع مفاتيح TTS وإعدادات الخدمات واختيارات الأصوات والمسودات، واستعادة السرعة وارتفاع الصوت ومستواه ونطق النظام الافتراضية. لا تتغير إعدادات الذكاء الاصطناعي أو الكتب أو الملاحظات أو المزامنة.",
@@ -943,7 +943,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "حذف الكتب المحددة وعددها {count}؟ ستُحذف أيضًا ملفاتها وفهارس المتجهات المحلية.",
     "ui_cbda3c4f": "معلمات النموذج",
     "ui_cc6f8540":
-        "يستخدم التحقق والتنزيل المصدر نفسه، مع تفضيل GitHub افتراضيًا. إذا تعذر الوصول إلى GitHub أثناء التحقق، ينتقل كلاهما إلى Gitee. أعد التحقق بعد تغيير المصدر وقبل التنزيل. يتولى متصفحك التنزيل؛ ولا يستطيع Modu مراقبة تقدمه أو التحقق من الملف المنزّل. لا تُرسل كتب أو ملاحظات أو مفاتيح حسابات.",
+        "يستخدم التحقق والتنزيل المصدر نفسه، مع تفضيل GitHub افتراضيًا. إذا تعذر الوصول إلى GitHub أثناء التحقق، ينتقل كلاهما إلى Gitee. أعد التحقق بعد تغيير المصدر وقبل التنزيل. يتولى متصفحك التنزيل؛ ولا يستطيع 小陈笔记 مراقبة تقدمه أو التحقق من الملف المنزّل. لا تُرسل كتب أو ملاحظات أو مفاتيح حسابات.",
     "ui_cd93c8b7": "محدّث (أو أحدث من الإصدار المنشور)",
     "ui_ce47b912": "مدمج · جاهز دون اتصال",
     "ui_cec9c9cb": "أدخل وصفًا أو اختر قالبًا",
@@ -995,7 +995,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "استعادة عدة إعدادات؟",
     "ui_d9d3f020":
         "يستخدم وقت التعديل على الخادم؛ وتأتي العناصر دون تاريخ في النهاية.",
-    "ui_d9e3509d": "اختبار اتصال التضمين في Modu",
+    "ui_d9e3509d": "اختبار اتصال التضمين في 小陈笔记",
     "ui_da2571e": "دافئ وناعم",
     "ui_da6b9567": "تم تحديد {count} كتابًا",
     "ui_da711856": "معاينة تقرير الخطأ",
@@ -1067,11 +1067,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "تُحوّل الجمل المتجاورة في الفقرة الواحدة إلى صوت معًا. يتبع التظليل والتنقل كل مقطع؛ وتُقسّم الفقرات الطويلة. تُضاف تعليمات قراءة مستقرة دون تغيير وصفك المحفوظ. يظل الصوت والتوقيت معتمدين على النموذج.",
     "ui_f33e5028":
-        "• يستورد ملفات الكتب والأغلفة والملاحظات/التظليل وموضع/وقت القراءة والمجلدات والوسوم.\n• لا يستورد الحسابات أو كلمات المرور أو مفاتيح API أو إعدادات المزامنة أو دردشات الذكاء الاصطناعي أو الخطوط أو السمات أو إعدادات التطبيق الأخرى.\n• يدعم نسخ ANX الاحتياطية الأصلية بصيغة ZIP ذات إصدار مخطط قاعدة البيانات 7 (وليس إصدار التطبيق). لا يدعم قواعد البيانات المنفردة أو ملفات ZIP المشفرة أو قواعد البيانات المعدّلة.\n• تُستبعد الكتب المحذوفة. تُتجاوز الكتب التي لا تتوفر ملفاتها الفعلية وملاحظاتها وسجلها، وتُدرج في قائمة. نزّلها في ANX وصدّر مجددًا.\n• تُزال المحتويات المكررة. تُحفظ مواضع Modu الحالية وتعديلات الملاحظات وتعيينات المجلدات. لا تؤدي إعادة استيراد النسخة نفسها إلى إنشاء السجلات ذاتها مجددًا أو استبدال البيانات الحالية.\n• لا يتغير ملف ZIP؛ ولا يُوصل مطلقًا إلى التخزين الخاص بـ ANX. تُنشأ نسخة احتياطية محلية لقاعدة بيانات Modu قبل الاستيراد، ويُعرض موضعها بعده.\n• وفر مساحة لفك الضغط والنسخ والنسخة الاحتياطية لقاعدة البيانات. تتحقق مرحلة التحضير من النسخة الاحتياطية فقط.",
+        "• يستورد ملفات الكتب والأغلفة والملاحظات/التظليل وموضع/وقت القراءة والمجلدات والوسوم.\n• لا يستورد الحسابات أو كلمات المرور أو مفاتيح API أو إعدادات المزامنة أو دردشات الذكاء الاصطناعي أو الخطوط أو السمات أو إعدادات التطبيق الأخرى.\n• يدعم نسخ ANX الاحتياطية الأصلية بصيغة ZIP ذات إصدار مخطط قاعدة البيانات 7 (وليس إصدار التطبيق). لا يدعم قواعد البيانات المنفردة أو ملفات ZIP المشفرة أو قواعد البيانات المعدّلة.\n• تُستبعد الكتب المحذوفة. تُتجاوز الكتب التي لا تتوفر ملفاتها الفعلية وملاحظاتها وسجلها، وتُدرج في قائمة. نزّلها في ANX وصدّر مجددًا.\n• تُزال المحتويات المكررة. تُحفظ مواضع 小陈笔记 الحالية وتعديلات الملاحظات وتعيينات المجلدات. لا تؤدي إعادة استيراد النسخة نفسها إلى إنشاء السجلات ذاتها مجددًا أو استبدال البيانات الحالية.\n• لا يتغير ملف ZIP؛ ولا يُوصل مطلقًا إلى التخزين الخاص بـ ANX. تُنشأ نسخة احتياطية محلية لقاعدة بيانات 小陈笔记 قبل الاستيراد، ويُعرض موضعها بعده.\n• وفر مساحة لفك الضغط والنسخ والنسخة الاحتياطية لقاعدة البيانات. تتحقق مرحلة التحضير من النسخة الاحتياطية فقط.",
     "ui_f388b7a3":
         "تعذر فتح المتصفح الافتراضي. أعد المحاولة أو زر صفحة الإصدار الرسمية.",
     "ui_f38fcdf3":
-        "نزّل ملف DMG باستخدام متصفحك الافتراضي لتجنب حجر الحماية الخاص بعزل macOS. لا تُعد استخدام تنزيل قديم من داخل التطبيق. افتح DMG وأغلق Modu واسحب التطبيق الجديد إلى «التطبيقات» لاستبداله؛ تبقى مكتبتك محفوظة. الحزم الحالية غير موثقة لدى Apple.",
+        "نزّل ملف DMG باستخدام متصفحك الافتراضي لتجنب حجر الحماية الخاص بعزل macOS. لا تُعد استخدام تنزيل قديم من داخل التطبيق. افتح DMG وأغلق 小陈笔记 واسحب التطبيق الجديد إلى «التطبيقات» لاستبداله؛ تبقى مكتبتك محفوظة. الحزم الحالية غير موثقة لدى Apple.",
     "ui_f3e93354": "ملء الشاشة",
     "ui_f4809d40": "هادئ وثابت",
     "ui_f48352d1": "للتظليل، أدخل تصريحات CSS دون محددات أو أقواس معقوفة.",
@@ -1089,7 +1089,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "استيراد نسخة ANX Reader الاحتياطية",
     "ui_f687e87b": "الملاحظات والمقتطفات",
     "ui_f6d5ddd0": "تعذر فتح المتصفح. أعد المحاولة.",
-    "ui_f6e64898": "اختبار نموذج التضمين المحلي في Modu",
+    "ui_f6e64898": "اختبار نموذج التضمين المحلي في 小陈笔记",
     "ui_f79b47e3": "حذف القاموس؟",
     "ui_f82ce566": "تصدير الحالي",
     "ui_f863d66d": "حذف هذا الملف التعريفي؟",
@@ -1162,7 +1162,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "Export: verschlüsselte Dienstkonfigurationen und Zugangsdaten bei Bedarf einschließen → Modu-Backup-*.zip erstellen → speichern. Nur lokale Dateien werden gesichert; gewünschte Bücher vorher herunterladen.",
     "ui_database_backup_import_step":
-        "Import: hier exportierte ZIP wählen (nicht entpacken) → Ersetzen bestätigen und prüfen → bei verschlüsselten Einstellungen das Exportpasswort eingeben → Modu neu starten. Bibliothek, Notizen und gesicherte Einstellungen werden ersetzt, nicht zusammengeführt. Aktuelle Daten vorher exportieren.",
+        "Import: hier exportierte ZIP wählen (nicht entpacken) → Ersetzen bestätigen und prüfen → bei verschlüsselten Einstellungen das Exportpasswort eingeben → 小陈笔记 neu starten. Bibliothek, Notizen und gesicherte Einstellungen werden ersetzt, nicht zusammengeführt. Aktuelle Daten vorher exportieren.",
     "ui_database_backup_save_windows":
         "Standardpfad: Downloads-Ordner des aktuellen Windows-Benutzers, meist C:\\Users\\<Benutzername>\\Downloads. Nach dem Export wird der tatsächliche vollständige Pfad zum Kopieren angezeigt.",
     "ui_database_backup_save_desktop":
@@ -1240,7 +1240,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Schreiben Sie eine kurze, freundliche Selbstvorstellung. Verwenden Sie den Sprachcode: {{language_locale}}",
     "ai_translate_prompt":
-        "Sie sind der Modu-Experte für „Übersetzung und Nachschlagen“. Geben Sie eine fundierte Antwort in der bevorzugten Sprache des Nutzers {{to_locale}}.\n\nEingaben dieser Anfrage:\n- Ausgangstext: {{text}}\n- Hinweis auf die Ausgangssprache: {{from_locale}}\n- Lesekontext (kann leer sein): {{contextText}}\n\n## Antwortstruktur (ENTSCHEIDEND)\nIhre Antwort MUSS dieser zweiteiligen Struktur folgen:\nGeben Sie NICHT das Gerüst oder die Anweisungen aus, sondern nur die fertige Antwort.\n\n### Teil 1: Kurze kontextbezogene Erklärung (IMMER ZUERST)\nBeginnen Sie mit 1–2 knappen Wörtern, die:\n- Bedeutung/Übersetzung im Lesekontext direkt erklären\n- Durch den Kontext aufgelöste Mehrdeutigkeiten berücksichtigen\n- Einfache Alltagssprache verwenden\n- Den Ausgangstext nur zitieren, wenn es für die Klarheit nötig ist, und übermäßige Zitate vermeiden\n\n### Teil 2: Ausführliche Analyse (NACH der kurzen Erklärung)\nGeben Sie umfassende Informationen im folgenden Format.\n\n## Hauptaufgaben\n1. Deuten Sie den Text präzise und nutzen Sie den Lesekontext, um Pronomen, Tonfall, Fachwissen und kulturelle Bezüge zu klären. Fehlt Kontext, erklären Sie, dass Sie die Bedeutung allein aus dem Ausschnitt erschlossen haben.\n2. Geben Sie Details auf Wörterbuchniveau (Lautschrift, Wortart, Bedeutungsnuancen) UND einen enzyklopädischen Einblick (Herkunft, kultureller Hintergrund, literarischer Bezug oder sachlicher Anknüpfungspunkt).\n3. Geben Sie praktische Hinweise, damit der Leser den Ausdruck natürlich verwenden oder verstehen kann.\n\n## Einschränkungen\n- Alle Antworten müssen in {{to_locale}} bleiben.\n- Seien Sie knapp, aber vollständig. Lassen Sie Vorlagenabschnitte nur weg, wenn sie tatsächlich nicht zutreffen, und nennen Sie den Grund.\n- Keine Markdown-Listen, Nummerierungszeichen oder Codeblöcke ausgeben, sondern nur übersetzte Überschriften und Text.\n\n## Entscheidungsbaum\n- Entspricht die Ausgangssprache {{to_locale}}, verfassen Sie einen fortgeschrittenen einsprachigen Wörterbucheintrag.\n- Andernfalls handeln Sie als Übersetzer und Sprachlehrer.\n\n## Details (Klartext ohne Aufzählungszeichen; jede Überschrift MUSS in {{to_locale}} übersetzt sein)\n\nAls Wörterbuch (gleiche Sprache):\n- Aussprache: Die bestmögliche Lautschrift oder ein Hinweis, falls sie unbekannt ist.\n- Wortart: Alle relevanten Wortarten angeben.\n- Bedeutungen: Wichtige Bedeutungen mit knappen Erklärungen aufführen.\n- Beispiele: Zwei natürliche Beispielsätze mit kurzen Erläuterungen.\n- Enzyklopädie: Eine kontextuelle oder kulturelle Tatsache nennen (Geschichte, Literatur, Redewendungsherkunft, Fachgebrauch).\n\nAls Übersetzer (verschiedene Sprachen):\n- Ausgangsausschnitt: Den Ausgangstext zitieren oder leicht kürzen und Kürzungen kennzeichnen.\n- Übersetzung: Flüssig übersetzen und Ton sowie Register bewahren.\n- Übersetzungshinweise: Wichtige Wortentscheidungen begründen und erläutern, wie der Kontext sie beeinflusst hat.\n- Glossar: 2–4 zentrale Begriffe mit kurzen Bedeutungshinweisen in {{to_locale}} hervorheben.\n- Enzyklopädie: Ein Hintergrunddetail zu Kultur, Schauplatz oder Konzept ergänzen, das das Verständnis unterstützt.",
+        "Sie sind der 小陈笔记-Experte für „Übersetzung und Nachschlagen“. Geben Sie eine fundierte Antwort in der bevorzugten Sprache des Nutzers {{to_locale}}.\n\nEingaben dieser Anfrage:\n- Ausgangstext: {{text}}\n- Hinweis auf die Ausgangssprache: {{from_locale}}\n- Lesekontext (kann leer sein): {{contextText}}\n\n## Antwortstruktur (ENTSCHEIDEND)\nIhre Antwort MUSS dieser zweiteiligen Struktur folgen:\nGeben Sie NICHT das Gerüst oder die Anweisungen aus, sondern nur die fertige Antwort.\n\n### Teil 1: Kurze kontextbezogene Erklärung (IMMER ZUERST)\nBeginnen Sie mit 1–2 knappen Wörtern, die:\n- Bedeutung/Übersetzung im Lesekontext direkt erklären\n- Durch den Kontext aufgelöste Mehrdeutigkeiten berücksichtigen\n- Einfache Alltagssprache verwenden\n- Den Ausgangstext nur zitieren, wenn es für die Klarheit nötig ist, und übermäßige Zitate vermeiden\n\n### Teil 2: Ausführliche Analyse (NACH der kurzen Erklärung)\nGeben Sie umfassende Informationen im folgenden Format.\n\n## Hauptaufgaben\n1. Deuten Sie den Text präzise und nutzen Sie den Lesekontext, um Pronomen, Tonfall, Fachwissen und kulturelle Bezüge zu klären. Fehlt Kontext, erklären Sie, dass Sie die Bedeutung allein aus dem Ausschnitt erschlossen haben.\n2. Geben Sie Details auf Wörterbuchniveau (Lautschrift, Wortart, Bedeutungsnuancen) UND einen enzyklopädischen Einblick (Herkunft, kultureller Hintergrund, literarischer Bezug oder sachlicher Anknüpfungspunkt).\n3. Geben Sie praktische Hinweise, damit der Leser den Ausdruck natürlich verwenden oder verstehen kann.\n\n## Einschränkungen\n- Alle Antworten müssen in {{to_locale}} bleiben.\n- Seien Sie knapp, aber vollständig. Lassen Sie Vorlagenabschnitte nur weg, wenn sie tatsächlich nicht zutreffen, und nennen Sie den Grund.\n- Keine Markdown-Listen, Nummerierungszeichen oder Codeblöcke ausgeben, sondern nur übersetzte Überschriften und Text.\n\n## Entscheidungsbaum\n- Entspricht die Ausgangssprache {{to_locale}}, verfassen Sie einen fortgeschrittenen einsprachigen Wörterbucheintrag.\n- Andernfalls handeln Sie als Übersetzer und Sprachlehrer.\n\n## Details (Klartext ohne Aufzählungszeichen; jede Überschrift MUSS in {{to_locale}} übersetzt sein)\n\nAls Wörterbuch (gleiche Sprache):\n- Aussprache: Die bestmögliche Lautschrift oder ein Hinweis, falls sie unbekannt ist.\n- Wortart: Alle relevanten Wortarten angeben.\n- Bedeutungen: Wichtige Bedeutungen mit knappen Erklärungen aufführen.\n- Beispiele: Zwei natürliche Beispielsätze mit kurzen Erläuterungen.\n- Enzyklopädie: Eine kontextuelle oder kulturelle Tatsache nennen (Geschichte, Literatur, Redewendungsherkunft, Fachgebrauch).\n\nAls Übersetzer (verschiedene Sprachen):\n- Ausgangsausschnitt: Den Ausgangstext zitieren oder leicht kürzen und Kürzungen kennzeichnen.\n- Übersetzung: Flüssig übersetzen und Ton sowie Register bewahren.\n- Übersetzungshinweise: Wichtige Wortentscheidungen begründen und erläutern, wie der Kontext sie beeinflusst hat.\n- Glossar: 2–4 zentrale Begriffe mit kurzen Bedeutungshinweisen in {{to_locale}} hervorheben.\n- Enzyklopädie: Ein Hintergrunddetail zu Kultur, Schauplatz oder Konzept ergänzen, das das Verständnis unterstützt.",
     "selection_custom-preset-dictionary_name": "KI-Wissen",
     "selection_custom-preset-dictionary_prompt":
         "Erkläre Bedeutung, Hintergrund und verwandtes Wissen zu {selection} kurz in der Sprache des ausgewählten Textes. Keine Aussprache, Übersetzungen oder Beispielsätze; Unsicherheit klar kennzeichnen.",
@@ -1477,7 +1477,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "Standardwerte wiederherstellen?",
     "ui_34321453": "Exportieren",
     "ui_3477ba41":
-        "Modu wird gesichert und die Bibliothek zusammengeführt. Lassen Sie die App geöffnet…",
+        "小陈笔记 wird gesichert und die Bibliothek zusammengeführt. Lassen Sie die App geöffnet…",
     "ui_34917dd5":
         "1–20 eindeutige sechsstellige RGB-Farbwerte eingeben, z. B. 66CCFF.",
     "ui_34d27af7": "Embedding-Modell für dieses Buch",
@@ -1486,7 +1486,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_356e54ac":
         "SVG-Unterstreichungen haben Vorrang vor dem Hintergrundbild.",
     "ui_35954522":
-        "Problem beschreiben und Bericht prüfen, dann im GitHub-Repository von Modu die Übermittlung bestätigen (GitHub-Konto erforderlich). Screenshots können auf GitHub hinzugefügt werden.",
+        "Problem beschreiben und Bericht prüfen, dann im GitHub-Repository von 小陈笔记 die Übermittlung bestätigen (GitHub-Konto erforderlich). Screenshots können auf GitHub hinzugefügt werden.",
     "ui_361a9bd6": "Vorleseeinstellungen gelöscht",
     "ui_3633fd81":
         "Einstellungen werden mit AES-256-GCM verschlüsselt; Bücher, Notizen und KI-Chatverlauf sind unverschlüsselt. Ein starkes, eigenständiges Passwort verwenden. Geht es verloren, können die Schlüssel nicht wiederhergestellt werden. Das Passwort wird nicht in der Sicherung gespeichert.",
@@ -1507,7 +1507,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Prüfung der Versionsangaben oder des Installationspakets fehlgeschlagen. Installation blockiert; erneut prüfen und herunterladen.",
     "ui_39b523bd": "Schließen",
     "ui_39c0bce2":
-        "Bearbeitbare Modu-Vorlagen. Die Auswahl ersetzt die Beschreibung darunter.",
+        "Bearbeitbare 小陈笔记-Vorlagen. Die Auswahl ersetzt die Beschreibung darunter.",
     "ui_3b0f25fa": "Änderungsdatum",
     "ui_3beb904c": "Absatzabstand",
     "ui_3c1568a4":
@@ -1590,7 +1590,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Darstellung und Bücherregal",
     "ui_4b6927a5": "ANX-Sicherungs-ZIP auswählen",
     "ui_4b725988":
-        "Modu basiert auf Anx Reader und ReadAny.\nVeröffentlicht unter GPL-3.0-or-later; keine offizielle Veröffentlichung der Ursprungsprojekte.",
+        "小陈笔记 basiert auf Anx Reader und ReadAny.\nVeröffentlicht unter GPL-3.0-or-later; keine offizielle Veröffentlichung der Ursprungsprojekte.",
     "ui_4b75eec5": "Anbieter löschen?",
     "ui_4cdf1a58": "Anbieter löschen",
     "ui_4ce17940": "Layout-CSS",
@@ -1712,7 +1712,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_651f352d": "Netzwerkproxy",
     "ui_65479baf": "Google Übersetzer (kostenlos)",
     "ui_6556c39e":
-        "Bearbeitbare Modu-Vorlagen ersetzen die Beschreibung, ohne Voice zu ändern.",
+        "Bearbeitbare 小陈笔记-Vorlagen ersetzen die Beschreibung, ohne Voice zu ändern.",
     "ui_656aeae7": "Einträge",
     "ui_65b7d137":
         "Standardmäßig aus: API- und Serverkonfigurationen mit Zugangsdaten werden beim Export weggelassen und beim Import übersprungen; lokale Konten und Schlüssel bleiben erhalten. Bei Aktivierung enthalten Dateien und modu-Links rekonstruierbare Zugangsdaten im Klartext. Nicht öffentlich teilen. Die Synchronisierungsverschlüsselung bleibt unverändert, ihr Passwort wird nie exportiert. Keine privaten Zugangsdaten in eigenes CSS, Prompts oder URLs eintragen.",
@@ -1751,14 +1751,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "Mit Trennlinien zwischen Textspalten. Kapitelname rechts; verbleibende Seiten und Position im Buch links.",
     "ui_6e138ea9":
-        "Die Suche nach ausgewähltem Text öffnet sich in Modu. Wählen Sie einen Standarddienst oder wechseln Sie im Suchfenster. Ihre Suchanfrage wird an die gewählte Website gesendet; die Verfügbarkeit hängt von Ihrer Verbindung ab.",
+        "Die Suche nach ausgewähltem Text öffnet sich in 小陈笔记. Wählen Sie einen Standarddienst oder wechseln Sie im Suchfenster. Ihre Suchanfrage wird an die gewählte Website gesendet; die Verfügbarkeit hängt von Ihrer Verbindung ab.",
     "ui_6e199c95": "Open-Source-Projekte und Herkunft",
     "ui_6e60f8d4": "Zum Sortieren ziehen",
     "ui_6e730618":
         "Alle Plattformen speichern lokal ein begrenztes Protokoll bereinigter Fehler und Verarbeitungsschritte. Standardmäßig wird es weder beigefügt noch hochgeladen. Mit Ihrer Zustimmung werden verfügbare System-Absturzdiagnosen beigefügt; normale Protokolle, KI-Einstellungen, Schlüssel und Buchtexte werden nicht gelesen. Eingereichte Berichte sind öffentlich; bitte vor dem Teilen in der Vorschau prüfen. Berichte mit Protokollen werden kopiert, damit Sie sie selbst auf GitHub einfügen können.",
     "ui_6e733d2b": "Ordner",
     "ui_6eb9ed9e":
-        "Folgen Sie dem Installationsprogramm zum Aktualisieren. Falls die App noch läuft, zuerst die Synchronisierung abschließen und Modu beenden.",
+        "Folgen Sie dem Installationsprogramm zum Aktualisieren. Falls die App noch läuft, zuerst die Synchronisierung abschließen und 小陈笔记 beenden.",
     "ui_6f60f5ad": "Text in diesem Buch suchen",
     "ui_6f86db5d":
         "Zeitlimit für Hervorhebungen überschritten. Bitte den regulären Ausdruck vereinfachen.",
@@ -2104,7 +2104,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c515ff97": "Standard-Mandarin",
     "ui_c52f1929": "Dateien, QR-Codes und modu-Links · Zugangsdaten optional",
     "ui_c5774cb9":
-        "Nur „{name}“ und den zugehörigen Suchindex aus Modu entfernen. Die ursprünglichen Wörterbuchdateien werden nicht gelöscht.",
+        "Nur „{name}“ und den zugehörigen Suchindex aus 小陈笔记 entfernen. Die ursprünglichen Wörterbuchdateien werden nicht gelöscht.",
     "ui_c5fd3ab7": "Warme Klangfarbe",
     "ui_c664b25a":
         "Vorlesen stoppen, alle TTS-Schlüssel, Dienstkonfigurationen, Stimmwahlen und Entwürfe entfernen und Standardwerte für Geschwindigkeit, Tonhöhe, Lautstärke und Systemstimme wiederherstellen. KI, Bücher, Notizen und Synchronisierungseinstellungen bleiben unverändert.",
@@ -2129,7 +2129,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Die {count} ausgewählten Bücher löschen? Ihre Dateien und lokalen Vektorindizes werden ebenfalls gelöscht.",
     "ui_cbda3c4f": "Modellparameter",
     "ui_cc6f8540":
-        "Prüfung und Download verwenden dieselbe Quelle, standardmäßig bevorzugt GitHub. Bei Verbindungsfehlern, Zeitüberschreitung oder nicht verfügbarem Dienst wechseln beide zu Gitee. Nach einem Quellenwechsel vor dem Download erneut prüfen. Der Browser übernimmt den Download; Modu kann weder dessen Fortschritt verfolgen noch den Abschluss oder eine erfolgreiche SHA-256-Prüfung anzeigen. Bücher, Notizen und Kontoschlüssel werden nicht gesendet.",
+        "Prüfung und Download verwenden dieselbe Quelle, standardmäßig bevorzugt GitHub. Bei Verbindungsfehlern, Zeitüberschreitung oder nicht verfügbarem Dienst wechseln beide zu Gitee. Nach einem Quellenwechsel vor dem Download erneut prüfen. Der Browser übernimmt den Download; 小陈笔记 kann weder dessen Fortschritt verfolgen noch den Abschluss oder eine erfolgreiche SHA-256-Prüfung anzeigen. Bücher, Notizen und Kontoschlüssel werden nicht gesendet.",
     "ui_cd93c8b7": "Aktuell (oder neuer als die veröffentlichte Version)",
     "ui_ce47b912": "Enthalten · Offline verfügbar",
     "ui_cec9c9cb": "Beschreibung eingeben oder Vorlage wählen",
@@ -2148,7 +2148,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d1613041": "Englisch",
     "ui_d1772dbc": "Funktionsparameter konfigurieren",
     "ui_d19439a9":
-        "Der Download läuft nach dem Schließen dieses Fensters weiter. Unter „Über Modu“ Fortschritt ansehen oder abbrechen.",
+        "Der Download läuft nach dem Schließen dieses Fensters weiter. Unter „Über 小陈笔记“ Fortschritt ansehen oder abbrechen.",
     "ui_d23480e5":
         "Einstellungen konnten nicht gelöscht werden. Erneut versuchen.",
     "ui_d277f8c0": "Nach dem Import vektorisieren",
@@ -2183,7 +2183,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "Mehrere Einstellungen wiederherstellen?",
     "ui_d9d3f020":
         "Verwendet die Änderungszeit des Servers; fehlende Daten werden zuletzt einsortiert.",
-    "ui_d9e3509d": "Modu-Verbindungstest für Embeddings",
+    "ui_d9e3509d": "小陈笔记-Verbindungstest für Embeddings",
     "ui_da2571e": "Warm und sanft",
     "ui_da6b9567": "{count} Bücher ausgewählt",
     "ui_da711856": "Fehlerbericht prüfen",
@@ -2259,11 +2259,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "Benachbarte Sätze desselben Absatzes werden gemeinsam synthetisiert. Hervorhebung und Navigation folgen jedem Abschnitt; lange Absätze werden aufgeteilt. Anweisungen für gleichmäßiges Vorlesen werden ergänzt, ohne die gespeicherte Beschreibung zu ändern. Stimme und Tempo hängen weiterhin vom Modell ab.",
     "ui_f33e5028":
-        "• Importiert Buchdateien, Cover, Notizen/Hervorhebungen, Leseposition und -zeit, Ordner und Tags.\n• Importiert keine Konten, Passwörter, API-Schlüssel, Synchronisierungskonfigurationen, KI-Chats, Schriften, Themen oder sonstigen App-Einstellungen.\n• Unterstützt originale ANX-ZIP-Sicherungen mit Datenbankschemaversion 7 (nicht die App-Version). Einzelne DB-Dateien, verschlüsselte ZIPs und veränderte Datenbanken werden nicht unterstützt.\n• Gelöschte Bücher werden ausgeschlossen. Bücher ohne zugehörige Textdateien sowie ihre Notizen und Lesedaten werden übersprungen und aufgelistet. In ANX vollständig herunterladen und erneut exportieren.\n• Identische Inhalte werden dedupliziert. Vorhandene Modu-Lesepositionen, Notizänderungen und Ordnerzuordnungen bleiben erhalten. Ein erneuter Import derselben Sicherung erzeugt keine doppelten Datensätze und überschreibt keine vorhandenen Daten.\n• Die ZIP-Datei bleibt unverändert; auf den privaten ANX-Speicher wird nie zugegriffen. Vor dem Import wird die lokale Modu-Datenbank gesichert; danach wird der Speicherort angezeigt.\n• Genügend Platz für Entpacken, Kopien und Datenbanksicherung vorsehen. Die Vorbereitung prüft nur die Sicherung und ersetzt die vorhandene Bibliothek nicht.",
+        "• Importiert Buchdateien, Cover, Notizen/Hervorhebungen, Leseposition und -zeit, Ordner und Tags.\n• Importiert keine Konten, Passwörter, API-Schlüssel, Synchronisierungskonfigurationen, KI-Chats, Schriften, Themen oder sonstigen App-Einstellungen.\n• Unterstützt originale ANX-ZIP-Sicherungen mit Datenbankschemaversion 7 (nicht die App-Version). Einzelne DB-Dateien, verschlüsselte ZIPs und veränderte Datenbanken werden nicht unterstützt.\n• Gelöschte Bücher werden ausgeschlossen. Bücher ohne zugehörige Textdateien sowie ihre Notizen und Lesedaten werden übersprungen und aufgelistet. In ANX vollständig herunterladen und erneut exportieren.\n• Identische Inhalte werden dedupliziert. Vorhandene 小陈笔记-Lesepositionen, Notizänderungen und Ordnerzuordnungen bleiben erhalten. Ein erneuter Import derselben Sicherung erzeugt keine doppelten Datensätze und überschreibt keine vorhandenen Daten.\n• Die ZIP-Datei bleibt unverändert; auf den privaten ANX-Speicher wird nie zugegriffen. Vor dem Import wird die lokale Modu-Datenbank gesichert; danach wird der Speicherort angezeigt.\n• Genügend Platz für Entpacken, Kopien und Datenbanksicherung vorsehen. Die Vorbereitung prüft nur die Sicherung und ersetzt die vorhandene Bibliothek nicht.",
     "ui_f388b7a3":
         "Standardbrowser konnte nicht geöffnet werden. Erneut versuchen oder die offizielle Versionsseite besuchen.",
     "ui_f38fcdf3":
-        "DMG mit dem Standardbrowser herunterladen, um macOS-Sandbox-Quarantäne zu vermeiden. Keinen alten Download aus der App wiederverwenden. DMG öffnen, Modu beenden und die neue App in „Programme“ ziehen, um die alte zu ersetzen; Ihre Bibliothek bleibt erhalten. Aktuelle Pakete sind nicht von Apple notarisiert.",
+        "DMG mit dem Standardbrowser herunterladen, um macOS-Sandbox-Quarantäne zu vermeiden. Keinen alten Download aus der App wiederverwenden. DMG öffnen, 小陈笔记 beenden und die neue App in „Programme“ ziehen, um die alte zu ersetzen; Ihre Bibliothek bleibt erhalten. Aktuelle Pakete sind nicht von Apple notarisiert.",
     "ui_f3e93354": "Vollbild",
     "ui_f4809d40": "Gelassen und ruhig",
     "ui_f48352d1":
@@ -2283,7 +2283,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "ANX-Reader-Sicherung importieren",
     "ui_f687e87b": "Notizen und Auszüge",
     "ui_f6d5ddd0": "Browser konnte nicht geöffnet werden. Erneut versuchen.",
-    "ui_f6e64898": "Modu-Test des lokalen Embedding-Modells",
+    "ui_f6e64898": "小陈笔记-Test des lokalen Embedding-Modells",
     "ui_f79b47e3": "Wörterbuch löschen?",
     "ui_f82ce566": "Aktuelles Profil exportieren",
     "ui_f863d66d": "Dieses Profil löschen?",
@@ -2432,7 +2432,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Write a concise and friendly self-introduction. Use the language code: {{language_locale}}\n        ",
     "ai_translate_prompt":
-        "You are the Modu \"Translation & Reference\" expert. Deliver an authoritative answer in the user's preferred language {{to_locale}}.\n\nInput for this request:\n- Source Text: {{text}}\n- Source Language hint: {{from_locale}}\n- Reader Context (may be empty): {{contextText}}\n\n## Response Structure (CRITICAL)\nYour response MUST follow this two-part structure:\nDON'T output the skeleton or the instructions, only the final answer.\n\n### Part 1: Quick Context-Aware Explanation (ALWAYS FIRST)\nStart with 1-2 concise words that:\n- Directly explain the meaning/translation in the reading context\n- Address any ambiguity resolved by the context\n- Use plain, conversational language\n- Don't quote the source text unless necessary for clarity, and avoid excessive quoting\n\n### Part 2: Detailed Analysis (AFTER the quick explanation)\nProvide comprehensive information using the format below.\n\n## Core Duties\n1. Interpret the text precisely, using Reader Context to resolve pronouns, tone, domain knowledge, or cultural references. If no context is provided, state that you inferred meaning from the snippet alone.\n2. Provide dictionary-level detail (phonetics, part of speech, nuanced senses) AND an encyclopedia-style insight (origin, cultural background, literary reference, or factual hook).\n3. Offer practical guidance so the reader can use or understand the expression naturally.\n\n## Constraints\n- All responses must stay in {{to_locale}}.\n- Be concise but complete; remove any template sections only when genuinely inapplicable and indicate why.\n- Never output markdown lists, numbering symbols, or code fences—just localized headings and text.\n\n## Decision Tree\n- If source language matches {{to_locale}} → act as an advanced monolingual dictionary entry.\n- Otherwise → act as a translator plus tutor.\n\n## Detail (plain text, no bullet symbols, each heading MUST translated into {{to_locale}})\n\nWhen acting as a dictionary (same language):\n- Pronunciation: best-available phonetic transcription or note if unknown.\n- Part of speech: list every relevant part of speech.\n- Meanings: enumerate key senses with concise explanations.\n- Examples: provide two natural example sentences with brief clarifications.\n- Encyclopedia: share one contextual or cultural fact (history, literature, idiom origin, domain usage).\n\nWhen acting as a translator (different languages):\n- Source excerpt: quote or lightly trim the source snippet (note when shortened).\n- Translation: produce a fluent translation honoring tone and register.\n- Translation notes: justify critical word choices, including how context shaped them.\n- Glossary: highlight 2-4 pivotal terms with short meaning notes in {{to_locale}}.\n- Encyclopedia: add one background detail (culture, setting, concept) that aids understanding.\n      ",
+        "You are the 小陈笔记 \"Translation & Reference\" expert. Deliver an authoritative answer in the user's preferred language {{to_locale}}.\n\nInput for this request:\n- Source Text: {{text}}\n- Source Language hint: {{from_locale}}\n- Reader Context (may be empty): {{contextText}}\n\n## Response Structure (CRITICAL)\nYour response MUST follow this two-part structure:\nDON'T output the skeleton or the instructions, only the final answer.\n\n### Part 1: Quick Context-Aware Explanation (ALWAYS FIRST)\nStart with 1-2 concise words that:\n- Directly explain the meaning/translation in the reading context\n- Address any ambiguity resolved by the context\n- Use plain, conversational language\n- Don't quote the source text unless necessary for clarity, and avoid excessive quoting\n\n### Part 2: Detailed Analysis (AFTER the quick explanation)\nProvide comprehensive information using the format below.\n\n## Core Duties\n1. Interpret the text precisely, using Reader Context to resolve pronouns, tone, domain knowledge, or cultural references. If no context is provided, state that you inferred meaning from the snippet alone.\n2. Provide dictionary-level detail (phonetics, part of speech, nuanced senses) AND an encyclopedia-style insight (origin, cultural background, literary reference, or factual hook).\n3. Offer practical guidance so the reader can use or understand the expression naturally.\n\n## Constraints\n- All responses must stay in {{to_locale}}.\n- Be concise but complete; remove any template sections only when genuinely inapplicable and indicate why.\n- Never output markdown lists, numbering symbols, or code fences—just localized headings and text.\n\n## Decision Tree\n- If source language matches {{to_locale}} → act as an advanced monolingual dictionary entry.\n- Otherwise → act as a translator plus tutor.\n\n## Detail (plain text, no bullet symbols, each heading MUST translated into {{to_locale}})\n\nWhen acting as a dictionary (same language):\n- Pronunciation: best-available phonetic transcription or note if unknown.\n- Part of speech: list every relevant part of speech.\n- Meanings: enumerate key senses with concise explanations.\n- Examples: provide two natural example sentences with brief clarifications.\n- Encyclopedia: share one contextual or cultural fact (history, literature, idiom origin, domain usage).\n\nWhen acting as a translator (different languages):\n- Source excerpt: quote or lightly trim the source snippet (note when shortened).\n- Translation: produce a fluent translation honoring tone and register.\n- Translation notes: justify critical word choices, including how context shaped them.\n- Glossary: highlight 2-4 pivotal terms with short meaning notes in {{to_locale}}.\n- Encyclopedia: add one background detail (culture, setting, concept) that aids understanding.\n      ",
     "selection_custom-preset-dictionary_name": "AI Knowledge",
     "selection_custom-preset-dictionary_prompt":
         "Briefly explain the meaning, background and related knowledge of {selection}, in the selected text's language. No pronunciation, translation or example sentences; clearly flag uncertainty.",
@@ -2658,7 +2658,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "Restore defaults?",
     "ui_34321453": "Export",
     "ui_3477ba41":
-        "Backing up Modu and merging the library. Keep the app open…",
+        "Backing up 小陈笔记 and merging the library. Keep the app open…",
     "ui_34917dd5": "Enter 1–20 unique six-digit RGB colours, e.g. 66CCFF.",
     "ui_34d27af7": "Embedding model for this book",
     "ui_356a249e":
@@ -2685,7 +2685,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Release or installer verification failed. Installation blocked; check and download again.",
     "ui_39b523bd": "Close",
     "ui_39c0bce2":
-        "Editable Modu templates. Selecting one replaces the description below.",
+        "Editable 小陈笔记 templates. Selecting one replaces the description below.",
     "ui_3b0f25fa": "Date modified",
     "ui_3beb904c": "Paragraph gap",
     "ui_3c1568a4": "Check the password length and that both entries match",
@@ -2762,7 +2762,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Appearance and bookshelf",
     "ui_4b6927a5": "Select ANX backup ZIP",
     "ui_4b725988":
-        "Modu is based on Anx Reader and ReadAny.\nReleased under GPL-3.0-or-later; not an official upstream release.",
+        "小陈笔记 is based on Anx Reader and ReadAny.\nReleased under GPL-3.0-or-later; not an official upstream release.",
     "ui_4b75eec5": "Delete provider?",
     "ui_4cdf1a58": "Delete provider",
     "ui_4ce17940": "Layout CSS",
@@ -2913,7 +2913,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6e730618":
         "All platforms retain a small local journal of sanitized errors and checkpoints, never attached or uploaded by default. Opting in includes available crash diagnostics, not ordinary logs, AI settings, keys or book text. Review before sharing: reports become public. Reports with logs are copied for you to paste into GitHub.",
     "ui_6e733d2b": "Folder",
-    "ui_6eb9ed9e": "Quit Modu, then run the installer.",
+    "ui_6eb9ed9e": "Quit 小陈笔记, then run the installer.",
     "ui_6f60f5ad": "Search for text within this book",
     "ui_6f86db5d": "Highlight matching timed out. Please simplify the regex.",
     "ui_6fdab95e": "Add custom CSS alongside the visual settings.",
@@ -3222,7 +3222,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c515ff97": "Standard Mandarin",
     "ui_c52f1929": "Files, QR and modu links · Optional credentials",
     "ui_c5774cb9":
-        "Remove “{name}” and its lookup index from Modu only. Original source files are not deleted.",
+        "Remove “{name}” and its lookup index from 小陈笔记 only. Original source files are not deleted.",
     "ui_c5fd3ab7": "Warm Timbre",
     "ui_c664b25a":
         "Clear all speech service settings and API keys, and reset playback settings?",
@@ -3247,7 +3247,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Delete the {count} selected books? Their files and local vector indexes will also be deleted.",
     "ui_cbda3c4f": "Model parameters",
     "ui_cc6f8540":
-        "Checking and downloading use the same source, with GitHub preferred by default. If a check cannot reach GitHub, both switch to Gitee. Check again after changing sources before downloading. Your browser handles the download; Modu cannot monitor its progress or verify the downloaded file. No books, notes or account keys are sent.",
+        "Checking and downloading use the same source, with GitHub preferred by default. If a check cannot reach GitHub, both switch to Gitee. Check again after changing sources before downloading. Your browser handles the download; 小陈笔记 cannot monitor its progress or verify the downloaded file. No books, notes or account keys are sent.",
     "ui_cd93c8b7": "Up to date (or newer than the published release)",
     "ui_ce47b912": "Bundled · Offline ready",
     "ui_cec9c9cb": "Enter a description or select a template",
@@ -3295,7 +3295,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d8f8349": "Could not generate QR code",
     "ui_d9084d2e": "Restore multiple settings?",
     "ui_d9d3f020": "Uses server modification time; missing dates sort last.",
-    "ui_d9e3509d": "Modu embedding connection test",
+    "ui_d9e3509d": "小陈笔记 embedding connection test",
     "ui_da2571e": "Warm and Soft",
     "ui_da6b9567": "{count} books selected",
     "ui_da711856": "Preview bug report",
@@ -3368,7 +3368,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f388b7a3":
         "Could not open the default browser. Retry or visit the official release page.",
     "ui_f38fcdf3":
-        "Download the DMG, quit Modu, then drag the new app into Applications to replace it.",
+        "Download the DMG, quit 小陈笔记, then drag the new app into Applications to replace it.",
     "ui_f3e93354": "Full screen",
     "ui_f4809d40": "Calm and Steady",
     "ui_f48352d1":
@@ -3386,7 +3386,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "Import ANX Reader backup",
     "ui_f687e87b": "Notes and excerpts",
     "ui_f6d5ddd0": "Could not open the browser. Please retry.",
-    "ui_f6e64898": "Modu local embedding model test",
+    "ui_f6e64898": "小陈笔记 local embedding model test",
     "ui_f79b47e3": "Delete dictionary?",
     "ui_f82ce566": "Export current",
     "ui_f863d66d": "Delete this profile?",
@@ -3455,7 +3455,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "Exportar: elegir si se incluyen ajustes de servicios y credenciales cifrados → crear Modu-Backup-*.zip → guardar. Solo se incluyen archivos locales; descarga primero los libros que quieras transferir.",
     "ui_database_backup_import_step":
-        "Importar: seleccionar un ZIP exportado aquí (sin descomprimir) → confirmar reemplazo y validar → introducir la contraseña de exportación si los ajustes están cifrados → reiniciar Modu. Reemplaza biblioteca, notas y ajustes respaldados; no los fusiona. Exporta primero tus datos actuales.",
+        "Importar: seleccionar un ZIP exportado aquí (sin descomprimir) → confirmar reemplazo y validar → introducir la contraseña de exportación si los ajustes están cifrados → reiniciar 小陈笔记. Reemplaza biblioteca, notas y ajustes respaldados; no los fusiona. Exporta primero tus datos actuales.",
     "ui_database_backup_save_windows":
         "Ubicación predeterminada: carpeta Downloads del usuario actual de Windows, normalmente C:\\Users\\<usuario>\\Downloads. Al exportar se muestra la ruta completa real y se permite copiarla.",
     "ui_database_backup_save_desktop":
@@ -3532,7 +3532,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Escribe una presentación personal breve y amable. Usa el código de idioma: {{language_locale}}",
     "ai_translate_prompt":
-        "Eres el experto de Modu en «Traducción y consulta». Ofrece una respuesta rigurosa en el idioma preferido del usuario {{to_locale}}.\n\nEntradas de esta solicitud:\n- Texto de origen: {{text}}\n- Indicación del idioma de origen: {{from_locale}}\n- Contexto de lectura (puede estar vacío): {{contextText}}\n\n## Estructura de respuesta (CRÍTICA)\nTu respuesta DEBE seguir esta estructura de dos partes:\nNO muestres el esquema ni las instrucciones, solo la respuesta final.\n\n### Parte 1: Explicación rápida en contexto (SIEMPRE PRIMERO)\nComienza con 1–2 palabras concisas que:\n- Expliquen directamente el significado o la traducción en el contexto de lectura\n- Tengan en cuenta las ambigüedades resueltas por el contexto\n- Usen un lenguaje sencillo y conversacional\n- No citen el texto original salvo que sea necesario para la claridad y eviten citas excesivas\n\n### Parte 2: Análisis detallado (DESPUÉS de la explicación rápida)\nOfrece información completa con el siguiente formato.\n\n## Funciones principales\n1. Interpreta el texto con precisión y usa el contexto de lectura para aclarar pronombres, tono, conocimiento especializado y referencias culturales. Si no hay contexto, indica que dedujiste el significado solo a partir del fragmento.\n2. Aporta detalle de diccionario (fonética, categoría gramatical, matices de significado) Y una perspectiva enciclopédica (origen, contexto cultural, referencia literaria o dato relevante).\n3. Ofrece orientación práctica para que el lector comprenda o use la expresión con naturalidad.\n\n## Restricciones\n- Todas las respuestas deben permanecer en {{to_locale}}.\n- Sé conciso pero completo; elimina apartados de la plantilla solo si realmente no son aplicables e indica el motivo.\n- Nunca uses listas Markdown, símbolos de numeración ni bloques de código: solo encabezados traducidos y texto.\n\n## Árbol de decisión\n- Si el idioma de origen coincide con {{to_locale}}, actúa como una entrada avanzada de diccionario monolingüe.\n- En otro caso, actúa como traductor y profesor de idiomas.\n\n## Detalles (texto plano, sin viñetas; cada encabezado DEBE traducirse a {{to_locale}})\n\nComo diccionario (mismo idioma):\n- Pronunciación: la mejor transcripción fonética disponible, o indica si se desconoce.\n- Categoría gramatical: todas las categorías pertinentes.\n- Significados: principales acepciones con explicaciones concisas.\n- Ejemplos: dos frases naturales con aclaraciones breves.\n- Enciclopedia: un dato contextual o cultural (historia, literatura, origen de una expresión, uso especializado).\n\nComo traductor (idiomas distintos):\n- Fragmento de origen: cita o recorta ligeramente el fragmento e indica si se ha abreviado.\n- Traducción: una versión fluida que respete el tono y el registro.\n- Notas de traducción: justifica las elecciones de palabras importantes y la influencia del contexto.\n- Glosario: destaca 2–4 términos clave con notas breves de significado en {{to_locale}}.\n- Enciclopedia: añade un detalle de cultura, escenario o concepto que facilite la comprensión.",
+        "Eres el experto de 小陈笔记 en «Traducción y consulta». Ofrece una respuesta rigurosa en el idioma preferido del usuario {{to_locale}}.\n\nEntradas de esta solicitud:\n- Texto de origen: {{text}}\n- Indicación del idioma de origen: {{from_locale}}\n- Contexto de lectura (puede estar vacío): {{contextText}}\n\n## Estructura de respuesta (CRÍTICA)\nTu respuesta DEBE seguir esta estructura de dos partes:\nNO muestres el esquema ni las instrucciones, solo la respuesta final.\n\n### Parte 1: Explicación rápida en contexto (SIEMPRE PRIMERO)\nComienza con 1–2 palabras concisas que:\n- Expliquen directamente el significado o la traducción en el contexto de lectura\n- Tengan en cuenta las ambigüedades resueltas por el contexto\n- Usen un lenguaje sencillo y conversacional\n- No citen el texto original salvo que sea necesario para la claridad y eviten citas excesivas\n\n### Parte 2: Análisis detallado (DESPUÉS de la explicación rápida)\nOfrece información completa con el siguiente formato.\n\n## Funciones principales\n1. Interpreta el texto con precisión y usa el contexto de lectura para aclarar pronombres, tono, conocimiento especializado y referencias culturales. Si no hay contexto, indica que dedujiste el significado solo a partir del fragmento.\n2. Aporta detalle de diccionario (fonética, categoría gramatical, matices de significado) Y una perspectiva enciclopédica (origen, contexto cultural, referencia literaria o dato relevante).\n3. Ofrece orientación práctica para que el lector comprenda o use la expresión con naturalidad.\n\n## Restricciones\n- Todas las respuestas deben permanecer en {{to_locale}}.\n- Sé conciso pero completo; elimina apartados de la plantilla solo si realmente no son aplicables e indica el motivo.\n- Nunca uses listas Markdown, símbolos de numeración ni bloques de código: solo encabezados traducidos y texto.\n\n## Árbol de decisión\n- Si el idioma de origen coincide con {{to_locale}}, actúa como una entrada avanzada de diccionario monolingüe.\n- En otro caso, actúa como traductor y profesor de idiomas.\n\n## Detalles (texto plano, sin viñetas; cada encabezado DEBE traducirse a {{to_locale}})\n\nComo diccionario (mismo idioma):\n- Pronunciación: la mejor transcripción fonética disponible, o indica si se desconoce.\n- Categoría gramatical: todas las categorías pertinentes.\n- Significados: principales acepciones con explicaciones concisas.\n- Ejemplos: dos frases naturales con aclaraciones breves.\n- Enciclopedia: un dato contextual o cultural (historia, literatura, origen de una expresión, uso especializado).\n\nComo traductor (idiomas distintos):\n- Fragmento de origen: cita o recorta ligeramente el fragmento e indica si se ha abreviado.\n- Traducción: una versión fluida que respete el tono y el registro.\n- Notas de traducción: justifica las elecciones de palabras importantes y la influencia del contexto.\n- Glosario: destaca 2–4 términos clave con notas breves de significado en {{to_locale}}.\n- Enciclopedia: añade un detalle de cultura, escenario o concepto que facilite la comprensión.",
     "selection_custom-preset-dictionary_name": "Conocimiento IA",
     "selection_custom-preset-dictionary_prompt":
         "Explica brevemente el significado, el contexto y los conocimientos relacionados con {selection}, en el idioma del texto seleccionado. Sin pronunciación, traducciones ni ejemplos; indica las dudas.",
@@ -3769,7 +3769,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "¿Restaurar los valores predeterminados?",
     "ui_34321453": "Exportar",
     "ui_3477ba41":
-        "Creando una copia de seguridad de Modu y fusionando la biblioteca. Mantén la aplicación abierta…",
+        "Creando una copia de seguridad de 小陈笔记 y fusionando la biblioteca. Mantén la aplicación abierta…",
     "ui_34917dd5":
         "Introduce entre 1 y 20 colores RGB distintos de seis dígitos, por ejemplo 66CCFF.",
     "ui_34d27af7": "Modelo de embeddings de este libro",
@@ -3777,7 +3777,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "La solicitud de actualización falló. Comprueba tu conexión o proxy y reintenta.",
     "ui_356e54ac": "El subrayado SVG tiene prioridad sobre la imagen de fondo.",
     "ui_35954522":
-        "Describe el problema y revisa el informe, luego confirma su envío en el repositorio de Modu en GitHub (se requiere una cuenta de GitHub). Puedes añadir capturas de pantalla en GitHub.",
+        "Describe el problema y revisa el informe, luego confirma su envío en el repositorio de 小陈笔记 en GitHub (se requiere una cuenta de GitHub). Puedes añadir capturas de pantalla en GitHub.",
     "ui_361a9bd6": "Configuración de lectura en voz alta borrada",
     "ui_3633fd81":
         "Los ajustes se cifran con AES-256-GCM; los libros, notas e historial de chats de IA no se cifran. Usa una contraseña fuerte y exclusiva. Si la pierdes, no se pueden recuperar las claves. La contraseña no se guarda en la copia de seguridad.",
@@ -3800,7 +3800,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "La verificación de la versión o del instalador falló. Se bloqueó la instalación; comprueba y descarga de nuevo.",
     "ui_39b523bd": "Cerrar",
     "ui_39c0bce2":
-        "Plantillas editables de Modu. Seleccionar una reemplaza la descripción de abajo.",
+        "Plantillas editables de 小陈笔记. Seleccionar una reemplaza la descripción de abajo.",
     "ui_3b0f25fa": "Fecha de modificación",
     "ui_3beb904c": "Espacio entre párrafos",
     "ui_3c1568a4":
@@ -3882,7 +3882,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Apariencia y biblioteca",
     "ui_4b6927a5": "Seleccionar ZIP de copia de seguridad de ANX",
     "ui_4b725988":
-        "Modu se basa en Anx Reader y ReadAny.\nPublicado bajo GPL-3.0-or-later; no es una versión oficial de los proyectos originales.",
+        "小陈笔记 se basa en Anx Reader y ReadAny.\nPublicado bajo GPL-3.0-or-later; no es una versión oficial de los proyectos originales.",
     "ui_4b75eec5": "¿Eliminar proveedor?",
     "ui_4cdf1a58": "Eliminar proveedor",
     "ui_4ce17940": "CSS de diseño",
@@ -4002,7 +4002,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_651f352d": "Proxy de red",
     "ui_65479baf": "Traductor de Google (gratis)",
     "ui_6556c39e":
-        "Las plantillas editables de Modu reemplazan la descripción sin cambiar Voice.",
+        "Las plantillas editables de 小陈笔记 reemplazan la descripción sin cambiar Voice.",
     "ui_656aeae7": "entradas",
     "ui_65b7d137":
         "Desactivado de forma predeterminada: las configuraciones de API y servidores con credenciales se excluyen al exportar y se omiten al importar, conservando las cuentas y claves locales. Al activarlo, los archivos y enlaces modu contienen credenciales recuperables en texto plano. No los compartas públicamente. El cifrado de sincronización no cambia y su contraseña nunca se exporta. No incluyas credenciales privadas en CSS personalizado, prompts ni URL.",
@@ -4042,14 +4042,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "Incluye líneas entre columnas de texto. Capítulo a la derecha; páginas restantes y posición en el libro a la izquierda.",
     "ui_6e138ea9":
-        "La búsqueda del texto seleccionado se abre en Modu. Elige un motor predeterminado o cámbialo en la ventana de búsqueda. El sitio elegido recibe tu consulta; su disponibilidad depende de tu conexión.",
+        "La búsqueda del texto seleccionado se abre en 小陈笔记. Elige un motor predeterminado o cámbialo en la ventana de búsqueda. El sitio elegido recibe tu consulta; su disponibilidad depende de tu conexión.",
     "ui_6e199c95": "Proyectos de código abierto y créditos",
     "ui_6e60f8d4": "Arrastra para reordenar",
     "ui_6e730618":
         "Todas las plataformas conservan localmente un registro limitado de errores y etapas de procesamiento sin datos sensibles. No se adjunta ni se sube de forma predeterminada. Al marcar la opción, se incluyen los diagnósticos de fallos del sistema disponibles; no se leen registros ordinarios, ajustes de IA, claves ni textos de libros. Los informes enviados son públicos: revisa la vista previa antes de compartirlos. Los informes con registros se copian para que los pegues tú en GitHub.",
     "ui_6e733d2b": "Carpeta",
     "ui_6eb9ed9e":
-        "Sigue el instalador para actualizar. Si indica que la aplicación está abierta, termina la sincronización y cierra Modu primero.",
+        "Sigue el instalador para actualizar. Si indica que la aplicación está abierta, termina la sincronización y cierra 小陈笔记 primero.",
     "ui_6f60f5ad": "Buscar texto en este libro",
     "ui_6f86db5d":
         "Se agotó el tiempo de búsqueda de resaltados. Simplifica la expresión regular.",
@@ -4395,7 +4395,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c515ff97": "Mandarín estándar",
     "ui_c52f1929": "Archivos, QR y enlaces modu · Credenciales opcionales",
     "ui_c5774cb9":
-        "Elimina solo «{name}» y su índice de consulta de Modu. No se borran los archivos originales del diccionario.",
+        "Elimina solo «{name}» y su índice de consulta de 小陈笔记. No se borran los archivos originales del diccionario.",
     "ui_c5fd3ab7": "Timbre cálido",
     "ui_c664b25a":
         "Detén la lectura en voz alta, elimina todas las claves TTS, configuraciones de servicios, selecciones de voz y borradores, y restaura la velocidad, el tono, el volumen y la voz del sistema predeterminados. La IA, los libros, notas y configuración de sincronización no cambian.",
@@ -4420,7 +4420,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "¿Eliminar los {count} libros seleccionados? También se borrarán sus archivos e índices vectoriales locales.",
     "ui_cbda3c4f": "Parámetros del modelo",
     "ui_cc6f8540":
-        "La comprobación y la descarga usan la misma fuente, con GitHub como preferida de forma predeterminada. Si hay un fallo de conexión, tiempo de espera agotado o servicio no disponible, ambas cambian a Gitee. Tras cambiar de fuente, vuelve a comprobar antes de descargar. El navegador gestiona la descarga; Modu no puede supervisar su progreso ni mostrar su finalización o una verificación SHA-256 correcta. No se envían libros, notas ni claves de cuentas.",
+        "La comprobación y la descarga usan la misma fuente, con GitHub como preferida de forma predeterminada. Si hay un fallo de conexión, tiempo de espera agotado o servicio no disponible, ambas cambian a Gitee. Tras cambiar de fuente, vuelve a comprobar antes de descargar. El navegador gestiona la descarga; 小陈笔记 no puede supervisar su progreso ni mostrar su finalización o una verificación SHA-256 correcta. No se envían libros, notas ni claves de cuentas.",
     "ui_cd93c8b7": "Actualizado (o más reciente que la versión publicada)",
     "ui_ce47b912": "Incluido · Disponible sin conexión",
     "ui_cec9c9cb": "Introduce una descripción o selecciona una plantilla",
@@ -4439,7 +4439,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d1613041": "Inglés",
     "ui_d1772dbc": "Configurar parámetros de la función",
     "ui_d19439a9":
-        "La descarga continúa al cerrar esta ventana. Vuelve desde «Acerca de Modu» para ver el progreso o cancelar.",
+        "La descarga continúa al cerrar esta ventana. Vuelve desde «Acerca de 小陈笔记» para ver el progreso o cancelar.",
     "ui_d23480e5": "No se pudo borrar la configuración. Reintenta.",
     "ui_d277f8c0": "Vectorizar tras importar",
     "ui_d285b5bb": "Probar inferencia",
@@ -4472,7 +4472,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "¿Restaurar varios ajustes?",
     "ui_d9d3f020":
         "Usa la fecha de modificación del servidor; las fechas ausentes se ordenan al final.",
-    "ui_d9e3509d": "Prueba de conexión de embeddings de Modu",
+    "ui_d9e3509d": "Prueba de conexión de embeddings de 小陈笔记",
     "ui_da2571e": "Cálido y suave",
     "ui_da6b9567": "{count} libros seleccionados",
     "ui_da711856": "Vista previa del informe de error",
@@ -4549,11 +4549,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "Las frases contiguas de un mismo párrafo se sintetizan juntas. El resaltado y la navegación siguen cada fragmento; los párrafos largos se dividen. Se añaden instrucciones de narración uniforme sin cambiar tu descripción guardada. La voz y el ritmo siguen dependiendo del modelo.",
     "ui_f33e5028":
-        "• Importa archivos de libros, portadas, notas/resaltados, posición y tiempo de lectura, carpetas y etiquetas.\n• No importa cuentas, contraseñas, claves API, configuración de sincronización, chats de IA, fuentes, temas ni otros ajustes de la aplicación.\n• Admite copias de seguridad ZIP originales de ANX con versión de esquema de base de datos 7 (no la versión de la aplicación). No admite archivos DB sueltos, ZIP cifrados ni bases de datos modificadas.\n• Se excluyen los libros eliminados. Los libros sin sus archivos de contenido, junto con sus notas e historial, se omiten y se enumeran. Descárgalos completos en ANX y vuelve a exportar.\n• Los contenidos idénticos se deduplican. Se conservan las posiciones de Modu, cambios de notas y asignaciones de carpetas existentes. Reimportar la misma copia no crea registros duplicados ni sobrescribe datos existentes.\n• El ZIP no cambia y nunca se accede al almacenamiento privado de ANX. Antes de importar se crea una copia local de la base de datos de Modu y después se muestra su ubicación.\n• Reserva espacio suficiente para la extracción, las copias y la copia de seguridad de la base de datos. La preparación solo valida la copia y no reemplaza la biblioteca existente.",
+        "• Importa archivos de libros, portadas, notas/resaltados, posición y tiempo de lectura, carpetas y etiquetas.\n• No importa cuentas, contraseñas, claves API, configuración de sincronización, chats de IA, fuentes, temas ni otros ajustes de la aplicación.\n• Admite copias de seguridad ZIP originales de ANX con versión de esquema de base de datos 7 (no la versión de la aplicación). No admite archivos DB sueltos, ZIP cifrados ni bases de datos modificadas.\n• Se excluyen los libros eliminados. Los libros sin sus archivos de contenido, junto con sus notas e historial, se omiten y se enumeran. Descárgalos completos en ANX y vuelve a exportar.\n• Los contenidos idénticos se deduplican. Se conservan las posiciones de 小陈笔记, cambios de notas y asignaciones de carpetas existentes. Reimportar la misma copia no crea registros duplicados ni sobrescribe datos existentes.\n• El ZIP no cambia y nunca se accede al almacenamiento privado de ANX. Antes de importar se crea una copia local de la base de datos de 小陈笔记 y después se muestra su ubicación.\n• Reserva espacio suficiente para la extracción, las copias y la copia de seguridad de la base de datos. La preparación solo valida la copia y no reemplaza la biblioteca existente.",
     "ui_f388b7a3":
         "No se pudo abrir el navegador predeterminado. Reintenta o visita la página oficial de la versión.",
     "ui_f38fcdf3":
-        "Descarga el DMG con tu navegador predeterminado para evitar la cuarentena del entorno aislado de macOS. No reutilices una descarga antigua hecha dentro de la aplicación. Abre el DMG, cierra Modu y arrastra la nueva aplicación a «Aplicaciones» para reemplazar la anterior; tu biblioteca se conserva. Los paquetes actuales no están notarizados por Apple.",
+        "Descarga el DMG con tu navegador predeterminado para evitar la cuarentena del entorno aislado de macOS. No reutilices una descarga antigua hecha dentro de la aplicación. Abre el DMG, cierra 小陈笔记 y arrastra la nueva aplicación a «Aplicaciones» para reemplazar la anterior; tu biblioteca se conserva. Los paquetes actuales no están notarizados por Apple.",
     "ui_f3e93354": "Pantalla completa",
     "ui_f4809d40": "Tranquilo y sereno",
     "ui_f48352d1":
@@ -4572,7 +4572,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "Importar copia de seguridad de ANX Reader",
     "ui_f687e87b": "Notas y extractos",
     "ui_f6d5ddd0": "No se pudo abrir el navegador. Reintenta.",
-    "ui_f6e64898": "Prueba del modelo local de embeddings de Modu",
+    "ui_f6e64898": "Prueba del modelo local de embeddings de 小陈笔记",
     "ui_f79b47e3": "¿Eliminar diccionario?",
     "ui_f82ce566": "Exportar perfil actual",
     "ui_f863d66d": "¿Eliminar este perfil?",
@@ -4648,7 +4648,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "Export : choisir d’inclure ou non les paramètres de service et identifiants chiffrés → créer Modu-Backup-*.zip → enregistrer. Seuls les fichiers locaux sont inclus ; téléchargez d’abord les livres à transférer.",
     "ui_database_backup_import_step":
-        "Import : choisir un ZIP exporté ici (sans le décompresser) → confirmer le remplacement et vérifier → saisir le mot de passe d’export si les paramètres sont chiffrés → redémarrer Modu. La bibliothèque, les notes et les paramètres sauvegardés sont remplacés, pas fusionnés. Exportez d’abord vos données actuelles.",
+        "Import : choisir un ZIP exporté ici (sans le décompresser) → confirmer le remplacement et vérifier → saisir le mot de passe d’export si les paramètres sont chiffrés → redémarrer 小陈笔记. La bibliothèque, les notes et les paramètres sauvegardés sont remplacés, pas fusionnés. Exportez d’abord vos données actuelles.",
     "ui_database_backup_save_windows":
         "Emplacement par défaut : dossier Downloads de l’utilisateur Windows actuel, généralement C:\\Users\\<utilisateur>\\Downloads. L’export affiche le chemin complet réel avec une action de copie.",
     "ui_database_backup_save_desktop":
@@ -4725,7 +4725,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Rédigez une présentation de vous-même concise et chaleureuse. Utilisez le code de langue : {{language_locale}}",
     "ai_translate_prompt":
-        "Vous êtes l’expert Modu « Traduction et références ». Fournissez une réponse fiable dans la langue préférée de l’utilisateur {{to_locale}}.\n\nEntrées de cette demande :\n- Texte source : {{text}}\n- Indication de langue source : {{from_locale}}\n- Contexte de lecture (peut être vide) : {{contextText}}\n\n## Structure de réponse (ESSENTIELLE)\nVotre réponse DOIT suivre cette structure en deux parties :\nN’affichez PAS le canevas ni les instructions, uniquement la réponse finale.\n\n### Partie 1 : Explication rapide en contexte (TOUJOURS EN PREMIER)\nCommencez par 1–2 mots concis qui :\n- Expliquent directement le sens/la traduction dans le contexte de lecture\n- Tiennent compte des ambiguïtés résolues par le contexte\n- Utilisent un langage simple et courant\n- Ne citent le texte source que si nécessaire à la clarté et évitent les citations excessives\n\n### Partie 2 : Analyse détaillée (APRÈS l’explication rapide)\nFournissez des informations complètes selon le format ci-dessous.\n\n## Missions principales\n1. Interprétez précisément le texte en utilisant le contexte de lecture pour clarifier pronoms, ton, connaissances spécialisées et références culturelles. Sans contexte, indiquez que le sens a été déduit du seul extrait.\n2. Fournissez des détails de niveau dictionnaire (phonétique, catégorie grammaticale, nuances de sens) ET un éclairage encyclopédique (origine, contexte culturel, référence littéraire ou repère factuel).\n3. Donnez des conseils pratiques pour comprendre ou employer naturellement l’expression.\n\n## Contraintes\n- Toutes les réponses doivent rester en {{to_locale}}.\n- Soyez concis mais complet ; supprimez une rubrique du modèle uniquement si elle est réellement inapplicable et expliquez pourquoi.\n- Ne produisez jamais de listes Markdown, de symboles de numérotation ni de blocs de code : uniquement des titres traduits et du texte.\n\n## Arbre de décision\n- Si la langue source correspond à {{to_locale}}, fournissez une entrée de dictionnaire monolingue avancée.\n- Sinon, agissez comme traducteur et professeur de langue.\n\n## Détails (texte brut, sans puces ; chaque titre DOIT être traduit en {{to_locale}})\n\nComme dictionnaire (même langue) :\n- Prononciation : meilleure transcription phonétique disponible, ou mention d’incertitude.\n- Catégorie grammaticale : toutes les catégories pertinentes.\n- Sens : principaux sens avec de brèves explications.\n- Exemples : deux phrases naturelles avec de courtes précisions.\n- Encyclopédie : un fait contextuel ou culturel (histoire, littérature, origine d’une expression, usage spécialisé).\n\nComme traducteur (langues différentes) :\n- Extrait source : citez l’extrait ou raccourcissez-le légèrement en signalant la coupe.\n- Traduction : traduction fluide respectant le ton et le registre.\n- Notes de traduction : justifiez les choix de mots importants et l’influence du contexte.\n- Glossaire : mettez en évidence 2–4 termes clés avec de brèves indications de sens en {{to_locale}}.\n- Encyclopédie : un détail de contexte culturel, de cadre ou de concept facilitant la compréhension.",
+        "Vous êtes l’expert 小陈笔记 « Traduction et références ». Fournissez une réponse fiable dans la langue préférée de l’utilisateur {{to_locale}}.\n\nEntrées de cette demande :\n- Texte source : {{text}}\n- Indication de langue source : {{from_locale}}\n- Contexte de lecture (peut être vide) : {{contextText}}\n\n## Structure de réponse (ESSENTIELLE)\nVotre réponse DOIT suivre cette structure en deux parties :\nN’affichez PAS le canevas ni les instructions, uniquement la réponse finale.\n\n### Partie 1 : Explication rapide en contexte (TOUJOURS EN PREMIER)\nCommencez par 1–2 mots concis qui :\n- Expliquent directement le sens/la traduction dans le contexte de lecture\n- Tiennent compte des ambiguïtés résolues par le contexte\n- Utilisent un langage simple et courant\n- Ne citent le texte source que si nécessaire à la clarté et évitent les citations excessives\n\n### Partie 2 : Analyse détaillée (APRÈS l’explication rapide)\nFournissez des informations complètes selon le format ci-dessous.\n\n## Missions principales\n1. Interprétez précisément le texte en utilisant le contexte de lecture pour clarifier pronoms, ton, connaissances spécialisées et références culturelles. Sans contexte, indiquez que le sens a été déduit du seul extrait.\n2. Fournissez des détails de niveau dictionnaire (phonétique, catégorie grammaticale, nuances de sens) ET un éclairage encyclopédique (origine, contexte culturel, référence littéraire ou repère factuel).\n3. Donnez des conseils pratiques pour comprendre ou employer naturellement l’expression.\n\n## Contraintes\n- Toutes les réponses doivent rester en {{to_locale}}.\n- Soyez concis mais complet ; supprimez une rubrique du modèle uniquement si elle est réellement inapplicable et expliquez pourquoi.\n- Ne produisez jamais de listes Markdown, de symboles de numérotation ni de blocs de code : uniquement des titres traduits et du texte.\n\n## Arbre de décision\n- Si la langue source correspond à {{to_locale}}, fournissez une entrée de dictionnaire monolingue avancée.\n- Sinon, agissez comme traducteur et professeur de langue.\n\n## Détails (texte brut, sans puces ; chaque titre DOIT être traduit en {{to_locale}})\n\nComme dictionnaire (même langue) :\n- Prononciation : meilleure transcription phonétique disponible, ou mention d’incertitude.\n- Catégorie grammaticale : toutes les catégories pertinentes.\n- Sens : principaux sens avec de brèves explications.\n- Exemples : deux phrases naturelles avec de courtes précisions.\n- Encyclopédie : un fait contextuel ou culturel (histoire, littérature, origine d’une expression, usage spécialisé).\n\nComme traducteur (langues différentes) :\n- Extrait source : citez l’extrait ou raccourcissez-le légèrement en signalant la coupe.\n- Traduction : traduction fluide respectant le ton et le registre.\n- Notes de traduction : justifiez les choix de mots importants et l’influence du contexte.\n- Glossaire : mettez en évidence 2–4 termes clés avec de brèves indications de sens en {{to_locale}}.\n- Encyclopédie : un détail de contexte culturel, de cadre ou de concept facilitant la compréhension.",
     "selection_custom-preset-dictionary_name": "Connaissances IA",
     "selection_custom-preset-dictionary_prompt":
         "Présente brièvement le sens, le contexte et les connaissances liés à {selection}, dans la langue du texte sélectionné. Sans prononciation, traduction ni exemples ; signale les incertitudes.",
@@ -4963,7 +4963,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "Rétablir les valeurs par défaut ?",
     "ui_34321453": "Exporter",
     "ui_3477ba41":
-        "Sauvegarde de Modu et fusion de la bibliothèque. Gardez l’application ouverte…",
+        "Sauvegarde de 小陈笔记 et fusion de la bibliothèque. Gardez l’application ouverte…",
     "ui_34917dd5":
         "Saisissez 1–20 couleurs RGB distinctes à six chiffres, par exemple 66CCFF.",
     "ui_34d27af7": "Modèle d’embeddings de ce livre",
@@ -4972,7 +4972,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_356e54ac":
         "Le soulignement SVG est prioritaire sur l’image d’arrière-plan.",
     "ui_35954522":
-        "Décrivez le problème et prévisualisez le rapport, puis confirmez son envoi dans le dépôt GitHub de Modu (compte GitHub requis). Vous pouvez ajouter des captures d’écran sur GitHub.",
+        "Décrivez le problème et prévisualisez le rapport, puis confirmez son envoi dans le dépôt GitHub de 小陈笔记 (compte GitHub requis). Vous pouvez ajouter des captures d’écran sur GitHub.",
     "ui_361a9bd6": "Paramètres de lecture vocale effacés",
     "ui_3633fd81":
         "Les paramètres sont chiffrés avec AES-256-GCM ; les livres, notes et l’historique des discussions IA ne le sont pas. Utilisez un mot de passe fort et unique. Les clés ne peuvent pas être récupérées si vous le perdez. Le mot de passe n’est pas enregistré dans la sauvegarde.",
@@ -4994,7 +4994,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "La vérification de la version ou du paquet d’installation a échoué. Installation bloquée ; vérifiez et téléchargez à nouveau.",
     "ui_39b523bd": "Fermer",
     "ui_39c0bce2":
-        "Modèles Modu modifiables. En sélectionner un remplace la description ci-dessous.",
+        "Modèles 小陈笔记 modifiables. En sélectionner un remplace la description ci-dessous.",
     "ui_3b0f25fa": "Date de modification",
     "ui_3beb904c": "Espacement des paragraphes",
     "ui_3c1568a4":
@@ -5078,7 +5078,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Apparence et bibliothèque",
     "ui_4b6927a5": "Sélectionner le ZIP de sauvegarde ANX",
     "ui_4b725988":
-        "Modu est basé sur Anx Reader et ReadAny.\nPublié sous GPL-3.0-or-later ; il ne s’agit pas d’une version officielle des projets d’origine.",
+        "小陈笔记 est basé sur Anx Reader et ReadAny.\nPublié sous GPL-3.0-or-later ; il ne s’agit pas d’une version officielle des projets d’origine.",
     "ui_4b75eec5": "Supprimer le fournisseur ?",
     "ui_4cdf1a58": "Supprimer le fournisseur",
     "ui_4ce17940": "CSS de mise en page",
@@ -5200,7 +5200,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_651f352d": "Proxy réseau",
     "ui_65479baf": "Google Traduction (gratuit)",
     "ui_6556c39e":
-        "Les modèles Modu modifiables remplacent la description sans changer Voice.",
+        "Les modèles 小陈笔记 modifiables remplacent la description sans changer Voice.",
     "ui_656aeae7": "entrées",
     "ui_65b7d137":
         "Désactivé par défaut : les configurations API et serveur contenant des identifiants sont exclues des exports et ignorées lors des imports, en préservant les comptes et clés locaux. Si l’option est activée, les fichiers et liens modu contiennent des identifiants récupérables en clair. Ne les partagez pas publiquement. Le chiffrement de la synchronisation reste inchangé et son mot de passe n’est jamais exporté. N’insérez pas d’identifiants privés dans le CSS personnalisé, les prompts ou les URL.",
@@ -5240,14 +5240,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "Inclut des lignes entre les colonnes de texte. Chapitre à droite ; pages restantes et position dans le livre à gauche.",
     "ui_6e138ea9":
-        "La recherche du texte sélectionné s’ouvre dans Modu. Choisissez un moteur par défaut ou changez-en dans la fenêtre de recherche. Le site sélectionné reçoit votre requête ; sa disponibilité dépend de votre connexion.",
+        "La recherche du texte sélectionné s’ouvre dans 小陈笔记. Choisissez un moteur par défaut ou changez-en dans la fenêtre de recherche. Le site sélectionné reçoit votre requête ; sa disponibilité dépend de votre connexion.",
     "ui_6e199c95": "Projets open source et crédits",
     "ui_6e60f8d4": "Glisser pour réordonner",
     "ui_6e730618":
         "Toutes les plateformes conservent localement un journal limité d’erreurs et d’étapes de traitement expurgé des données sensibles. Par défaut, il n’est ni joint ni téléversé. En cochant l’option, vous incluez les diagnostics de plantage du système disponibles ; les journaux ordinaires, paramètres IA, clés et textes des livres ne sont pas lus. Les rapports envoyés sont publics : vérifiez l’aperçu avant de les partager. Les rapports avec journaux sont copiés pour que vous les colliez vous-même dans GitHub.",
     "ui_6e733d2b": "Dossier",
     "ui_6eb9ed9e":
-        "Suivez l’installateur pour mettre à jour. Si l’application est signalée comme ouverte, terminez d’abord la synchronisation et quittez Modu.",
+        "Suivez l’installateur pour mettre à jour. Si l’application est signalée comme ouverte, terminez d’abord la synchronisation et quittez 小陈笔记.",
     "ui_6f60f5ad": "Rechercher du texte dans ce livre",
     "ui_6f86db5d":
         "Le délai de recherche des surlignages a été dépassé. Simplifiez l’expression régulière.",
@@ -5595,7 +5595,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c515ff97": "Mandarin standard",
     "ui_c52f1929": "Fichiers, QR et liens modu · Identifiants facultatifs",
     "ui_c5774cb9":
-        "Supprime uniquement « {name} » et son index de recherche de Modu. Les fichiers sources du dictionnaire ne sont pas supprimés.",
+        "Supprime uniquement « {name} » et son index de recherche de 小陈笔记. Les fichiers sources du dictionnaire ne sont pas supprimés.",
     "ui_c5fd3ab7": "Timbre chaleureux",
     "ui_c664b25a":
         "Arrêter la lecture vocale, supprimer toutes les clés TTS, configurations de services, sélections de voix et brouillons, puis rétablir la vitesse, la hauteur, le volume et la voix système par défaut. L’IA, les livres, notes et paramètres de synchronisation restent inchangés.",
@@ -5620,7 +5620,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Supprimer les {count} livres sélectionnés ? Leurs fichiers et index vectoriels locaux seront aussi supprimés.",
     "ui_cbda3c4f": "Paramètres du modèle",
     "ui_cc6f8540":
-        "La vérification et le téléchargement utilisent la même source, GitHub étant prioritaire par défaut. En cas d’échec de connexion, de délai dépassé ou d’indisponibilité du service, les deux passent à Gitee. Après un changement de source, vérifiez à nouveau avant de télécharger. Le navigateur gère le téléchargement ; Modu ne peut ni suivre sa progression ni afficher sa fin ou une vérification SHA-256 réussie. Aucun livre, note ou clé de compte n’est envoyé.",
+        "La vérification et le téléchargement utilisent la même source, GitHub étant prioritaire par défaut. En cas d’échec de connexion, de délai dépassé ou d’indisponibilité du service, les deux passent à Gitee. Après un changement de source, vérifiez à nouveau avant de télécharger. Le navigateur gère le téléchargement ; 小陈笔记 ne peut ni suivre sa progression ni afficher sa fin ou une vérification SHA-256 réussie. Aucun livre, note ou clé de compte n’est envoyé.",
     "ui_cd93c8b7": "À jour (ou plus récent que la version publiée)",
     "ui_ce47b912": "Intégré · Disponible hors ligne",
     "ui_cec9c9cb": "Saisissez une description ou choisissez un modèle",
@@ -5639,7 +5639,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d1613041": "Anglais",
     "ui_d1772dbc": "Configurer les paramètres de la fonction",
     "ui_d19439a9":
-        "Le téléchargement continue après la fermeture de cette fenêtre. Revenez depuis « À propos de Modu » pour voir la progression ou annuler.",
+        "Le téléchargement continue après la fermeture de cette fenêtre. Revenez depuis « À propos de 小陈笔记 » pour voir la progression ou annuler.",
     "ui_d23480e5": "Impossible d’effacer les paramètres. Réessayez.",
     "ui_d277f8c0": "Vectoriser après l’importation",
     "ui_d285b5bb": "Tester l’inférence",
@@ -5673,7 +5673,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "Restaurer plusieurs paramètres ?",
     "ui_d9d3f020":
         "Utilise la date de modification du serveur ; les dates manquantes sont classées en dernier.",
-    "ui_d9e3509d": "Test de connexion aux embeddings Modu",
+    "ui_d9e3509d": "Test de connexion aux embeddings 小陈笔记",
     "ui_da2571e": "Chaleureux et doux",
     "ui_da6b9567": "{count} livres sélectionnés",
     "ui_da711856": "Aperçu du rapport de bug",
@@ -5749,11 +5749,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "Les phrases voisines d’un même paragraphe sont synthétisées ensemble. Le surlignage et la navigation suivent chaque passage ; les longs paragraphes sont divisés. Des instructions de narration régulière sont ajoutées sans modifier la description enregistrée. La voix et le rythme dépendent toujours du modèle.",
     "ui_f33e5028":
-        "• Importe les fichiers des livres, couvertures, notes/surlignages, position et temps de lecture, dossiers et étiquettes.\n• N’importe pas les comptes, mots de passe, clés API, configuration de synchronisation, discussions IA, polices, thèmes ni autres paramètres de l’application.\n• Prend en charge les sauvegardes ZIP ANX originales avec un schéma de base de version 7 (pas la version de l’application). Les fichiers DB seuls, ZIP chiffrés et bases modifiées ne sont pas pris en charge.\n• Les livres supprimés sont exclus. Les livres sans leurs fichiers de contenu, ainsi que leurs notes et historiques, sont ignorés et listés. Téléchargez-les intégralement dans ANX puis exportez à nouveau.\n• Les contenus identiques sont dédupliqués. Les positions Modu existantes, modifications de notes et classements dans les dossiers sont conservés. Réimporter la même sauvegarde ne recrée pas les mêmes enregistrements et n’écrase pas les données existantes.\n• Le ZIP reste inchangé ; le stockage privé d’ANX n’est jamais consulté. Une sauvegarde locale de la base Modu est créée avant l’importation, et son emplacement est indiqué ensuite.\n• Prévoyez assez d’espace pour l’extraction, les copies et la sauvegarde de la base. La préparation vérifie uniquement la sauvegarde sans remplacer la bibliothèque existante.",
+        "• Importe les fichiers des livres, couvertures, notes/surlignages, position et temps de lecture, dossiers et étiquettes.\n• N’importe pas les comptes, mots de passe, clés API, configuration de synchronisation, discussions IA, polices, thèmes ni autres paramètres de l’application.\n• Prend en charge les sauvegardes ZIP ANX originales avec un schéma de base de version 7 (pas la version de l’application). Les fichiers DB seuls, ZIP chiffrés et bases modifiées ne sont pas pris en charge.\n• Les livres supprimés sont exclus. Les livres sans leurs fichiers de contenu, ainsi que leurs notes et historiques, sont ignorés et listés. Téléchargez-les intégralement dans ANX puis exportez à nouveau.\n• Les contenus identiques sont dédupliqués. Les positions 小陈笔记 existantes, modifications de notes et classements dans les dossiers sont conservés. Réimporter la même sauvegarde ne recrée pas les mêmes enregistrements et n’écrase pas les données existantes.\n• Le ZIP reste inchangé ; le stockage privé d’ANX n’est jamais consulté. Une sauvegarde locale de la base 小陈笔记 est créée avant l’importation, et son emplacement est indiqué ensuite.\n• Prévoyez assez d’espace pour l’extraction, les copies et la sauvegarde de la base. La préparation vérifie uniquement la sauvegarde sans remplacer la bibliothèque existante.",
     "ui_f388b7a3":
         "Impossible d’ouvrir le navigateur par défaut. Réessayez ou consultez la page officielle de la version.",
     "ui_f38fcdf3":
-        "Téléchargez le DMG avec votre navigateur par défaut pour éviter la quarantaine liée au bac à sable macOS. Ne réutilisez pas un ancien téléchargement effectué dans l’application. Ouvrez le DMG, quittez Modu et glissez la nouvelle application dans « Applications » pour remplacer l’ancienne ; votre bibliothèque est conservée. Les paquets actuels ne sont pas notariés par Apple.",
+        "Téléchargez le DMG avec votre navigateur par défaut pour éviter la quarantaine liée au bac à sable macOS. Ne réutilisez pas un ancien téléchargement effectué dans l’application. Ouvrez le DMG, quittez 小陈笔记 et glissez la nouvelle application dans « Applications » pour remplacer l’ancienne ; votre bibliothèque est conservée. Les paquets actuels ne sont pas notariés par Apple.",
     "ui_f3e93354": "Plein écran",
     "ui_f4809d40": "Calme et posé",
     "ui_f48352d1":
@@ -5772,7 +5772,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "Importer une sauvegarde ANX Reader",
     "ui_f687e87b": "Notes et extraits",
     "ui_f6d5ddd0": "Impossible d’ouvrir le navigateur. Réessayez.",
-    "ui_f6e64898": "Test du modèle d’embeddings local Modu",
+    "ui_f6e64898": "Test du modèle d’embeddings local 小陈笔记",
     "ui_f79b47e3": "Supprimer le dictionnaire ?",
     "ui_f82ce566": "Exporter le profil actuel",
     "ui_f863d66d": "Supprimer ce profil ?",
@@ -5848,7 +5848,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "Esporta: scegli se includere impostazioni dei servizi e credenziali crittografate → crea Modu-Backup-*.zip → salva. Include solo file locali; scarica prima i libri da trasferire.",
     "ui_database_backup_import_step":
-        "Importa: seleziona uno ZIP esportato qui (senza estrarlo) → conferma sostituzione e verifica → inserisci la password di esportazione se le impostazioni sono crittografate → riavvia Modu. Sostituisce libreria, note e impostazioni salvate; non le unisce. Esporta prima i dati attuali.",
+        "Importa: seleziona uno ZIP esportato qui (senza estrarlo) → conferma sostituzione e verifica → inserisci la password di esportazione se le impostazioni sono crittografate → riavvia 小陈笔记. Sostituisce libreria, note e impostazioni salvate; non le unisce. Esporta prima i dati attuali.",
     "ui_database_backup_save_windows":
         "Percorso predefinito: cartella Downloads dell’utente Windows attuale, solitamente C:\\Users\\<utente>\\Downloads. L’esportazione mostra il percorso completo effettivo con un’azione di copia.",
     "ui_database_backup_save_desktop":
@@ -5926,7 +5926,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Scrivi una presentazione di te concisa e cordiale. Usa il codice lingua: {{language_locale}}\n        ",
     "ai_translate_prompt":
-        "Sei l'esperto Modu di «Traduzione e consultazione». Fornisci una risposta autorevole nella lingua preferita dall'utente, {{to_locale}}.\n\nDati di questa richiesta:\n- Testo di origine: {{text}}\n- Indicazione della lingua di origine: {{from_locale}}\n- Contesto di lettura (può essere vuoto): {{contextText}}\n\n## Struttura della risposta (FONDAMENTALE)\nLa risposta DEVE seguire questa struttura in due parti:\nNON mostrare lo schema o le istruzioni, ma solo la risposta finale.\n\n### Parte 1: spiegazione rapida nel contesto (SEMPRE PER PRIMA)\nInizia con 1–2 parole concise che:\n- Spieghino direttamente il significato/la traduzione nel contesto di lettura\n- Chiariscano eventuali ambiguità risolte dal contesto\n- Usino un linguaggio semplice e colloquiale\n- Non citino il testo di origine, salvo necessità di chiarezza, ed evitino citazioni eccessive\n\n### Parte 2: analisi dettagliata (DOPO la spiegazione rapida)\nFornisci informazioni complete usando il formato seguente.\n\n## Compiti principali\n1. Interpreta il testo con precisione, usando il contesto di lettura per chiarire pronomi, tono, conoscenze di settore o riferimenti culturali. Se non viene fornito contesto, dichiara che hai dedotto il significato dal solo frammento.\n2. Fornisci dettagli da dizionario (fonetica, categoria grammaticale, sfumature di significato) E un approfondimento enciclopedico (origine, contesto culturale, riferimento letterario o fatto pertinente).\n3. Offri indicazioni pratiche perché il lettore possa usare o comprendere l'espressione in modo naturale.\n\n## Vincoli\n- Tutte le risposte devono essere in {{to_locale}}.\n- Sii conciso ma completo; rimuovi sezioni del modello solo se davvero non pertinenti e spiegane il motivo.\n- Non produrre mai elenchi Markdown, simboli di numerazione o blocchi di codice: solo titoli localizzati e testo.\n\n## Albero decisionale\n- Se la lingua di origine coincide con {{to_locale}} → comportati come una voce di dizionario monolingue avanzato.\n- Altrimenti → comportati come traduttore e tutor.\n\n## Dettagli (testo semplice, senza punti elenco; ogni titolo DEVE essere tradotto in {{to_locale}})\n\nCome dizionario (stessa lingua):\n- Pronuncia: la migliore trascrizione fonetica disponibile oppure una nota se è sconosciuta.\n- Categoria grammaticale: elenca tutte le categorie pertinenti.\n- Significati: presenta i sensi principali con spiegazioni concise.\n- Esempi: fornisci due frasi naturali con brevi chiarimenti.\n- Enciclopedia: condividi un fatto contestuale o culturale (storia, letteratura, origine di un modo di dire, uso specialistico).\n\nCome traduttore (lingue diverse):\n- Estratto di origine: cita o riduci leggermente il frammento originale (segnalando eventuali tagli).\n- Traduzione: produci una traduzione scorrevole che rispetti tono e registro.\n- Note di traduzione: giustifica le scelte lessicali decisive, incluso il ruolo del contesto.\n- Glossario: evidenzia 2–4 termini fondamentali con brevi note sul significato in {{to_locale}}.\n- Enciclopedia: aggiungi un dettaglio di contesto (cultura, ambientazione, concetto) che aiuti la comprensione.\n      ",
+        "Sei l'esperto 小陈笔记 di «Traduzione e consultazione». Fornisci una risposta autorevole nella lingua preferita dall'utente, {{to_locale}}.\n\nDati di questa richiesta:\n- Testo di origine: {{text}}\n- Indicazione della lingua di origine: {{from_locale}}\n- Contesto di lettura (può essere vuoto): {{contextText}}\n\n## Struttura della risposta (FONDAMENTALE)\nLa risposta DEVE seguire questa struttura in due parti:\nNON mostrare lo schema o le istruzioni, ma solo la risposta finale.\n\n### Parte 1: spiegazione rapida nel contesto (SEMPRE PER PRIMA)\nInizia con 1–2 parole concise che:\n- Spieghino direttamente il significato/la traduzione nel contesto di lettura\n- Chiariscano eventuali ambiguità risolte dal contesto\n- Usino un linguaggio semplice e colloquiale\n- Non citino il testo di origine, salvo necessità di chiarezza, ed evitino citazioni eccessive\n\n### Parte 2: analisi dettagliata (DOPO la spiegazione rapida)\nFornisci informazioni complete usando il formato seguente.\n\n## Compiti principali\n1. Interpreta il testo con precisione, usando il contesto di lettura per chiarire pronomi, tono, conoscenze di settore o riferimenti culturali. Se non viene fornito contesto, dichiara che hai dedotto il significato dal solo frammento.\n2. Fornisci dettagli da dizionario (fonetica, categoria grammaticale, sfumature di significato) E un approfondimento enciclopedico (origine, contesto culturale, riferimento letterario o fatto pertinente).\n3. Offri indicazioni pratiche perché il lettore possa usare o comprendere l'espressione in modo naturale.\n\n## Vincoli\n- Tutte le risposte devono essere in {{to_locale}}.\n- Sii conciso ma completo; rimuovi sezioni del modello solo se davvero non pertinenti e spiegane il motivo.\n- Non produrre mai elenchi Markdown, simboli di numerazione o blocchi di codice: solo titoli localizzati e testo.\n\n## Albero decisionale\n- Se la lingua di origine coincide con {{to_locale}} → comportati come una voce di dizionario monolingue avanzato.\n- Altrimenti → comportati come traduttore e tutor.\n\n## Dettagli (testo semplice, senza punti elenco; ogni titolo DEVE essere tradotto in {{to_locale}})\n\nCome dizionario (stessa lingua):\n- Pronuncia: la migliore trascrizione fonetica disponibile oppure una nota se è sconosciuta.\n- Categoria grammaticale: elenca tutte le categorie pertinenti.\n- Significati: presenta i sensi principali con spiegazioni concise.\n- Esempi: fornisci due frasi naturali con brevi chiarimenti.\n- Enciclopedia: condividi un fatto contestuale o culturale (storia, letteratura, origine di un modo di dire, uso specialistico).\n\nCome traduttore (lingue diverse):\n- Estratto di origine: cita o riduci leggermente il frammento originale (segnalando eventuali tagli).\n- Traduzione: produci una traduzione scorrevole che rispetti tono e registro.\n- Note di traduzione: giustifica le scelte lessicali decisive, incluso il ruolo del contesto.\n- Glossario: evidenzia 2–4 termini fondamentali con brevi note sul significato in {{to_locale}}.\n- Enciclopedia: aggiungi un dettaglio di contesto (cultura, ambientazione, concetto) che aiuti la comprensione.\n      ",
     "selection_custom-preset-dictionary_name": "Conoscenze IA",
     "selection_custom-preset-dictionary_prompt":
         "Spiega brevemente significato, contesto e conoscenze relative a {selection}, nella lingua del testo selezionato. Niente pronuncia, traduzioni o esempi; indica le incertezze.",
@@ -6159,7 +6159,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "Ripristinare i valori predefiniti?",
     "ui_34321453": "Esporta",
     "ui_3477ba41":
-        "Backup di Modu e unione della libreria in corso. Mantieni aperta l'app…",
+        "Backup di 小陈笔记 e unione della libreria in corso. Mantieni aperta l'app…",
     "ui_34917dd5":
         "Inserisci 1–20 colori RGB univoci a sei cifre, ad es. 66CCFF.",
     "ui_34d27af7": "Modello di embedding per questo libro",
@@ -6168,7 +6168,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_356e54ac":
         "La sottolineatura SVG ha la precedenza sull'immagine di sfondo.",
     "ui_35954522":
-        "Descrivi il problema e visualizza l'anteprima del rapporto, poi conferma l'invio nel repository GitHub di Modu (è richiesto un account GitHub). Puoi aggiungere screenshot su GitHub.",
+        "Descrivi il problema e visualizza l'anteprima del rapporto, poi conferma l'invio nel repository GitHub di 小陈笔记 (è richiesto un account GitHub). Puoi aggiungere screenshot su GitHub.",
     "ui_361a9bd6": "Impostazioni vocali cancellate",
     "ui_3633fd81":
         "Le impostazioni sono crittografate con AES-256-GCM; libri, note e cronologia chat AI non sono crittografati. Usa una password forte e unica. Se perdi la password, le chiavi non possono essere recuperate. La password non viene salvata nel backup.",
@@ -6189,7 +6189,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Verifica della versione o del programma di installazione non riuscita. Installazione bloccata; controlla e scarica di nuovo.",
     "ui_39b523bd": "Chiudi",
     "ui_39c0bce2":
-        "Modelli Modu modificabili. Selezionandone uno, sostituisci la descrizione qui sotto.",
+        "Modelli 小陈笔记 modificabili. Selezionandone uno, sostituisci la descrizione qui sotto.",
     "ui_3b0f25fa": "Data di modifica",
     "ui_3beb904c": "Spaziatura tra paragrafi",
     "ui_3c1568a4":
@@ -6273,7 +6273,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Aspetto e libreria",
     "ui_4b6927a5": "Seleziona ZIP di backup ANX",
     "ui_4b725988":
-        "Modu è basato su Anx Reader e ReadAny.\nDistribuito con licenza GPL-3.0-or-later; non è una versione ufficiale dei progetti originali.",
+        "小陈笔记 è basato su Anx Reader e ReadAny.\nDistribuito con licenza GPL-3.0-or-later; non è una versione ufficiale dei progetti originali.",
     "ui_4b75eec5": "Eliminare il fornitore?",
     "ui_4cdf1a58": "Elimina fornitore",
     "ui_4ce17940": "CSS di impaginazione",
@@ -6392,7 +6392,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_651f352d": "Proxy di rete",
     "ui_65479baf": "Google Translate (gratuito)",
     "ui_6556c39e":
-        "I modelli Modu modificabili sostituiscono la descrizione senza cambiare Voice.",
+        "I modelli 小陈笔记 modificabili sostituiscono la descrizione senza cambiare Voice.",
     "ui_656aeae7": "voci",
     "ui_65b7d137":
         "Disattivato per impostazione predefinita: esclude le configurazioni API/server con credenziali dall'esportazione e le ignora durante l'importazione, preservando account e chiavi locali. Se attivato, i trasferimenti contengono credenziali in chiaro. Mantienili riservati. La crittografia della sincronizzazione resta invariata e la relativa password non viene mai esportata. Non inserire credenziali private in CSS personalizzati, prompt o URL.",
@@ -6430,14 +6430,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "Include separatori tra le colonne di testo. Capitolo a destra; pagine rimanenti e posizione nel libro a sinistra.",
     "ui_6e138ea9":
-        "La ricerca del testo selezionato si apre in Modu. Scegli un motore predefinito o cambialo nella finestra di ricerca. Il sito selezionato riceve la tua query; la disponibilità dipende dalla rete.",
+        "La ricerca del testo selezionato si apre in 小陈笔记. Scegli un motore predefinito o cambialo nella finestra di ricerca. Il sito selezionato riceve la tua query; la disponibilità dipende dalla rete.",
     "ui_6e199c95": "Progetti open source e riconoscimenti",
     "ui_6e60f8d4": "Trascina per riordinare",
     "ui_6e730618":
         "Tutte le piattaforme conservano un piccolo registro locale di errori e operazioni depurato dei dati sensibili, mai allegato o caricato per impostazione predefinita. Se acconsenti, viene inclusa la diagnostica degli arresti anomali disponibile; non vengono letti i log ordinari, le impostazioni AI, le chiavi o il testo dei libri. Controlla l'anteprima prima di condividere: i rapporti diventano pubblici. I rapporti con log vengono copiati affinché tu possa incollarli su GitHub.",
     "ui_6e733d2b": "Cartella",
     "ui_6eb9ed9e":
-        "Segui il programma di installazione per aggiornare. Se richiesto, termina prima la sincronizzazione e chiudi Modu.",
+        "Segui il programma di installazione per aggiornare. Se richiesto, termina prima la sincronizzazione e chiudi 小陈笔记.",
     "ui_6f60f5ad": "Cerca testo in questo libro",
     "ui_6f86db5d":
         "Tempo scaduto durante la ricerca delle evidenziazioni. Semplifica la regex.",
@@ -6785,7 +6785,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c515ff97": "Mandarino standard",
     "ui_c52f1929": "File, QR e link modu · Credenziali facoltative",
     "ui_c5774cb9":
-        "Rimuovi solo «{name}» e il relativo indice di ricerca da Modu. I file originali non vengono eliminati.",
+        "Rimuovi solo «{name}» e il relativo indice di ricerca da 小陈笔记. I file originali non vengono eliminati.",
     "ui_c5fd3ab7": "Timbro caldo",
     "ui_c664b25a":
         "Interrompi la lettura vocale, rimuovi tutte le chiavi TTS, configurazioni dei servizi, scelte delle voci e bozze e ripristina velocità, tono, volume e voce di sistema predefiniti. AI, libri, note e impostazioni di sincronizzazione restano invariati.",
@@ -6810,7 +6810,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Eliminare i {count} libri selezionati? Verranno eliminati anche i relativi file e indici vettoriali locali.",
     "ui_cbda3c4f": "Parametri del modello",
     "ui_cc6f8540":
-        "Il controllo e il download usano la stessa fonte, con GitHub preferito per impostazione predefinita. Se un controllo non riesce a raggiungere GitHub, entrambi passano a Gitee. Dopo aver cambiato fonte, esegui un nuovo controllo prima di scaricare. Il browser gestisce il download; Modu non può monitorarne l'avanzamento né verificare il file scaricato. Non vengono inviati libri, note o chiavi degli account.",
+        "Il controllo e il download usano la stessa fonte, con GitHub preferito per impostazione predefinita. Se un controllo non riesce a raggiungere GitHub, entrambi passano a Gitee. Dopo aver cambiato fonte, esegui un nuovo controllo prima di scaricare. Il browser gestisce il download; 小陈笔记 non può monitorarne l'avanzamento né verificare il file scaricato. Non vengono inviati libri, note o chiavi degli account.",
     "ui_cd93c8b7": "Aggiornato (o più recente della versione pubblicata)",
     "ui_ce47b912": "Incluso · Disponibile offline",
     "ui_cec9c9cb": "Inserisci una descrizione o seleziona un modello",
@@ -6862,7 +6862,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "Ripristinare più impostazioni?",
     "ui_d9d3f020":
         "Usa la data di modifica del server; le date mancanti vanno in fondo.",
-    "ui_d9e3509d": "Test connessione embedding Modu",
+    "ui_d9e3509d": "Test connessione embedding 小陈笔记",
     "ui_da2571e": "Caldo e morbido",
     "ui_da6b9567": "{count} libri selezionati",
     "ui_da711856": "Anteprima della segnalazione di bug",
@@ -6937,11 +6937,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "Le frasi adiacenti nello stesso paragrafo vengono sintetizzate insieme. L'evidenziazione e la navigazione seguono ogni brano; i paragrafi lunghi vengono suddivisi. Vengono aggiunte istruzioni per una lettura regolare senza modificare la descrizione salvata. La voce e il ritmo dipendono comunque dal modello.",
     "ui_f33e5028":
-        "• Importa file dei libri, copertine, note/evidenziazioni, posizione/tempo di lettura, cartelle e tag.\n• Non importa account, password, chiavi API, configurazioni di sincronizzazione, chat AI, caratteri, temi o altre impostazioni dell'app.\n• Supporta backup ZIP originali di ANX con versione 7 dello schema del database (non dell'app). Non sono supportati DB separati, ZIP crittografati e database modificati.\n• I libri eliminati sono esclusi. I libri senza i file effettivi, insieme alle loro note e cronologia, vengono ignorati ed elencati. Scaricali in ANX ed esporta di nuovo.\n• I contenuti identici vengono deduplicati. Le posizioni, le modifiche alle note e le assegnazioni alle cartelle già presenti in Modu vengono conservate. Reimportare lo stesso backup non ricrea gli stessi record né sovrascrive i dati esistenti.\n• Lo ZIP resta invariato; l'archivio privato di ANX non viene mai consultato. Prima dell'importazione viene creato un backup locale del database Modu, la cui posizione viene mostrata al termine.\n• Lascia spazio per estrazione, copie e backup del database. La preparazione si limita a convalidare il backup.",
+        "• Importa file dei libri, copertine, note/evidenziazioni, posizione/tempo di lettura, cartelle e tag.\n• Non importa account, password, chiavi API, configurazioni di sincronizzazione, chat AI, caratteri, temi o altre impostazioni dell'app.\n• Supporta backup ZIP originali di ANX con versione 7 dello schema del database (non dell'app). Non sono supportati DB separati, ZIP crittografati e database modificati.\n• I libri eliminati sono esclusi. I libri senza i file effettivi, insieme alle loro note e cronologia, vengono ignorati ed elencati. Scaricali in ANX ed esporta di nuovo.\n• I contenuti identici vengono deduplicati. Le posizioni, le modifiche alle note e le assegnazioni alle cartelle già presenti in 小陈笔记 vengono conservate. Reimportare lo stesso backup non ricrea gli stessi record né sovrascrive i dati esistenti.\n• Lo ZIP resta invariato; l'archivio privato di ANX non viene mai consultato. Prima dell'importazione viene creato un backup locale del database 小陈笔记, la cui posizione viene mostrata al termine.\n• Lascia spazio per estrazione, copie e backup del database. La preparazione si limita a convalidare il backup.",
     "ui_f388b7a3":
         "Impossibile aprire il browser predefinito. Riprova o visita la pagina ufficiale della versione.",
     "ui_f38fcdf3":
-        "Scarica il DMG con il browser predefinito per evitare la quarantena della sandbox macOS. Non riutilizzare un vecchio download nell'app. Apri il DMG, chiudi Modu e trascina la nuova app in Applicazioni per sostituirla; la libreria viene conservata. I pacchetti attuali non sono autenticati da Apple.",
+        "Scarica il DMG con il browser predefinito per evitare la quarantena della sandbox macOS. Non riutilizzare un vecchio download nell'app. Apri il DMG, chiudi 小陈笔记 e trascina la nuova app in Applicazioni per sostituirla; la libreria viene conservata. I pacchetti attuali non sono autenticati da Apple.",
     "ui_f3e93354": "Schermo intero",
     "ui_f4809d40": "Calmo e sicuro",
     "ui_f48352d1":
@@ -6961,7 +6961,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "Importa backup ANX Reader",
     "ui_f687e87b": "Note ed estratti",
     "ui_f6d5ddd0": "Impossibile aprire il browser. Riprova.",
-    "ui_f6e64898": "Test modello di embedding locale Modu",
+    "ui_f6e64898": "Test modello di embedding locale 小陈笔记",
     "ui_f79b47e3": "Eliminare il dizionario?",
     "ui_f82ce566": "Esporta corrente",
     "ui_f863d66d": "Eliminare questo profilo?",
@@ -7036,7 +7036,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "エクスポート：暗号化したサービス設定と認証情報を含めるか選ぶ → Modu-Backup-*.zip を作成 → 保存。端末内のファイルのみが含まれるため、移行したい本は先にダウンロードしてください。",
     "ui_database_backup_import_step":
-        "インポート：ここで出力した ZIP を選ぶ（解凍不要）→ 上書きを確認して検証 → 設定が暗号化されている場合は出力時のパスワードを入力 → Modu を再起動。現在のライブラリー、メモ、保存された設定を置き換え、結合しません。先に現在のデータを出力してください。",
+        "インポート：ここで出力した ZIP を選ぶ（解凍不要）→ 上書きを確認して検証 → 設定が暗号化されている場合は出力時のパスワードを入力 → 小陈笔记 を再起動。現在のライブラリー、メモ、保存された設定を置き換え、結合しません。先に現在のデータを出力してください。",
     "ui_database_backup_save_windows":
         "既定の保存先：Windows の現在のユーザーの Downloads フォルダー（通常 C:\\Users\\<ユーザー名>\\Downloads）。出力後に実際の完全なパスを表示し、コピーできます。",
     "ui_database_backup_save_desktop":
@@ -7104,7 +7104,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "以前読んだ本を久しぶりに読み返しています。続きを読むために、それまでの内容を手早く思い出すのを手伝ってください。\n[要件]\n3–5 文\nユーザーが選択した言語を使用\n原文をそのまま繰り返さず、核心情報を保持\n\n[それまでの内容]\n{{previous_content}}\n",
     "ai_test_prompt": "簡潔で親しみやすい自己紹介を書いてください。使用する言語コード：{{language_locale}}\n",
     "ai_translate_prompt":
-        "あなたは Modu の「翻訳・リファレンス」専門家です。ユーザーの希望言語 {{to_locale}} で信頼できる回答をしてください。\n\n今回の入力：\n- 原文：{{text}}\n- 原文の言語のヒント：{{from_locale}}\n- 読書の文脈（空の場合あり）：{{contextText}}\n\n## 回答構成（必須）\n回答は必ず次の二部構成にしてください。\n構成のひな形や指示自体は出力せず、完成した回答だけを出力してください。\n\n### 第 1 部：文脈を踏まえた短い説明（必ず最初）\n次の条件を満たす簡潔な 1–2 語から始めてください。\n- 読書の文脈における意味や訳を直接説明する\n- 文脈によって解消された曖昧さを扱う\n- 平易で会話的な言葉を使う\n- 明確さのために必要な場合以外は原文を引用せず、過剰な引用を避ける\n\n### 第 2 部：詳しい分析（短い説明の後）\n以下の形式で詳しい情報を提供してください。\n\n## 基本の役割\n1. 読書の文脈から代名詞、語調、専門知識、文化的言及を解釈し、文章を正確に理解します。文脈がなければ、抜粋だけから意味を推測したと明記します。\n2. 辞書並みの詳細（発音、品詞、意味の違い）と、百科事典的な知識（起源、文化的背景、文学的言及、関連事実）の両方を示します。\n3. 読者が表現を自然に使い、理解できるよう実用的な説明をします。\n\n## 制約\n- 回答全体を {{to_locale}} にしてください。\n- 簡潔かつ十分に説明してください。ひな形の項目を省くのは本当に該当しない場合だけとし、理由を示してください。\n- Markdown のリスト、番号記号、コードブロックは使わず、翻訳された見出しと本文だけを出力してください。\n\n## 判断の流れ\n- 原文の言語が {{to_locale}} と同じ場合 → 詳細な単言語辞書の項目として回答します。\n- 異なる場合 → 翻訳者兼語学指導者として回答します。\n\n## 詳細（プレーンテキスト、箇条書き記号なし。各見出しを必ず {{to_locale}} に翻訳）\n\n辞書として回答する場合（同じ言語）：\n- 発音：利用できる最も適切な発音表記を示すか、不明と明記します。\n- 品詞：関連する品詞をすべて挙げます。\n- 意味：主要な語義を簡潔に説明します。\n- 例文：自然な例文を二つ示し、短い説明を付けます。\n- 百科知識：文脈や文化に関わる事実を一つ示します（歴史、文学、慣用句の起源、専門分野の用法）。\n\n翻訳者として回答する場合（異なる言語）：\n- 原文の抜粋：入力文を引用するか、少し短くします（短縮した場合は明記）。\n- 翻訳：語調と文体を保った自然な訳を示します。\n- 翻訳の説明：重要な語の選択と、文脈がその選択にどう影響したかを説明します。\n- 用語集：重要語を 2–4 個取り上げ、{{to_locale}} で短く意味を説明します。\n- 百科知識：理解に役立つ文化、場面、概念などの背景を一つ補足します。\n",
+        "あなたは 小陈笔记 の「翻訳・リファレンス」専門家です。ユーザーの希望言語 {{to_locale}} で信頼できる回答をしてください。\n\n今回の入力：\n- 原文：{{text}}\n- 原文の言語のヒント：{{from_locale}}\n- 読書の文脈（空の場合あり）：{{contextText}}\n\n## 回答構成（必須）\n回答は必ず次の二部構成にしてください。\n構成のひな形や指示自体は出力せず、完成した回答だけを出力してください。\n\n### 第 1 部：文脈を踏まえた短い説明（必ず最初）\n次の条件を満たす簡潔な 1–2 語から始めてください。\n- 読書の文脈における意味や訳を直接説明する\n- 文脈によって解消された曖昧さを扱う\n- 平易で会話的な言葉を使う\n- 明確さのために必要な場合以外は原文を引用せず、過剰な引用を避ける\n\n### 第 2 部：詳しい分析（短い説明の後）\n以下の形式で詳しい情報を提供してください。\n\n## 基本の役割\n1. 読書の文脈から代名詞、語調、専門知識、文化的言及を解釈し、文章を正確に理解します。文脈がなければ、抜粋だけから意味を推測したと明記します。\n2. 辞書並みの詳細（発音、品詞、意味の違い）と、百科事典的な知識（起源、文化的背景、文学的言及、関連事実）の両方を示します。\n3. 読者が表現を自然に使い、理解できるよう実用的な説明をします。\n\n## 制約\n- 回答全体を {{to_locale}} にしてください。\n- 簡潔かつ十分に説明してください。ひな形の項目を省くのは本当に該当しない場合だけとし、理由を示してください。\n- Markdown のリスト、番号記号、コードブロックは使わず、翻訳された見出しと本文だけを出力してください。\n\n## 判断の流れ\n- 原文の言語が {{to_locale}} と同じ場合 → 詳細な単言語辞書の項目として回答します。\n- 異なる場合 → 翻訳者兼語学指導者として回答します。\n\n## 詳細（プレーンテキスト、箇条書き記号なし。各見出しを必ず {{to_locale}} に翻訳）\n\n辞書として回答する場合（同じ言語）：\n- 発音：利用できる最も適切な発音表記を示すか、不明と明記します。\n- 品詞：関連する品詞をすべて挙げます。\n- 意味：主要な語義を簡潔に説明します。\n- 例文：自然な例文を二つ示し、短い説明を付けます。\n- 百科知識：文脈や文化に関わる事実を一つ示します（歴史、文学、慣用句の起源、専門分野の用法）。\n\n翻訳者として回答する場合（異なる言語）：\n- 原文の抜粋：入力文を引用するか、少し短くします（短縮した場合は明記）。\n- 翻訳：語調と文体を保った自然な訳を示します。\n- 翻訳の説明：重要な語の選択と、文脈がその選択にどう影響したかを説明します。\n- 用語集：重要語を 2–4 個取り上げ、{{to_locale}} で短く意味を説明します。\n- 百科知識：理解に役立つ文化、場面、概念などの背景を一つ補足します。\n",
     "selection_custom-preset-dictionary_name": "AI 知識",
     "selection_custom-preset-dictionary_prompt":
         "{selection} の意味、背景、関連知識を選択した文字の言語で簡潔に説明してください。発音表記、翻訳、例文は不要です。不確かな内容は明示してください。",
@@ -7303,13 +7303,13 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33d1135e": "選択した文字だけを処理",
     "ui_33fc695d": "初期設定に戻しますか？",
     "ui_34321453": "エクスポート",
-    "ui_3477ba41": "Modu のデータベースをバックアップし、書庫を統合しています。アプリを閉じないでください…",
+    "ui_3477ba41": "小陈笔记 のデータベースをバックアップし、書庫を統合しています。アプリを閉じないでください…",
     "ui_34917dd5": "重複しない 6 桁の RGB 色値を 1–20 個入力してください（例：66CCFF）。",
     "ui_34d27af7": "この本の埋め込みモデル",
     "ui_356a249e": "更新要求に失敗しました。ネットワークやプロキシを確認して再試行してください。",
     "ui_356e54ac": "SVG の下線は背景画像と同じ背景レイヤーを使い、有効時は SVG を優先表示します。",
     "ui_35954522":
-        "問題を記入してプレビューを確認し、Modu の GitHub リポジトリで送信を確定してください（GitHub アカウントが必要です）。スクリーンショットは GitHub ページで追加できます。",
+        "問題を記入してプレビューを確認し、小陈笔记 の GitHub リポジトリで送信を確定してください（GitHub アカウントが必要です）。スクリーンショットは GitHub ページで追加できます。",
     "ui_361a9bd6": "読み上げ設定を消去しました",
     "ui_3633fd81":
         "設定は AES-256-GCM で暗号化します。本、ノート、AI チャット履歴は暗号化しません。独立した強いパスワードを使用してください。パスワードを失うとキーは復元できません。パスワードはバックアップに保存しません。",
@@ -7327,7 +7327,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_3967959d": "説明（任意）",
     "ui_39a3aa11": "リリース情報またはインストーラーの検証に失敗し、インストールを阻止しました。再確認してダウンロードし直してください。",
     "ui_39b523bd": "閉じる",
-    "ui_39c0bce2": "Modu の編集可能なテンプレートです。選択すると下の説明を置き換えます。",
+    "ui_39c0bce2": "小陈笔记 の編集可能なテンプレートです。選択すると下の説明を置き換えます。",
     "ui_3b0f25fa": "更新日時",
     "ui_3beb904c": "段落間隔",
     "ui_3c1568a4": "パスワードの長さと、二つの入力が一致しているか確認してください",
@@ -7396,7 +7396,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "外観と本棚",
     "ui_4b6927a5": "ANX バックアップ ZIP を選択",
     "ui_4b725988":
-        "Modu は Anx Reader と ReadAny を基に開発されました。\nGPL-3.0-or-later で公開しており、元プロジェクトの公式リリースではありません。",
+        "小陈笔记 は Anx Reader と ReadAny を基に開発されました。\nGPL-3.0-or-later で公開しており、元プロジェクトの公式リリースではありません。",
     "ui_4b75eec5": "プロバイダーを削除しますか？",
     "ui_4cdf1a58": "プロバイダーを削除",
     "ui_4ce17940": "レイアウト CSS",
@@ -7496,7 +7496,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_64edaba1": "報告をコピーしました。クリップボードのプライバシーに注意してください。",
     "ui_651f352d": "ネットワークプロキシ",
     "ui_65479baf": "Google 翻訳（無料）",
-    "ui_6556c39e": "Modu の編集可能なテンプレートです。選択すると下の説明を置き換え、Voice の声は変更しません。",
+    "ui_6556c39e": "小陈笔记 の編集可能なテンプレートです。選択すると下の説明を置き換え、Voice の声は変更しません。",
     "ui_656aeae7": "項目",
     "ui_65b7d137":
         "初期状態はオフです。エクスポート時は認証情報を持つ API・サーバー設定を除外し、インポート時はスキップして端末の既存アカウントとキーを保持します。有効にすると一緒に移行し、ファイル、modu リンクに復元可能な平文の認証情報が含まれます。公開しないでください。このスイッチは同期暗号化設定を変更せず、同期暗号化パスワードはエクスポートしません。カスタム CSS、プロンプト、URL に秘密の認証情報を記入しないでください。",
@@ -7531,14 +7531,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6d9059ba": "すべてのプロファイルをエクスポート",
     "ui_6da845b6": "本文の段間に区切り線を表示します。章名は右、残りページ数と本全体の位置は左に表示します。",
     "ui_6e138ea9":
-        "選択範囲の検索は Modu 内で開きます。標準エンジンを選び、検索ウィンドウでいつでも変更できます。検索語は選択したサイトに送信し、利用可否はネットワークに依存します。",
+        "選択範囲の検索は 小陈笔记 内で開きます。標準エンジンを選び、検索ウィンドウでいつでも変更できます。検索語は選択したサイトに送信し、利用可否はネットワークに依存します。",
     "ui_6e199c95": "オープンソースプロジェクトと出典",
     "ui_6e60f8d4": "ドラッグして並べ替え",
     "ui_6e730618":
         "各プラットフォームは、機密情報を除去したエラーと操作の記録を端末内に少量保持します。初期状態では添付もアップロードもしません。この項目を選択すると、利用可能なシステムのクラッシュ診断を添付します。通常のログ、AI 設定、キー、本の本文は読み取りません。送信後の報告は公開されるため、プレビューを確認してください。ログ付きの報告はコピーされ、ユーザーが GitHub に貼り付けます。",
     "ui_6e733d2b": "フォルダー",
     "ui_6eb9ed9e":
-        "インストーラーの指示に従って上書き更新してください。アプリ実行中の警告が出たら、同期を完了して Modu を終了してください。",
+        "インストーラーの指示に従って上書き更新してください。アプリ実行中の警告が出たら、同期を完了して 小陈笔记 を終了してください。",
     "ui_6f60f5ad": "キーワードで本の内容を検索",
     "ui_6f86db5d": "強調表示の照合がタイムアウトして停止しました。正規表現を簡単にしてください。",
     "ui_6fdab95e": "既存のコードは保持し、視覚設定の後に追加します。適用範囲はコードのセレクターで決まります。",
@@ -7833,7 +7833,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c4d2912f": "更新をインストール",
     "ui_c515ff97": "標準中国語",
     "ui_c52f1929": "ファイル・QR・modu リンク・認証情報の移行は任意",
-    "ui_c5774cb9": "Modu 内の「{name}」と検索索引だけを削除します。元の辞書ファイルは削除しません。",
+    "ui_c5774cb9": "小陈笔记 内の「{name}」と検索索引だけを削除します。元の辞書ファイルは削除しません。",
     "ui_c5fd3ab7": "温かい声質",
     "ui_c664b25a":
         "読み上げを停止し、すべての音声サービスの API キー、設定、声の選択、未保存の変更を消去します。速度、音高、音量とシステム音声を初期状態に戻します。AI、本、ノート、同期設定には影響しません。",
@@ -7854,7 +7854,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_cae34bfa": "選択した {count} 冊の本を削除しますか？本のファイルとローカルのベクトル索引も削除します。",
     "ui_cbda3c4f": "モデルのパラメーター",
     "ui_cc6f8540":
-        "確認とダウンロードは同じソースを使用し、初期状態では GitHub を優先します。確認時に接続失敗、タイムアウト、サービス利用不可の場合は両方を Gitee に切り替えます。手動でソースを変更したら再確認してからダウンロードしてください。ダウンロードはブラウザーが行い、Modu は以後の進捗を監視せず、完了や SHA-256 検証成功も表示しません。本、ノート、アカウントのキーは送信しません。",
+        "確認とダウンロードは同じソースを使用し、初期状態では GitHub を優先します。確認時に接続失敗、タイムアウト、サービス利用不可の場合は両方を Gitee に切り替えます。手動でソースを変更したら再確認してからダウンロードしてください。ダウンロードはブラウザーが行い、小陈笔记 は以後の進捗を監視せず、完了や SHA-256 検証成功も表示しません。本、ノート、アカウントのキーは送信しません。",
     "ui_cd93c8b7": "最新バージョンです（または公開版より新しいバージョンです）",
     "ui_ce47b912": "組み込み済み・オフライン利用可",
     "ui_cec9c9cb": "説明を入力するかテンプレートを選んでください",
@@ -7871,7 +7871,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d1330b7a": "インポート",
     "ui_d1613041": "英語",
     "ui_d1772dbc": "機能のパラメーターを設定",
-    "ui_d19439a9": "この画面を閉じてもダウンロードは続きます。「Modu について」から進捗確認やキャンセルができます。",
+    "ui_d19439a9": "この画面を閉じてもダウンロードは続きます。「小陈笔记 について」から進捗確認やキャンセルができます。",
     "ui_d23480e5": "設定を消去できませんでした。再試行してください。",
     "ui_d277f8c0": "インポート後に自動ベクトル化",
     "ui_d285b5bb": "推論テスト",
@@ -7900,7 +7900,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d8f8349": "QR コードを生成できませんでした",
     "ui_d9084d2e": "複数の設定を復元しますか？",
     "ui_d9d3f020": "サーバーの更新日時を使い、日時がないものは末尾に並べます。",
-    "ui_d9e3509d": "Modu 埋め込みモデルの接続テスト",
+    "ui_d9e3509d": "小陈笔记 埋め込みモデルの接続テスト",
     "ui_da2571e": "温かく柔らかく",
     "ui_da6b9567": "{count} 冊を選択中",
     "ui_da711856": "不具合報告をプレビュー",
@@ -7968,10 +7968,10 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "同じ段落の隣接文をまとめて読み上げ、強調表示と移動は短いまとまり単位で行います。長い段落は自動分割します。保存した説明を変更せず、一定速度の読み上げ指示を自動追加します。実際の声と速度はモデルに依存します。",
     "ui_f33e5028":
-        "• 本のファイル、表紙、ノート・強調表示、読書位置・時間、フォルダー、タグをインポートします。\n• ANX のアカウント、パスワード、API キー、同期設定、AI チャット、フォント、テーマ、その他のアプリ設定は含みません。\n• 元の ANX ZIP バックアップ、内部データベースのスキーマバージョン 7 のみ対応します（アプリのバージョンではありません）。単体 DB、暗号化 ZIP、変更されたデータベースは非対応です。\n• 削除済みの本は除外します。本文ファイルがない本とそのノート・履歴はスキップして書名を表示します。ANX で本を完全にダウンロードし、再バックアップしてください。\n• 同じ内容のファイルは同じ本として扱い、Modu の既存読書位置、ノートの編集、フォルダー配置を保持します。同じバックアップの再インポートは記録を重複作成せず、古いバックアップで既存データを上書きしません。\n• 元 ZIP は変更せず、ANX の非公開領域へ直接アクセスしません。インポート前に Modu データベースを自動バックアップし、完了後に保存先を表示します。\n• 展開、コピー、データベースバックアップに十分な空き容量を確保してください。準備段階では検証のみ行い、既存書庫を置き換えません。",
+        "• 本のファイル、表紙、ノート・強調表示、読書位置・時間、フォルダー、タグをインポートします。\n• ANX のアカウント、パスワード、API キー、同期設定、AI チャット、フォント、テーマ、その他のアプリ設定は含みません。\n• 元の ANX ZIP バックアップ、内部データベースのスキーマバージョン 7 のみ対応します（アプリのバージョンではありません）。単体 DB、暗号化 ZIP、変更されたデータベースは非対応です。\n• 削除済みの本は除外します。本文ファイルがない本とそのノート・履歴はスキップして書名を表示します。ANX で本を完全にダウンロードし、再バックアップしてください。\n• 同じ内容のファイルは同じ本として扱い、小陈笔记 の既存読書位置、ノートの編集、フォルダー配置を保持します。同じバックアップの再インポートは記録を重複作成せず、古いバックアップで既存データを上書きしません。\n• 元 ZIP は変更せず、ANX の非公開領域へ直接アクセスしません。インポート前に 小陈笔记 データベースを自動バックアップし、完了後に保存先を表示します。\n• 展開、コピー、データベースバックアップに十分な空き容量を確保してください。準備段階では検証のみ行い、既存書庫を置き換えません。",
     "ui_f388b7a3": "標準ブラウザーを開けませんでした。再試行するか公式リリースページを手動で開いてください。",
     "ui_f38fcdf3":
-        "macOS のサンドボックス隔離を避けるため、DMG は標準ブラウザーでダウンロードしてください。古いアプリ内ダウンロードのキャッシュは使わないでください。DMG を開いて Modu を終了し、新しいアプリを「アプリケーション」にドラッグして置き換えます。書庫は保持します。現在の配布パッケージは Apple の公証を受けていません。",
+        "macOS のサンドボックス隔離を避けるため、DMG は標準ブラウザーでダウンロードしてください。古いアプリ内ダウンロードのキャッシュは使わないでください。DMG を開いて 小陈笔记 を終了し、新しいアプリを「アプリケーション」にドラッグして置き換えます。書庫は保持します。現在の配布パッケージは Apple の公証を受けていません。",
     "ui_f3e93354": "全画面表示",
     "ui_f4809d40": "穏やかで落ち着いて",
     "ui_f48352d1": "部分強調表示には CSS 宣言だけを入力し、セレクターや波括弧は付けないでください。",
@@ -7988,7 +7988,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "ANX Reader のバックアップをインポート",
     "ui_f687e87b": "ノートと抜粋の設定",
     "ui_f6d5ddd0": "ブラウザーを開けませんでした。しばらくして再試行してください。",
-    "ui_f6e64898": "Modu ローカル埋め込みモデルのテスト",
+    "ui_f6e64898": "小陈笔记 ローカル埋め込みモデルのテスト",
     "ui_f79b47e3": "辞書を削除しますか？",
     "ui_f82ce566": "現在のプロファイルをエクスポート",
     "ui_f863d66d": "このプロファイルを削除しますか？",
@@ -8059,7 +8059,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "내보내기: 암호화된 서비스 설정과 자격 증명의 포함 여부 선택 → Modu-Backup-*.zip 생성 → 저장. 로컬 파일만 포함하므로 이전할 도서를 먼저 다운로드하세요.",
     "ui_database_backup_import_step":
-        "가져오기: 여기서 내보낸 ZIP 선택(압축 해제 불필요) → 덮어쓰기 확인 및 검증 → 설정이 암호화된 경우 내보낼 때의 비밀번호 입력 → Modu 재시작. 기존 서재, 메모와 백업 설정을 대체하며 병합하지 않습니다. 현재 데이터를 먼저 내보내세요.",
+        "가져오기: 여기서 내보낸 ZIP 선택(압축 해제 불필요) → 덮어쓰기 확인 및 검증 → 설정이 암호화된 경우 내보낼 때의 비밀번호 입력 → 小陈笔记 재시작. 기존 서재, 메모와 백업 설정을 대체하며 병합하지 않습니다. 현재 데이터를 먼저 내보내세요.",
     "ui_database_backup_save_windows":
         "기본 저장 위치: 현재 Windows 사용자의 Downloads 폴더, 보통 C:\\Users\\<사용자명>\\Downloads입니다. 내보낸 후 실제 전체 경로를 표시하며 복사할 수 있습니다.",
     "ui_database_backup_save_desktop":
@@ -8130,7 +8130,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "오래전에 읽었던 책을 다시 읽고 있습니다. 이어서 읽을 수 있도록 이전 내용을 빠르게 떠올리게 도와주세요.\n[요구 사항]\n3–5문장\n사용자가 선택한 언어 사용\n원문을 그대로 반복하지 말고 핵심 정보 유지\n\n[이전 내용]\n{{previous_content}}\n",
     "ai_test_prompt": "간결하고 친근한 자기소개를 작성하세요. 언어 코드: {{language_locale}}\n",
     "ai_translate_prompt":
-        "당신은 Modu의 '번역 및 참고' 전문가입니다. 사용자가 선호하는 언어 {{to_locale}}로 신뢰할 수 있는 답변을 제공하세요.\n\n이번 요청의 입력:\n- 원문: {{text}}\n- 원문 언어 힌트: {{from_locale}}\n- 독서 맥락(비어 있을 수 있음): {{contextText}}\n\n## 답변 구조(필수)\n답변은 반드시 다음 두 부분으로 구성하세요.\n구조의 틀이나 지시문은 출력하지 말고 최종 답변만 출력하세요.\n\n### 1부: 맥락을 반영한 빠른 설명(항상 먼저)\n다음 조건을 충족하는 간결한 1–2단어로 시작하세요.\n- 독서 맥락에서의 의미나 번역을 직접 설명\n- 맥락으로 해소된 모호함 반영\n- 쉽고 대화체인 표현 사용\n- 명확한 설명에 필요한 경우 외에는 원문을 인용하지 않고 과도한 인용 피하기\n\n### 2부: 상세 분석(빠른 설명 뒤)\n아래 형식에 따라 충분한 정보를 제공하세요.\n\n## 핵심 역할\n1. 독서 맥락을 활용해 대명사, 어조, 전문 지식, 문화적 언급을 해석하고 글을 정확히 이해하세요. 맥락이 없으면 해당 발췌문만으로 의미를 추론했다고 밝히세요.\n2. 사전 수준의 세부 정보(발음, 품사, 미묘한 의미 차이)와 백과사전식 통찰(기원, 문화적 배경, 문학적 언급, 관련 사실)을 모두 제공하세요.\n3. 독자가 표현을 자연스럽게 사용하거나 이해할 수 있도록 실용적인 안내를 제공하세요.\n\n## 제약\n- 모든 답변은 {{to_locale}}로 작성하세요.\n- 간결하되 빠짐없이 작성하세요. 실제로 해당하지 않는 항목만 생략하고 이유를 밝히세요.\n- Markdown 목록, 번호 기호, 코드 블록을 출력하지 말고 현지화된 제목과 본문만 사용하세요.\n\n## 판단 기준\n- 원문 언어가 {{to_locale}}와 같으면 → 고급 단일 언어 사전 항목으로 답하세요.\n- 다르면 → 번역가이자 언어 교사로 답하세요.\n\n## 상세 형식(일반 텍스트, 목록 기호 없음. 모든 제목을 반드시 {{to_locale}}로 번역)\n\n사전으로 답할 때(같은 언어):\n- 발음: 가장 적절한 발음 표기를 제공하거나 모른다고 명시하세요.\n- 품사: 관련된 모든 품사를 나열하세요.\n- 의미: 주요 의미를 간결하게 설명하세요.\n- 예문: 자연스러운 예문 두 개와 짧은 설명을 제공하세요.\n- 백과 지식: 맥락이나 문화에 관한 사실 하나를 제시하세요(역사, 문학, 관용구의 기원, 전문 분야 용법).\n\n번역가로 답할 때(다른 언어):\n- 원문 발췌: 원문을 인용하거나 조금 줄이세요(줄였다면 명시).\n- 번역: 어조와 격식을 살린 자연스러운 번역을 제공하세요.\n- 번역 설명: 중요한 단어 선택과 맥락이 그 선택에 미친 영향을 설명하세요.\n- 용어 설명: 핵심 용어 2–4개를 골라 {{to_locale}}로 짧게 뜻을 설명하세요.\n- 백과 지식: 이해를 돕는 문화, 배경, 개념에 관한 정보 하나를 추가하세요.\n",
+        "당신은 小陈笔记의 '번역 및 참고' 전문가입니다. 사용자가 선호하는 언어 {{to_locale}}로 신뢰할 수 있는 답변을 제공하세요.\n\n이번 요청의 입력:\n- 원문: {{text}}\n- 원문 언어 힌트: {{from_locale}}\n- 독서 맥락(비어 있을 수 있음): {{contextText}}\n\n## 답변 구조(필수)\n답변은 반드시 다음 두 부분으로 구성하세요.\n구조의 틀이나 지시문은 출력하지 말고 최종 답변만 출력하세요.\n\n### 1부: 맥락을 반영한 빠른 설명(항상 먼저)\n다음 조건을 충족하는 간결한 1–2단어로 시작하세요.\n- 독서 맥락에서의 의미나 번역을 직접 설명\n- 맥락으로 해소된 모호함 반영\n- 쉽고 대화체인 표현 사용\n- 명확한 설명에 필요한 경우 외에는 원문을 인용하지 않고 과도한 인용 피하기\n\n### 2부: 상세 분석(빠른 설명 뒤)\n아래 형식에 따라 충분한 정보를 제공하세요.\n\n## 핵심 역할\n1. 독서 맥락을 활용해 대명사, 어조, 전문 지식, 문화적 언급을 해석하고 글을 정확히 이해하세요. 맥락이 없으면 해당 발췌문만으로 의미를 추론했다고 밝히세요.\n2. 사전 수준의 세부 정보(발음, 품사, 미묘한 의미 차이)와 백과사전식 통찰(기원, 문화적 배경, 문학적 언급, 관련 사실)을 모두 제공하세요.\n3. 독자가 표현을 자연스럽게 사용하거나 이해할 수 있도록 실용적인 안내를 제공하세요.\n\n## 제약\n- 모든 답변은 {{to_locale}}로 작성하세요.\n- 간결하되 빠짐없이 작성하세요. 실제로 해당하지 않는 항목만 생략하고 이유를 밝히세요.\n- Markdown 목록, 번호 기호, 코드 블록을 출력하지 말고 현지화된 제목과 본문만 사용하세요.\n\n## 판단 기준\n- 원문 언어가 {{to_locale}}와 같으면 → 고급 단일 언어 사전 항목으로 답하세요.\n- 다르면 → 번역가이자 언어 교사로 답하세요.\n\n## 상세 형식(일반 텍스트, 목록 기호 없음. 모든 제목을 반드시 {{to_locale}}로 번역)\n\n사전으로 답할 때(같은 언어):\n- 발음: 가장 적절한 발음 표기를 제공하거나 모른다고 명시하세요.\n- 품사: 관련된 모든 품사를 나열하세요.\n- 의미: 주요 의미를 간결하게 설명하세요.\n- 예문: 자연스러운 예문 두 개와 짧은 설명을 제공하세요.\n- 백과 지식: 맥락이나 문화에 관한 사실 하나를 제시하세요(역사, 문학, 관용구의 기원, 전문 분야 용법).\n\n번역가로 답할 때(다른 언어):\n- 원문 발췌: 원문을 인용하거나 조금 줄이세요(줄였다면 명시).\n- 번역: 어조와 격식을 살린 자연스러운 번역을 제공하세요.\n- 번역 설명: 중요한 단어 선택과 맥락이 그 선택에 미친 영향을 설명하세요.\n- 용어 설명: 핵심 용어 2–4개를 골라 {{to_locale}}로 짧게 뜻을 설명하세요.\n- 백과 지식: 이해를 돕는 문화, 배경, 개념에 관한 정보 하나를 추가하세요.\n",
     "selection_custom-preset-dictionary_name": "AI 지식",
     "selection_custom-preset-dictionary_prompt":
         "{selection}의 의미, 배경과 관련 지식을 선택한 글의 언어로 간략히 설명하세요. 발음 표기, 번역, 예문은 제외하고 불확실한 내용은 명시하세요.",
@@ -8331,13 +8331,13 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33d1135e": "선택한 글만 처리",
     "ui_33fc695d": "기본값으로 복원할까요?",
     "ui_34321453": "내보내기",
-    "ui_3477ba41": "Modu 데이터베이스를 백업하고 서재를 병합하고 있습니다. 앱을 닫지 마세요…",
+    "ui_3477ba41": "小陈笔记 데이터베이스를 백업하고 서재를 병합하고 있습니다. 앱을 닫지 마세요…",
     "ui_34917dd5": "중복되지 않는 6자리 RGB 색상 값을 1–20개 입력하세요(예: 66CCFF).",
     "ui_34d27af7": "이 책의 임베딩 모델",
     "ui_356a249e": "업데이트 요청에 실패했습니다. 네트워크나 프록시를 확인하고 다시 시도하세요.",
     "ui_356e54ac": "SVG 밑줄은 배경 이미지와 같은 배경 레이어를 사용하며 활성화하면 SVG를 우선 표시합니다.",
     "ui_35954522":
-        "문제를 작성하고 미리보기를 확인한 뒤 Modu GitHub 저장소에서 제출을 확정하세요(GitHub 계정 필요). 스크린샷은 GitHub 페이지에서 추가할 수 있습니다.",
+        "문제를 작성하고 미리보기를 확인한 뒤 小陈笔记 GitHub 저장소에서 제출을 확정하세요(GitHub 계정 필요). 스크린샷은 GitHub 페이지에서 추가할 수 있습니다.",
     "ui_361a9bd6": "읽어 주기 설정을 지웠습니다",
     "ui_3633fd81":
         "설정은 AES-256-GCM으로 암호화하지만 책, 노트, AI 채팅 기록은 암호화하지 않습니다. 별도의 강력한 비밀번호를 사용하세요. 비밀번호를 잃으면 키를 복구할 수 없습니다. 비밀번호는 백업에 저장하지 않습니다.",
@@ -8355,7 +8355,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_3967959d": "설명(선택)",
     "ui_39a3aa11": "릴리스 정보 또는 설치 파일 검증에 실패하여 설치를 차단했습니다. 다시 확인하고 다운로드하세요.",
     "ui_39b523bd": "닫기",
-    "ui_39c0bce2": "Modu의 편집 가능한 템플릿입니다. 선택하면 아래 설명을 바꿉니다.",
+    "ui_39c0bce2": "小陈笔记의 편집 가능한 템플릿입니다. 선택하면 아래 설명을 바꿉니다.",
     "ui_3b0f25fa": "수정 날짜",
     "ui_3beb904c": "문단 간격",
     "ui_3c1568a4": "비밀번호 길이와 두 입력이 일치하는지 확인하세요",
@@ -8424,7 +8424,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "모양 및 책장",
     "ui_4b6927a5": "ANX 백업 ZIP 선택",
     "ui_4b725988":
-        "Modu는 Anx Reader와 ReadAny를 기반으로 개발되었습니다.\nGPL-3.0-or-later로 배포되며 원본 프로젝트의 공식 배포판은 아닙니다.",
+        "小陈笔记는 Anx Reader와 ReadAny를 기반으로 개발되었습니다.\nGPL-3.0-or-later로 배포되며 원본 프로젝트의 공식 배포판은 아닙니다.",
     "ui_4b75eec5": "제공업체를 삭제할까요?",
     "ui_4cdf1a58": "제공업체 삭제",
     "ui_4ce17940": "레이아웃 CSS",
@@ -8524,7 +8524,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_64edaba1": "보고서를 복사했습니다. 클립보드의 개인정보 보호에 유의하세요.",
     "ui_651f352d": "네트워크 프록시",
     "ui_65479baf": "Google 번역(무료)",
-    "ui_6556c39e": "Modu의 편집 가능한 템플릿입니다. 선택하면 아래 설명을 바꾸며 Voice 목소리는 유지됩니다.",
+    "ui_6556c39e": "小陈笔记의 편집 가능한 템플릿입니다. 선택하면 아래 설명을 바꾸며 Voice 목소리는 유지됩니다.",
     "ui_656aeae7": "개 항목",
     "ui_65b7d137":
         "기본적으로 꺼져 있습니다. 내보낼 때 자격 증명이 있는 API·서버 설정을 제외하고 가져올 때 건너뛰어 기존 로컬 계정과 키를 유지합니다. 켜면 함께 이전되며 파일, modu 링크에 복원 가능한 평문 자격 증명이 포함됩니다. 공개하지 마세요. 이 스위치는 동기화 암호화 설정을 바꾸지 않으며 동기화 암호화 비밀번호는 내보내지 않습니다. 사용자 지정 CSS, 프롬프트, URL에 비밀 자격 증명을 입력하지 마세요.",
@@ -8561,14 +8561,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "본문 열 사이의 구분선을 포함합니다. 장 이름은 오른쪽, 남은 페이지와 책 전체 위치는 왼쪽에 표시합니다.",
     "ui_6e138ea9":
-        "선택한 글 검색은 Modu 안에서 열립니다. 기본 엔진을 선택하거나 검색 창에서 언제든 바꿀 수 있습니다. 검색어는 선택한 사이트에 보내며 이용 가능 여부는 네트워크에 따라 달라집니다.",
+        "선택한 글 검색은 小陈笔记 안에서 열립니다. 기본 엔진을 선택하거나 검색 창에서 언제든 바꿀 수 있습니다. 검색어는 선택한 사이트에 보내며 이용 가능 여부는 네트워크에 따라 달라집니다.",
     "ui_6e199c95": "오픈 소스 프로젝트 및 출처",
     "ui_6e60f8d4": "드래그하여 정렬",
     "ui_6e730618":
         "각 플랫폼은 민감 정보를 제거한 오류와 작업 기록을 기기에 소량 보관하며 기본적으로 첨부하거나 업로드하지 않습니다. 이 항목을 선택하면 사용 가능한 시스템 충돌 진단을 첨부하며 일반 로그, AI 설정, 키, 책 본문은 읽지 않습니다. 제출한 보고서는 공개되므로 미리보기를 확인하세요. 로그가 포함된 보고서는 복사되며 직접 GitHub에 붙여넣습니다.",
     "ui_6e733d2b": "폴더",
     "ui_6eb9ed9e":
-        "설치 프로그램의 안내에 따라 업데이트하세요. 앱이 실행 중이라고 표시되면 먼저 동기화를 완료하고 Modu를 종료하세요.",
+        "설치 프로그램의 안내에 따라 업데이트하세요. 앱이 실행 중이라고 표시되면 먼저 동기화를 완료하고 小陈笔记를 종료하세요.",
     "ui_6f60f5ad": "키워드로 이 책의 내용 검색",
     "ui_6f86db5d": "강조 표시 일치 검색이 시간 초과로 중지되었습니다. 정규식을 단순화하세요.",
     "ui_6fdab95e": "기존 코드는 유지하며 시각 설정 뒤에 추가됩니다. 코드 선택자가 적용 범위를 정합니다.",
@@ -8868,7 +8868,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c4d2912f": "업데이트 설치",
     "ui_c515ff97": "표준 중국어",
     "ui_c52f1929": "파일, QR, modu 링크 · 자격 증명 이전은 선택",
-    "ui_c5774cb9": "Modu의 '{name}' 및 검색 색인만 삭제합니다. 원본 사전 파일은 삭제하지 않습니다.",
+    "ui_c5774cb9": "小陈笔记의 '{name}' 및 검색 색인만 삭제합니다. 원본 사전 파일은 삭제하지 않습니다.",
     "ui_c5fd3ab7": "따뜻한 음색",
     "ui_c664b25a":
         "읽어 주기를 중지하고 모든 음성 서비스의 API 키, 설정, 목소리 선택, 저장하지 않은 변경을 지웁니다. 속도, 음높이, 볼륨, 시스템 음성을 기본값으로 복원합니다. AI, 책, 노트, 동기화 설정에는 영향을 주지 않습니다.",
@@ -8890,7 +8890,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_cae34bfa": "선택한 책 {count}권을 삭제할까요? 책 파일과 로컬 벡터 색인도 삭제됩니다.",
     "ui_cbda3c4f": "모델 매개변수",
     "ui_cc6f8540":
-        "확인과 다운로드는 같은 소스를 사용하며 기본적으로 GitHub를 우선합니다. 확인 중 연결 실패, 시간 초과, 서비스 이용 불가가 발생하면 둘 다 Gitee로 전환합니다. 소스를 직접 바꾸면 다시 확인한 뒤 다운로드하세요. 다운로드는 브라우저가 처리하므로 Modu는 이후 진행 상황을 감시하거나 완료 및 SHA-256 검증 성공을 표시하지 않습니다. 책, 노트, 계정 키는 보내지 않습니다.",
+        "확인과 다운로드는 같은 소스를 사용하며 기본적으로 GitHub를 우선합니다. 확인 중 연결 실패, 시간 초과, 서비스 이용 불가가 발생하면 둘 다 Gitee로 전환합니다. 소스를 직접 바꾸면 다시 확인한 뒤 다운로드하세요. 다운로드는 브라우저가 처리하므로 小陈笔记는 이후 진행 상황을 감시하거나 완료 및 SHA-256 검증 성공을 표시하지 않습니다. 책, 노트, 계정 키는 보내지 않습니다.",
     "ui_cd93c8b7": "최신 버전입니다(또는 공개된 버전보다 새 버전입니다)",
     "ui_ce47b912": "기본 포함 · 오프라인 사용 가능",
     "ui_cec9c9cb": "설명을 입력하거나 템플릿을 선택하세요",
@@ -8907,7 +8907,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d1330b7a": "가져오기",
     "ui_d1613041": "영어",
     "ui_d1772dbc": "기능 매개변수 설정",
-    "ui_d19439a9": "이 창을 닫아도 다운로드는 계속됩니다. 'Modu 정보'에서 진행 상황을 확인하거나 취소할 수 있습니다.",
+    "ui_d19439a9": "이 창을 닫아도 다운로드는 계속됩니다. '小陈笔记 정보'에서 진행 상황을 확인하거나 취소할 수 있습니다.",
     "ui_d23480e5": "설정을 지우지 못했습니다. 다시 시도하세요.",
     "ui_d277f8c0": "가져온 후 자동 벡터화",
     "ui_d285b5bb": "추론 테스트",
@@ -8936,7 +8936,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d8f8349": "QR 코드를 생성하지 못했습니다",
     "ui_d9084d2e": "여러 설정을 복원할까요?",
     "ui_d9d3f020": "서버 수정 시간을 사용하며 날짜가 없으면 마지막에 정렬합니다.",
-    "ui_d9e3509d": "Modu 임베딩 모델 연결 테스트",
+    "ui_d9e3509d": "小陈笔记 임베딩 모델 연결 테스트",
     "ui_da2571e": "따뜻하고 부드럽게",
     "ui_da6b9567": "{count}권 선택됨",
     "ui_da711856": "버그 보고서 미리보기",
@@ -9005,10 +9005,10 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "같은 문단의 인접 문장을 묶어 합성하며 강조 표시와 이동은 짧은 묶음 단위로 합니다. 긴 문단은 자동 분할합니다. 저장된 설명을 바꾸지 않고 일정한 속도의 읽기 요청을 자동 추가합니다. 실제 목소리와 속도는 모델에 따라 달라집니다.",
     "ui_f33e5028":
-        "• 책 파일, 표지, 노트/강조 표시, 읽기 위치·시간, 폴더, 태그를 가져옵니다.\n• ANX 계정, 비밀번호, API 키, 동기화 설정, AI 채팅, 글꼴, 테마, 기타 앱 설정은 가져오지 않습니다.\n• 원본 ANX ZIP 백업과 내부 데이터베이스 스키마 버전 7만 지원합니다(앱 버전이 아닙니다). 단독 DB, 암호화 ZIP, 수정된 데이터베이스는 지원하지 않습니다.\n• 삭제된 책은 제외합니다. 본문 파일이 없는 책과 그 노트·기록은 건너뛰고 책 제목을 표시합니다. ANX에서 완전히 다운로드한 뒤 다시 백업하세요.\n• 같은 파일 내용은 같은 책으로 인식하며 기존 Modu 진도, 노트 수정, 폴더 배치를 유지합니다. 같은 백업을 다시 가져와도 기록을 중복 생성하거나 이전 백업으로 기존 데이터를 덮어쓰지 않습니다.\n• 원본 ZIP을 변경하거나 ANX 비공개 저장소에 직접 접근하지 않습니다. 가져오기 전에 Modu 데이터베이스를 자동 백업하고 완료 후 위치를 표시합니다.\n• 압축 해제, 파일 복사, 데이터베이스 백업에 충분한 공간을 확보하세요. 준비 단계에서는 검증만 하며 기존 서재를 교체하지 않습니다.",
+        "• 책 파일, 표지, 노트/강조 표시, 읽기 위치·시간, 폴더, 태그를 가져옵니다.\n• ANX 계정, 비밀번호, API 키, 동기화 설정, AI 채팅, 글꼴, 테마, 기타 앱 설정은 가져오지 않습니다.\n• 원본 ANX ZIP 백업과 내부 데이터베이스 스키마 버전 7만 지원합니다(앱 버전이 아닙니다). 단독 DB, 암호화 ZIP, 수정된 데이터베이스는 지원하지 않습니다.\n• 삭제된 책은 제외합니다. 본문 파일이 없는 책과 그 노트·기록은 건너뛰고 책 제목을 표시합니다. ANX에서 완전히 다운로드한 뒤 다시 백업하세요.\n• 같은 파일 내용은 같은 책으로 인식하며 기존 小陈笔记 진도, 노트 수정, 폴더 배치를 유지합니다. 같은 백업을 다시 가져와도 기록을 중복 생성하거나 이전 백업으로 기존 데이터를 덮어쓰지 않습니다.\n• 원본 ZIP을 변경하거나 ANX 비공개 저장소에 직접 접근하지 않습니다. 가져오기 전에 小陈笔记 데이터베이스를 자동 백업하고 완료 후 위치를 표시합니다.\n• 압축 해제, 파일 복사, 데이터베이스 백업에 충분한 공간을 확보하세요. 준비 단계에서는 검증만 하며 기존 서재를 교체하지 않습니다.",
     "ui_f388b7a3": "기본 브라우저를 열지 못했습니다. 다시 시도하거나 공식 릴리스 페이지를 직접 여세요.",
     "ui_f38fcdf3":
-        "macOS 샌드박스 격리를 피하려면 기본 브라우저로 DMG를 다운로드하세요. 이전 앱 내부 다운로드 캐시는 사용하지 마세요. DMG를 열고 Modu를 종료한 뒤 새 앱을 '응용 프로그램'으로 끌어 기존 버전을 교체하세요. 서재 데이터는 유지됩니다. 현재 배포 패키지는 Apple 공증을 받지 않았습니다.",
+        "macOS 샌드박스 격리를 피하려면 기본 브라우저로 DMG를 다운로드하세요. 이전 앱 내부 다운로드 캐시는 사용하지 마세요. DMG를 열고 小陈笔记를 종료한 뒤 새 앱을 '응용 프로그램'으로 끌어 기존 버전을 교체하세요. 서재 데이터는 유지됩니다. 현재 배포 패키지는 Apple 공증을 받지 않았습니다.",
     "ui_f3e93354": "전체 화면",
     "ui_f4809d40": "침착하고 안정되게",
     "ui_f48352d1": "부분 강조 표시에는 CSS 선언만 입력하고 선택자나 중괄호는 넣지 마세요.",
@@ -9025,7 +9025,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "ANX Reader 백업 가져오기",
     "ui_f687e87b": "노트 및 발췌 설정",
     "ui_f6d5ddd0": "브라우저를 열지 못했습니다. 잠시 후 다시 시도하세요.",
-    "ui_f6e64898": "Modu 로컬 임베딩 모델 테스트",
+    "ui_f6e64898": "小陈笔记 로컬 임베딩 모델 테스트",
     "ui_f79b47e3": "사전을 삭제할까요?",
     "ui_f82ce566": "현재 프로필 내보내기",
     "ui_f863d66d": "이 프로필을 삭제할까요?",
@@ -9096,7 +9096,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "Exportar: escolher se inclui configurações de serviços e credenciais criptografadas → criar Modu-Backup-*.zip → salvar. Inclui apenas arquivos locais; baixe primeiro os livros a transferir.",
     "ui_database_backup_import_step":
-        "Importar: selecionar um ZIP exportado aqui (sem extrair) → confirmar substituição e validar → informar a senha de exportação se as configurações forem criptografadas → reiniciar Modu. Substitui biblioteca, notas e configurações salvas; não mescla. Exporte primeiro os dados atuais.",
+        "Importar: selecionar um ZIP exportado aqui (sem extrair) → confirmar substituição e validar → informar a senha de exportação se as configurações forem criptografadas → reiniciar 小陈笔记. Substitui biblioteca, notas e configurações salvas; não mescla. Exporte primeiro os dados atuais.",
     "ui_database_backup_save_windows":
         "Local padrão: pasta Downloads do usuário atual do Windows, geralmente C:\\Users\\<usuário>\\Downloads. Após exportar, o caminho completo real é exibido com opção de copiar.",
     "ui_database_backup_save_desktop":
@@ -9173,7 +9173,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Escreva uma apresentação pessoal concisa e amigável. Use o código de idioma: {{language_locale}}\n        ",
     "ai_translate_prompt":
-        "Você é o especialista do Modu em «Tradução e consulta». Forneça uma resposta confiável no idioma preferido pelo usuário, {{to_locale}}.\n\nDados desta solicitação:\n- Texto de origem: {{text}}\n- Indicação do idioma de origem: {{from_locale}}\n- Contexto de leitura (pode estar vazio): {{contextText}}\n\n## Estrutura da resposta (ESSENCIAL)\nSua resposta DEVE seguir esta estrutura de duas partes:\nNÃO mostre o esqueleto ou as instruções, apenas a resposta final.\n\n### Parte 1: explicação rápida com contexto (SEMPRE PRIMEIRO)\nComece com 1–2 palavras concisas que:\n- Expliquem diretamente o significado/a tradução no contexto de leitura\n- Esclareçam qualquer ambiguidade resolvida pelo contexto\n- Usem linguagem simples e coloquial\n- Não citem o texto de origem, salvo quando necessário para a clareza, e evitem citações excessivas\n\n### Parte 2: análise detalhada (APÓS a explicação rápida)\nForneça informações completas usando o formato abaixo.\n\n## Deveres principais\n1. Interprete o texto com precisão, usando o contexto de leitura para esclarecer pronomes, tom, conhecimento da área ou referências culturais. Se não houver contexto, informe que inferiu o significado apenas do trecho.\n2. Forneça detalhes de dicionário (fonética, classe gramatical, nuances dos sentidos) E uma visão enciclopédica (origem, contexto cultural, referência literária ou fato pertinente).\n3. Ofereça orientação prática para que o leitor possa usar ou compreender a expressão naturalmente.\n\n## Restrições\n- Todas as respostas devem estar em {{to_locale}}.\n- Seja conciso, mas completo; remova seções do modelo somente quando realmente não se aplicarem e indique o motivo.\n- Nunca produza listas Markdown, símbolos de numeração ou blocos de código: apenas títulos localizados e texto.\n\n## Árvore de decisão\n- Se o idioma de origem for igual a {{to_locale}} → aja como uma entrada de dicionário monolíngue avançado.\n- Caso contrário → aja como tradutor e tutor.\n\n## Detalhes (texto simples, sem marcadores; cada título DEVE ser traduzido para {{to_locale}})\n\nComo dicionário (mesmo idioma):\n- Pronúncia: a melhor transcrição fonética disponível ou uma observação se for desconhecida.\n- Classe gramatical: liste todas as classes relevantes.\n- Significados: apresente os sentidos essenciais com explicações concisas.\n- Exemplos: forneça duas frases naturais com breves esclarecimentos.\n- Enciclopédia: compartilhe um fato contextual ou cultural (história, literatura, origem de uma expressão, uso na área).\n\nComo tradutor (idiomas diferentes):\n- Trecho de origem: cite ou reduza levemente o trecho original (informe quando houver cortes).\n- Tradução: produza uma tradução fluente que respeite o tom e o registro.\n- Notas de tradução: justifique escolhas importantes de palavras, incluindo como o contexto as influenciou.\n- Glossário: destaque 2–4 termos fundamentais com breves notas de significado em {{to_locale}}.\n- Enciclopédia: adicione um detalhe de contexto (cultura, cenário, conceito) que ajude a compreensão.\n      ",
+        "Você é o especialista do 小陈笔记 em «Tradução e consulta». Forneça uma resposta confiável no idioma preferido pelo usuário, {{to_locale}}.\n\nDados desta solicitação:\n- Texto de origem: {{text}}\n- Indicação do idioma de origem: {{from_locale}}\n- Contexto de leitura (pode estar vazio): {{contextText}}\n\n## Estrutura da resposta (ESSENCIAL)\nSua resposta DEVE seguir esta estrutura de duas partes:\nNÃO mostre o esqueleto ou as instruções, apenas a resposta final.\n\n### Parte 1: explicação rápida com contexto (SEMPRE PRIMEIRO)\nComece com 1–2 palavras concisas que:\n- Expliquem diretamente o significado/a tradução no contexto de leitura\n- Esclareçam qualquer ambiguidade resolvida pelo contexto\n- Usem linguagem simples e coloquial\n- Não citem o texto de origem, salvo quando necessário para a clareza, e evitem citações excessivas\n\n### Parte 2: análise detalhada (APÓS a explicação rápida)\nForneça informações completas usando o formato abaixo.\n\n## Deveres principais\n1. Interprete o texto com precisão, usando o contexto de leitura para esclarecer pronomes, tom, conhecimento da área ou referências culturais. Se não houver contexto, informe que inferiu o significado apenas do trecho.\n2. Forneça detalhes de dicionário (fonética, classe gramatical, nuances dos sentidos) E uma visão enciclopédica (origem, contexto cultural, referência literária ou fato pertinente).\n3. Ofereça orientação prática para que o leitor possa usar ou compreender a expressão naturalmente.\n\n## Restrições\n- Todas as respostas devem estar em {{to_locale}}.\n- Seja conciso, mas completo; remova seções do modelo somente quando realmente não se aplicarem e indique o motivo.\n- Nunca produza listas Markdown, símbolos de numeração ou blocos de código: apenas títulos localizados e texto.\n\n## Árvore de decisão\n- Se o idioma de origem for igual a {{to_locale}} → aja como uma entrada de dicionário monolíngue avançado.\n- Caso contrário → aja como tradutor e tutor.\n\n## Detalhes (texto simples, sem marcadores; cada título DEVE ser traduzido para {{to_locale}})\n\nComo dicionário (mesmo idioma):\n- Pronúncia: a melhor transcrição fonética disponível ou uma observação se for desconhecida.\n- Classe gramatical: liste todas as classes relevantes.\n- Significados: apresente os sentidos essenciais com explicações concisas.\n- Exemplos: forneça duas frases naturais com breves esclarecimentos.\n- Enciclopédia: compartilhe um fato contextual ou cultural (história, literatura, origem de uma expressão, uso na área).\n\nComo tradutor (idiomas diferentes):\n- Trecho de origem: cite ou reduza levemente o trecho original (informe quando houver cortes).\n- Tradução: produza uma tradução fluente que respeite o tom e o registro.\n- Notas de tradução: justifique escolhas importantes de palavras, incluindo como o contexto as influenciou.\n- Glossário: destaque 2–4 termos fundamentais com breves notas de significado em {{to_locale}}.\n- Enciclopédia: adicione um detalhe de contexto (cultura, cenário, conceito) que ajude a compreensão.\n      ",
     "selection_custom-preset-dictionary_name": "Conhecimento IA",
     "selection_custom-preset-dictionary_prompt":
         "Explique brevemente o significado, o contexto e os conhecimentos relacionados a {selection}, no idioma do texto selecionado. Sem pronúncia, traduções ou exemplos; indique as incertezas.",
@@ -9406,7 +9406,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "Restaurar os padrões?",
     "ui_34321453": "Exportar",
     "ui_3477ba41":
-        "Fazendo backup do Modu e mesclando a biblioteca. Mantenha o app aberto…",
+        "Fazendo backup do 小陈笔记 e mesclando a biblioteca. Mantenha o app aberto…",
     "ui_34917dd5":
         "Insira de 1 a 20 cores RGB distintas de seis dígitos, por exemplo, 66CCFF.",
     "ui_34d27af7": "Modelo de embeddings deste livro",
@@ -9414,7 +9414,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "A solicitação de atualização falhou. Verifique a conexão ou o proxy e tente novamente.",
     "ui_356e54ac": "O sublinhado SVG tem prioridade sobre a imagem de fundo.",
     "ui_35954522":
-        "Descreva o problema e visualize o relatório, depois confirme o envio no repositório do Modu no GitHub (é necessário ter uma conta no GitHub). Anexe capturas de tela no GitHub.",
+        "Descreva o problema e visualize o relatório, depois confirme o envio no repositório do 小陈笔记 no GitHub (é necessário ter uma conta no GitHub). Anexe capturas de tela no GitHub.",
     "ui_361a9bd6": "Configurações de voz apagadas",
     "ui_3633fd81":
         "As configurações são criptografadas com AES-256-GCM; livros, notas e histórico de conversas de AI não são criptografados. Use uma senha forte e exclusiva. Se perder a senha, as chaves não poderão ser recuperadas. A senha não é armazenada no backup.",
@@ -9435,7 +9435,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "A verificação da versão ou do instalador falhou. A instalação foi bloqueada; verifique e baixe novamente.",
     "ui_39b523bd": "Fechar",
     "ui_39c0bce2":
-        "Modelos editáveis do Modu. Selecionar um substitui a descrição abaixo.",
+        "Modelos editáveis do 小陈笔记. Selecionar um substitui a descrição abaixo.",
     "ui_3b0f25fa": "Data de modificação",
     "ui_3beb904c": "Espaçamento entre parágrafos",
     "ui_3c1568a4":
@@ -9517,7 +9517,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Aparência e estante",
     "ui_4b6927a5": "Selecionar ZIP de backup do ANX",
     "ui_4b725988":
-        "O Modu é baseado no Anx Reader e no ReadAny.\nDistribuído sob GPL-3.0-or-later; não é uma versão oficial dos projetos originais.",
+        "O 小陈笔记 é baseado no Anx Reader e no ReadAny.\nDistribuído sob GPL-3.0-or-later; não é uma versão oficial dos projetos originais.",
     "ui_4b75eec5": "Excluir o provedor?",
     "ui_4cdf1a58": "Excluir provedor",
     "ui_4ce17940": "CSS de layout",
@@ -9636,7 +9636,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_651f352d": "Proxy de rede",
     "ui_65479baf": "Google Translate (grátis)",
     "ui_6556c39e":
-        "Os modelos editáveis do Modu substituem a descrição sem alterar Voice.",
+        "Os modelos editáveis do 小陈笔记 substituem a descrição sem alterar Voice.",
     "ui_656aeae7": "entradas",
     "ui_65b7d137":
         "Desativado por padrão: omite configurações de API/servidores com credenciais na exportação e as ignora na importação, preservando contas e chaves locais. Quando ativado, as transferências contêm credenciais em texto simples. Mantenha-as privadas. A criptografia da sincronização não é alterada e sua senha nunca é exportada. Não insira credenciais privadas em CSS personalizado, prompts ou URLs.",
@@ -9675,14 +9675,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "Inclui linhas entre as colunas de texto. Capítulo à direita; páginas restantes e posição no livro à esquerda.",
     "ui_6e138ea9":
-        "A pesquisa da seleção abre dentro do Modu. Escolha um mecanismo padrão ou altere na janela de pesquisa. O site selecionado recebe sua consulta; a disponibilidade depende da rede.",
+        "A pesquisa da seleção abre dentro do 小陈笔记. Escolha um mecanismo padrão ou altere na janela de pesquisa. O site selecionado recebe sua consulta; a disponibilidade depende da rede.",
     "ui_6e199c95": "Projetos de código aberto e créditos",
     "ui_6e60f8d4": "Arraste para reordenar",
     "ui_6e730618":
         "Todas as plataformas mantêm um pequeno registro local de erros e operações com dados sensíveis removidos, nunca anexado ou enviado por padrão. Ao optar por incluir, são anexados os diagnósticos de falhas disponíveis; logs comuns, configurações de AI, chaves e texto de livros não são lidos. Confira a prévia antes de compartilhar: os relatórios se tornam públicos. Relatórios com logs são copiados para você colar no GitHub.",
     "ui_6e733d2b": "Pasta",
     "ui_6eb9ed9e":
-        "Siga o instalador para atualizar. Se solicitado, conclua a sincronização e feche o Modu primeiro.",
+        "Siga o instalador para atualizar. Se solicitado, conclua a sincronização e feche o 小陈笔记 primeiro.",
     "ui_6f60f5ad": "Pesquisar texto neste livro",
     "ui_6f86db5d":
         "A busca de correspondências para destaque excedeu o tempo limite. Simplifique a regex.",
@@ -10026,7 +10026,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c515ff97": "Mandarim padrão",
     "ui_c52f1929": "Arquivos, QR e links modu · Credenciais opcionais",
     "ui_c5774cb9":
-        "Remova apenas “{name}” e seu índice de consulta do Modu. Os arquivos originais não são excluídos.",
+        "Remova apenas “{name}” e seu índice de consulta do 小陈笔记. Os arquivos originais não são excluídos.",
     "ui_c5fd3ab7": "Timbre quente",
     "ui_c664b25a":
         "Interrompa a leitura em voz alta, remova todas as chaves de TTS, configurações de serviços, seleções de voz e rascunhos e restaure velocidade, altura, volume e voz do sistema padrão. AI, livros, notas e configurações de sincronização permanecem inalterados.",
@@ -10051,7 +10051,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Excluir os {count} livros selecionados? Seus arquivos e índices vetoriais locais também serão excluídos.",
     "ui_cbda3c4f": "Parâmetros do modelo",
     "ui_cc6f8540":
-        "A verificação e o download usam a mesma fonte, com preferência pelo GitHub por padrão. Se uma verificação não conseguir acessar o GitHub, ambos passam para o Gitee. Após mudar de fonte, verifique novamente antes de baixar. O navegador gerencia o download; o Modu não pode acompanhar o progresso nem verificar o arquivo baixado. Nenhum livro, nota ou chave de conta é enviado.",
+        "A verificação e o download usam a mesma fonte, com preferência pelo GitHub por padrão. Se uma verificação não conseguir acessar o GitHub, ambos passam para o Gitee. Após mudar de fonte, verifique novamente antes de baixar. O navegador gerencia o download; o 小陈笔记 não pode acompanhar o progresso nem verificar o arquivo baixado. Nenhum livro, nota ou chave de conta é enviado.",
     "ui_cd93c8b7": "Atualizado (ou mais recente que a versão publicada)",
     "ui_ce47b912": "Incluído · Disponível offline",
     "ui_cec9c9cb": "Insira uma descrição ou selecione um modelo",
@@ -10104,7 +10104,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "Restaurar várias configurações?",
     "ui_d9d3f020":
         "Usa a data de modificação do servidor; datas ausentes ficam por último.",
-    "ui_d9e3509d": "Teste de conexão de embeddings do Modu",
+    "ui_d9e3509d": "Teste de conexão de embeddings do 小陈笔记",
     "ui_da2571e": "Quente e suave",
     "ui_da6b9567": "{count} livros selecionados",
     "ui_da711856": "Prévia do relatório de bug",
@@ -10180,11 +10180,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "Frases adjacentes no mesmo parágrafo são sintetizadas juntas. O destaque e a navegação seguem cada trecho; parágrafos longos são divididos. Instruções de leitura em ritmo constante são adicionadas sem alterar a descrição salva. A voz e o ritmo ainda dependem do modelo.",
     "ui_f33e5028":
-        "• Importa arquivos de livros, capas, notas/destaques, posição/tempo de leitura, pastas e etiquetas.\n• Não importa contas, senhas, chaves de API, configuração de sincronização, conversas de AI, fontes, temas ou outras configurações do app.\n• Suporta backups ZIP originais do ANX com versão 7 do esquema do banco de dados (não a versão do app). DBs avulsos, ZIPs criptografados e bancos de dados modificados não são compatíveis.\n• Livros excluídos não são importados. Livros sem seus arquivos reais, junto com suas notas/histórico, são ignorados e listados. Baixe-os no ANX e exporte novamente.\n• Conteúdos idênticos são deduplicados. Posições, alterações em notas e pastas existentes no Modu são preservadas. Reimportar o mesmo backup não recria os mesmos registros nem sobrescreve dados existentes.\n• O ZIP não é alterado; o armazenamento privado do ANX nunca é acessado. Um backup local do banco de dados Modu é criado antes da importação, com sua localização mostrada depois.\n• Reserve espaço para extração, cópias e backup do banco de dados. A preparação apenas valida o backup.",
+        "• Importa arquivos de livros, capas, notas/destaques, posição/tempo de leitura, pastas e etiquetas.\n• Não importa contas, senhas, chaves de API, configuração de sincronização, conversas de AI, fontes, temas ou outras configurações do app.\n• Suporta backups ZIP originais do ANX com versão 7 do esquema do banco de dados (não a versão do app). DBs avulsos, ZIPs criptografados e bancos de dados modificados não são compatíveis.\n• Livros excluídos não são importados. Livros sem seus arquivos reais, junto com suas notas/histórico, são ignorados e listados. Baixe-os no ANX e exporte novamente.\n• Conteúdos idênticos são deduplicados. Posições, alterações em notas e pastas existentes no 小陈笔记 são preservadas. Reimportar o mesmo backup não recria os mesmos registros nem sobrescreve dados existentes.\n• O ZIP não é alterado; o armazenamento privado do ANX nunca é acessado. Um backup local do banco de dados 小陈笔记 é criado antes da importação, com sua localização mostrada depois.\n• Reserve espaço para extração, cópias e backup do banco de dados. A preparação apenas valida o backup.",
     "ui_f388b7a3":
         "Não foi possível abrir o navegador padrão. Tente novamente ou visite a página oficial da versão.",
     "ui_f38fcdf3":
-        "Baixe o DMG pelo navegador padrão para evitar a quarentena do sandbox do macOS. Não reutilize um download antigo feito no app. Abra o DMG, feche o Modu e arraste o novo app para Aplicativos para substituir o antigo; sua biblioteca é preservada. Os pacotes atuais não são notarizados pela Apple.",
+        "Baixe o DMG pelo navegador padrão para evitar a quarentena do sandbox do macOS. Não reutilize um download antigo feito no app. Abra o DMG, feche o 小陈笔记 e arraste o novo app para Aplicativos para substituir o antigo; sua biblioteca é preservada. Os pacotes atuais não são notarizados pela Apple.",
     "ui_f3e93354": "Tela cheia",
     "ui_f4809d40": "Calmo e firme",
     "ui_f48352d1":
@@ -10204,7 +10204,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "Importar backup do ANX Reader",
     "ui_f687e87b": "Notas e trechos",
     "ui_f6d5ddd0": "Não foi possível abrir o navegador. Tente novamente.",
-    "ui_f6e64898": "Teste do modelo local de embeddings do Modu",
+    "ui_f6e64898": "Teste do modelo local de embeddings do 小陈笔记",
     "ui_f79b47e3": "Excluir o dicionário?",
     "ui_f82ce566": "Exportar atual",
     "ui_f863d66d": "Excluir este perfil?",
@@ -10280,7 +10280,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "Export: alege dacă incluzi setări de servicii și date de autentificare criptate → creează Modu-Backup-*.zip → salvează. Include doar fișiere locale; descarcă întâi cărțile de transferat.",
     "ui_database_backup_import_step":
-        "Import: selectează un ZIP exportat aici (fără extragere) → confirmă înlocuirea și validează → introdu parola de export dacă setările sunt criptate → repornește Modu. Înlocuiește biblioteca, notele și setările salvate; nu le combină. Exportă întâi datele actuale.",
+        "Import: selectează un ZIP exportat aici (fără extragere) → confirmă înlocuirea și validează → introdu parola de export dacă setările sunt criptate → repornește 小陈笔记. Înlocuiește biblioteca, notele și setările salvate; nu le combină. Exportă întâi datele actuale.",
     "ui_database_backup_save_windows":
         "Loc implicit: dosarul Downloads al utilizatorului Windows curent, de obicei C:\\Users\\<utilizator>\\Downloads. Exportul afișează calea completă reală cu opțiune de copiere.",
     "ui_database_backup_save_desktop":
@@ -10357,7 +10357,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Scrie o prezentare personală concisă și prietenoasă. Folosește codul de limbă: {{language_locale}}\n        ",
     "ai_translate_prompt":
-        "Ești expertul Modu în «Traducere și consultare». Oferă un răspuns documentat în limba preferată de utilizator, {{to_locale}}.\n\nDatele acestei solicitări:\n- Text sursă: {{text}}\n- Indiciu privind limba sursă: {{from_locale}}\n- Context de lectură (poate fi gol): {{contextText}}\n\n## Structura răspunsului (ESENȚIAL)\nRăspunsul TREBUIE să urmeze această structură în două părți:\nNU afișa scheletul sau instrucțiunile, ci doar răspunsul final.\n\n### Partea 1: explicație rapidă în context (ÎNTOTDEAUNA PRIMA)\nÎncepe cu 1–2 cuvinte concise care:\n- Explică direct sensul/traducerea în contextul lecturii\n- Clarifică ambiguitățile rezolvate de context\n- Folosesc un limbaj simplu, conversațional\n- Nu citează textul sursă decât când este necesar pentru claritate și evită citarea excesivă\n\n### Partea 2: analiză detaliată (DUPĂ explicația rapidă)\nOferă informații complete folosind formatul de mai jos.\n\n## Responsabilități principale\n1. Interpretează textul exact, folosind contextul lecturii pentru a clarifica pronume, ton, cunoștințe de specialitate sau referințe culturale. Dacă nu este furnizat context, precizează că ai dedus sensul doar din fragment.\n2. Oferă detalii de dicționar (fonetică, parte de vorbire, nuanțe de sens) ȘI o perspectivă enciclopedică (origine, context cultural, referință literară sau fapt relevant).\n3. Oferă îndrumări practice pentru ca cititorul să poată folosi sau înțelege expresia în mod natural.\n\n## Restricții\n- Toate răspunsurile trebuie să fie în {{to_locale}}.\n- Fii concis, dar complet; elimină secțiuni ale șablonului doar când sunt cu adevărat inaplicabile și precizează motivul.\n- Nu produce niciodată liste Markdown, simboluri de numerotare sau blocuri de cod: doar titluri localizate și text.\n\n## Arbore decizional\n- Dacă limba sursă coincide cu {{to_locale}} → comportă-te ca o intrare de dicționar monolingv avansat.\n- Altfel → comportă-te ca traducător și profesor.\n\n## Detalii (text simplu, fără marcatori; fiecare titlu TREBUIE tradus în {{to_locale}})\n\nCa dicționar (aceeași limbă):\n- Pronunție: cea mai bună transcriere fonetică disponibilă sau o precizare dacă este necunoscută.\n- Parte de vorbire: enumeră toate părțile de vorbire relevante.\n- Sensuri: prezintă sensurile esențiale cu explicații concise.\n- Exemple: oferă două propoziții naturale cu scurte clarificări.\n- Enciclopedie: împărtășește un fapt contextual sau cultural (istorie, literatură, originea unei expresii, utilizare în domeniu).\n\nCa traducător (limbi diferite):\n- Fragment sursă: citează sau scurtează ușor fragmentul original (precizează când este scurtat).\n- Traducere: produce o traducere fluentă care respectă tonul și registrul.\n- Note de traducere: justifică alegerile esențiale de cuvinte, inclusiv influența contextului.\n- Glosar: evidențiază 2–4 termeni esențiali cu scurte explicații ale sensului în {{to_locale}}.\n- Enciclopedie: adaugă un detaliu de fundal (cultură, cadru, concept) care ajută înțelegerea.\n      ",
+        "Ești expertul 小陈笔记 în «Traducere și consultare». Oferă un răspuns documentat în limba preferată de utilizator, {{to_locale}}.\n\nDatele acestei solicitări:\n- Text sursă: {{text}}\n- Indiciu privind limba sursă: {{from_locale}}\n- Context de lectură (poate fi gol): {{contextText}}\n\n## Structura răspunsului (ESENȚIAL)\nRăspunsul TREBUIE să urmeze această structură în două părți:\nNU afișa scheletul sau instrucțiunile, ci doar răspunsul final.\n\n### Partea 1: explicație rapidă în context (ÎNTOTDEAUNA PRIMA)\nÎncepe cu 1–2 cuvinte concise care:\n- Explică direct sensul/traducerea în contextul lecturii\n- Clarifică ambiguitățile rezolvate de context\n- Folosesc un limbaj simplu, conversațional\n- Nu citează textul sursă decât când este necesar pentru claritate și evită citarea excesivă\n\n### Partea 2: analiză detaliată (DUPĂ explicația rapidă)\nOferă informații complete folosind formatul de mai jos.\n\n## Responsabilități principale\n1. Interpretează textul exact, folosind contextul lecturii pentru a clarifica pronume, ton, cunoștințe de specialitate sau referințe culturale. Dacă nu este furnizat context, precizează că ai dedus sensul doar din fragment.\n2. Oferă detalii de dicționar (fonetică, parte de vorbire, nuanțe de sens) ȘI o perspectivă enciclopedică (origine, context cultural, referință literară sau fapt relevant).\n3. Oferă îndrumări practice pentru ca cititorul să poată folosi sau înțelege expresia în mod natural.\n\n## Restricții\n- Toate răspunsurile trebuie să fie în {{to_locale}}.\n- Fii concis, dar complet; elimină secțiuni ale șablonului doar când sunt cu adevărat inaplicabile și precizează motivul.\n- Nu produce niciodată liste Markdown, simboluri de numerotare sau blocuri de cod: doar titluri localizate și text.\n\n## Arbore decizional\n- Dacă limba sursă coincide cu {{to_locale}} → comportă-te ca o intrare de dicționar monolingv avansat.\n- Altfel → comportă-te ca traducător și profesor.\n\n## Detalii (text simplu, fără marcatori; fiecare titlu TREBUIE tradus în {{to_locale}})\n\nCa dicționar (aceeași limbă):\n- Pronunție: cea mai bună transcriere fonetică disponibilă sau o precizare dacă este necunoscută.\n- Parte de vorbire: enumeră toate părțile de vorbire relevante.\n- Sensuri: prezintă sensurile esențiale cu explicații concise.\n- Exemple: oferă două propoziții naturale cu scurte clarificări.\n- Enciclopedie: împărtășește un fapt contextual sau cultural (istorie, literatură, originea unei expresii, utilizare în domeniu).\n\nCa traducător (limbi diferite):\n- Fragment sursă: citează sau scurtează ușor fragmentul original (precizează când este scurtat).\n- Traducere: produce o traducere fluentă care respectă tonul și registrul.\n- Note de traducere: justifică alegerile esențiale de cuvinte, inclusiv influența contextului.\n- Glosar: evidențiază 2–4 termeni esențiali cu scurte explicații ale sensului în {{to_locale}}.\n- Enciclopedie: adaugă un detaliu de fundal (cultură, cadru, concept) care ajută înțelegerea.\n      ",
     "selection_custom-preset-dictionary_name": "Cunoștințe IA",
     "selection_custom-preset-dictionary_prompt":
         "Explică pe scurt sensul, contextul și cunoștințele legate de {selection}, în limba textului selectat. Fără pronunție, traduceri sau exemple; semnalează incertitudinile.",
@@ -10588,7 +10588,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "Restabilești valorile implicite?",
     "ui_34321453": "Exportă",
     "ui_3477ba41":
-        "Se creează copia de siguranță Modu și se îmbină biblioteca. Menține aplicația deschisă…",
+        "Se creează copia de siguranță 小陈笔记 și se îmbină biblioteca. Menține aplicația deschisă…",
     "ui_34917dd5":
         "Introdu 1–20 de culori RGB distincte, cu șase cifre, de exemplu 66CCFF.",
     "ui_34d27af7": "Model de încorporare vectorială pentru această carte",
@@ -10596,7 +10596,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Solicitarea de actualizare a eșuat. Verifică conexiunea sau proxy-ul și reîncearcă.",
     "ui_356e54ac": "Sublinierea SVG are prioritate față de imaginea de fundal.",
     "ui_35954522":
-        "Descrie problema și previzualizează raportul, apoi confirmă trimiterea în depozitul Modu de pe GitHub (este necesar un cont GitHub). Atașează capturi de ecran pe GitHub.",
+        "Descrie problema și previzualizează raportul, apoi confirmă trimiterea în depozitul 小陈笔记 de pe GitHub (este necesar un cont GitHub). Atașează capturi de ecran pe GitHub.",
     "ui_361a9bd6": "Configurările vocale au fost șterse",
     "ui_3633fd81":
         "Configurările sunt criptate cu AES-256-GCM; cărțile, notițele și istoricul conversațiilor IA nu sunt criptate. Folosește o parolă puternică și unică. Dacă pierzi parola, cheile nu pot fi recuperate. Parola nu este stocată în copia de siguranță.",
@@ -10617,7 +10617,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Verificarea versiunii sau a programului de instalare a eșuat. Instalarea a fost blocată; verifică și descarcă din nou.",
     "ui_39b523bd": "Închide",
     "ui_39c0bce2":
-        "Șabloane Modu editabile. Selectarea unuia înlocuiește descrierea de mai jos.",
+        "Șabloane 小陈笔记 editabile. Selectarea unuia înlocuiește descrierea de mai jos.",
     "ui_3b0f25fa": "Data modificării",
     "ui_3beb904c": "Spațiere între paragrafe",
     "ui_3c1568a4":
@@ -10700,7 +10700,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Aspect și bibliotecă",
     "ui_4b6927a5": "Selectează arhiva ZIP de siguranță ANX",
     "ui_4b725988":
-        "Modu se bazează pe Anx Reader și ReadAny.\nDistribuit sub GPL-3.0-or-later; nu este o versiune oficială a proiectelor originale.",
+        "小陈笔记 se bazează pe Anx Reader și ReadAny.\nDistribuit sub GPL-3.0-or-later; nu este o versiune oficială a proiectelor originale.",
     "ui_4b75eec5": "Ștergi furnizorul?",
     "ui_4cdf1a58": "Șterge furnizorul",
     "ui_4ce17940": "CSS pentru aspect",
@@ -10817,7 +10817,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_651f352d": "Proxy de rețea",
     "ui_65479baf": "Google Translate (gratuit)",
     "ui_6556c39e":
-        "Șabloanele Modu editabile înlocuiesc descrierea fără a schimba Voice.",
+        "Șabloanele 小陈笔记 editabile înlocuiesc descrierea fără a schimba Voice.",
     "ui_656aeae7": "intrări",
     "ui_65b7d137":
         "Dezactivat implicit: omite configurările API/server care conțin date de autentificare la export și le ignoră la import, păstrând conturile și cheile locale. Când este activat, transferurile conțin date de autentificare în text necriptat. Păstrează-le private. Criptarea sincronizării rămâne neschimbată, iar parola sa nu este exportată niciodată. Nu introduce date de autentificare private în CSS personalizat, instrucțiuni IA sau URL-uri.",
@@ -10856,14 +10856,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "Include linii între coloanele de text. Capitolul în dreapta; paginile rămase și poziția în carte în stânga.",
     "ui_6e138ea9":
-        "Căutarea selecției se deschide în Modu. Alege un motor implicit sau schimbă-l în fereastra de căutare. Site-ul selectat primește interogarea ta; disponibilitatea depinde de rețea.",
+        "Căutarea selecției se deschide în 小陈笔记. Alege un motor implicit sau schimbă-l în fereastra de căutare. Site-ul selectat primește interogarea ta; disponibilitatea depinde de rețea.",
     "ui_6e199c95": "Proiecte cu sursă deschisă și contribuții",
     "ui_6e60f8d4": "Trage pentru a reordona",
     "ui_6e730618":
         "Toate platformele păstrează un mic jurnal local de erori și operații din care sunt eliminate datele sensibile; acesta nu este niciodată atașat sau încărcat implicit. Dacă îți dai acordul, este inclus diagnosticul disponibil al blocărilor; nu sunt citite jurnalele obișnuite, configurările IA, cheile sau textul cărților. Verifică previzualizarea înainte de partajare: rapoartele devin publice. Rapoartele cu jurnale sunt copiate pentru a le lipi pe GitHub.",
     "ui_6e733d2b": "Dosar",
     "ui_6eb9ed9e":
-        "Urmează programul de instalare pentru actualizare. Dacă ți se cere, încheie mai întâi sincronizarea și închide Modu.",
+        "Urmează programul de instalare pentru actualizare. Dacă ți se cere, încheie mai întâi sincronizarea și închide 小陈笔记.",
     "ui_6f60f5ad": "Caută text în această carte",
     "ui_6f86db5d":
         "Căutarea potrivirilor pentru evidențiere a expirat. Simplifică expresia regex.",
@@ -11205,7 +11205,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c52f1929":
         "Fișiere, QR și linkuri modu · Date de autentificare opționale",
     "ui_c5774cb9":
-        "Elimină doar „{name}” și indexul său de căutare din Modu. Fișierele originale nu sunt șterse.",
+        "Elimină doar „{name}” și indexul său de căutare din 小陈笔记. Fișierele originale nu sunt șterse.",
     "ui_c5fd3ab7": "Timbru cald",
     "ui_c664b25a":
         "Oprește lectura vocală, elimină toate cheile TTS, configurările serviciilor, selecțiile de voce și ciornele și restabilește viteza, înălțimea vocii, volumul și vocea de sistem implicite. IA, cărțile, notițele și configurările sincronizării rămân neschimbate.",
@@ -11230,7 +11230,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Ștergi cele {count} cărți selectate? Fișierele și indexurile lor vectoriale locale vor fi șterse.",
     "ui_cbda3c4f": "Parametrii modelului",
     "ui_cc6f8540":
-        "Verificarea și descărcarea folosesc aceeași sursă, GitHub fiind preferat implicit. Dacă o verificare nu poate accesa GitHub, ambele trec la Gitee. Verifică din nou după schimbarea sursei, înainte de descărcare. Browserul gestionează descărcarea; Modu nu poate monitoriza progresul sau verifica fișierul descărcat. Nu sunt trimise cărți, notițe sau chei ale conturilor.",
+        "Verificarea și descărcarea folosesc aceeași sursă, GitHub fiind preferat implicit. Dacă o verificare nu poate accesa GitHub, ambele trec la Gitee. Verifică din nou după schimbarea sursei, înainte de descărcare. Browserul gestionează descărcarea; 小陈笔记 nu poate monitoriza progresul sau verifica fișierul descărcat. Nu sunt trimise cărți, notițe sau chei ale conturilor.",
     "ui_cd93c8b7": "La zi (sau mai nou decât versiunea publicată)",
     "ui_ce47b912": "Inclus · Disponibil offline",
     "ui_cec9c9cb": "Introdu o descriere sau selectează un șablon",
@@ -11282,7 +11282,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "Restabilești mai multe configurări?",
     "ui_d9d3f020":
         "Folosește data modificării de pe server; elementele fără dată sunt sortate la final.",
-    "ui_d9e3509d": "Testarea conexiunii de încorporare vectorială Modu",
+    "ui_d9e3509d": "Testarea conexiunii de încorporare vectorială 小陈笔记",
     "ui_da2571e": "Cald și blând",
     "ui_da6b9567": "{count} cărți selectate",
     "ui_da711856": "Previzualizarea raportului de eroare",
@@ -11356,11 +11356,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "Propozițiile alăturate din același paragraf sunt sintetizate împreună. Evidențierea și navigarea urmează fiecare fragment; paragrafele lungi sunt împărțite. Instrucțiunile pentru lectură cu ritm constant sunt adăugate fără a modifica descrierea salvată. Vocea și ritmul depind în continuare de model.",
     "ui_f33e5028":
-        "• Importă fișiere de cărți, coperți, notițe/evidențieri, poziția/timpul de lectură, dosare și etichete.\n• Nu importă conturi, parole, chei API, configurări de sincronizare, conversații IA, fonturi, teme sau alte configurări ale aplicației.\n• Acceptă copii ZIP originale ANX cu versiunea 7 a schemei bazei de date (nu versiunea aplicației). Bazele de date separate, ZIP-urile criptate și bazele de date modificate nu sunt acceptate.\n• Cărțile șterse sunt excluse. Cărțile fără fișierele efective, împreună cu notițele/istoricul lor, sunt omise și enumerate. Descarcă-le în ANX și exportă din nou.\n• Conținuturile identice sunt deduplicate. Pozițiile, modificările notițelor și repartizarea în dosare deja existente în Modu sunt păstrate. Reimportarea aceleiași copii nu recreează aceleași înregistrări și nu suprascrie datele existente.\n• ZIP-ul rămâne neschimbat; stocarea privată ANX nu este accesată niciodată. Înainte de import se creează o copie locală a bazei de date Modu, a cărei locație este afișată ulterior.\n• Asigură spațiu pentru extragere, copii și copia bazei de date. Pregătirea doar validează copia de siguranță.",
+        "• Importă fișiere de cărți, coperți, notițe/evidențieri, poziția/timpul de lectură, dosare și etichete.\n• Nu importă conturi, parole, chei API, configurări de sincronizare, conversații IA, fonturi, teme sau alte configurări ale aplicației.\n• Acceptă copii ZIP originale ANX cu versiunea 7 a schemei bazei de date (nu versiunea aplicației). Bazele de date separate, ZIP-urile criptate și bazele de date modificate nu sunt acceptate.\n• Cărțile șterse sunt excluse. Cărțile fără fișierele efective, împreună cu notițele/istoricul lor, sunt omise și enumerate. Descarcă-le în ANX și exportă din nou.\n• Conținuturile identice sunt deduplicate. Pozițiile, modificările notițelor și repartizarea în dosare deja existente în 小陈笔记 sunt păstrate. Reimportarea aceleiași copii nu recreează aceleași înregistrări și nu suprascrie datele existente.\n• ZIP-ul rămâne neschimbat; stocarea privată ANX nu este accesată niciodată. Înainte de import se creează o copie locală a bazei de date 小陈笔记, a cărei locație este afișată ulterior.\n• Asigură spațiu pentru extragere, copii și copia bazei de date. Pregătirea doar validează copia de siguranță.",
     "ui_f388b7a3":
         "Browserul implicit nu a putut fi deschis. Reîncearcă sau vizitează pagina oficială a versiunii.",
     "ui_f38fcdf3":
-        "Descarcă DMG-ul folosind browserul implicit pentru a evita carantina sandboxului macOS. Nu reutiliza o descărcare veche din aplicație. Deschide DMG-ul, închide Modu și trage noua aplicație în Aplicații pentru a o înlocui; biblioteca este păstrată. Pachetele curente nu sunt notarizate de Apple.",
+        "Descarcă DMG-ul folosind browserul implicit pentru a evita carantina sandboxului macOS. Nu reutiliza o descărcare veche din aplicație. Deschide DMG-ul, închide 小陈笔记 și trage noua aplicație în Aplicații pentru a o înlocui; biblioteca este păstrată. Pachetele curente nu sunt notarizate de Apple.",
     "ui_f3e93354": "Ecran complet",
     "ui_f4809d40": "Calm și ferm",
     "ui_f48352d1":
@@ -11379,7 +11379,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "Importă copia de siguranță ANX Reader",
     "ui_f687e87b": "Notițe și fragmente",
     "ui_f6d5ddd0": "Browserul nu a putut fi deschis. Reîncearcă.",
-    "ui_f6e64898": "Testarea modelului local de încorporare vectorială Modu",
+    "ui_f6e64898": "Testarea modelului local de încorporare vectorială 小陈笔记",
     "ui_f79b47e3": "Ștergi dicționarul?",
     "ui_f82ce566": "Exportă profilul curent",
     "ui_f863d66d": "Ștergi acest profil?",
@@ -11454,7 +11454,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "Экспорт: выбрать, включать ли зашифрованные настройки сервисов и учётные данные → создать Modu-Backup-*.zip → сохранить. Включаются только локальные файлы; сначала загрузите переносимые книги.",
     "ui_database_backup_import_step":
-        "Импорт: выбрать экспортированный здесь ZIP (не распаковывать) → подтвердить замену и проверить → ввести пароль экспорта, если настройки зашифрованы → перезапустить Modu. Библиотека, заметки и сохранённые настройки заменяются, а не объединяются. Сначала экспортируйте текущие данные.",
+        "Импорт: выбрать экспортированный здесь ZIP (не распаковывать) → подтвердить замену и проверить → ввести пароль экспорта, если настройки зашифрованы → перезапустить 小陈笔记. Библиотека, заметки и сохранённые настройки заменяются, а не объединяются. Сначала экспортируйте текущие данные.",
     "ui_database_backup_save_windows":
         "По умолчанию: папка Downloads текущего пользователя Windows, обычно C:\\Users\\<пользователь>\\Downloads. После экспорта отображается фактический полный путь, который можно скопировать.",
     "ui_database_backup_save_desktop":
@@ -11532,7 +11532,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Напишите краткое и дружелюбное представление о себе. Используйте код языка: {{language_locale}}\n",
     "ai_translate_prompt":
-        "Вы эксперт Modu по переводу и справочной информации. Дайте достоверный ответ на предпочитаемом пользователем языке {{to_locale}}.\n\nДанные запроса:\n- Исходный текст: {{text}}\n- Подсказка о языке оригинала: {{from_locale}}\n- Контекст чтения (может отсутствовать): {{contextText}}\n\n## Структура ответа (ОБЯЗАТЕЛЬНО)\nОтвет должен состоять из двух частей, описанных ниже.\nНе выводите шаблон или инструкции, только готовый ответ.\n\n### Часть 1: Краткое объяснение с учётом контекста (ВСЕГДА ПЕРВЫМ)\nНачните с 1–2 кратких слов, которые:\n- прямо объясняют значение/перевод в контексте чтения;\n- учитывают неоднозначность, разрешённую контекстом;\n- используют простой разговорный язык;\n- не цитируют оригинал без необходимости для ясности и избегают избыточного цитирования.\n\n### Часть 2: Подробный разбор (ПОСЛЕ краткого объяснения)\nПредоставьте полную информацию в следующем формате.\n\n## Основные задачи\n1. Точно интерпретируйте текст, используя контекст чтения для понимания местоимений, тона, профессиональных и культурных отсылок. Если контекста нет, сообщите, что смысл определён только по фрагменту.\n2. Дайте и словарные подробности (произношение, части речи, оттенки значений), и энциклопедическую информацию (происхождение, культурный фон, литературная отсылка или связанный факт).\n3. Дайте практические пояснения, помогающие естественно употреблять и понимать выражение.\n\n## Ограничения\n- Весь ответ должен быть на {{to_locale}}.\n- Будьте кратки, но полны. Убирайте разделы шаблона только при явной неприменимости и объясняйте причину.\n- Никогда не используйте списки Markdown, символы нумерации или блоки кода — только переведённые заголовки и текст.\n\n## Выбор подхода\n- Если язык оригинала совпадает с {{to_locale}} → отвечайте как подробный одноязычный словарь.\n- Иначе → отвечайте как переводчик и преподаватель.\n\n## Подробности (обычный текст, без маркеров списков; каждый заголовок ОБЯЗАТЕЛЬНО переводится на {{to_locale}})\n\nВ режиме словаря (тот же язык):\n- Произношение: наиболее подходящая фонетическая запись либо указание, что произношение неизвестно.\n- Часть речи: все подходящие части речи.\n- Значения: основные значения с краткими объяснениями.\n- Примеры: два естественных предложения с краткими пояснениями.\n- Энциклопедия: один контекстный или культурный факт (история, литература, происхождение идиомы, профессиональное употребление).\n\nВ режиме переводчика (другой язык):\n- Исходный фрагмент: процитируйте или немного сократите текст, отметив сокращение.\n- Перевод: естественный перевод с сохранением тона и регистра.\n- Пояснения к переводу: обоснуйте ключевые слова и влияние контекста на их выбор.\n- Глоссарий: выделите 2–4 важных термина с краткими пояснениями на {{to_locale}}.\n- Энциклопедия: добавьте один полезный факт о культуре, обстановке или понятии.\n",
+        "Вы эксперт 小陈笔记 по переводу и справочной информации. Дайте достоверный ответ на предпочитаемом пользователем языке {{to_locale}}.\n\nДанные запроса:\n- Исходный текст: {{text}}\n- Подсказка о языке оригинала: {{from_locale}}\n- Контекст чтения (может отсутствовать): {{contextText}}\n\n## Структура ответа (ОБЯЗАТЕЛЬНО)\nОтвет должен состоять из двух частей, описанных ниже.\nНе выводите шаблон или инструкции, только готовый ответ.\n\n### Часть 1: Краткое объяснение с учётом контекста (ВСЕГДА ПЕРВЫМ)\nНачните с 1–2 кратких слов, которые:\n- прямо объясняют значение/перевод в контексте чтения;\n- учитывают неоднозначность, разрешённую контекстом;\n- используют простой разговорный язык;\n- не цитируют оригинал без необходимости для ясности и избегают избыточного цитирования.\n\n### Часть 2: Подробный разбор (ПОСЛЕ краткого объяснения)\nПредоставьте полную информацию в следующем формате.\n\n## Основные задачи\n1. Точно интерпретируйте текст, используя контекст чтения для понимания местоимений, тона, профессиональных и культурных отсылок. Если контекста нет, сообщите, что смысл определён только по фрагменту.\n2. Дайте и словарные подробности (произношение, части речи, оттенки значений), и энциклопедическую информацию (происхождение, культурный фон, литературная отсылка или связанный факт).\n3. Дайте практические пояснения, помогающие естественно употреблять и понимать выражение.\n\n## Ограничения\n- Весь ответ должен быть на {{to_locale}}.\n- Будьте кратки, но полны. Убирайте разделы шаблона только при явной неприменимости и объясняйте причину.\n- Никогда не используйте списки Markdown, символы нумерации или блоки кода — только переведённые заголовки и текст.\n\n## Выбор подхода\n- Если язык оригинала совпадает с {{to_locale}} → отвечайте как подробный одноязычный словарь.\n- Иначе → отвечайте как переводчик и преподаватель.\n\n## Подробности (обычный текст, без маркеров списков; каждый заголовок ОБЯЗАТЕЛЬНО переводится на {{to_locale}})\n\nВ режиме словаря (тот же язык):\n- Произношение: наиболее подходящая фонетическая запись либо указание, что произношение неизвестно.\n- Часть речи: все подходящие части речи.\n- Значения: основные значения с краткими объяснениями.\n- Примеры: два естественных предложения с краткими пояснениями.\n- Энциклопедия: один контекстный или культурный факт (история, литература, происхождение идиомы, профессиональное употребление).\n\nВ режиме переводчика (другой язык):\n- Исходный фрагмент: процитируйте или немного сократите текст, отметив сокращение.\n- Перевод: естественный перевод с сохранением тона и регистра.\n- Пояснения к переводу: обоснуйте ключевые слова и влияние контекста на их выбор.\n- Глоссарий: выделите 2–4 важных термина с краткими пояснениями на {{to_locale}}.\n- Энциклопедия: добавьте один полезный факт о культуре, обстановке или понятии.\n",
     "selection_custom-preset-dictionary_name": "Знания ИИ",
     "selection_custom-preset-dictionary_prompt":
         "Кратко объясни значение, контекст и связанные знания о {selection} на языке выделенного текста. Без произношения, переводов и примеров; укажи неопределённость.",
@@ -11766,7 +11766,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "Восстановить значения по умолчанию?",
     "ui_34321453": "Экспорт",
     "ui_3477ba41":
-        "Создание копии базы Modu и объединение библиотеки. Не закрывайте приложение…",
+        "Создание копии базы 小陈笔记 и объединение библиотеки. Не закрывайте приложение…",
     "ui_34917dd5":
         "Введите 1–20 уникальных шестизначных цветов RGB, например 66CCFF.",
     "ui_34d27af7": "Модель эмбеддингов этой книги",
@@ -11775,7 +11775,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_356e54ac":
         "Подчёркивание SVG использует тот же слой, что и фоновое изображение, и имеет приоритет при включении.",
     "ui_35954522":
-        "Опишите проблему и проверьте отчёт, затем подтвердите отправку в репозитории Modu на GitHub (нужен аккаунт GitHub). Скриншоты можно добавить на странице GitHub.",
+        "Опишите проблему и проверьте отчёт, затем подтвердите отправку в репозитории 小陈笔记 на GitHub (нужен аккаунт GitHub). Скриншоты можно добавить на странице GitHub.",
     "ui_361a9bd6": "Настройки озвучивания очищены",
     "ui_3633fd81":
         "Настройки шифруются AES-256-GCM; книги, заметки и история AI-чата не шифруются. Используйте отдельный надёжный пароль. При его потере ключи восстановить невозможно. Пароль не записывается в резервную копию.",
@@ -11795,7 +11795,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_39a3aa11":
         "Проверка выпуска или установщика не удалась. Установка заблокирована; проверьте и загрузите заново.",
     "ui_39b523bd": "Закрыть",
-    "ui_39c0bce2": "Редактируемые шаблоны Modu. Выбор заменяет описание ниже.",
+    "ui_39c0bce2": "Редактируемые шаблоны 小陈笔记. Выбор заменяет описание ниже.",
     "ui_3b0f25fa": "Дата изменения",
     "ui_3beb904c": "Интервал между абзацами",
     "ui_3c1568a4": "Проверьте длину пароля и совпадение обоих вводов",
@@ -11876,7 +11876,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Оформление и книжная полка",
     "ui_4b6927a5": "Выбрать ZIP-копию ANX",
     "ui_4b725988":
-        "Modu основан на Anx Reader и ReadAny.\nВыпускается под GPL-3.0-or-later и не является официальным выпуском исходных проектов.",
+        "小陈笔记 основан на Anx Reader и ReadAny.\nВыпускается под GPL-3.0-or-later и не является официальным выпуском исходных проектов.",
     "ui_4b75eec5": "Удалить провайдера?",
     "ui_4cdf1a58": "Удалить провайдера",
     "ui_4ce17940": "CSS вёрстки",
@@ -11994,7 +11994,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_651f352d": "Сетевой прокси",
     "ui_65479baf": "Google Переводчик (бесплатно)",
     "ui_6556c39e":
-        "Редактируемые шаблоны Modu заменяют описание ниже, не меняя Voice.",
+        "Редактируемые шаблоны 小陈笔记 заменяют описание ниже, не меняя Voice.",
     "ui_656aeae7": "статей",
     "ui_65b7d137":
         "По умолчанию выключено: при экспорте настройки API/серверов с учётными данными исключаются, при импорте пропускаются, сохраняя локальные аккаунты и ключи. При включении файлы и ссылки modu содержат восстанавливаемые незашифрованные учётные данные. Не публикуйте их. Опция не меняет шифрование синхронизации; её пароль не экспортируется. Не помещайте секретные данные в собственный CSS, промпты или URL.",
@@ -12032,14 +12032,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "Включает линии между колонками текста. Глава справа; оставшиеся страницы и позиция в книге слева.",
     "ui_6e138ea9":
-        "Поиск выделенного открывается внутри Modu. Выберите систему по умолчанию или смените её в окне поиска. Запрос отправляется выбранному сайту; доступность зависит от сети.",
+        "Поиск выделенного открывается внутри 小陈笔记. Выберите систему по умолчанию или смените её в окне поиска. Запрос отправляется выбранному сайту; доступность зависит от сети.",
     "ui_6e199c95": "Открытые проекты и авторство",
     "ui_6e60f8d4": "Перетащите для изменения порядка",
     "ui_6e730618":
         "На всех платформах локально хранится небольшой журнал ошибок и этапов работы с удалёнными конфиденциальными данными. По умолчанию он не прикрепляется и не загружается. При выборе этой опции прикрепляется доступная системная диагностика сбоев; обычные логи, настройки AI, ключи и текст книг не читаются. Перед отправкой проверьте отчёт: он станет общедоступным. Отчёты с логами копируются, чтобы вы вставили их в GitHub.",
     "ui_6e733d2b": "Папка",
     "ui_6eb9ed9e":
-        "Следуйте установщику для обновления поверх текущей версии. Если приложение запущено, завершите синхронизацию и выйдите из Modu.",
+        "Следуйте установщику для обновления поверх текущей версии. Если приложение запущено, завершите синхронизацию и выйдите из 小陈笔记.",
     "ui_6f60f5ad": "Поиск текста в этой книге",
     "ui_6f86db5d":
         "Поиск совпадений подсветки остановлен по тайм-ауту. Упростите регулярное выражение.",
@@ -12378,7 +12378,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c515ff97": "Стандартный путунхуа",
     "ui_c52f1929": "Файлы, QR и ссылки modu · Учётные данные по желанию",
     "ui_c5774cb9":
-        "Будут удалены только «{name}» и его поисковый индекс в Modu. Исходные файлы словаря не удаляются.",
+        "Будут удалены только «{name}» и его поисковый индекс в 小陈笔记. Исходные файлы словаря не удаляются.",
     "ui_c5fd3ab7": "Тёплый тембр",
     "ui_c664b25a":
         "Остановить речь, удалить все ключи TTS, настройки сервисов, выбранные голоса и несохранённые изменения. Восстановить стандартные скорость, высоту, громкость и системную речь. AI, книги, заметки и синхронизация не меняются.",
@@ -12403,7 +12403,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Удалить {count} выбранных книг? Их файлы и локальные векторные индексы также будут удалены.",
     "ui_cbda3c4f": "Параметры модели",
     "ui_cc6f8540":
-        "Проверка и загрузка используют один источник, по умолчанию GitHub. При ошибке соединения, тайм-ауте или недоступности сервиса оба переключаются на Gitee. После ручной смены источника повторите проверку перед загрузкой. Загрузку выполняет браузер; Modu не отслеживает её дальнейший ход и не показывает завершение или успешную проверку SHA-256. Книги, заметки и ключи аккаунтов не отправляются.",
+        "Проверка и загрузка используют один источник, по умолчанию GitHub. При ошибке соединения, тайм-ауте или недоступности сервиса оба переключаются на Gitee. После ручной смены источника повторите проверку перед загрузкой. Загрузку выполняет браузер; 小陈笔记 не отслеживает её дальнейший ход и не показывает завершение или успешную проверку SHA-256. Книги, заметки и ключи аккаунтов не отправляются.",
     "ui_cd93c8b7": "Установлена актуальная версия (или новее опубликованной)",
     "ui_ce47b912": "Встроено · Доступно офлайн",
     "ui_cec9c9cb": "Введите описание или выберите шаблон",
@@ -12422,7 +12422,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d1613041": "Английский",
     "ui_d1772dbc": "Настроить параметры функции",
     "ui_d19439a9":
-        "Загрузка продолжится после закрытия окна. Вернитесь через «О Modu» для просмотра прогресса или отмены.",
+        "Загрузка продолжится после закрытия окна. Вернитесь через «О 小陈笔记» для просмотра прогресса или отмены.",
     "ui_d23480e5": "Не удалось очистить настройки. Повторите попытку.",
     "ui_d277f8c0": "Автоматически индексировать после импорта",
     "ui_d285b5bb": "Проверить работу модели",
@@ -12454,7 +12454,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "Восстановить несколько настроек?",
     "ui_d9d3f020":
         "Используется время изменения на сервере; отсутствующие даты идут в конце.",
-    "ui_d9e3509d": "Проверка подключения модели эмбеддингов Modu",
+    "ui_d9e3509d": "Проверка подключения модели эмбеддингов 小陈笔记",
     "ui_da2571e": "Тепло и мягко",
     "ui_da6b9567": "Выбрано книг: {count}",
     "ui_da711856": "Предпросмотр отчёта об ошибке",
@@ -12530,11 +12530,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "Соседние предложения одного абзаца озвучиваются вместе, с подсветкой и навигацией по фрагментам; длинные абзацы разбиваются. Добавляются инструкции ровного темпа без изменения сохранённого описания. Голос и темп зависят от модели.",
     "ui_f33e5028":
-        "• Импортируются файлы книг, обложки, заметки/подсветка, позиция и время чтения, папки и теги.\n• Не импортируются аккаунты ANX, пароли, ключи API, настройки синхронизации, AI-чаты, шрифты, темы и другие настройки приложения.\n• Поддерживаются исходные ZIP-копии ANX со схемой базы версии 7 (это не версия приложения). Отдельные DB, зашифрованные ZIP и изменённые базы не поддерживаются.\n• Удалённые книги исключаются. Книги без файлов текста, их заметки и история пропускаются с указанием названий. Полностью загрузите их в ANX и создайте копию заново.\n• Одинаковое содержимое распознаётся как одна книга. Существующие позиции Modu, изменения заметок и папки сохраняются. Повторный импорт той же копии не дублирует записи и не перезаписывает имеющиеся данные старой копией.\n• Исходный ZIP не меняется, прямого доступа к закрытому хранилищу ANX нет. Перед импортом автоматически создаётся копия базы Modu, после завершения показывается её путь.\n• Обеспечьте место для распаковки, копирования файлов и копии базы. Подготовка только проверяет данные и не заменяет библиотеку.",
+        "• Импортируются файлы книг, обложки, заметки/подсветка, позиция и время чтения, папки и теги.\n• Не импортируются аккаунты ANX, пароли, ключи API, настройки синхронизации, AI-чаты, шрифты, темы и другие настройки приложения.\n• Поддерживаются исходные ZIP-копии ANX со схемой базы версии 7 (это не версия приложения). Отдельные DB, зашифрованные ZIP и изменённые базы не поддерживаются.\n• Удалённые книги исключаются. Книги без файлов текста, их заметки и история пропускаются с указанием названий. Полностью загрузите их в ANX и создайте копию заново.\n• Одинаковое содержимое распознаётся как одна книга. Существующие позиции 小陈笔记, изменения заметок и папки сохраняются. Повторный импорт той же копии не дублирует записи и не перезаписывает имеющиеся данные старой копией.\n• Исходный ZIP не меняется, прямого доступа к закрытому хранилищу ANX нет. Перед импортом автоматически создаётся копия базы 小陈笔记, после завершения показывается её путь.\n• Обеспечьте место для распаковки, копирования файлов и копии базы. Подготовка только проверяет данные и не заменяет библиотеку.",
     "ui_f388b7a3":
         "Не удалось открыть браузер по умолчанию. Повторите попытку или посетите официальную страницу выпуска.",
     "ui_f38fcdf3":
-        "Загрузите DMG в браузере по умолчанию, чтобы избежать карантина песочницы macOS. Не используйте старый кэш загрузки приложения. Откройте DMG, выйдите из Modu и перетащите новую версию в «Программы» для замены старой; библиотека сохранится. Текущие пакеты не нотарифицированы Apple.",
+        "Загрузите DMG в браузере по умолчанию, чтобы избежать карантина песочницы macOS. Не используйте старый кэш загрузки приложения. Откройте DMG, выйдите из 小陈笔记 и перетащите новую версию в «Программы» для замены старой; библиотека сохранится. Текущие пакеты не нотарифицированы Apple.",
     "ui_f3e93354": "Полный экран",
     "ui_f4809d40": "Спокойно и уверенно",
     "ui_f48352d1":
@@ -12553,7 +12553,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "Импорт резервной копии ANX Reader",
     "ui_f687e87b": "Настройки заметок и выписок",
     "ui_f6d5ddd0": "Не удалось открыть браузер. Повторите попытку позже.",
-    "ui_f6e64898": "Проверка локальной модели эмбеддингов Modu",
+    "ui_f6e64898": "Проверка локальной модели эмбеддингов 小陈笔记",
     "ui_f79b47e3": "Удалить словарь?",
     "ui_f82ce566": "Экспорт текущего профиля",
     "ui_f863d66d": "Удалить этот профиль?",
@@ -12628,7 +12628,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_database_backup_export_step":
         "Dışa aktar: şifreli hizmet ayarları ve kimlik bilgilerini dahil edip etmeyeceğini seç → Modu-Backup-*.zip oluştur → kaydet. Yalnızca yerel dosyalar dahildir; aktarılacak kitapları önce indir.",
     "ui_database_backup_import_step":
-        "İçe aktar: burada dışa aktarılan ZIP dosyasını seç (açmadan) → değiştirmeyi onayla ve doğrula → ayarlar şifreliyse dışa aktarma parolasını gir → Modu’yu yeniden başlat. Kitaplık, notlar ve yedek ayarlar değiştirilir, birleştirilmez. Önce mevcut verilerini dışa aktar.",
+        "İçe aktar: burada dışa aktarılan ZIP dosyasını seç (açmadan) → değiştirmeyi onayla ve doğrula → ayarlar şifreliyse dışa aktarma parolasını gir → 小陈笔记’yu yeniden başlat. Kitaplık, notlar ve yedek ayarlar değiştirilir, birleştirilmez. Önce mevcut verilerini dışa aktar.",
     "ui_database_backup_save_windows":
         "Varsayılan konum: geçerli Windows kullanıcısının Downloads klasörü, genellikle C:\\Users\\<kullanıcı>\\Downloads. Dışa aktardıktan sonra gerçek tam yol kopyalama seçeneğiyle gösterilir.",
     "ui_database_backup_save_desktop":
@@ -12704,7 +12704,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ai_test_prompt":
         "Kısa ve samimi bir kendini tanıtma metni yazın. Şu dil kodunu kullanın: {{language_locale}}\n        ",
     "ai_translate_prompt":
-        "Modu'nun “Çeviri ve Başvuru” uzmanısınız. Kullanıcının tercih ettiği {{to_locale}} dilinde güvenilir bir yanıt verin.\n\nBu isteğin girdileri:\n- Kaynak metin: {{text}}\n- Kaynak dil ipucu: {{from_locale}}\n- Okuma bağlamı (boş olabilir): {{contextText}}\n\n## Yanıt yapısı (KRİTİK)\nYanıtınız aşağıdaki iki bölümlü yapıyı MUTLAKA izlemelidir:\nTaslağı veya talimatları çıktı olarak vermeyin, yalnızca nihai yanıtı verin.\n\n### Bölüm 1: Bağlama duyarlı kısa açıklama (HER ZAMAN ÖNCE)\nŞu özellikleri taşıyan 1–2 kısa sözcükle başlayın:\n- Okuma bağlamındaki anlamı/çeviriyi doğrudan açıklasın\n- Bağlamın giderdiği belirsizlikleri ele alsın\n- Sade, gündelik bir dil kullansın\n- Açıklık için gerekli olmadıkça kaynak metni alıntılamasın ve aşırı alıntıdan kaçınsın\n\n### Bölüm 2: Ayrıntılı analiz (kısa açıklamadan SONRA)\nAşağıdaki biçimde kapsamlı bilgi verin.\n\n## Temel görevler\n1. Zamirleri, tonu, alan bilgisini veya kültürel göndermeleri çözmek için okuma bağlamını kullanarak metni tam olarak yorumlayın. Bağlam verilmemişse anlamı yalnızca alıntı parçasından çıkardığınızı belirtin.\n2. Sözlük düzeyinde ayrıntı (sesletim, sözcük türü, anlam nüansları) VE ansiklopedik bir bilgi (köken, kültürel arka plan, edebî gönderme veya ilgili somut bir olgu) sunun.\n3. Okurun ifadeyi doğal biçimde kullanmasını veya anlamasını sağlayacak pratik öneriler verin.\n\n## Kısıtlamalar\n- Tüm yanıtlar {{to_locale}} dilinde olmalıdır.\n- Kısa ama eksiksiz olun; şablon bölümlerini yalnızca gerçekten uygulanamıyorsa kaldırın ve nedenini belirtin.\n- Asla Markdown listeleri, numaralandırma simgeleri veya kod blokları kullanmayın; yalnızca çevrilmiş başlıklar ve metin kullanın.\n\n## Karar ağacı\n- Kaynak dil {{to_locale}} ile aynıysa → ileri düzey tek dilli sözlük maddesi gibi davranın.\n- Aksi durumda → çevirmen ve eğitmen gibi davranın.\n\n## Ayrıntılar (düz metin, madde işaretleri yok; her başlık MUTLAKA {{to_locale}} diline çevrilmelidir)\n\nSözlük olarak davranırken (aynı dil):\n- Telaffuz: mümkün olan en iyi fonetik gösterim veya bilinmiyorsa bunu belirten bir not.\n- Sözcük türü: ilgili tüm sözcük türlerini listeleyin.\n- Anlamlar: temel anlamları kısa açıklamalarla belirtin.\n- Örnekler: kısa açıklamalarla iki doğal örnek cümle verin.\n- Ansiklopedik bilgi: bağlamla veya kültürle ilgili tek bir olgu paylaşın (tarih, edebiyat, deyim kökeni, alan kullanımı).\n\nÇevirmen olarak davranırken (farklı diller):\n- Kaynak alıntı: kaynak parçayı alıntılayın veya biraz kısaltın (kısaltıldığını belirtin).\n- Çeviri: tonu ve dil düzeyini koruyan akıcı bir çeviri üretin.\n- Çeviri notları: bağlamın etkisi dahil önemli sözcük seçimlerini gerekçelendirin.\n- Terimler: 2–4 kilit terimi {{to_locale}} dilinde kısa anlam notlarıyla vurgulayın.\n- Ansiklopedik bilgi: anlamayı kolaylaştıran tek bir arka plan ayrıntısı (kültür, ortam, kavram) ekleyin.\n      ",
+        "小陈笔记'nun “Çeviri ve Başvuru” uzmanısınız. Kullanıcının tercih ettiği {{to_locale}} dilinde güvenilir bir yanıt verin.\n\nBu isteğin girdileri:\n- Kaynak metin: {{text}}\n- Kaynak dil ipucu: {{from_locale}}\n- Okuma bağlamı (boş olabilir): {{contextText}}\n\n## Yanıt yapısı (KRİTİK)\nYanıtınız aşağıdaki iki bölümlü yapıyı MUTLAKA izlemelidir:\nTaslağı veya talimatları çıktı olarak vermeyin, yalnızca nihai yanıtı verin.\n\n### Bölüm 1: Bağlama duyarlı kısa açıklama (HER ZAMAN ÖNCE)\nŞu özellikleri taşıyan 1–2 kısa sözcükle başlayın:\n- Okuma bağlamındaki anlamı/çeviriyi doğrudan açıklasın\n- Bağlamın giderdiği belirsizlikleri ele alsın\n- Sade, gündelik bir dil kullansın\n- Açıklık için gerekli olmadıkça kaynak metni alıntılamasın ve aşırı alıntıdan kaçınsın\n\n### Bölüm 2: Ayrıntılı analiz (kısa açıklamadan SONRA)\nAşağıdaki biçimde kapsamlı bilgi verin.\n\n## Temel görevler\n1. Zamirleri, tonu, alan bilgisini veya kültürel göndermeleri çözmek için okuma bağlamını kullanarak metni tam olarak yorumlayın. Bağlam verilmemişse anlamı yalnızca alıntı parçasından çıkardığınızı belirtin.\n2. Sözlük düzeyinde ayrıntı (sesletim, sözcük türü, anlam nüansları) VE ansiklopedik bir bilgi (köken, kültürel arka plan, edebî gönderme veya ilgili somut bir olgu) sunun.\n3. Okurun ifadeyi doğal biçimde kullanmasını veya anlamasını sağlayacak pratik öneriler verin.\n\n## Kısıtlamalar\n- Tüm yanıtlar {{to_locale}} dilinde olmalıdır.\n- Kısa ama eksiksiz olun; şablon bölümlerini yalnızca gerçekten uygulanamıyorsa kaldırın ve nedenini belirtin.\n- Asla Markdown listeleri, numaralandırma simgeleri veya kod blokları kullanmayın; yalnızca çevrilmiş başlıklar ve metin kullanın.\n\n## Karar ağacı\n- Kaynak dil {{to_locale}} ile aynıysa → ileri düzey tek dilli sözlük maddesi gibi davranın.\n- Aksi durumda → çevirmen ve eğitmen gibi davranın.\n\n## Ayrıntılar (düz metin, madde işaretleri yok; her başlık MUTLAKA {{to_locale}} diline çevrilmelidir)\n\nSözlük olarak davranırken (aynı dil):\n- Telaffuz: mümkün olan en iyi fonetik gösterim veya bilinmiyorsa bunu belirten bir not.\n- Sözcük türü: ilgili tüm sözcük türlerini listeleyin.\n- Anlamlar: temel anlamları kısa açıklamalarla belirtin.\n- Örnekler: kısa açıklamalarla iki doğal örnek cümle verin.\n- Ansiklopedik bilgi: bağlamla veya kültürle ilgili tek bir olgu paylaşın (tarih, edebiyat, deyim kökeni, alan kullanımı).\n\nÇevirmen olarak davranırken (farklı diller):\n- Kaynak alıntı: kaynak parçayı alıntılayın veya biraz kısaltın (kısaltıldığını belirtin).\n- Çeviri: tonu ve dil düzeyini koruyan akıcı bir çeviri üretin.\n- Çeviri notları: bağlamın etkisi dahil önemli sözcük seçimlerini gerekçelendirin.\n- Terimler: 2–4 kilit terimi {{to_locale}} dilinde kısa anlam notlarıyla vurgulayın.\n- Ansiklopedik bilgi: anlamayı kolaylaştıran tek bir arka plan ayrıntısı (kültür, ortam, kavram) ekleyin.\n      ",
     "selection_custom-preset-dictionary_name": "AI Bilgi",
     "selection_custom-preset-dictionary_prompt":
         "{selection} için anlamı, arka planı ve ilgili bilgileri seçili metnin dilinde kısaca açıkla. Telaffuz, çeviri veya örnek cümle verme; belirsizlikleri belirt.",
@@ -12935,14 +12935,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33fc695d": "Varsayılanlar geri yüklensin mi?",
     "ui_34321453": "Dışa aktar",
     "ui_3477ba41":
-        "Modu yedekleniyor ve kitaplık birleştiriliyor. Uygulamayı açık tutun…",
+        "小陈笔记 yedekleniyor ve kitaplık birleştiriliyor. Uygulamayı açık tutun…",
     "ui_34917dd5": "1–20 benzersiz, altı haneli RGB rengi girin; ör. 66CCFF.",
     "ui_34d27af7": "Bu kitabın embedding modeli",
     "ui_356a249e":
         "Güncelleme isteği başarısız oldu. Bağlantınızı veya vekil sunucuyu kontrol edip yeniden deneyin.",
     "ui_356e54ac": "SVG alt çizgisi arka plan görseline göre önceliklidir.",
     "ui_35954522":
-        "Raporunuzu yazıp önizleyin, ardından Modu GitHub deposunda gönderimi onaylayın (GitHub hesabı gerekir). Ekran görüntülerini GitHub'da ekleyin.",
+        "Raporunuzu yazıp önizleyin, ardından 小陈笔记 GitHub deposunda gönderimi onaylayın (GitHub hesabı gerekir). Ekran görüntülerini GitHub'da ekleyin.",
     "ui_361a9bd6": "Konuşma ayarları temizlendi",
     "ui_3633fd81":
         "Ayarlar AES-256-GCM ile şifrelenir; kitaplar, notlar ve AI sohbet geçmişi şifrelenmez. Güçlü ve benzersiz bir parola kullanın. Parola kaybolursa anahtarlar kurtarılamaz. Parola yedekte saklanmaz.",
@@ -12963,7 +12963,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Sürüm veya yükleyici doğrulaması başarısız oldu. Kurulum engellendi; kontrol edip yeniden indirin.",
     "ui_39b523bd": "Kapat",
     "ui_39c0bce2":
-        "Düzenlenebilir Modu şablonları. Birini seçmek aşağıdaki açıklamayı değiştirir.",
+        "Düzenlenebilir 小陈笔记 şablonları. Birini seçmek aşağıdaki açıklamayı değiştirir.",
     "ui_3b0f25fa": "Değiştirilme tarihi",
     "ui_3beb904c": "Paragraf aralığı",
     "ui_3c1568a4": "Parola uzunluğunu ve iki girişin eşleştiğini kontrol edin",
@@ -13044,7 +13044,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "Görünüm ve kitaplık",
     "ui_4b6927a5": "ANX yedeğinin ZIP dosyasını seç",
     "ui_4b725988":
-        "Modu, Anx Reader ve ReadAny temel alınarak geliştirilmiştir.\nGPL-3.0-or-later kapsamında yayımlanır; özgün projelerin resmî sürümü değildir.",
+        "小陈笔记, Anx Reader ve ReadAny temel alınarak geliştirilmiştir.\nGPL-3.0-or-later kapsamında yayımlanır; özgün projelerin resmî sürümü değildir.",
     "ui_4b75eec5": "Sağlayıcı silinsin mi?",
     "ui_4cdf1a58": "Sağlayıcıyı sil",
     "ui_4ce17940": "Düzen CSS'si",
@@ -13160,7 +13160,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_651f352d": "Ağ vekil sunucusu",
     "ui_65479baf": "Google Çeviri (ücretsiz)",
     "ui_6556c39e":
-        "Düzenlenebilir Modu şablonları, Sesi değiştirmeden açıklamayı değiştirir.",
+        "Düzenlenebilir 小陈笔记 şablonları, Sesi değiştirmeden açıklamayı değiştirir.",
     "ui_656aeae7": "madde",
     "ui_65b7d137":
         "Varsayılan olarak kapalıdır: dışa aktarırken kimlik bilgileri içeren API/sunucu yapılandırmalarını çıkarır, içe aktarırken bunları atlar; yerel hesapları ve anahtarları korur. Etkinleştirildiğinde aktarımlar açık metin kimlik bilgileri içerir. Bunları gizli tutun. Eşitleme şifrelemesi değişmez; parolası asla dışa aktarılmaz. Özel CSS'ye, istemlere veya URL'lere gizli kimlik bilgileri koymayın.",
@@ -13200,14 +13200,14 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6da845b6":
         "Metin sütunları arasındaki ayırıcı çizgileri içerir. Bölüm sağda; kalan sayfalar ve kitap konumu soldadır.",
     "ui_6e138ea9":
-        "Seçili metin araması Modu içinde açılır. Varsayılan motoru seçin veya arama penceresinde değiştirin. Seçilen site sorgunuzu alır; kullanılabilirlik ağınıza bağlıdır.",
+        "Seçili metin araması 小陈笔记 içinde açılır. Varsayılan motoru seçin veya arama penceresinde değiştirin. Seçilen site sorgunuzu alır; kullanılabilirlik ağınıza bağlıdır.",
     "ui_6e199c95": "Açık kaynak projeler ve katkılar",
     "ui_6e60f8d4": "Yeniden sıralamak için sürükleyin",
     "ui_6e730618":
         "Tüm platformlar, hassas bilgileri çıkarılmış hatalar ve işlem kontrol noktaları için sınırlı bir yerel kayıt tutar; bunlar varsayılan olarak asla eklenmez veya yüklenmez. Seçeneği etkinleştirmek mevcut çökme tanılama verilerini ekler; normal günlükler, AI ayarları, anahtarlar veya kitap metni okunmaz. Paylaşmadan önce inceleyin: raporlar herkese açık olur. Günlük içeren raporlar GitHub'a sizin yapıştırmanız için kopyalanır.",
     "ui_6e733d2b": "Klasör",
     "ui_6eb9ed9e":
-        "Güncellemek için yükleyicinin talimatlarını izleyin. İstenirse önce eşitlemeyi tamamlayıp Modu'dan çıkın.",
+        "Güncellemek için yükleyicinin talimatlarını izleyin. İstenirse önce eşitlemeyi tamamlayıp 小陈笔记'dan çıkın.",
     "ui_6f60f5ad": "Bu kitapta metin ara",
     "ui_6f86db5d":
         "Vurgulama eşleştirmesi zaman aşımına uğradı. Lütfen düzenli ifadeyi sadeleştirin.",
@@ -13545,7 +13545,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c52f1929":
         "Dosyalar, QR ve modu bağlantıları · İsteğe bağlı kimlik bilgileri",
     "ui_c5774cb9":
-        "Yalnızca Modu'daki “{name}” ve arama indeksi kaldırılır. Özgün kaynak dosyaları silinmez.",
+        "Yalnızca 小陈笔记'daki “{name}” ve arama indeksi kaldırılır. Özgün kaynak dosyaları silinmez.",
     "ui_c5fd3ab7": "Sıcak ses rengi",
     "ui_c664b25a":
         "Konuşmayı durdurur; tüm TTS anahtarlarını, hizmet yapılandırmalarını, ses seçimlerini ve taslakları kaldırır; varsayılan hızı, ses perdesini, ses düzeyini ve sistem konuşmasını geri yükler. AI, kitap, not ve eşitleme ayarları değişmez.",
@@ -13570,7 +13570,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "Seçilen {count} kitap silinsin mi? Dosyaları ve yerel vektör indeksleri de silinecek.",
     "ui_cbda3c4f": "Model parametreleri",
     "ui_cc6f8540":
-        "Kontrol ve indirme aynı kaynağı kullanır; varsayılan olarak GitHub tercih edilir. Kontrol sırasında GitHub'a erişilemezse ikisi de Gitee'ye geçer. Kaynağı değiştirdikten sonra indirmeden önce yeniden kontrol edin. İndirmeyi tarayıcınız yönetir; Modu ilerlemeyi izleyemez veya indirilen dosyayı doğrulayamaz. Kitaplar, notlar veya hesap anahtarları gönderilmez.",
+        "Kontrol ve indirme aynı kaynağı kullanır; varsayılan olarak GitHub tercih edilir. Kontrol sırasında GitHub'a erişilemezse ikisi de Gitee'ye geçer. Kaynağı değiştirdikten sonra indirmeden önce yeniden kontrol edin. İndirmeyi tarayıcınız yönetir; 小陈笔记 ilerlemeyi izleyemez veya indirilen dosyayı doğrulayamaz. Kitaplar, notlar veya hesap anahtarları gönderilmez.",
     "ui_cd93c8b7": "Güncel (veya yayımlanan sürümden daha yeni)",
     "ui_ce47b912": "Yerleşik · Çevrimdışı kullanıma hazır",
     "ui_cec9c9cb": "Bir açıklama girin veya şablon seçin",
@@ -13622,7 +13622,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d9084d2e": "Birden fazla ayar geri yüklensin mi?",
     "ui_d9d3f020":
         "Sunucunun değiştirilme zamanını kullanır; tarihi olmayanlar sona sıralanır.",
-    "ui_d9e3509d": "Modu embedding bağlantı testi",
+    "ui_d9e3509d": "小陈笔记 embedding bağlantı testi",
     "ui_da2571e": "Sıcak ve yumuşak",
     "ui_da6b9567": "{count} kitap seçildi",
     "ui_da711856": "Hata raporunu önizle",
@@ -13696,11 +13696,11 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f3326d53":
         "Bir paragraftaki bitişik cümleler birlikte seslendirilir. Vurgulama ve gezinme her pasajı izler; uzun paragraflar bölünür. Kayıtlı açıklamanız değiştirilmeden dengeli anlatım talimatları eklenir. Ses ve zamanlama yine modele bağlıdır.",
     "ui_f33e5028":
-        "• Kitap dosyalarını, kapakları, notları/vurgulamaları, okuma konumunu/süresini, klasörleri ve etiketleri içe aktarır.\n• Hesapları, parolaları, API anahtarlarını, eşitleme yapılandırmasını, AI sohbetlerini, yazı tiplerini, temaları veya diğer uygulama ayarlarını içe aktarmaz.\n• Veritabanı şema sürümü 7 olan özgün ANX ZIP yedeklerini destekler (bu uygulama sürümü değildir). Bağımsız veritabanları, şifreli ZIP'ler ve değiştirilmiş veritabanları desteklenmez.\n• Silinmiş kitaplar hariç tutulur. Gerçek dosyası bulunmayan kitaplar ile notları/geçmişleri atlanıp listelenir. ANX'te indirip yeniden dışa aktarın.\n• Aynı içerikler tekilleştirilir. Mevcut Modu konumları, not düzenlemeleri ve klasör atamaları korunur. Aynı yedeği yeniden içe aktarmak aynı kayıtları yeniden oluşturmaz veya mevcut verilerin üzerine yazmaz.\n• ZIP değiştirilmez; ANX'in özel depolamasına asla erişilmez. İçe aktarmadan önce yerel Modu veritabanı yedeği oluşturulur; konumu işlemden sonra gösterilir.\n• Açma, kopyalama ve veritabanı yedeği için alan ayırın. Hazırlık yalnızca yedeği doğrular.",
+        "• Kitap dosyalarını, kapakları, notları/vurgulamaları, okuma konumunu/süresini, klasörleri ve etiketleri içe aktarır.\n• Hesapları, parolaları, API anahtarlarını, eşitleme yapılandırmasını, AI sohbetlerini, yazı tiplerini, temaları veya diğer uygulama ayarlarını içe aktarmaz.\n• Veritabanı şema sürümü 7 olan özgün ANX ZIP yedeklerini destekler (bu uygulama sürümü değildir). Bağımsız veritabanları, şifreli ZIP'ler ve değiştirilmiş veritabanları desteklenmez.\n• Silinmiş kitaplar hariç tutulur. Gerçek dosyası bulunmayan kitaplar ile notları/geçmişleri atlanıp listelenir. ANX'te indirip yeniden dışa aktarın.\n• Aynı içerikler tekilleştirilir. Mevcut 小陈笔记 konumları, not düzenlemeleri ve klasör atamaları korunur. Aynı yedeği yeniden içe aktarmak aynı kayıtları yeniden oluşturmaz veya mevcut verilerin üzerine yazmaz.\n• ZIP değiştirilmez; ANX'in özel depolamasına asla erişilmez. İçe aktarmadan önce yerel 小陈笔记 veritabanı yedeği oluşturulur; konumu işlemden sonra gösterilir.\n• Açma, kopyalama ve veritabanı yedeği için alan ayırın. Hazırlık yalnızca yedeği doğrular.",
     "ui_f388b7a3":
         "Varsayılan tarayıcı açılamadı. Yeniden deneyin veya resmî sürüm sayfasını ziyaret edin.",
     "ui_f38fcdf3":
-        "macOS sandbox karantinasını önlemek için DMG'yi varsayılan tarayıcınızla indirin. Eski bir uygulama içi indirmeyi yeniden kullanmayın. DMG'yi açın, Modu'dan çıkın ve değiştirmek için yeni uygulamayı Uygulamalar'a sürükleyin; kitaplığınız korunur. Mevcut paketler Apple tarafından noter onaylı değildir.",
+        "macOS sandbox karantinasını önlemek için DMG'yi varsayılan tarayıcınızla indirin. Eski bir uygulama içi indirmeyi yeniden kullanmayın. DMG'yi açın, 小陈笔记'dan çıkın ve değiştirmek için yeni uygulamayı Uygulamalar'a sürükleyin; kitaplığınız korunur. Mevcut paketler Apple tarafından noter onaylı değildir.",
     "ui_f3e93354": "Tam ekran",
     "ui_f4809d40": "Sakin ve dengeli",
     "ui_f48352d1":
@@ -13719,7 +13719,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "ANX Reader yedeğini içe aktar",
     "ui_f687e87b": "Notlar ve alıntılar",
     "ui_f6d5ddd0": "Tarayıcı açılamadı. Lütfen yeniden deneyin.",
-    "ui_f6e64898": "Modu yerel embedding modeli testi",
+    "ui_f6e64898": "小陈笔记 yerel embedding modeli testi",
     "ui_f79b47e3": "Sözlük silinsin mi?",
     "ui_f82ce566": "Geçerliyi dışa aktar",
     "ui_f863d66d": "Bu profil silinsin mi?",
@@ -13846,7 +13846,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "我正在重读一本很久以前读过的书。请帮我快速回忆前文，以便继续阅读：\n[要求]\n用 3–5 句话概括\n使用用户所选的语言\n避免逐字重复，保留核心信息\n\n[前文内容]\n{{previous_content}}\n",
     "ai_test_prompt": "请写一段简洁、友好的自我介绍。使用语言代码：{{language_locale}}\n",
     "ai_translate_prompt":
-        "你是 Modu 的“翻译与参考”专家。请使用用户偏好的语言 {{to_locale}} 给出权威、准确的回答。\n\n本次请求的输入：\n- 原文：{{text}}\n- 源语言提示：{{from_locale}}\n- 阅读语境（可能为空）：{{contextText}}\n\n## 回答结构（关键要求）\n回答必须采用以下两部分结构：\n不要输出框架或指令，只输出最终答案。\n\n### 第一部分：简短的语境解释（始终放在最前面）\n先用 1–2 个简洁词语：\n- 直接解释文字在阅读语境中的含义或译法\n- 说明语境如何消除歧义\n- 使用通俗、自然的语言\n- 只有为清楚表达所必需时才引用原文，避免过多引用\n\n### 第二部分：详细分析（在简短解释之后）\n按照下述格式提供全面信息。\n\n## 核心职责\n1. 准确理解文字，利用阅读语境判断代词指向、语气、领域知识或文化典故。如未提供语境，说明含义仅根据片段推断。\n2. 同时提供词典层面的细节（音标、词性、细分义项）与百科式知识（词源、文化背景、文学典故或相关事实）。\n3. 给出实用指引，帮助读者自然地使用或理解该表达。\n\n## 限制\n- 所有回答都必须使用 {{to_locale}}。\n- 简洁但完整；仅在模板章节确实不适用时删去，并说明原因。\n- 不得输出 Markdown 列表、编号符号或代码块；只使用本地化标题和正文。\n\n## 判断规则\n- 源语言与 {{to_locale}} 相同 → 作为高级单语词典提供词条。\n- 否则 → 作为翻译与语言导师回答。\n\n## 详细格式（纯文本，无项目符号，每个标题必须翻译为 {{to_locale}}）\n\n作为词典时（同一语言）：\n- 发音：提供尽可能可靠的音标；不确定时说明。\n- 词性：列出所有相关词性。\n- 含义：列出关键义项并简要解释。\n- 例句：提供两个自然例句并简要说明。\n- 百科：补充一项语境或文化知识（历史、文学、习语来源或领域用法）。\n\n作为翻译时（不同语言）：\n- 原文片段：引用原文或略作删减（删减时说明）。\n- 译文：给出流畅的翻译，忠实于原文语气与语体。\n- 翻译说明：解释关键用词选择，包括语境对译法的影响。\n- 词汇：选出 2–4 个关键术语，用 {{to_locale}} 简述含义。\n- 百科：补充一项有助理解的背景信息（文化、场景或概念）。\n",
+        "你是 小陈笔记 的“翻译与参考”专家。请使用用户偏好的语言 {{to_locale}} 给出权威、准确的回答。\n\n本次请求的输入：\n- 原文：{{text}}\n- 源语言提示：{{from_locale}}\n- 阅读语境（可能为空）：{{contextText}}\n\n## 回答结构（关键要求）\n回答必须采用以下两部分结构：\n不要输出框架或指令，只输出最终答案。\n\n### 第一部分：简短的语境解释（始终放在最前面）\n先用 1–2 个简洁词语：\n- 直接解释文字在阅读语境中的含义或译法\n- 说明语境如何消除歧义\n- 使用通俗、自然的语言\n- 只有为清楚表达所必需时才引用原文，避免过多引用\n\n### 第二部分：详细分析（在简短解释之后）\n按照下述格式提供全面信息。\n\n## 核心职责\n1. 准确理解文字，利用阅读语境判断代词指向、语气、领域知识或文化典故。如未提供语境，说明含义仅根据片段推断。\n2. 同时提供词典层面的细节（音标、词性、细分义项）与百科式知识（词源、文化背景、文学典故或相关事实）。\n3. 给出实用指引，帮助读者自然地使用或理解该表达。\n\n## 限制\n- 所有回答都必须使用 {{to_locale}}。\n- 简洁但完整；仅在模板章节确实不适用时删去，并说明原因。\n- 不得输出 Markdown 列表、编号符号或代码块；只使用本地化标题和正文。\n\n## 判断规则\n- 源语言与 {{to_locale}} 相同 → 作为高级单语词典提供词条。\n- 否则 → 作为翻译与语言导师回答。\n\n## 详细格式（纯文本，无项目符号，每个标题必须翻译为 {{to_locale}}）\n\n作为词典时（同一语言）：\n- 发音：提供尽可能可靠的音标；不确定时说明。\n- 词性：列出所有相关词性。\n- 含义：列出关键义项并简要解释。\n- 例句：提供两个自然例句并简要说明。\n- 百科：补充一项语境或文化知识（历史、文学、习语来源或领域用法）。\n\n作为翻译时（不同语言）：\n- 原文片段：引用原文或略作删减（删减时说明）。\n- 译文：给出流畅的翻译，忠实于原文语气与语体。\n- 翻译说明：解释关键用词选择，包括语境对译法的影响。\n- 词汇：选出 2–4 个关键术语，用 {{to_locale}} 简述含义。\n- 百科：补充一项有助理解的背景信息（文化、场景或概念）。\n",
     "selection_custom-preset-dictionary_name": "AI 知识",
     "selection_custom-preset-dictionary_prompt":
         "简要介绍 {selection} 的含义、背景和相关知识，用选中文字的语言回答。不提供拼音、音标、翻译或例句；不确定的内容明确说明。",
@@ -14036,7 +14036,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_33d1135e": "仅处理选中文字",
     "ui_33fc695d": "恢复默认值？",
     "ui_34321453": "导出",
-    "ui_3477ba41": "正在备份默读数据库并合并书库，请勿关闭应用…",
+    "ui_3477ba41": "正在备份小陈笔记数据库并合并书库，请勿关闭应用…",
     "ui_34917dd5": "填写 1–20 个不重复的六位颜色值，例如 66CCFF。",
     "ui_34d27af7": "本书向量化模型",
     "ui_356a249e": "更新请求失败，请检查网络或代理后重试。",
@@ -14058,7 +14058,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_3967959d": "描述（可选）",
     "ui_39a3aa11": "发布信息或安装包校验失败，已阻止安装。请重新检查并下载。",
     "ui_39b523bd": "关闭",
-    "ui_39c0bce2": "默读提供的可编辑模板；选择后替换下方描述。",
+    "ui_39c0bce2": "小陈笔记提供的可编辑模板；选择后替换下方描述。",
     "ui_3b0f25fa": "修改时间",
     "ui_3beb904c": "段落间距",
     "ui_3c1568a4": "请检查密码长度和两次输入",
@@ -14123,7 +14123,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_4af834a5": "外观与书架",
     "ui_4b6927a5": "选择 ANX 备份 ZIP",
     "ui_4b725988":
-        "默读基于 Anx Reader 与 ReadAny 开发，\n以 GPL-3.0-or-later 发布，非上游官方发行版。",
+        "小陈笔记基于 Anx Reader 与 ReadAny 开发，\n以 GPL-3.0-or-later 发布，非上游官方发行版。",
     "ui_4b75eec5": "删除供应商？",
     "ui_4cdf1a58": "删除供应商",
     "ui_4ce17940": "排版 CSS",
@@ -14255,7 +14255,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_6e730618":
         "各平台在本机保留有限的脱敏异常与操作记录，默认不附带、不上传。勾选后附带可用的系统崩溃诊断，不读取普通日志、AI 配置、密钥或书籍正文。报告提交后公开可见，请预览检查。附带日志时将复制报告，再由你粘贴到 GitHub。",
     "ui_6e733d2b": "文件夹",
-    "ui_6eb9ed9e": "退出默读后，运行安装程序。",
+    "ui_6eb9ed9e": "退出小陈笔记后，运行安装程序。",
     "ui_6f60f5ad": "输入关键词搜索本书内容",
     "ui_6f86db5d": "高亮规则匹配超时，已停止，请简化正则表达式。",
     "ui_6fdab95e": "在图形设置的基础上添加自定义 CSS。",
@@ -14528,7 +14528,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_c4d2912f": "安装更新",
     "ui_c515ff97": "标准普通话",
     "ui_c52f1929": "文件、二维码与 modu 链接 · 可选迁移账号密钥",
-    "ui_c5774cb9": "仅删除默读中的“{name}”及其查询索引，不删除原始字典文件。",
+    "ui_c5774cb9": "仅删除小陈笔记中的“{name}”及其查询索引，不删除原始字典文件。",
     "ui_c5fd3ab7": "温暖音色",
     "ui_c664b25a": "清除所有朗读服务配置和 API Key，并恢复默认朗读设置？",
     "ui_c6b986c1": "应用显示方式",
@@ -14546,7 +14546,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_cae34bfa": "确定删除所选 {count} 本书吗？书籍文件及本地向量索引也会被删除。",
     "ui_cbda3c4f": "模型参数",
     "ui_cc6f8540":
-        "检查与下载使用同一来源，默认优先 GitHub。检查时连接失败、超时或服务不可用会整体切换为 Gitee；手动切换来源后请重新检查再下载。下载由浏览器完成，默读无法监测其后续进度，也不会显示下载完成或 SHA-256 校验通过。不发送书籍、笔记或账号密钥。",
+        "检查与下载使用同一来源，默认优先 GitHub。检查时连接失败、超时或服务不可用会整体切换为 Gitee；手动切换来源后请重新检查再下载。下载由浏览器完成，小陈笔记无法监测其后续进度，也不会显示下载完成或 SHA-256 校验通过。不发送书籍、笔记或账号密钥。",
     "ui_cd93c8b7": "当前已是最新版本（或高于已发布版本）",
     "ui_ce47b912": "已内嵌 · 离线可用",
     "ui_cec9c9cb": "请填写描述或选择一个预设",
@@ -14590,7 +14590,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_d8f8349": "二维码生成失败",
     "ui_d9084d2e": "恢复多项设置？",
     "ui_d9d3f020": "使用服务器修改时间；未提供的排在末尾。",
-    "ui_d9e3509d": "默读向量模型连接测试",
+    "ui_d9e3509d": "小陈笔记向量模型连接测试",
     "ui_da2571e": "温暖柔和",
     "ui_da6b9567": "已选 {count} 本",
     "ui_da711856": "预览 Bug 报告",
@@ -14655,7 +14655,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "同一自然段内相邻句合成，高亮和前后跳转按小段，长段自动拆分。自动附加匀速听书要求，不改写已保存的描述；实际音色与节奏仍取决于模型。",
     "ui_f33e5028": "导入书籍、笔记和阅读记录。请先在 ANX 下载需要迁移的书籍。",
     "ui_f388b7a3": "无法打开默认浏览器，请重试或手动访问官方发布页。",
-    "ui_f38fcdf3": "下载 DMG 后退出默读，将新应用拖入“应用程序”替换旧版。",
+    "ui_f38fcdf3": "下载 DMG 后退出小陈笔记，将新应用拖入“应用程序”替换旧版。",
     "ui_f3e93354": "全屏查看",
     "ui_f4809d40": "沉着稳重",
     "ui_f48352d1": "局部高亮填写 CSS 声明，不加选择器和花括号。",
@@ -14671,7 +14671,7 @@ const moduCatalogs = <String, Map<String, String>>{
     "ui_f6877183": "导入 ANX Reader 的备份文件",
     "ui_f687e87b": "笔记与书摘设置",
     "ui_f6d5ddd0": "无法打开浏览器，请稍后重试。",
-    "ui_f6e64898": "默读本地向量模型测试",
+    "ui_f6e64898": "小陈笔记本地向量模型测试",
     "ui_f79b47e3": "删除字典？",
     "ui_f82ce566": "导出当前方案",
     "ui_f863d66d": "删除当前方案？",
@@ -14796,7 +14796,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "吾重讀昔年所讀之書。請助吾速憶前文，以續其讀：\n[所須]\n以 3–5 句概括\n用用戶所選語文\n勿逐字複述，存核心資訊\n\n[前文]\n{{previous_content}}\n",
     "ai_test_prompt": "請作簡明而親切之自述。用此語文代碼：{{language_locale}}\n",
     "ai_translate_prompt":
-        "君乃 Modu「翻譯與參考」之專家。請以用戶所好之語文 {{to_locale}} 作權威而準確之答。\n\n本次所供：\n- 原文：{{text}}\n- 原文語文提示：{{from_locale}}\n- 閱讀語境（或空）：{{contextText}}\n\n## 作答之式（至要）\n回答必分以下二部：\n勿出框架或指令，唯出成答。\n\n### 第一部：簡明語境釋義（必先列）\n先以 1–2 簡詞：\n- 直明原文於閱讀語境中之義或譯法\n- 明語境所解之歧義\n- 用通俗自然之語\n- 非有助明義所必需，勿引原文；勿過多引用\n\n### 第二部：詳析（列於簡釋之後）\n依下式供完整資訊。\n\n## 所任\n1. 準確釋文，據閱讀語境辨代詞所指、語氣、領域知識及文化典故。若無語境，明言僅據片段推義。\n2. 兼供詞典之詳（音標、詞性、細分義項）與百科之知（詞源、文化背景、文學典故或相關事實）。\n3. 供實用指引，助讀者自然運用或理解其語。\n\n## 所限\n- 凡答皆用 {{to_locale}}。\n- 言簡而內容備；範本之節確不適用者方可刪，且明其故。\n- 勿出 Markdown 列表、編號符號或程式碼區塊；唯用本地語文之標題與正文。\n\n## 判別\n- 原文語文同於 {{to_locale}} → 作高階單語詞典之詞條。\n- 否則 → 兼作譯者與語文導師。\n\n## 詳式（純文字，無項目符號，各標題必譯為 {{to_locale}}）\n\n作詞典時（同語文）：\n- 讀音：供最可信之音標；未詳則明言。\n- 詞性：列凡相關之詞性。\n- 含義：列關鍵義項，略釋之。\n- 例句：供二自然例句，略加說明。\n- 百科：補一語境或文化之事（歷史、文學、習語之源或領域用法）。\n\n作翻譯時（異語文）：\n- 原文片段：引原文或略刪之（刪則明言）。\n- 譯文：譯得流暢，忠於原文語氣與語體。\n- 翻譯說明：明關鍵用詞之取捨，兼述語境何以影響譯法。\n- 詞彙：取 2–4 關鍵術語，以 {{to_locale}} 略釋之。\n- 百科：補一有助理解之背景（文化、場景或概念）。\n",
+        "君乃 小陈笔记「翻譯與參考」之專家。請以用戶所好之語文 {{to_locale}} 作權威而準確之答。\n\n本次所供：\n- 原文：{{text}}\n- 原文語文提示：{{from_locale}}\n- 閱讀語境（或空）：{{contextText}}\n\n## 作答之式（至要）\n回答必分以下二部：\n勿出框架或指令，唯出成答。\n\n### 第一部：簡明語境釋義（必先列）\n先以 1–2 簡詞：\n- 直明原文於閱讀語境中之義或譯法\n- 明語境所解之歧義\n- 用通俗自然之語\n- 非有助明義所必需，勿引原文；勿過多引用\n\n### 第二部：詳析（列於簡釋之後）\n依下式供完整資訊。\n\n## 所任\n1. 準確釋文，據閱讀語境辨代詞所指、語氣、領域知識及文化典故。若無語境，明言僅據片段推義。\n2. 兼供詞典之詳（音標、詞性、細分義項）與百科之知（詞源、文化背景、文學典故或相關事實）。\n3. 供實用指引，助讀者自然運用或理解其語。\n\n## 所限\n- 凡答皆用 {{to_locale}}。\n- 言簡而內容備；範本之節確不適用者方可刪，且明其故。\n- 勿出 Markdown 列表、編號符號或程式碼區塊；唯用本地語文之標題與正文。\n\n## 判別\n- 原文語文同於 {{to_locale}} → 作高階單語詞典之詞條。\n- 否則 → 兼作譯者與語文導師。\n\n## 詳式（純文字，無項目符號，各標題必譯為 {{to_locale}}）\n\n作詞典時（同語文）：\n- 讀音：供最可信之音標；未詳則明言。\n- 詞性：列凡相關之詞性。\n- 含義：列關鍵義項，略釋之。\n- 例句：供二自然例句，略加說明。\n- 百科：補一語境或文化之事（歷史、文學、習語之源或領域用法）。\n\n作翻譯時（異語文）：\n- 原文片段：引原文或略刪之（刪則明言）。\n- 譯文：譯得流暢，忠於原文語氣與語體。\n- 翻譯說明：明關鍵用詞之取捨，兼述語境何以影響譯法。\n- 詞彙：取 2–4 關鍵術語，以 {{to_locale}} 略釋之。\n- 百科：補一有助理解之背景（文化、場景或概念）。\n",
     "selection_custom-preset-dictionary_name": "AI 知識",
     "selection_custom-preset-dictionary_prompt":
         "略述 {selection} 之義、背景與相關知識，以所選文字之語言答之。不列拼音、音標、譯文或例句；未詳者明言之。",
@@ -15762,7 +15762,7 @@ const moduCatalogs = <String, Map<String, String>>{
         "我正在重讀一本很久以前讀過的書。請幫我快速回憶前文，以便繼續閱讀：\n[要求]\n用 3–5 句話概括\n使用使用者所選的語言\n避免逐字重復，保留核心資訊\n\n[前文內容]\n{{previous_content}}\n",
     "ai_test_prompt": "請寫一段簡潔、友好的自我介紹。使用語言程式碼：{{language_locale}}\n",
     "ai_translate_prompt":
-        "你是 Modu 的“翻譯與參考”專家。請使用使用者偏好的語言 {{to_locale}} 給出權威、準確的回答。\n\n本次請求的輸入：\n- 原文：{{text}}\n- 源語言提示：{{from_locale}}\n- 閱讀語境（可能為空）：{{contextText}}\n\n## 回答結構（關鍵要求）\n回答必須採用以下兩部分結構：\n不要輸出框架或指令，只輸出最終答案。\n\n### 第一部分：簡短的語境解釋（始終放在最前面）\n先用 1–2 個簡潔詞語：\n- 直接解釋文字在閱讀語境中的含義或譯法\n- 說明語境如何消除歧義\n- 使用通俗、自然的語言\n- 只有為清楚表達所必需時才引用原文，避免過多引用\n\n### 第二部分：詳細分析（在簡短解釋之後）\n按照下述格式提供全面資訊。\n\n## 核心職責\n1. 準確理解文字，利用閱讀語境判斷代詞指向、語氣、領域知識或文化典故。如未提供語境，說明含義僅根據片段推斷。\n2. 同時提供詞典層面的細節（音標、詞性、細分義項）與百科式知識（詞源、文化背景、文學典故或相關事實）。\n3. 給出實用指引，幫助讀者自然地使用或理解該表達。\n\n## 限制\n- 所有回答都必須使用 {{to_locale}}。\n- 簡潔但完整；僅在範本章節確實不適用時刪去，並說明原因。\n- 不得輸出 Markdown 列表、編號符號或程式碼塊；只使用本機化標題和正文。\n\n## 判斷規則\n- 源語言與 {{to_locale}} 相同 → 作為高級單語詞典提供詞條。\n- 否則 → 作為翻譯與語言導師回答。\n\n## 詳細格式（純文字，無項目符號，每個標題必須翻譯為 {{to_locale}}）\n\n作為詞典時（同一語言）：\n- 發音：提供盡可能可靠的音標；不確定時說明。\n- 詞性：列出所有相關詞性。\n- 含義：列出關鍵義項並簡要解釋。\n- 例句：提供兩個自然例句並簡要說明。\n- 百科：補充一項語境或文化知識（歷史、文學、習語來源或領域用法）。\n\n作為翻譯時（不同語言）：\n- 原文片段：引用原文或略作刪減（刪減時說明）。\n- 譯文：給出流暢的翻譯，忠實於原文語氣與語體。\n- 翻譯說明：解釋關鍵用詞選擇，包括語境對譯法的影響。\n- 詞彙：選出 2–4 個關鍵術語，用 {{to_locale}} 簡述含義。\n- 百科：補充一項有助理解的背景資訊（文化、場景或概念）。\n",
+        "你是 小陈笔记 的“翻譯與參考”專家。請使用使用者偏好的語言 {{to_locale}} 給出權威、準確的回答。\n\n本次請求的輸入：\n- 原文：{{text}}\n- 源語言提示：{{from_locale}}\n- 閱讀語境（可能為空）：{{contextText}}\n\n## 回答結構（關鍵要求）\n回答必須採用以下兩部分結構：\n不要輸出框架或指令，只輸出最終答案。\n\n### 第一部分：簡短的語境解釋（始終放在最前面）\n先用 1–2 個簡潔詞語：\n- 直接解釋文字在閱讀語境中的含義或譯法\n- 說明語境如何消除歧義\n- 使用通俗、自然的語言\n- 只有為清楚表達所必需時才引用原文，避免過多引用\n\n### 第二部分：詳細分析（在簡短解釋之後）\n按照下述格式提供全面資訊。\n\n## 核心職責\n1. 準確理解文字，利用閱讀語境判斷代詞指向、語氣、領域知識或文化典故。如未提供語境，說明含義僅根據片段推斷。\n2. 同時提供詞典層面的細節（音標、詞性、細分義項）與百科式知識（詞源、文化背景、文學典故或相關事實）。\n3. 給出實用指引，幫助讀者自然地使用或理解該表達。\n\n## 限制\n- 所有回答都必須使用 {{to_locale}}。\n- 簡潔但完整；僅在範本章節確實不適用時刪去，並說明原因。\n- 不得輸出 Markdown 列表、編號符號或程式碼塊；只使用本機化標題和正文。\n\n## 判斷規則\n- 源語言與 {{to_locale}} 相同 → 作為高級單語詞典提供詞條。\n- 否則 → 作為翻譯與語言導師回答。\n\n## 詳細格式（純文字，無項目符號，每個標題必須翻譯為 {{to_locale}}）\n\n作為詞典時（同一語言）：\n- 發音：提供盡可能可靠的音標；不確定時說明。\n- 詞性：列出所有相關詞性。\n- 含義：列出關鍵義項並簡要解釋。\n- 例句：提供兩個自然例句並簡要說明。\n- 百科：補充一項語境或文化知識（歷史、文學、習語來源或領域用法）。\n\n作為翻譯時（不同語言）：\n- 原文片段：引用原文或略作刪減（刪減時說明）。\n- 譯文：給出流暢的翻譯，忠實於原文語氣與語體。\n- 翻譯說明：解釋關鍵用詞選擇，包括語境對譯法的影響。\n- 詞彙：選出 2–4 個關鍵術語，用 {{to_locale}} 簡述含義。\n- 百科：補充一項有助理解的背景資訊（文化、場景或概念）。\n",
     "selection_custom-preset-dictionary_name": "AI 知識",
     "selection_custom-preset-dictionary_prompt":
         "簡要介紹 {selection} 的含義、背景與相關知識，以所選文字的語言回答。不提供拼音、音標、翻譯或例句；明確標示不確定內容。",
@@ -16828,7 +16828,7 @@ const moduSourceKeys = <String, String>{
   "仅处理选中文字": "ui_33d1135e",
   "恢复默认值？": "ui_33fc695d",
   "导出": "ui_34321453",
-  "正在备份默读数据库并合并书库，请勿关闭应用…": "ui_3477ba41",
+  "正在备份小陈笔记数据库并合并书库，请勿关闭应用…": "ui_3477ba41",
   "填写 1–20 个不重复的六位颜色值，例如 66CCFF。": "ui_34917dd5",
   "本书向量化模型": "ui_34d27af7",
   "更新请求失败，请检查网络或代理后重试。": "ui_356a249e",
@@ -16850,7 +16850,7 @@ const moduSourceKeys = <String, String>{
   "描述（可选）": "ui_3967959d",
   "发布信息或安装包校验失败，已阻止安装。请重新检查并下载。": "ui_39a3aa11",
   "关闭": "ui_39b523bd",
-  "默读提供的可编辑模板；选择后替换下方描述。": "ui_39c0bce2",
+  "小陈笔记提供的可编辑模板；选择后替换下方描述。": "ui_39c0bce2",
   "修改时间": "ui_3b0f25fa",
   "段落间距": "ui_3beb904c",
   "请检查密码长度和两次输入": "ui_3c1568a4",
@@ -16914,7 +16914,7 @@ const moduSourceKeys = <String, String>{
   "无法打开安装器，请重新下载官方安装包。": "ui_4ae2572a",
   "外观与书架": "ui_4af834a5",
   "选择 ANX 备份 ZIP": "ui_4b6927a5",
-  "默读基于 Anx Reader 与 ReadAny 开发，\n以 GPL-3.0-or-later 发布，非上游官方发行版。":
+  "小陈笔记基于 Anx Reader 与 ReadAny 开发，\n以 GPL-3.0-or-later 发布，非上游官方发行版。":
       "ui_4b725988",
   "删除供应商？": "ui_4b75eec5",
   "删除供应商": "ui_4cdf1a58",
@@ -17047,7 +17047,7 @@ const moduSourceKeys = <String, String>{
   "各平台在本机保留有限的脱敏异常与操作记录，默认不附带、不上传。勾选后附带可用的系统崩溃诊断，不读取普通日志、AI 配置、密钥或书籍正文。报告提交后公开可见，请预览检查。附带日志时将复制报告，再由你粘贴到 GitHub。":
       "ui_6e730618",
   "文件夹": "ui_6e733d2b",
-  "退出默读后，运行安装程序。": "ui_6eb9ed9e",
+  "退出小陈笔记后，运行安装程序。": "ui_6eb9ed9e",
   "输入关键词搜索本书内容": "ui_6f60f5ad",
   "高亮规则匹配超时，已停止，请简化正则表达式。": "ui_6f86db5d",
   "在图形设置的基础上添加自定义 CSS。": "ui_6fdab95e",
@@ -17320,7 +17320,7 @@ const moduSourceKeys = <String, String>{
   "安装更新": "ui_c4d2912f",
   "标准普通话": "ui_c515ff97",
   "文件、二维码与 modu 链接 · 可选迁移账号密钥": "ui_c52f1929",
-  "仅删除默读中的“{name}”及其查询索引，不删除原始字典文件。": "ui_c5774cb9",
+  "仅删除小陈笔记中的“{name}”及其查询索引，不删除原始字典文件。": "ui_c5774cb9",
   "温暖音色": "ui_c5fd3ab7",
   "清除所有朗读服务配置和 API Key，并恢复默认朗读设置？": "ui_c664b25a",
   "应用显示方式": "ui_c6b986c1",
@@ -17337,7 +17337,7 @@ const moduSourceKeys = <String, String>{
   "技能名称": "ui_ca51d233",
   "确定删除所选 {count} 本书吗？书籍文件及本地向量索引也会被删除。": "ui_cae34bfa",
   "模型参数": "ui_cbda3c4f",
-  "检查与下载使用同一来源，默认优先 GitHub。检查时连接失败、超时或服务不可用会整体切换为 Gitee；手动切换来源后请重新检查再下载。下载由浏览器完成，默读无法监测其后续进度，也不会显示下载完成或 SHA-256 校验通过。不发送书籍、笔记或账号密钥。":
+  "检查与下载使用同一来源，默认优先 GitHub。检查时连接失败、超时或服务不可用会整体切换为 Gitee；手动切换来源后请重新检查再下载。下载由浏览器完成，小陈笔记无法监测其后续进度，也不会显示下载完成或 SHA-256 校验通过。不发送书籍、笔记或账号密钥。":
       "ui_cc6f8540",
   "当前已是最新版本（或高于已发布版本）": "ui_cd93c8b7",
   "已内嵌 · 离线可用": "ui_ce47b912",
@@ -17382,7 +17382,7 @@ const moduSourceKeys = <String, String>{
   "二维码生成失败": "ui_d8f8349",
   "恢复多项设置？": "ui_d9084d2e",
   "使用服务器修改时间；未提供的排在末尾。": "ui_d9d3f020",
-  "默读向量模型连接测试": "ui_d9e3509d",
+  "小陈笔记向量模型连接测试": "ui_d9e3509d",
   "温暖柔和": "ui_da2571e",
   "已选 {count} 本": "ui_da6b9567",
   "预览 Bug 报告": "ui_da711856",
@@ -17447,7 +17447,7 @@ const moduSourceKeys = <String, String>{
       "ui_f3326d53",
   "导入书籍、笔记和阅读记录。请先在 ANX 下载需要迁移的书籍。": "ui_f33e5028",
   "无法打开默认浏览器，请重试或手动访问官方发布页。": "ui_f388b7a3",
-  "下载 DMG 后退出默读，将新应用拖入“应用程序”替换旧版。": "ui_f38fcdf3",
+  "下载 DMG 后退出小陈笔记，将新应用拖入“应用程序”替换旧版。": "ui_f38fcdf3",
   "全屏查看": "ui_f3e93354",
   "沉着稳重": "ui_f4809d40",
   "局部高亮填写 CSS 声明，不加选择器和花括号。": "ui_f48352d1",
@@ -17463,7 +17463,7 @@ const moduSourceKeys = <String, String>{
   "导入 ANX Reader 的备份文件": "ui_f6877183",
   "笔记与书摘设置": "ui_f687e87b",
   "无法打开浏览器，请稍后重试。": "ui_f6d5ddd0",
-  "默读本地向量模型测试": "ui_f6e64898",
+  "小陈笔记本地向量模型测试": "ui_f6e64898",
   "删除字典？": "ui_f79b47e3",
   "导出当前方案": "ui_f82ce566",
   "删除当前方案？": "ui_f863d66d",

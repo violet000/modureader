@@ -1,4 +1,4 @@
-# Modu 1.3.1 settings and features
+# 小陈笔记 1.3.1 settings and features
 
 English · [简体中文](SETTINGS_zh.md) · [Home](../README_EN.md) · [Documentation](README.md)
 
@@ -9,7 +9,7 @@ The current entry points below include [1.3.1](https://github.com/sobranie2406/m
 ### 1.3.4 additions
 
 - Language and Classical Chinese translation share Baidu/Microsoft credentials. Encrypted settings sync carries service configuration, credentials and related AI service selection, but not languages, direction or translation appearance.
-- Baidu and Microsoft configuration pages show separate usage estimates and editable reference allowances. Only successful Modu request characters count, grouped by UTC calendar month across updated devices with encrypted settings sync enabled; repeated sync does not count twice. These are not official bills or remaining balances, and server-billed cancelled/timed-out requests may be missing. The allowance is not a spending cap. Microsoft's two keys are counted separately; other engines are excluded.
+- Baidu and Microsoft configuration pages show separate usage estimates and editable reference allowances. Only successful 小陈笔记 request characters count, grouped by UTC calendar month across updated devices with encrypted settings sync enabled; repeated sync does not count twice. These are not official bills or remaining balances, and server-billed cancelled/timed-out requests may be missing. The allowance is not a spending cap. Microsoft's two keys are counted separately; other engines are excluded.
 - Selecting Popup AI display reveals an optional Move and resize popups switch, off by default. Enabled selection-tool popups can move by their top and resize from their sides, bottom and corners; reopening resets position and size.
 - Last-read ordering uses synchronized reading timestamps. Folder layout respects cover width and available space.
 
@@ -46,7 +46,7 @@ Open **Settings** from the home navigation. The app language can follow the syst
 | Translation | Engine, target language, AI and DeepL / DeepLX |
 | Experimental features | Plugins, enabled by default; install packages from the signed project catalog |
 | Advanced | Storage, cache, TXT chapter splitting, logs and network |
-| About Modu | Bug reports and feature requests, project links, community, licenses and app updates |
+| About 小陈笔记 | Bug reports and feature requests, project links, community, licenses and app updates |
 
 WeRead: enable the connection under Appearance and enter your own official API Key. In book details, search and confirm the edition before linking. Its metadata/ratings/reviews stay separate from personal data; public cached data syncs with downloaded books, while keys require explicit sensitive-settings opt-in. See [WeRead](WEREAD.md).
 
@@ -93,11 +93,11 @@ Long-press a book and drag it onto another book to name and create a folder, or 
 
 ## Checking and installing updates
 
-Open **Settings → About Modu → App updates**. Checking and downloading share one source selector, initially GitHub. If a check falls back to Gitee because GitHub is temporarily unavailable, the download source changes with it. Check again after manually changing sources; downloads do not mix sources midway. Finding an update does not automatically download or install it, and a failed check does not interrupt reading.
+Open **Settings → About 小陈笔记 → App updates**. Checking and downloading share one source selector, initially GitHub. If a check falls back to Gitee because GitHub is temporarily unavailable, the download source changes with it. Check again after manually changing sources; downloads do not mix sources midway. Finding an update does not automatically download or install it, and a failed check does not interrupt reading.
 
 - **Android:** in-app downloads verify size and SHA-256, then package name, signature and version before opening the system installer. Installation permission is requested only when needed; installation is not silent.
 - **Windows / Linux:** verified in-app downloads open the EXE / DEB for normal installation. Windows needs WebView2; Linux packages target Debian 13.
-- **macOS:** the default browser downloads the DMG. Quit Modu and drag Modu.app onto Applications to replace it. Modu cannot monitor browser completion or claim to have verified that file; compare it with the release's SHA-256 yourself. The disk image contains only the app and Applications shortcut. It is not Apple-notarized.
+- **macOS:** the default browser downloads the DMG. Quit 小陈笔记 and drag Modu.app onto Applications to replace it. 小陈笔记 cannot monitor browser completion or claim to have verified that file; compare it with the release's SHA-256 yourself. The disk image contains only the app and Applications shortcut. It is not Apple-notarized.
 - **iOS:** the IPA needs your own valid signing and cannot install itself from the app. Store builds should update through their original store.
 
 Back up and upgrade in place; do not uninstall or clear data first. Opening an installer does not mean installation has finished. See [installation and release instructions](RELEASING.md) for platform requirements.
@@ -108,7 +108,7 @@ Unreleased iOS addition: Bookshelf → **+ → Add files/folder in place (no cop
 
 Supported formats include EPUB, PDF, MOBI, AZW3, FB2, TXT, Markdown and text UMD. TXT / Markdown / UMD are converted to EPUB on import for reading and synchronization. UMD retains chapters, metadata and supported covers; image/comic UMD is unsupported. The library supports folders, tags, pinning and moving selected books into folders. Download remote books before reading offline or indexing them.
 
-Import multiple files or choose a folder and select its supported books, including subfolders. Desktop drag-and-drop accepts folders on the library or reading screen. Source files are preserved. Dropped books import without repeated confirmation/result dialogs; duplicates are skipped and one failed file does not cancel the rest. Supported system file associations can hand a book to Modu; availability depends on the platform and file provider. Cover badges show the original TXT / MD / UMD format when recognized, otherwise the stored format, and a scanned-book label where applicable; manual classification takes priority over automatic detection.
+Import multiple files or choose a folder and select its supported books, including subfolders. Desktop drag-and-drop accepts folders on the library or reading screen. Source files are preserved. Dropped books import without repeated confirmation/result dialogs; duplicates are skipped and one failed file does not cancel the rest. Supported system file associations can hand a book to 小陈笔记; availability depends on the platform and file provider. Cover badges show the original TXT / MD / UMD format when recognized, otherwise the stored format, and a scanned-book label where applicable; manual classification takes priority over automatic detection.
 
 Cover-opening and return transitions are shared across platforms and follow the disabled-motion preferences; iOS retains edge-swipe return. Dragging iOS text-selection handles updates the selection menu. MOBI note popups require a reliably matching legacy layout; AZW3 note types and explicit image-note text are recognized. Matched notes are hidden from the body and remain available in popups; ambiguous MOBI content stays visible.
 
@@ -180,7 +180,7 @@ Text-filter profiles live alongside CSS profiles and can hide matching text or i
 
 Open **Settings → Experimental features → Manage plugins**. The plugin switch defaults to on; an existing disabled choice is preserved. Choose GitHub or Gitee to load the reviewed catalog, then select **Download and install**. Review the permissions and confirm installation. Local `.moduplugin` packages use the same verification.
 
-Only versions reviewed and listed in the [official plugin repository](https://github.com/sobranie2406/modu-plugin) are available. Modu verifies the catalog signature, package hash and complete file inventory. Compatible plugins can be installed or updated independently; new host APIs or permissions require a Modu update. See [plugin trust policy](development/plugin-trust.md).
+Only versions reviewed and listed in the [official plugin repository](https://github.com/sobranie2406/modu-plugin) are available. 小陈笔记 verifies the catalog signature, package hash and complete file inventory. Compatible plugins can be installed or updated independently; new host APIs or permissions require a 小陈笔记 update. See [plugin trust policy](development/plugin-trust.md).
 
 Optional plugins include:
 
@@ -274,7 +274,7 @@ Sync merges books, notes, bookmarks, folders, tags and reading records by stable
 
 Fonts, backgrounds, local dictionaries and vector indexes are not library-synced. Keep clients on matching versions where possible. A book record on the shelf does not mean its content is downloaded.
 
-Ordinary and PDF readers do not show sync-success messages. After a failed reader sync, Modu retries the complete reconciliation up to three times, respecting service cooldowns; if all attempts fail, it shows one notice with the failure reason. Repeated failures remain quiet until a successful sync resets the notice. Reader attempts check connectivity: no connection, or no Wi-Fi with Wi-Fi-only enabled, silently defers synchronization and preserves pending progress. Sync notices outside the reader remain unchanged.
+Ordinary and PDF readers do not show sync-success messages. After a failed reader sync, 小陈笔记 retries the complete reconciliation up to three times, respecting service cooldowns; if all attempts fail, it shows one notice with the failure reason. Repeated failures remain quiet until a successful sync resets the notice. Reader attempts check connectivity: no connection, or no Wi-Fi with Wi-Fi-only enabled, silently defers synchronization and preserves pending progress. Sync notices outside the reader remain unchanged.
 
 Timed sync during reading is off by default. It requires cloud sync (WebDAV or object storage) and automatic sync, runs during foreground reading and respects Wi-Fi-only settings. The default is 5 minutes, with 1/2/3/5/10/15/30/60-minute choices. Locking or leaving pauses it; returning waits a full interval. Missed intervals are not replayed and requests do not overlap.
 
@@ -320,4 +320,4 @@ Advanced contains logs, network and JavaScript options. Enable book scripts and 
 
 Settings → Reading: popup height limit 40–80% (default 80%); reading popup opacity 20–100% (default 100%). Both stay on this device and are excluded from sync. Opacity is disabled in E-Ink mode; narration and zoom floating bars retain their original appearance.
 
-Plugins are enabled by default on new installations; an existing disabled choice is preserved. Choose GitHub or the Gitee mirror on the plugin page. It loads the signed, reviewed catalog automatically and offers download, permission preview and installation. Compatible new plugins and versions work without updating Modu. Install reviewed packages from the [modu-plugin repository](https://github.com/sobranie2406/modu-plugin). Script selection actions appear after selecting text. Private books is an optional plugin: without it there is no private-books entry or change to the bookshelf. After enabling it, open Private books to mark books, choose the locked/unlocked shelf display, set new imports as private, and optionally set a six-digit PIN. The session locks when the app leaves the foreground. Credentials and protection settings remain local; book files, reading progress and notes retain their existing sync behavior. Private books controls in-app access; it does not encrypt book files.
+Plugins are enabled by default on new installations; an existing disabled choice is preserved. Choose GitHub or the Gitee mirror on the plugin page. It loads the signed, reviewed catalog automatically and offers download, permission preview and installation. Compatible new plugins and versions work without updating 小陈笔记. Install reviewed packages from the [modu-plugin repository](https://github.com/sobranie2406/modu-plugin). Script selection actions appear after selecting text. Private books is an optional plugin: without it there is no private-books entry or change to the bookshelf. After enabling it, open Private books to mark books, choose the locked/unlocked shelf display, set new imports as private, and optionally set a six-digit PIN. The session locks when the app leaves the foreground. Credentials and protection settings remain local; book files, reading progress and notes retain their existing sync behavior. Private books controls in-app access; it does not encrypt book files.
