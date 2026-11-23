@@ -1,8 +1,8 @@
-import 'package:modu_reader/widgets/settings/setting_help_title.dart';
 import 'package:modu_reader/utils/app_motion.dart';
 import 'package:modu_reader/l10n/modu_strings.dart';
 import 'package:modu_reader/service/remote_library/webdav_library.dart';
 import 'package:modu_reader/widgets/settings/settings_section.dart';
+import 'package:modu_reader/widgets/settings/settings_tile.dart';
 import 'package:flutter/material.dart';
 
 class RemoteLibrarySettings extends StatefulWidget {
@@ -12,10 +12,13 @@ class RemoteLibrarySettings extends StatefulWidget {
 }
 
 class _RemoteLibrarySettingsState extends State<RemoteLibrarySettings> {
-  final _url = TextEditingController();
-  final _username = TextEditingController();
-  final _password = TextEditingController();
-  bool _loading = true, _busy = false, _http = false, _hide = true;
+  final _url =
+      TextEditingController(text: LibraryConnectionStore.builtIn.url);
+  final _username =
+      TextEditingController(text: LibraryConnectionStore.builtIn.username);
+  final _password =
+      TextEditingController(text: LibraryConnectionStore.builtIn.password);
+  bool _loading = true, _busy = false, _http = true, _hide = true;
   String? _message;
   WebdavLibrary? _testing;
   bool get zh => Localizations.localeOf(context).languageCode == 'zh';
@@ -144,31 +147,26 @@ class _RemoteLibrarySettingsState extends State<RemoteLibrarySettings> {
           ],
         ),
       ),
-      SettingsSection.content(
+      SettingsSection(
         title: Text(ModuStrings.text(context, '连接安全', 'Connection security')),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SwitchListTile(
-                contentPadding: EdgeInsets.zero,
-                value: _http,
-                onChanged: _busy ? null : (v) => setState(() => _http = v),
-                title: Text(ModuStrings.text(
-                    context, '允许 HTTP 明文连接', 'Allow unencrypted HTTP')),
-                subtitle: SettingHelp(
-                    title:
-                        Text(ModuStrings.text(context, "连接方式", "Connection")),
-                    description: Text(ModuStrings.text(context,
-                        "建议使用 HTTPS 连接。", "Use HTTPS for this connection.")))),
-            SettingHelp(
-                title:
-                    Text(ModuStrings.text(context, "同步连接", "Sync connection")),
-                description: Text(ModuStrings.text(
-                    context,
-                    "在“同步”中开启敏感数据同步，可同步书库连接。",
-                    "Enable Sensitive data sync in Sync settings to share this connection."))),
-          ],
-        ),
+        tiles: [
+          SettingsTile.switchTile(
+            title: Text(ModuStrings.text(
+                context, '允许 HTTP 明文连接', 'Allow unencrypted HTTP')),
+            description: Text(ModuStrings.text(context, '建议使用 HTTPS 连接。',
+                'Use HTTPS for this connection.')),
+            initialValue: _http,
+            enabled: !_busy,
+            onToggle: (value) => setState(() => _http = value),
+          ),
+          SettingsTile(
+            title: Text(ModuStrings.text(context, '同步连接', 'Sync connection')),
+            description: Text(ModuStrings.text(
+                context,
+                '在“同步”中开启敏感数据同步，可同步书库连接。',
+                'Enable Sensitive data sync in Sync settings to share this connection.')),
+          ),
+        ],
       ),
       SettingsSection.content(
         title: Text(ModuStrings.text(context, '连接管理', 'Connection management')),

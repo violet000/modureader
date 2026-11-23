@@ -67,8 +67,16 @@ class Book {
   }
 
   String get fileFullPath {
-    return BookSources.resolve(md5, filePath, documentPath) ??
-        getBasePath(filePath);
+    final resolved = BookSources.resolve(md5, filePath, documentPath);
+    if (resolved != null) return resolved;
+    // A remote book opened without import keeps its cache path as-is.
+    if (filePath.startsWith('/') ||
+        (filePath.length > 2 &&
+            filePath[1] == ':' &&
+            (filePath[2] == '/' || filePath[2] == '\\'))) {
+      return filePath;
+    }
+    return getBasePath(filePath);
   }
 
   bool get isRemovedLocally => BookSources.isRemoved(md5, filePath);

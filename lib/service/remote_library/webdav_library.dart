@@ -41,9 +41,18 @@ class LibraryConnection {
 /// Local preferences; shared only through opt-in encrypted sync/backups.
 class LibraryConnectionStore {
   static const key = 'remoteLibraryConnection';
+
+  /// Used when this device has never saved a library connection.
+  static const builtIn = LibraryConnection(
+    url: 'http://139.224.60.166',
+    username: 'admin',
+    password: 'root',
+    allowHttp: true,
+  );
+
   static Future<LibraryConnection?> load() async {
     final raw = (await SharedPreferences.getInstance()).getString(key);
-    if (raw == null) return null;
+    if (raw == null) return builtIn;
     try {
       return decode(raw);
     } catch (_) {
@@ -154,6 +163,7 @@ class WebdavLibrary {
   final Dio _dio;
   static const maxBookBytes = 512 * 1024 * 1024;
   static const maxListingBytes = 32 * 1024 * 1024;
+  static const maxInlineBytes = 8 * 1024 * 1024;
 
   bool contains(Uri uri) =>
       uri.scheme == root.scheme &&
@@ -338,6 +348,48 @@ class WebdavLibrary {
       await output?.close();
       if (await partial.exists()) await partial.delete();
     }
+  }
+
+  /// Read a remote file into memory. Direct viewing does not use the local
+  /// book download path, so it is not subject to the 512 MiB shelf limit.
+  Future<Uint8List> readBytes(LibraryEntry entry, CancelToken cancel) async {
+    _check(entry.uri);
+    if (entry.isDirectory) {
+      throw const FormatException('Not a file');
+    }
+    return _read(entry.uri, cancel);
+  }
+
+  /// Read one library file, stopping once [maxBytes] is exceeded.
+  Future<Uint8List> readUri(Uri uri, CancelToken cancel,
+      {int maxBytes = maxInlineBytes}) {
+    return _read(uri, cancel, maxBytes: maxBytes, rejectHtml: true);
+  }
+
+  Future<Uint8List> _read(Uri uri, CancelToken cancel,
+      {int? maxBytes, bool rejectHtml = false}) async {
+    _check(uri);
+    final response = await _dio.getUri<ResponseBody>(uri,
+        options: Options(
+            responseType: ResponseType.stream,
+            validateStatus: (code) => code == 200),
+        cancelToken: cancel);
+    final type = (response.headers.value('content-type') ?? '').toLowerCase();
+    if (rejectHtml && type.contains('text/html')) {
+      await response.data!.stream.listen(null).cancel();
+      throw const FormatException('Not a file');
+    }
+    final builder = BytesBuilder(copy: false);
+    await for (final chunk in response.data!.stream) {
+      if (cancel.isCancelled) throw StateError('Cancelled');
+      if (maxBytes != null && builder.length + chunk.length > maxBytes) {
+        cancel.cancel();
+        throw const FormatException('File too large');
+      }
+      builder.add(chunk);
+    }
+    if (cancel.isCancelled) throw StateError('Cancelled');
+    return builder.takeBytes();
   }
 
   void close() => _dio.close(force: true);

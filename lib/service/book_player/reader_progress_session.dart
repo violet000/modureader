@@ -18,7 +18,12 @@ class ReaderProgressSession {
     return result;
   }
 
+  bool get _guest => bookId < 0;
+
   Future<ReadingPositionSnapshot> refresh() => _serial(() async {
+        if (_guest) {
+          return current ??= const ReadingPositionSnapshot('', 0, 'guest');
+        }
         final next = await dao.readReadingPosition(bookId);
         if (current?.revision != next.revision) generation++;
         // The merged database is authoritative, including its speech cursor.
@@ -29,6 +34,7 @@ class ReaderProgressSession {
   Future<bool> record(String position, double percentage,
           {required int generation, NarrationPosition? narration}) =>
       _serial(() async {
+        if (_guest) return false;
         if (current == null || generation != this.generation) return false;
         final next = await dao.updateReadingPosition(
             bookId, position, percentage,
@@ -47,6 +53,7 @@ class ReaderProgressSession {
   Future<void> checkpointPage(String position, double percentage,
           {required int generation}) =>
       _serial(() async {
+        if (_guest) return;
         final latest = current;
         if (latest == null ||
             generation != this.generation ||
@@ -69,6 +76,7 @@ class ReaderProgressSession {
   Future<bool> recordNarration(NarrationPosition narration,
           {required int generation}) =>
       _serial(() async {
+        if (_guest) return false;
         final latest = current;
         if (latest == null || generation != this.generation) return false;
         final next = await dao.updateReadingPosition(

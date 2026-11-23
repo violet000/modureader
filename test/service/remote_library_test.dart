@@ -206,6 +206,19 @@ void main() {
         throwsFormatException);
   });
 
+  test('a device with no saved library uses the built-in connection', () async {
+    SharedPreferences.setMockInitialValues({});
+    final value = (await LibraryConnectionStore.load())!;
+    expect(value.url, LibraryConnectionStore.builtIn.url);
+    expect(value.username, 'admin');
+    expect(value.password, 'root');
+    expect(value.allowHttp, isTrue);
+    expect(
+        (await SharedPreferences.getInstance())
+            .getString(LibraryConnectionStore.key),
+        isNull);
+  });
+
   test(
       'password persists locally across preference reload and clear removes it',
       () async {

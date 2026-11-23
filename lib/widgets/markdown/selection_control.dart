@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:modu_reader/utils/platform_utils.dart';
 
 TextSelectionControls selectionControls() {
+  if (kIsWeb) return materialTextSelectionControls;
   switch (AnxPlatform.type) {
     case AnxPlatformEnum.ios:
     case AnxPlatformEnum.macos:

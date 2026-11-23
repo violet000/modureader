@@ -10,12 +10,14 @@ class StyledMarkdown extends StatefulWidget {
   final String data;
   final bool selectable;
   final double? fontSize;
+  final ImageBuilder? imageBuilder;
 
   const StyledMarkdown({
     super.key,
     required this.data,
     this.selectable = true,
     this.fontSize,
+    this.imageBuilder,
   });
 
   @override
@@ -56,6 +58,7 @@ class _StyledMarkdownState extends State<StyledMarkdown> {
     Widget result = GptMarkdown(widget.data,
         followLinkColor: true,
         style: baseFontSize != null ? body : null,
+        imageBuilder: widget.imageBuilder,
         onLinkTap: (href, text) =>
             launchUrlString(href, mode: LaunchMode.externalApplication),
         linkBuilder: (context, text, url, style) => Text.rich(
