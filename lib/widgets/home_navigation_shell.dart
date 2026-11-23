@@ -7,6 +7,7 @@ import 'package:modu_reader/l10n/modu_strings.dart';
 import 'package:modu_reader/page/home_page/ai_page.dart';
 import 'package:modu_reader/utils/app_motion.dart';
 import 'package:modu_reader/utils/env_var.dart';
+import 'package:modu_reader/widgets/common/aurora_chrome.dart';
 import 'package:modu_reader/widgets/common/container/filled_container.dart';
 import 'package:modu_reader/widgets/home_navigation_metrics.dart';
 import 'package:flutter/cupertino.dart';
@@ -40,6 +41,7 @@ class HomeNavigationDestination {
   static const String statistics = 'statistics';
   static const String ai = 'ai';
   static const String notes = 'notes';
+  static const String todo = 'todo';
   static const String settings = 'settings';
 }
 
@@ -142,6 +144,15 @@ class _HomeNavigationShellState extends State<HomeNavigationShell> {
           l10n.navBarNotes,
         ),
       HomeNavigationDestination(
+        HomeNavigationDestination.todo,
+        Icons.checklist_rounded,
+        switch (localeKey) {
+          'zh-CN' => '待办',
+          'zh-TW' || 'zh-LZH' => '待辦',
+          _ => ModuStrings.text(context, '待办', 'Todo'),
+        },
+      ),
+      HomeNavigationDestination(
         HomeNavigationDestination.settings,
         EvaIcons.settings_2,
         l10n.navBarSettings,
@@ -154,10 +165,7 @@ class _HomeNavigationShellState extends State<HomeNavigationShell> {
     if (destination.identifier == HomeNavigationDestination.ai && !fromRail) {
       showCupertinoSheet(
         context: context,
-        scrollableBuilder: (BuildContext context, ScrollController controller) {
-          Widget widgetBuilder(BuildContext context) => const AiPage();
-          return widgetBuilder(context);
-        },
+        builder: (BuildContext context) => const AiPage(),
       );
       return;
     }
@@ -195,49 +203,81 @@ class _HomeNavigationShellState extends State<HomeNavigationShell> {
         return LayoutBuilder(
           builder: (context, constraints) {
             if (Prefs().appLayoutMode.usesWideLayout(constraints.maxWidth)) {
+              final eink = Prefs().eInkMode;
+              final scheme = Theme.of(context).colorScheme;
               return Scaffold(
                 extendBody: true,
                 body: Row(
                   children: [
                     SafeArea(
                       bottom: false,
-                      child: FilledContainer(
-                        margin: const EdgeInsets.all(16),
-                        color: Prefs().eInkMode
-                            ? ElevationOverlay.applySurfaceTint(
-                                Theme.of(context).colorScheme.surface,
-                                Theme.of(context).colorScheme.primary,
-                                3,
-                              )
-                            : Theme.of(context).scaffoldBackgroundColor,
-                        radius: 20,
-                        child: SafeArea(
-                          child: NavigationRail(
-                            groupAlignment: 1,
-                            extended: false,
-                            selectedIndex: selectedIndex,
-                            onDestinationSelected: (int index) =>
-                                _selectDestination(destinations[index], true),
-                            destinations: [
-                              for (final destination in destinations)
-                                NavigationRailDestination(
-                                  icon: Icon(destination.icon),
-                                  label: Text(destination.label),
-                                ),
-                            ],
-                            labelType: NavigationRailLabelType.all,
-                            backgroundColor: Colors.transparent,
+                      child: _RailFrame(
+                        child: NavigationRail(
+                          groupAlignment: -1,
+                          extended: false,
+                          selectedIndex: selectedIndex,
+                          onDestinationSelected: (int index) =>
+                              _selectDestination(destinations[index], true),
+                          leading: const Padding(
+                            padding: EdgeInsets.only(top: 4, bottom: 8),
+                            child: GlowMark(icon: Icons.auto_stories_rounded, size: 32),
                           ),
+                          useIndicator: !eink,
+                          indicatorColor: eink
+                              ? scheme.primaryContainer
+                              : Colors.white.withValues(alpha: 0.10),
+                          indicatorShape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          selectedIconTheme: IconThemeData(
+                            color: eink ? scheme.primary : const Color(0xFF5EEAD4),
+                            size: 22,
+                          ),
+                          unselectedIconTheme: IconThemeData(
+                            color: eink
+                                ? scheme.onSurfaceVariant
+                                : const Color(0xFF8E99AE),
+                            size: 22,
+                          ),
+                          selectedLabelTextStyle: TextStyle(
+                            color: eink ? scheme.primary : const Color(0xFFF4F7FB),
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            height: 1.1,
+                          ),
+                          unselectedLabelTextStyle: TextStyle(
+                            color: eink
+                                ? scheme.onSurfaceVariant
+                                : const Color(0xFF8E99AE),
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
+                            height: 1.1,
+                          ),
+                          destinations: [
+                            for (final destination in destinations)
+                              NavigationRailDestination(
+                                icon: Icon(destination.icon),
+                                label: Text(destination.label),
+                              ),
+                          ],
+                          labelType: NavigationRailLabelType.all,
+                          backgroundColor: Colors.transparent,
                         ),
                       ),
                     ),
-                    Expanded(child: pageFor(selectedIndex, null)),
+                    Expanded(
+                      child: AuroraCanvas(
+                        child: pageFor(selectedIndex, null),
+                      ),
+                    ),
                   ],
                 ),
               );
             }
 
             final keyboardOpen = MediaQuery.viewInsetsOf(context).bottom > 0;
+            final barRoom = MediaQuery.sizeOf(context).width - 24;
+            final barWidth = barRoom > 420 ? 420.0 : barRoom;
             // A compact bar never keeps a sheet-only AI destination selected.
             final displayIndex = destinations[selectedIndex].identifier ==
                     HomeNavigationDestination.ai
@@ -247,12 +287,15 @@ class _HomeNavigationShellState extends State<HomeNavigationShell> {
               extendBody: true,
               body: BottomBar(
                 duration: AppMotion.duration(const Duration(milliseconds: 120)),
-                width: 330,
+                width: barWidth,
                 offset: HomeNavigationMetrics.barOffset,
                 body: (_, controller) => HomeNavigationBody(
                   hasBottomBar: !keyboardOpen,
-                  scrollBehindBar: true,
-                  child: pageFor(displayIndex, controller),
+                  // Keep the page above the bar so lists and buttons stay tappable.
+                  scrollBehindBar: false,
+                  child: AuroraCanvas(
+                    child: pageFor(displayIndex, controller),
+                  ),
                 ),
                 showIcon: !keyboardOpen,
                 hideOnScroll: Prefs().autoHideBottomBar,
@@ -268,31 +311,51 @@ class _HomeNavigationShellState extends State<HomeNavigationShell> {
                 child: Visibility(
                   visible: !keyboardOpen,
                   maintainState: true,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(32),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: Prefs().eInkMode ? 0 : 12,
-                        sigmaY: Prefs().eInkMode ? 0 : 12,
-                      ),
-                      child: Container(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      boxShadow: Prefs().eInkMode
+                          ? const []
+                          : [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: 0.14),
+                                blurRadius: 24,
+                                offset: const Offset(0, 8),
+                              ),
+                            ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(22),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: Prefs().eInkMode ? 0 : 18,
+                          sigmaY: Prefs().eInkMode ? 0 : 18,
+                        ),
+                        child: Container(
                         height: HomeNavigationMetrics.barHeightFor(context),
                         decoration: BoxDecoration(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .surfaceContainer
-                              .withAlpha(Prefs().eInkMode ? 255 : 100),
-                          borderRadius: BorderRadius.circular(32),
+                          color: Prefs().eInkMode
+                              ? Theme.of(context).colorScheme.surface
+                              : const Color(0xFF12161C).withValues(alpha: 0.94),
+                          borderRadius: BorderRadius.circular(22),
                           border: Border.all(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .outline
-                                .withAlpha(Prefs().eInkMode ? 255 : 90),
-                            width: 0.5,
+                            color: Prefs().eInkMode
+                                ? Theme.of(context).colorScheme.outline
+                                : const Color(0xFF5EEAD4).withValues(alpha: 0.35),
                           ),
                         ),
-                        child: BottomNavigationBar(
-                          selectedFontSize: 12,
+                        child: Theme(
+                          data: Theme.of(context).copyWith(
+                            canvasColor: Colors.transparent,
+                            bottomNavigationBarTheme:
+                                const BottomNavigationBarThemeData(
+                              backgroundColor: Colors.transparent,
+                              elevation: 0,
+                            ),
+                          ),
+                          child: BottomNavigationBar(
+                          selectedFontSize: 11,
+                          unselectedFontSize: 11,
                           enableFeedback: false,
                           type: BottomNavigationBarType.fixed,
                           landscapeLayout:
@@ -300,18 +363,26 @@ class _HomeNavigationShellState extends State<HomeNavigationShell> {
                           currentIndex: displayIndex,
                           onTap: (int index) =>
                               _selectDestination(destinations[index], false),
+                          selectedItemColor: Prefs().eInkMode
+                              ? Theme.of(context).colorScheme.primary
+                              : const Color(0xFF5EEAD4),
+                          unselectedItemColor: Prefs().eInkMode
+                              ? Theme.of(context).colorScheme.onSurfaceVariant
+                              : const Color(0xFF9AA6B8),
                           items: [
                             for (final destination in destinations)
                               BottomNavigationBarItem(
-                                icon: Icon(destination.icon),
+                                icon: Icon(destination.icon, size: 22),
                                 label: destination.label,
                               ),
                           ],
                           backgroundColor: Colors.transparent,
                           elevation: 0,
                         ),
+                        ),
                       ),
                     ),
+                  ),
                   ),
                 ),
               ),
@@ -319,6 +390,37 @@ class _HomeNavigationShellState extends State<HomeNavigationShell> {
           },
         );
       },
+    );
+  }
+}
+
+class _RailFrame extends StatelessWidget {
+  const _RailFrame({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    if (Prefs().eInkMode) {
+      return FilledContainer(
+        margin: const EdgeInsets.all(16),
+        color: ElevationOverlay.applySurfaceTint(
+          Theme.of(context).colorScheme.surface,
+          Theme.of(context).colorScheme.primary,
+          3,
+        ),
+        radius: 20,
+        child: SafeArea(child: child),
+      );
+    }
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: const Color(0xFF14171E),
+        border: Border(
+          right: BorderSide(color: Colors.white.withValues(alpha: 0.06)),
+        ),
+      ),
+      child: SafeArea(child: child),
     );
   }
 }

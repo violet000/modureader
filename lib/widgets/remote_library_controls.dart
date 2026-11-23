@@ -27,47 +27,103 @@ class RemoteLibraryControls extends StatelessWidget {
             ModuStrings.text(context, '仅书籍', 'Books only'),
           _ => filter.name.toUpperCase(),
         };
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Wrap(
-          spacing: 12,
-          runSpacing: 4,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            DropdownButton<LibrarySortField>(
-              key: const ValueKey('library-sort-field'),
-              value: options.sort,
-              items: [
-                for (final field in LibrarySortField.values)
-                  DropdownMenuItem(value: field, child: Text(sortLabel(field)))
-              ],
-              onChanged: (value) {
-                if (value != null) onChanged(options.copyWith(sort: value));
-              },
+    final scheme = Theme.of(context).colorScheme;
+    final pill = BoxDecoration(
+      color: scheme.surface,
+      borderRadius: BorderRadius.circular(8),
+      border: Border.all(color: scheme.outlineVariant),
+    );
+    Widget menu<T>(ValueKey<String> key, T value, List<DropdownMenuItem<T>> items,
+        ValueChanged<T?> onSelected) {
+      return DecoratedBox(
+        decoration: pill,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton<T>(
+              key: key,
+              isDense: true,
+              isExpanded: true,
+              value: value,
+              items: items,
+              onChanged: onSelected,
             ),
-            OutlinedButton.icon(
-              key: const ValueKey('library-sort-direction'),
-              onPressed: () =>
-                  onChanged(options.copyWith(ascending: !options.ascending)),
-              icon: Icon(
-                  options.ascending ? Icons.arrow_upward : Icons.arrow_downward,
-                  size: 18),
-              label: Text(options.ascending
-                  ? ModuStrings.text(context, '升序', 'Ascending')
-                  : ModuStrings.text(context, '降序', 'Descending')),
-            ),
-            DropdownButton<LibraryFileFilter>(
-              key: const ValueKey('library-file-filter'),
-              value: options.filter,
-              items: [
-                for (final filter in LibraryFileFilter.values)
-                  DropdownMenuItem(
-                      value: filter, child: Text(filterLabel(filter)))
-              ],
-              onChanged: (value) {
-                if (value != null) onChanged(options.copyWith(filter: value));
-              },
+          ),
+        ),
+      );
+    }
+
+    final sortMenu = menu<LibrarySortField>(
+      const ValueKey('library-sort-field'),
+      options.sort,
+      [
+        for (final field in LibrarySortField.values)
+          DropdownMenuItem(
+            value: field,
+            child: Text(sortLabel(field), overflow: TextOverflow.ellipsis),
+          ),
+      ],
+      (value) {
+        if (value != null) onChanged(options.copyWith(sort: value));
+      },
+    );
+    final filterMenu = menu<LibraryFileFilter>(
+      const ValueKey('library-file-filter'),
+      options.filter,
+      [
+        for (final filter in LibraryFileFilter.values)
+          DropdownMenuItem(
+            value: filter,
+            child: Text(filterLabel(filter), overflow: TextOverflow.ellipsis),
+          ),
+      ],
+      (value) {
+        if (value != null) onChanged(options.copyWith(filter: value));
+      },
+    );
+    final directionLabel = options.ascending
+        ? ModuStrings.text(context, '升序', 'Ascending')
+        : ModuStrings.text(context, '降序', 'Descending');
+    final direction = Material(
+      color: scheme.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: BorderSide(color: scheme.outlineVariant),
+      ),
+      child: InkWell(
+        key: const ValueKey('library-sort-direction'),
+        onTap: () => onChanged(options.copyWith(ascending: !options.ascending)),
+        borderRadius: BorderRadius.circular(8),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          child: Row(children: [
+            Icon(
+                options.ascending
+                    ? Icons.arrow_upward_rounded
+                    : Icons.arrow_downward_rounded,
+                size: 18,
+                color: scheme.onSurface),
+            const SizedBox(width: 4),
+            Expanded(
+              child: Text(
+                directionLabel,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: scheme.onSurface),
+              ),
             ),
           ]),
+        ),
+      ),
+    );
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      Row(children: [
+        Expanded(flex: 5, child: sortMenu),
+        const SizedBox(width: 6),
+        Expanded(flex: 4, child: direction),
+        const SizedBox(width: 6),
+        Expanded(flex: 4, child: filterMenu),
+      ]),
       if (options.sort == LibrarySortField.createdAt ||
           options.sort == LibrarySortField.modifiedAt)
         Padding(

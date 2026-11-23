@@ -1,6 +1,7 @@
 import 'package:modu_reader/config/shared_preference_provider.dart';
 import 'package:chinese_font_library/chinese_font_library.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoThemeData;
 import 'package:modu_reader/utils/app_motion.dart';
@@ -142,9 +143,12 @@ ThemeData colorSchema(
       surfaceBright:
           themedCanvas == null ? gropedBackgroundColor : surfaceColor,
       surfaceTint: Colors.transparent,
-      outline: isDark ? const Color(0xFF777E70) : const Color(0xFF899A93),
-      outlineVariant:
-          isDark ? const Color(0xFF383D35) : const Color(0xFFE4EAE6),
+      outline: themedCanvas != null
+          ? (isDark ? const Color(0xFF8B9198) : const Color(0xFFC5C9CE))
+          : (isDark ? const Color(0xFF777E70) : const Color(0xFF899A93)),
+      outlineVariant: themedCanvas != null
+          ? (isDark ? const Color(0xFF2C3136) : const Color(0xFFE6E8EB))
+          : (isDark ? const Color(0xFF383D35) : const Color(0xFFE4EAE6)),
     );
   }
 
@@ -177,7 +181,7 @@ ThemeData colorSchema(
     side: const WidgetStatePropertyAll(BorderSide(color: einkForeground)),
   );
 
-  return themeData
+  final theme = themeData
       .copyWith(
           canvasColor: surfaceColor,
           navigationRailTheme: themeData.navigationRailTheme.copyWith(
@@ -209,6 +213,13 @@ ThemeData colorSchema(
             foregroundColor: themedCanvas?.text,
             surfaceTintColor: Colors.transparent,
             elevation: 0,
+            scrolledUnderElevation: 0,
+            titleTextStyle: themeData.textTheme.titleLarge?.copyWith(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              letterSpacing: -0.2,
+              color: themedCanvas?.text ?? colorScheme.onSurface,
+            ),
           ),
           popupMenuTheme: PopupMenuThemeData(
             color: surfaceColor,
@@ -339,6 +350,8 @@ ThemeData colorSchema(
               surfaceTintColor: Colors.transparent,
               elevation: menuElevation,
               shadowColor: menuShadow,
-              shape: menuBorder))
-      .useSystemChineseFont(brightness);
+              shape: menuBorder));
+  // The fallback loader probes device font files, which do not exist on web.
+  if (kIsWeb) return theme;
+  return theme.useSystemChineseFont(brightness);
 }

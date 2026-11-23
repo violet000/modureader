@@ -44,6 +44,11 @@ void main() {
     expect(hours, findsOneWidget);
     await tester.tap(hours);
     await tester.pumpAndSettle();
+    expect(
+        find.byKey(const ValueKey('scheduled-theme-all-day')), findsOneWidget);
+    await tester
+        .tap(find.byKey(const ValueKey('scheduled-theme-custom-hours')));
+    await tester.pumpAndSettle();
     expect(find.byType(TimePickerDialog), findsOneWidget);
     await tester.tap(find.text('取消'));
     await tester.pumpAndSettle();
@@ -51,6 +56,29 @@ void main() {
     expect(Prefs().nightEndMinute, 390);
     await Prefs().selectThemePreset(builtInThemePresetById('ink')!);
     expect(Prefs().scheduledTheme, isTrue);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('night hours can cover the whole day', (tester) async {
+    await tester.pumpWidget(MaterialApp(
+      locale: const Locale('zh'),
+      localizationsDelegates: L10n.localizationsDelegates,
+      supportedLocales: L10n.supportedLocales,
+      home: const Scaffold(body: AppearanceSetting()),
+    ));
+    await tester.pumpAndSettle();
+    final toggle = find.byKey(const ValueKey('scheduled-theme-enabled'));
+    await tester
+        .tap(find.descendant(of: toggle, matching: find.byType(Switch)));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('scheduled-theme-hours')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('scheduled-theme-all-day')));
+    await tester.pumpAndSettle();
+    expect(Prefs().nightStartMinute, 0);
+    expect(Prefs().nightEndMinute, 1440);
+    expect(Prefs().scheduledNight, isTrue);
+    expect(find.text('整天'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 

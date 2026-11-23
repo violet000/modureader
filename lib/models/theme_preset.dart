@@ -300,10 +300,28 @@ const List<ThemePreset> builtInThemePresets = [
   // Palettes
   ThemePreset(
     id: 'modu',
-    name: '默读青',
-    nameEn: 'Modu teal',
+    name: '小陈笔记青',
+    nameEn: '小陈笔记 teal',
     colorValue: defaultThemeSeed,
     builtIn: true,
+    lightCanvas: ThemeCanvas(
+      background: Color(0xFFE5F6F3),
+      surface: Color(0xFFF7FCFB),
+      text: Color(0xFF14211F),
+      muted: Color(0xFF4E6B66),
+      navSelectedBg: Color(0xFFC9EFE8),
+      navSelectedFg: Color(0xFF0B6A60),
+      navUnselected: Color(0xFF4A615C),
+    ),
+    darkCanvas: ThemeCanvas(
+      background: Color(0xFF0C1618),
+      surface: Color(0xFF152226),
+      text: Color(0xFFE7F4F1),
+      muted: Color(0xFF93B0AA),
+      navSelectedBg: Color(0xFF1A3A36),
+      navSelectedFg: Color(0xFF7EEDD9),
+      navUnselected: Color(0xFFC5D5D1),
+    ),
   ),
   ThemePreset(
     id: 'ink',

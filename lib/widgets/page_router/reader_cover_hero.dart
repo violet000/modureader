@@ -49,8 +49,6 @@ class ReaderCoverHero extends StatelessWidget {
         child: Hero(
           tag: tag,
           transitionOnUserGestures: true,
-          curve: Curves.linear,
-          reverseCurve: Curves.linear,
           createRectTween: readerCoverRectTween,
           flightShuttleBuilder: (context, animation, direction, from, to) {
             final shelfContext =

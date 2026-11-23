@@ -40,9 +40,7 @@ class _StatisticPageState extends State<StatisticPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(context.navBarStatistics),
-      // ),
+      backgroundColor: Colors.transparent,
       body: SafeArea(
         bottom: false,
         child: Padding(

@@ -712,7 +712,7 @@ class BookshelfPageState extends ConsumerState<BookshelfPage>
           if (!didPop && _selectionMode) exitSelectionMode();
         },
         child: Scaffold(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          backgroundColor: Colors.transparent,
           appBar: appBar,
           body: body,
         ));

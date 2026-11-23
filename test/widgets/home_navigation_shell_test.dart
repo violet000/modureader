@@ -100,16 +100,16 @@ void main() {
       'wide rail shows a newly separated tab immediately after its switch '
       'changes', (tester) async {
     await pumpHome(tester, const Size(1200, 800));
-    expect(rail(tester).destinations.length, 6);
+    expect(rail(tester).destinations.length, 7);
 
     Prefs().bottomNavigatorShowNote = false;
     await tester.pump();
-    expect(rail(tester).destinations.length, 5);
+    expect(rail(tester).destinations.length, 6);
     expect(find.byIcon(Icons.note), findsNothing);
 
     Prefs().bottomNavigatorShowNote = true;
     await tester.pump();
-    expect(rail(tester).destinations.length, 6);
+    expect(rail(tester).destinations.length, 7);
     expect(find.byIcon(Icons.note), findsOneWidget);
   });
 
@@ -119,33 +119,33 @@ void main() {
 
     Prefs().bottomNavigatorShowStatistics = false;
     await tester.pump();
-    expect(rail(tester).destinations.length, 5);
+    expect(rail(tester).destinations.length, 6);
     expect(find.byIcon(Icons.history), findsNothing);
 
     Prefs().bottomNavigatorShowAI = false;
     await tester.pump();
-    expect(rail(tester).destinations.length, 4);
+    expect(rail(tester).destinations.length, 5);
 
     Prefs().bottomNavigatorShowStatistics = true;
     Prefs().bottomNavigatorShowAI = true;
     await tester.pump();
-    expect(rail(tester).destinations.length, 6);
+    expect(rail(tester).destinations.length, 7);
   });
 
   testWidgets('remote switch hides and restores the remote destination',
       (tester) async {
     await pumpHome(tester, const Size(1200, 800));
-    expect(rail(tester).destinations.length, 6);
+    expect(rail(tester).destinations.length, 7);
     expect(find.byIcon(Icons.cloud_download_outlined), findsOneWidget);
 
     Prefs().bottomNavigatorShowRemote = false;
     await tester.pump();
-    expect(rail(tester).destinations.length, 5);
+    expect(rail(tester).destinations.length, 6);
     expect(find.byIcon(Icons.cloud_download_outlined), findsNothing);
 
     Prefs().bottomNavigatorShowRemote = true;
     await tester.pump();
-    expect(rail(tester).destinations.length, 6);
+    expect(rail(tester).destinations.length, 7);
     expect(find.byIcon(Icons.cloud_download_outlined), findsOneWidget);
   });
 
@@ -157,7 +157,8 @@ void main() {
     Prefs().bottomNavigatorShowNote = false;
     await pumpHome(tester, const Size(1200, 800));
 
-    expect(rail(tester).destinations.length, 2);
+    expect(rail(tester).destinations.length, 3);
+    expect(find.byIcon(Icons.checklist_rounded), findsOneWidget);
     expect(find.byIcon(Icons.cloud_download_outlined), findsNothing);
     expect(find.byIcon(Icons.history), findsNothing);
     expect(find.byIcon(Icons.auto_awesome), findsNothing);
@@ -183,28 +184,28 @@ void main() {
   testWidgets('compact bar shows a newly separated tab immediately',
       (tester) async {
     await pumpHome(tester, const Size(500, 800));
-    expect(bottomBar(tester).items.length, 6);
+    expect(bottomBar(tester).items.length, 7);
 
     Prefs().bottomNavigatorShowAI = false;
     await tester.pump();
-    expect(bottomBar(tester).items.length, 5);
+    expect(bottomBar(tester).items.length, 6);
 
     Prefs().bottomNavigatorShowAI = true;
     await tester.pump();
-    expect(bottomBar(tester).items.length, 6);
+    expect(bottomBar(tester).items.length, 7);
   });
 
   testWidgets('rail refreshes under the const home route used by the app',
       (tester) async {
     await pumpHome(tester, const Size(1200, 800), productionTopology: true);
-    expect(rail(tester).destinations.length, 6);
+    expect(rail(tester).destinations.length, 7);
 
     Prefs().bottomNavigatorShowNote = false;
     await tester.pump();
-    expect(rail(tester).destinations.length, 5);
+    expect(rail(tester).destinations.length, 6);
 
     Prefs().bottomNavigatorShowNote = true;
     await tester.pump();
-    expect(rail(tester).destinations.length, 6);
+    expect(rail(tester).destinations.length, 7);
   });
 }
